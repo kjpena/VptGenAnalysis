@@ -16,47 +16,11 @@ namespace Rivet {
   
   class CMS_TOP_13_007 : public Analysis {
     
+    enum UERegions{TT_INC,TT_TOWARD, TT_TRANS, TT_AWAY};
+
   private:
 
-    Histo1DPtr _h_deltaPhi;
-    Histo1DPtr _h_chmult;
-    Histo1DPtr _h_chmult_toward;
-    Histo1DPtr _h_chmult_transverse;
-    Histo1DPtr _h_chmult_away;
-    Histo1DPtr _h_sumPt;
-    Histo1DPtr _h_sumPt_toward;
-    Histo1DPtr _h_sumPt_transverse;
-    Histo1DPtr _h_sumPt_away;
-    Histo1DPtr _h_vecSumPt;
-    Histo1DPtr _h_vecSumPt_toward;
-    Histo1DPtr _h_vecSumPt_transverse;
-    Histo1DPtr _h_vecSumPt_away;
-    Histo1DPtr _h_vecDeltaPhi;
-
-    // profiles
-    // AIDA::IProfile1D* _p_chmult_ttpt;
-    // AIDA::IProfile1D* _p_chmult_ttpt_toward;
-    // AIDA::IProfile1D* _p_chmult_ttpt_transverse;
-    // AIDA::IProfile1D* _p_chmult_ttpt_away;
-    // AIDA::IProfile1D* _p_vecSumPt_ttpt;
-    // AIDA::IProfile1D* _p_vecSumPt_ttpt_toward;
-    // AIDA::IProfile1D* _p_vecSumPt_ttpt_transverse;
-    // AIDA::IProfile1D* _p_vecSumPt_ttpt_away;
-    // AIDA::IProfile1D* _p_avgPt_ttpt;
-    // AIDA::IProfile1D* _p_avgPt_ttpt_toward;
-    // AIDA::IProfile1D* _p_avgPt_ttpt_transverse;
-    // AIDA::IProfile1D* _p_avgPt_ttpt_away;
-    
-    // various contol distributions
-    Histo1DPtr _h_pt_tt;
-    Histo1DPtr _h_pt_mu;
-    Histo1DPtr _h_pt_ele;
-    Histo1DPtr _h_eta_tt;
-    Histo1DPtr _h_eta_mu;
-    Histo1DPtr _h_eta_ele;
-    Histo1DPtr _h_pt_jets;
-    Histo1DPtr _h_eta_jets;
-    Histo1DPtr _h_jetmult;
+    Histo1DPtr _h_chMult[4], _h_chSumPt[4], _h_chAvgPt[4];
 
   public:
 
@@ -108,41 +72,14 @@ namespace Rivet {
       ChargedFinalState chfs(fs);             
       addProjection(chfs, "chfs"); 
 
-      // histogram booking 
-      _h_deltaPhi	     = bookHisto1D(15, 0, 1);
-      _h_chmult		     = bookHisto1D(15, 0, 1);
-      _h_chmult_toward	     = bookHisto1D(15, 0, 1);
-      _h_chmult_transverse   = bookHisto1D(15, 0, 1);
-      _h_chmult_away	     = bookHisto1D(15, 0, 1);
-      _h_sumPt		     = bookHisto1D(15, 0, 1);
-      _h_sumPt_toward	     = bookHisto1D(15, 0, 1);
-      _h_sumPt_transverse    = bookHisto1D(15, 0, 1);
-      _h_sumPt_away	     = bookHisto1D(15, 0, 1);
-      _h_vecSumPt	     = bookHisto1D(15, 0, 1);
-      _h_vecSumPt_toward     = bookHisto1D(15, 0, 1);
-      _h_vecSumPt_transverse = bookHisto1D(15, 0, 1);
-      _h_vecSumPt_away       = bookHisto1D(15, 0, 1);
-      _h_vecDeltaPhi         = bookHisto1D(15, 0, 1);
-      _h_pt_tt	             = bookHisto1D(15, 0, 1);
-      _h_pt_mu	             = bookHisto1D(15, 0, 1);
-      _h_pt_ele	             = bookHisto1D(15, 0, 1);
-      _h_eta_tt	             = bookHisto1D(15, 0, 1);
-      _h_eta_mu	             = bookHisto1D(15, 0, 1);
-      _h_eta_ele             = bookHisto1D(15, 0, 1);
-      _h_jetmult             = bookHisto1D(15, 0, 1);
-
-      // _p_chmult_ttpt		  = bookProfile1D("d02-x01-y01", 15, 0., 300.);
-      // _p_chmult_ttpt_toward	  = bookProfile1D("d02-x01-y02", 15, 0., 300.);
-      // _p_chmult_ttpt_transverse   = bookProfile1D("d02-x01-y03", 15, 0., 300.);
-      // _p_chmult_ttpt_away         = bookProfile1D("d02-x01-y04", 15, 0., 300.);
-      // _p_vecSumPt_ttpt            = bookProfile1D("d02-x01-y05", 15, 0., 300.);
-      // _p_vecSumPt_ttpt_toward     = bookProfile1D("d02-x01-y06", 15, 0., 300.);
-      // _p_vecSumPt_ttpt_transverse = bookProfile1D("d02-x01-y07", 15, 0., 300.);
-      // _p_vecSumPt_ttpt_away	  = bookProfile1D("d02-x01-y08", 15, 0., 300.);
-      // _p_avgPt_ttpt		  = bookProfile1D("d02-x01-y09", 15, 0., 300.);
-      // _p_avgPt_ttpt_toward	  = bookProfile1D("d02-x01-y10", 15, 0., 300.);
-      // _p_avgPt_ttpt_transverse	  = bookProfile1D("d02-x01-y11", 15, 0., 300.);
-      // _p_avgPt_ttpt_away	  = bookProfile1D("d02-x01-y12", 15, 0., 300.);
+      // histogram booking
+      for(int ireg=0; ireg<4; ireg++)
+	{
+	  char buf[50];
+	  sprintf(buf,"chMult-r%d",ireg);  _h_chMult[ireg]  = bookHisto1D(buf,200,0,200);
+	  sprintf(buf,"chSumPt-r%d",ireg); _h_chSumPt[ireg] = bookHisto1D(buf,50,0,500);
+	  sprintf(buf,"chAvgPt-r%d",ireg); _h_chAvgPt[ireg] = bookHisto1D(buf,25,0,25);
+	}
     }
     
     
@@ -165,11 +102,9 @@ namespace Rivet {
 
       const ParticleVector sortedMuons       = applyProjection<IdentifiedFinalState>(event, "Muons").particlesByPt();
       const ParticleVector sortedElectrons   = applyProjection<IdentifiedFinalState>(event, "Electrons").particlesByPt();
-      //const ParticleVector sortedMuonNus     = applyProjection<IdentifiedFinalState>(event, "MuonNus").particlesByPt();
-      //const ParticleVector sortedElectronNus = applyProjection<IdentifiedFinalState>(event, "ElectronNus").particlesByPt();
       
       // loop over the muons
-      MSG_DEBUG("Muon multiplicity = " << sortedMuons.size());
+      //MSG_DEBUG("Muon multiplicity = " << sortedMuons.size());
       //foreach (Particle mu, sortedMuons ) 
       //{
       //MSG_DEBUG("Muon pT = " << mu.momentum().pT());
@@ -181,7 +116,7 @@ namespace Rivet {
 	}
 
       // loop over the electrons
-      MSG_DEBUG("Electron multiplicity = " << sortedElectrons.size());
+      //MSG_DEBUG("Electron multiplicity = " << sortedElectrons.size());
       //foreach (Particle ele, sortedElectrons ) 
       //{
       //MSG_DEBUG("Electron pT = " << ele.momentum().pT());
@@ -258,30 +193,11 @@ namespace Rivet {
       
       // get the ttbar four vector
       const FourMomentum ttbar = bjets[0].momentum() + bjets[1].momentum() + sortedMuons[0].momentum() + sortedElectrons[0].momentum() + missvec ;
-      _h_pt_tt->fill(ttbar.pT(),weight);
-      _h_eta_tt->fill(ttbar.eta(),weight);
-      _h_pt_mu->fill(sortedMuons[0].momentum().pT(),weight);
-      _h_eta_mu->fill(sortedMuons[0].momentum().eta(),weight);
-      _h_pt_ele->fill(sortedElectrons[0].momentum().pT(),weight);
-      _h_eta_ele->fill(sortedElectrons[0].momentum().eta(),weight);
-      _h_jetmult->fill(jets.size(),weight);
       
       // now loop over all charged particles
-      int count_chrg = 0;
-      int count_chrg_toward = 0;
-      int count_chrg_transverse = 0;
-      int count_chrg_away = 0;
-
-      float sum_pt = 0;
-      float sum_pt_toward = 0;
-      float sum_pt_transverse = 0;
-      float sum_pt_away = 0;
-
-      FourMomentum particleFlux(0.,0.,0.,0.);
-      FourMomentum particleFlux_toward(0.,0.,0.,0.);
-      FourMomentum particleFlux_transverse(0.,0.,0.,0.);
-      FourMomentum particleFlux_away(0.,0.,0.,0.);
-
+      float pi = 3.14159;
+      std::vector<int> chMult(4,0);
+      std::vector<float> chSumPt(4,0);
       const FinalState& chfs = applyProjection<FinalState>(event, "chfs");
       foreach (const Particle& p, chfs.particles()) 
 	{	
@@ -299,66 +215,23 @@ namespace Rivet {
 	  //const int pid = p.pdgId();
 	  float dphi = deltaPhi(ttbar,p.momentum());
 	  float pt = p.momentum().pT();
-	
-	  sum_pt += pt;
-	  particleFlux+=p.momentum();
-	  count_chrg++;
-	  float pi = 3.14159;
-	  // toward region
-	  if(dphi < 1./3.*pi || dphi>5./3.*pi) 
-	    {
-	      count_chrg_toward++;
-	      sum_pt_toward += pt;
-	      particleFlux_toward+=p.momentum();
-	    }
-	  // away region
-	  if(dphi > 2./3.*pi && dphi<4./3.*pi) 
-	    {
-	      count_chrg_away++;
-	      sum_pt_away += pt;
-	      particleFlux_away+=p.momentum();	     
-	    }
-	  // transverse region
-	  if((dphi > 1./3.*pi && dphi<2./3.*pi) || (dphi > 4./3.*pi && dphi<5./3.*pi)) 
-	    {
-	      count_chrg_transverse++;
-	      sum_pt_transverse += pt;
-	      particleFlux_transverse+=p.momentum();
-	    }
-	  _h_deltaPhi->fill(dphi/3.14159*180., weight);
-      } // loop over particles
+	  
+	  int tt_reg(TT_INC);
+	  if(dphi < 1./3.*pi || dphi>5./3.*pi) tt_reg=TT_TOWARD;
+	  if(dphi > 2./3.*pi && dphi<4./3.*pi) tt_reg=TT_AWAY;
+	  if((dphi > 1./3.*pi && dphi<2./3.*pi) || (dphi > 4./3.*pi && dphi<5./3.*pi))  tt_reg=TT_TRANS;
+	  chMult[0]  ++;    chMult[tt_reg]  ++;
+	  chSumPt[0] += pt; chSumPt[tt_reg] += pt;
+	} // loop over particles
 
-      
-      _h_chmult->fill(count_chrg,weight);
-      _h_chmult_toward->fill(count_chrg_toward,weight);
-      _h_chmult_transverse->fill(count_chrg_transverse,weight);
-      _h_chmult_away->fill(count_chrg_away,weight);
-      
-      _h_sumPt->fill(sum_pt, weight);
-      _h_sumPt_toward->fill(sum_pt_toward, weight);
-      _h_sumPt_transverse->fill(sum_pt_transverse, weight);
-      _h_sumPt_away->fill(sum_pt_away, weight);
-      
-      _h_vecSumPt->fill(particleFlux.pT(), weight);
-      _h_vecSumPt_toward->fill(particleFlux_toward.pT(), weight);
-      _h_vecSumPt_transverse->fill(particleFlux_transverse.pT(), weight);
-      _h_vecSumPt_away->fill(particleFlux_away.pT(), weight);
-      _h_vecDeltaPhi->fill(deltaPhi(particleFlux,ttbar)/3.14159*180., weight);
-
-      // fill the profiles
-      // _p_chmult_ttpt->fill(ttbar.pT(), count_chrg, weight);
-      // _p_chmult_ttpt_toward->fill(ttbar.pT(), count_chrg_toward, weight);
-      // _p_chmult_ttpt_transverse->fill(ttbar.pT(), count_chrg_transverse, weight);
-      // _p_chmult_ttpt_away->fill(ttbar.pT(), count_chrg_away, weight);
-      
-      // _p_vecSumPt_ttpt->fill(ttbar.pT(), particleFlux.pT(), weight);
-      // _p_vecSumPt_ttpt_toward->fill(ttbar.pT(), particleFlux_toward.pT(), weight);
-      // _p_vecSumPt_ttpt_transverse->fill(ttbar.pT(), particleFlux_transverse.pT(), weight);
-      // _p_vecSumPt_ttpt_away->fill(ttbar.pT(), particleFlux_away.pT(), weight);
-      // if(count_chrg>0)            {_p_avgPt_ttpt           ->fill(ttbar.pT(), particleFlux.pT()/count_chrg, weight);}
-      // if(count_chrg_toward>0)     {_p_avgPt_ttpt_toward    ->fill(ttbar.pT(), particleFlux_toward.pT()/count_chrg_toward, weight);}
-      // if(count_chrg_transverse>0) {_p_avgPt_ttpt_transverse->fill(ttbar.pT(), particleFlux_transverse.pT()/count_chrg_transverse, weight);}
-      // if(count_chrg_away>0)       {_p_avgPt_ttpt_away      ->fill(ttbar.pT(), particleFlux_away.pT()/count_chrg_away, weight);}
+      //fill histograms
+      for(size_t ireg=0; ireg<chMult.size(); ireg++)
+	{
+	  _h_chMult[ireg]->fill(chMult[ireg],weight);
+	  _h_chSumPt[ireg]->fill(chSumPt[ireg], weight);
+	  if(chMult[ireg]==0) continue;
+	  _h_chAvgPt[ireg]->fill(chSumPt[ireg]/chMult[ireg],weight);
+	}
     }
     
     
@@ -370,33 +243,13 @@ namespace Rivet {
 
       // scale(_h_YYYY, crossSection()/sumOfWeights()); # norm to cross section
       //normalize(_h_YYYY); # normalize to unity
-      normalize(_h_chmult);
-      normalize(_h_deltaPhi);
-      normalize(_h_chmult);
-      normalize(_h_chmult_toward);
-      normalize(_h_chmult_transverse);
-      normalize(_h_chmult_away);
-      normalize(_h_sumPt);
-      normalize(_h_sumPt_toward);
-      normalize(_h_sumPt_transverse);
-      normalize(_h_sumPt_away);
-      normalize(_h_vecSumPt);
-      normalize(_h_vecSumPt_toward);
-      normalize(_h_vecSumPt_transverse);
-      normalize(_h_vecSumPt_away);
-      normalize(_h_vecDeltaPhi);
-      normalize(_h_pt_tt);
-      normalize(_h_pt_mu);
-      normalize(_h_pt_ele);
-      normalize(_h_eta_tt);
-      normalize(_h_eta_mu);
-      normalize(_h_eta_ele);
+      for(size_t ireg=0; ireg<4; ireg++)
+	{
+	  normalize(_h_chMult[ireg] );
+	  normalize(_h_chSumPt[ireg] );
+	  normalize(_h_chAvgPt[ireg] );
+	}
     }
-
-    //@}
-
-
-
 
   };
 

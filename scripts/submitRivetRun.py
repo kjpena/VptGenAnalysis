@@ -5,54 +5,58 @@ import sys
 import optparse
 
 def main():
+
+    # configure
     usage = 'usage: %prog [options]'
     parser = optparse.OptionParser(usage)
-    parser.add_option('-c', '--configfile'  ,    dest='configfile'       , help='Name of the configfile.'                  , default=None)
-    parser.add_option('-o', '--outputdir' ,      dest='outputdir'        , help='Name of the local output directory.'      , default='rivet_batch')
-    parser.add_option('-q', '--queue' ,          dest='queue'        ,     help='Batch quque.'      ,                        default='1nh')
-
-
+    parser.add_option('-j', '--njobs',         dest='njobs',      help='number of jobs to submit',            default=1, type=int)
+    parser.add_option('-n', '--nevts',         dest='nevts',      help='number of events per job',            default=100, type=int)
+    parser.add_option('-c', '--cfiFile',       dest='cfiFile',    help='Name of the cfi.'        ,            default='UserCode/RivetAnalysis/python/TT_UEP11_8TeV_pythia6_tauola_cfi')
+    parser.add_option('-o', '--outputdir',     dest='outputdir' , help='Name of the local output directory.', default='results')
+    parser.add_option('-r', '--rivetCust',     dest='rivetCust' , help='Rivet customisation file',            default='UserCode/RivetAnalysis/rivet_customise.py')
+    parser.add_option('-q', '--queue',         dest='queue'     , help='Batch queue (default=local).'       , default='local')
     (opt, args) = parser.parse_args()
-
-    if opt.configfile is None:
-        parser.error('No input configfile defined!')
-
-    configfile = opt.configfile
+    njobs      = opt.njobs
+    nevts      = opt.nevts
+    cfiFile    = opt.cfiFile
+    rivetCust  = opt.rivetCust
     outputdir  = opt.outputdir
-    queue = opt.queue
+    queue      = opt.queue
 
-
+    # prepare output directory
     pwd = os.getcwd()
-    path = pwd+'/'+outputdir
-    if not os.path.exists(path):
-        print 'creating output directory '+path
-        os.makedirs(path)
+    workDir = pwd+'/'+outputdir
+    if not os.path.exists(workDir):
+        print 'creating output directory '+workDir
+        os.makedirs(workDir)
     else:
-        print 'directory '+path+' already exists'
+        print 'directory '+workDir+' already exists'
 
+    # create the job submission files
+    for i in xrange(0,njobs) :
 
-
-    ## create the job submission files
-    jobs = []
-
-    name = 'submit_'+configfile.split('/')[-1].replace('_cfg.py','.sh')
-    jobs.append(name)
-    filename = path+'/'+name
-    print 'creating '+filename
-    sub = open(filename,'w')
-    sub.write('#!/bin/bash\n')
-    sub.write('cd '+pwd+'\n')
-    sub.write('eval `scramv1 ru -sh`\n')
-    cmd = 'cmsRun '+configfile
-    sub.write(cmd+'\n')
-    os.system('chmod +x '+filename)
-
-    os.chdir(path)
-    for job in jobs:
-        print 'bsub -q '+queue+' '+job
-        os.system('bsub -q '+queue+' '+job)
+        #build the script
+        scriptName = '%s/rivetJob_%d.sh'%(workDir,i+1)
+        script = open(scriptName,'w')
+        script.write('#!/bin/bash\n')
+        script.write('cd '+pwd+'\n')
+        script.write('eval `scramv1 ru -sh`\n')
+        script.write('cd '+workDir+'\n')
+        cfgFile='rivet_cfg_%d.py'%(i+1)
+        script.write('cmsDriver.py %s -s GEN --datatier=GEN-SIM-RAW --conditions auto:mc --eventcontent RAWSIM --no_exec -n %d --python_filename=%s --customise=%s\n'%(cfiFile,nevts,cfgFile,rivetCust))
+        script.write('cmsRun %s\n'%cfgFile)
+        script.write('cd -')
+        script.close()
+        os.system('chmod +x '+scriptName)
+        
+        #run or submit
+        if queue=='local':
+            print 'Running locally'
+            os.system('sh %s'%scriptName)
+        else:
+            print 'Submitting to queue %s'%queue
+            os.system('bsub -q %s %s'%(queue,scriptName))
 
 
 if __name__ == '__main__':
     main()
-    print 'done'
