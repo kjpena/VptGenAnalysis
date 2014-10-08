@@ -43,7 +43,7 @@ def main():
         script.write('eval `scramv1 ru -sh`\n')
         script.write('cd '+workDir+'\n')
         cfgFile='rivet_cfg_%d.py'%(i+1)
-        script.write('cmsDriver.py %s -s GEN --datatier=GEN-SIM-RAW --conditions auto:mc --eventcontent RAWSIM --no_exec -n %d --python_filename=%s --customise=%s\n'%(cfiFile,nevts,cfgFile,rivetCust))
+        script.write('cmsDriver.py %s -s GEN --datatier=GEN-SIM-RAW --conditions auto:mc --eventcontent RAWSIM --no_exec -n %d --python_filename=%s --customise=%s --customise_commands=\"process.rivetAnalyzer.OutputFile = cms.string(\'out_%d.aida\')\"  \n'%(cfiFile,nevts,cfgFile,rivetCust,i+1))
         script.write('cmsRun %s\n'%cfgFile)
         script.write('cd -')
         script.close()
