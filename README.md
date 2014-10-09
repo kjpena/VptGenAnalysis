@@ -14,7 +14,7 @@ The output will be stored in different sub-folders under results.
 
 ### plot results
 
-rivet-mkhtml -s --mc-errs -o ~/public/html/TOP-13-007 --times -c CMS_TOP_13_007.yoda \
+rivet-mkhtml -s --mc-errs -o ~/public/html/TOP-13-007 --times -c data/CMS_TOP_13_007.plot \
 	     results/TT_UEP11_8TeV_pythia6_tauola_cfi/out_1.yoda:'P11' \
 	     results/TT_UEP11noCR_8TeV_pythia6_tauola_cfi/out_1.yoda:'P11 noCR' \
 	     results/TT_UEZ2lep_8TeV_pythia6_tauola_cfi/out_1.yoda:'Z2 LEP' 
