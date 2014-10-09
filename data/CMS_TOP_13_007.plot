@@ -78,6 +78,10 @@ LogY=1
 XLabel=$p_{T}(t\bar{t})$ [GeV]
 # END PLOT
 
+# BEGIN PLOT /CMS_TOP_13_007/dphi2ttbar
+XLabel=$\Delta\phi(p,p_{t\bar{t}})$ [deg]
+# END PLOT
+
 # BEGIN PLOT /CMS_TOP_13_007/ptttbar_chMult
 YLabel=$<N_{ch}>$
 LogY=0

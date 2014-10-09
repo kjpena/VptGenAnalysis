@@ -24,14 +24,18 @@ namespace Rivet {
     Histo1DPtr _h_ptttbar[4];
     Histo1DPtr   _h_chMult[4*4], _h_chSumPt[4*4], _h_chAvgPt[4*4];
     Profile1DPtr _p_ptttbar_chMult[4*4],    _p_ptttbar_chSumPt[4*4],    _p_ptttbar_chAvgPt[4*4];
-    //Profile1DPtr _p_dphi2ttbar_chMult[4*4], _p_dphi2ttbar_chSumPt[4*4], _p_dphi2ttbar_chAvgPt[4*4];
+    size_t _n_dphiProfileBins;
+    Profile1DPtr _p_dphi2ttbar_chMult[4*4], _p_dphi2ttbar_chSumPt[4*4], _p_dphi2ttbar_chAvgPt[4*4];
     //Profile1DPtr                            _p_chMult_chSumPt[4*4],     _p_chMult_chAvgPt[4*4];
 
   public:
 
     /// CTOR
-    CMS_TOP_13_007()  : Analysis("CMS_TOP_13_007")
+    CMS_TOP_13_007()  : 
+      Analysis("CMS_TOP_13_007"),
+      _n_dphiProfileBins(18)
     { 
+     
       //setBeams(PROTON, PROTON);
     }
 
@@ -83,18 +87,24 @@ namespace Rivet {
 	      _h_chMult[idx]  = bookHisto1D(buf,50,0,100);
 	      std::string name("ptttbar_"); name += buf;
 	      _p_ptttbar_chMult[idx] = bookProfile1D(name,10,0,250);
+	      name="dphi2ttbar_"; name += buf;
+	      _p_dphi2ttbar_chMult[idx] = bookProfile1D(name,_n_dphiProfileBins,0,180);
       
 	      if(ijet>=0) sprintf(buf,"chSumPt-r%d-j%d",ireg,ijet);
 	      else        sprintf(buf,"chSumPt-r%d",ireg);
 	      _h_chSumPt[idx] = bookHisto1D(buf,20,0,100);
 	      name="ptttbar_"; name += buf;
 	      _p_ptttbar_chSumPt[idx] = bookProfile1D(name,10,0,250);
+	      name="dphi2ttbar_"; name += buf;
+	      _p_dphi2ttbar_chSumPt[idx] = bookProfile1D(name,_n_dphiProfileBins,0,180);
 
 	      if(ijet>=0) sprintf(buf,"chAvgPt-r%d-j%d",ireg,ijet);
 	      else        sprintf(buf,"chAvgPt-r%d",ireg);
 	      _h_chAvgPt[idx] = bookHisto1D(buf,20,0,10);
 	      name="ptttbar_"; name += buf;
 	      _p_ptttbar_chAvgPt[idx] = bookProfile1D(name,10,0,250);
+	      name="dphi2ttbar_"; name += buf;
+	      _p_dphi2ttbar_chAvgPt[idx] = bookProfile1D(name,_n_dphiProfileBins,0,180);
 	    }
 	}
     }
@@ -157,9 +167,8 @@ namespace Rivet {
       const FourMomentum ttbar = bjets[0].momentum() + bjets[1].momentum() + sortedMuons[0].momentum() + sortedElectrons[0].momentum() + missvec ;
       
       // now loop over all charged particles and select the ones not associated to the hard event
-      float pi = 3.14159;
-      std::vector<int> chMult(4,0);
-      std::vector<float> chSumPt(4,0);
+      std::vector<int> chMult(4,0),    chMult_dphi(_n_dphiProfileBins,0);
+      std::vector<float> chSumPt(4,0), chSumPt_dphi(_n_dphiProfileBins,0);
       const FinalState& chfs = applyProjection<FinalState>(event, "chfs");
       foreach (const Particle& p, chfs.particles()) 
 	{	
@@ -175,15 +184,16 @@ namespace Rivet {
 
 	  //analyse particle
 	  //const int pid = p.pdgId();
-	  float dphi = deltaPhi(ttbar,p.momentum());
-	  float pt = p.momentum().pT();
+	  float dphi( fabs(deltaPhi(ttbar,p.momentum())*180./PI) );
+	  float pt( p.momentum().pT() );
 	  
-	  int tt_reg(TT_INC);
-	  if(dphi < 1./3.*pi || dphi>5./3.*pi) tt_reg=TT_TOWARD;
-	  if(dphi > 2./3.*pi && dphi<4./3.*pi) tt_reg=TT_AWAY;
-	  if((dphi > 1./3.*pi && dphi<2./3.*pi) || (dphi > 4./3.*pi && dphi<5./3.*pi))  tt_reg=TT_TRANS;
-	  chMult[0]  ++;    chMult[tt_reg]  ++;
-	  chSumPt[0] += pt; chSumPt[tt_reg] += pt;
+	  int tt_reg(TT_TRANS);
+	  if(dphi>120) tt_reg=TT_AWAY;
+	  if(dphi<60)  tt_reg=TT_TOWARD;
+	  int dphi_bin(floor(dphi*_n_dphiProfileBins/180.));
+	  chMult[0]  ++;    chMult[tt_reg]  ++;    chMult_dphi[ dphi_bin ] ++;
+	  chSumPt[0] += pt; chSumPt[tt_reg] += pt; chSumPt_dphi[ dphi_bin ] ++;
+
 	} // loop over particles
 
       //fill histogram
@@ -198,6 +208,17 @@ namespace Rivet {
 
 	      _h_chSumPt[idx]->fill(chSumPt[ireg], weight);
 	      _p_ptttbar_chSumPt[idx]->fill(ttbar.pT(),chSumPt[ireg],weight);
+
+	      //dphi profiles
+	      for(size_t idphibin=0; idphibin<_n_dphiProfileBins; idphibin++)
+		{
+		  //bin centered
+		  float dphi=(idphibin+0.5)*180./_n_dphiProfileBins;
+		  _p_dphi2ttbar_chMult[idx]->fill(dphi,chMult_dphi[idphibin],weight);
+		  _p_dphi2ttbar_chSumPt[idx]->fill(dphi,chSumPt_dphi[idphibin],weight);
+		  if(chMult_dphi[idphibin]==0) continue;
+		  _p_dphi2ttbar_chAvgPt[idx]->fill(dphi,chMult_dphi[idphibin]/chSumPt_dphi[idphibin],weight);
+		}
 
 	      if(chMult[ireg]==0) continue;
 	      float avgPtPerParticle(chSumPt[ireg]/chMult[ireg]);
