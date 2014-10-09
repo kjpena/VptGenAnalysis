@@ -80,9 +80,19 @@ XLabel=$p_{T}(t\bar{t})$ [GeV]
 
 # BEGIN PLOT /CMS_TOP_13_007/dphi2ttbar
 XLabel=$\Delta\phi(p,p_{t\bar{t}})$ [deg]
+# BEGIN SPECIAL
+\psline[linewidth=0.8pt,linecolor=red,linestyle=dashed]\physicscoor( 60,0)\physicscoor( 60,5)
+\psline[linewidth=0.8pt,linecolor=red,linestyle=dashed]\physicscoor( 120,0)\physicscoor( 120,5)
+\endpsclip
+# END SPECIAL
 # END PLOT
 
 # BEGIN PLOT /CMS_TOP_13_007/ptttbar_chMult
+YLabel=$<N_{ch}>$
+LogY=0
+# END PLOT
+
+# BEGIN PLOT /CMS_TOP_13_007/dphi2ttbar_chMult
 YLabel=$<N_{ch}>$
 LogY=0
 # END PLOT
@@ -92,8 +102,17 @@ YLabel=$<\sum p_{T}>$ [GeV]
 LogY=0
 # END PLOT
 
+# BEGIN PLOT /CMS_TOP_13_007/dphi2ttbar_chSumPt
+YLabel=$<\sum p_{T}>$ [GeV] 
+LogY=0
+# END PLOT
 
 # BEGIN PLOT /CMS_TOP_13_007/ptttbar_chAvgPt
+YLabel=$<\bar{p}_T>$ [GeV]
+LogY=0
+# END PLOT
+
+# BEGIN PLOT /CMS_TOP_13_007/dphi2ttbar_chAvgPt
 YLabel=$<\bar{p}_T>$ [GeV]
 LogY=0
 # END PLOT
