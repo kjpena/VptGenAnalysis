@@ -16,11 +16,16 @@ namespace Rivet {
   
   class CMS_TOP_13_007 : public Analysis {
     
+    enum JetBins{JET_INC,JET_0, JET_1, JET_2};
     enum UERegions{TT_INC,TT_TOWARD, TT_TRANS, TT_AWAY};
 
   private:
 
-    Histo1DPtr _h_chMult[4], _h_chSumPt[4], _h_chAvgPt[4];
+    Histo1DPtr _h_ptttbar[4];
+    Histo1DPtr   _h_chMult[4*4], _h_chSumPt[4*4], _h_chAvgPt[4*4];
+    Profile1DPtr _p_ptttbar_chMult[4*4],    _p_ptttbar_chSumPt[4*4],    _p_ptttbar_chAvgPt[4*4];
+    //Profile1DPtr _p_dphi2ttbar_chMult[4*4], _p_dphi2ttbar_chSumPt[4*4], _p_dphi2ttbar_chAvgPt[4*4];
+    //Profile1DPtr                            _p_chMult_chSumPt[4*4],     _p_chMult_chAvgPt[4*4];
 
   public:
 
@@ -48,20 +53,10 @@ namespace Rivet {
       elfs.acceptIdPair(PID::ELECTRON);
       addProjection(elfs, "Electrons");
 
-      // muon neutrinos
-      //IdentifiedFinalState munufs(-5.0,5.0,0*GeV);
-      //munufs.acceptIdPair(PID::NU_MU);
-      //addProjection(munufs, "MuonNus");
-
-      // electron neutrinos
-      //IdentifiedFinalState elnufs(-5.0,5.0,0*GeV);
-      //elnufs.acceptIdPair(PID::NU_E);
-      //addProjection(elnufs, "ElectronNus");
-
       // remove neutrinos, electrons and muons and get the jets
       VetoedFinalState vfs(fs);
       vfs.vetoNeutrinos();
-      vfs.addVetoPairDetail(PID::MUON, 20.0*GeV, MAXDOUBLE);
+      vfs.addVetoPairDetail(PID::MUON,     20.0*GeV, MAXDOUBLE);
       vfs.addVetoPairDetail(PID::ELECTRON, 20.0*GeV, MAXDOUBLE);
       addProjection(vfs, "VFS");
       addProjection(FastJets(vfs, FastJets::ANTIKT, 0.5), "Jets");
@@ -73,12 +68,34 @@ namespace Rivet {
       addProjection(chfs, "chfs"); 
 
       // histogram booking
-      for(int ireg=0; ireg<4; ireg++)
+      char buf[50];
+      for(int ijet=-1; ijet<=2; ijet++)
 	{
-	  char buf[50];
-	  sprintf(buf,"chMult-r%d",ireg);  _h_chMult[ireg]  = bookHisto1D(buf,200,0,200);
-	  sprintf(buf,"chSumPt-r%d",ireg); _h_chSumPt[ireg] = bookHisto1D(buf,50,0,500);
-	  sprintf(buf,"chAvgPt-r%d",ireg); _h_chAvgPt[ireg] = bookHisto1D(buf,25,0,25);
+	  if(ijet>=0) sprintf(buf,"ptttbar-j%d",ijet);
+	  else        sprintf(buf,"ptttbar");
+	  _h_ptttbar[ijet+1]  = bookHisto1D(buf,10,0,250);
+
+	  for(int ireg=0; ireg<4; ireg++)
+	    {
+	      int idx(ireg+(ijet+1)*4);
+	      if(ijet>=0) sprintf(buf,"chMult-r%d-j%d",ireg,ijet);  
+	      else        sprintf(buf,"chMult-r%d",ireg);  
+	      _h_chMult[idx]  = bookHisto1D(buf,50,0,100);
+	      std::string name("ptttbar_"); name += buf;
+	      _p_ptttbar_chMult[idx] = bookProfile1D(name,10,0,250);
+      
+	      if(ijet>=0) sprintf(buf,"chSumPt-r%d-j%d",ireg,ijet);
+	      else        sprintf(buf,"chSumPt-r%d",ireg);
+	      _h_chSumPt[idx] = bookHisto1D(buf,20,0,100);
+	      name="ptttbar_"; name += buf;
+	      _p_ptttbar_chSumPt[idx] = bookProfile1D(name,10,0,250);
+
+	      if(ijet>=0) sprintf(buf,"chAvgPt-r%d-j%d",ireg,ijet);
+	      else        sprintf(buf,"chAvgPt-r%d",ireg);
+	      _h_chAvgPt[idx] = bookHisto1D(buf,20,0,10);
+	      name="ptttbar_"; name += buf;
+	      _p_ptttbar_chAvgPt[idx] = bookProfile1D(name,10,0,250);
+	    }
 	}
     }
     
@@ -89,112 +106,57 @@ namespace Rivet {
 
       const double weight = event.weight();
 
-      // loop over the charged leptons
+      //require 2 leptons
       const ChargedLeptons& lfs = applyProjection<ChargedLeptons>(event, "LFS");
-      MSG_DEBUG("Charged lepton multiplicity = " << lfs.chargedLeptons().size());
-      foreach (Particle lepton, lfs.chargedLeptons()) {
-	MSG_DEBUG("Lepton pT = " << lepton.momentum().pT());
-      }
-      if (lfs.chargedLeptons().size() < 2) {
-	MSG_DEBUG("Event failed lepton multiplicity cut");
-        vetoEvent;
-      }
+      if (lfs.chargedLeptons().size() < 2) vetoEvent;
 
+      //require 1e+1mu
       const ParticleVector sortedMuons       = applyProjection<IdentifiedFinalState>(event, "Muons").particlesByPt();
       const ParticleVector sortedElectrons   = applyProjection<IdentifiedFinalState>(event, "Electrons").particlesByPt();
-      
-      // loop over the muons
-      //MSG_DEBUG("Muon multiplicity = " << sortedMuons.size());
-      //foreach (Particle mu, sortedMuons ) 
-      //{
-      //MSG_DEBUG("Muon pT = " << mu.momentum().pT());
-      //}
-      if ( sortedMuons.size() < 1) 
-	{
-	  MSG_DEBUG("Event failed muon multiplicity cut");
-	  vetoEvent;
-	}
-
-      // loop over the electrons
-      //MSG_DEBUG("Electron multiplicity = " << sortedElectrons.size());
-      //foreach (Particle ele, sortedElectrons ) 
-      //{
-      //MSG_DEBUG("Electron pT = " << ele.momentum().pT());
-      //}
-      if ( sortedElectrons.size() < 1) 
-	{
-	  MSG_DEBUG("Event failed electron multiplicity cut");
-	  vetoEvent;
-	}
+      if ( sortedMuons.size() < 1) vetoEvent; 
+      if ( sortedElectrons.size() < 1) vetoEvent;
 
       // check opposite sign lepton charges
       int chlep1 = PID::charge(sortedMuons[0]) ;
       int chlep2 = PID::charge(sortedElectrons[0]) ;
       int chlep  = chlep1 * chlep2;
-      if(chlep>=0) 
-	{
-	  MSG_DEBUG("Event failed opposite sign cut");
-	  vetoEvent;
-	}
+      if(chlep>=0) vetoEvent;
 
-      // MET cut (not applied)
+      // MET estimate from neutrinos
       const MissingMomentum& met = applyProjection<MissingMomentum>(event, "MissingET");
-      //MSG_DEBUG("Vector ET  =" << met.visibleMomentum().perp() << " GeV");
-      //if ( met.visibleMomentum().perp() < 30*GeV) 
-      //{
-      //MSG_DEBUG("Event failed missing ET cut");
-      //vetoEvent;
-      //}
-
       FourMomentum missvec(0.0,0.0,0.0,0.0);
       missvec = -met.visibleMomentum(); 
-      missvec.setPz(0.0); // no information about Pz
-      missvec.setE(missvec.perp()); // assume neutrinos are massless
+      missvec.setPz(0.0);
+      missvec.setE(missvec.perp()); 
 
-      // jet multiplicity requirement
+      // jet multiplicity 
       const FastJets& jetpro = applyProjection<FastJets>(event, "Jets");
-      const Jets alljets = jetpro.jetsByPt();
-      if (alljets.size() < 2) 
-	{
-	  MSG_DEBUG("Event failed jet multiplicity cut");
-	  vetoEvent;
-	}
+      const Jets alljets = jetpro.jetsByPt(20*GeV,MAXDOUBLE,-2.5,2.5);
+      if (alljets.size() < 2) vetoEvent;
 
       // jets minimum jet pt requirement
-      const Jets jets = jetpro.jetsByPt(30*GeV);
-      //foreach (const Jet& jet, jets) 
-      //{
-      //MSG_DEBUG("Jet pT = " << jet.momentum().pT()/GeV << " GeV");
-      //}
-      if (jets.size() < 2) 
-	{
-	  MSG_DEBUG("Event failed jet pT cut");
-	  vetoEvent;
-	}
+      const Jets jets = jetpro.jetsByPt(30*GeV,MAXDOUBLE,-2.5,2.5);
+      if (jets.size() < 2)  vetoEvent;
 
-      // b-tagging
-      //this should change to take into account b-tag and mistag rates
-      Jets bjets;
-      foreach (const Jet& jet, jets) 
+      // b-tagging: this should change to take into account b-tag and mistag rates
+      Jets bjets,otherjets;
+      foreach (const Jet& jet, alljets) 
 	{
-	  if (jet.containsBottom()) 
-	    {
-	      bjets.push_back(jet);
-	    } 
+	  if (jet.containsBottom() && bjets.size()<2) bjets.push_back(jet); 
+	  else                                        otherjets.push_back(jet);
 	}
+      if(bjets.size()<2) vetoEvent;
+
+      //assign jet bin
+      std::vector<int> jet_bin(2,JET_INC);
+      if(otherjets.size()==0) jet_bin[1]=JET_0;
+      else if(otherjets.size()==1) jet_bin[1]=JET_1;
+      else jet_bin[1]=JET_2;
       
-      //MSG_DEBUG("Number of b-jets = " << bjets.size());
-      if (bjets.size() != 2) 
-	{
-	  MSG_DEBUG("Event failed b-tagging cut");
-	  vetoEvent;
-	}
-      // end event selection
-      
-      // get the ttbar four vector
+      // compute the ttbar four vector
       const FourMomentum ttbar = bjets[0].momentum() + bjets[1].momentum() + sortedMuons[0].momentum() + sortedElectrons[0].momentum() + missvec ;
       
-      // now loop over all charged particles
+      // now loop over all charged particles and select the ones not associated to the hard event
       float pi = 3.14159;
       std::vector<int> chMult(4,0);
       std::vector<float> chSumPt(4,0);
@@ -203,12 +165,12 @@ namespace Rivet {
 	{	
 	  // remove the selected leptons
 	  float dR = min(deltaR(sortedMuons[0],p.momentum()),deltaR(sortedElectrons[0],p.momentum()));
-	  if(dR==0.) continue;
+	  if(dR<0.02) continue;
 
 	  // remove particles matching the b-jets
 	  if(bjets[0].containsParticle(p) || bjets[1].containsParticle(p)) continue;
 
-	  // pt and/or eta cut on particels
+	  // pt and/or eta cut on particles
 	  if(p.momentum().pT() < 0.5 || abs(p.momentum().eta()) > 2.1) continue;
 
 	  //analyse particle
@@ -224,17 +186,27 @@ namespace Rivet {
 	  chSumPt[0] += pt; chSumPt[tt_reg] += pt;
 	} // loop over particles
 
-      //fill histograms
-      for(size_t ireg=0; ireg<chMult.size(); ireg++)
+      //fill histogram
+      for(size_t ijbin=0; ijbin<jet_bin.size(); ijbin++)
 	{
-	  _h_chMult[ireg]->fill(chMult[ireg],weight);
-	  _h_chSumPt[ireg]->fill(chSumPt[ireg], weight);
-	  if(chMult[ireg]==0) continue;
-	  _h_chAvgPt[ireg]->fill(chSumPt[ireg]/chMult[ireg],weight);
+	  _h_ptttbar[jet_bin[ijbin]]->fill(ttbar.pT(),weight);
+	  for(size_t ireg=0; ireg<chMult.size(); ireg++)
+	    {
+	      int idx(ireg+jet_bin[ijbin]*4);
+	      _h_chMult[idx]->fill(chMult[ireg],weight);
+	      _p_ptttbar_chMult[idx]->fill(ttbar.pT(),chMult[ireg],weight);
+
+	      _h_chSumPt[idx]->fill(chSumPt[ireg], weight);
+	      _p_ptttbar_chSumPt[idx]->fill(ttbar.pT(),chSumPt[ireg],weight);
+
+	      if(chMult[ireg]==0) continue;
+	      float avgPtPerParticle(chSumPt[ireg]/chMult[ireg]);
+	      _h_chAvgPt[idx]->fill(avgPtPerParticle,weight);
+	      _p_ptttbar_chAvgPt[idx]->fill(ttbar.pT(),avgPtPerParticle,weight);
+	    }
 	}
     }
-    
-    
+        
     /// Normalise histograms etc., after the run
     void finalize() 
     {
@@ -243,14 +215,18 @@ namespace Rivet {
 
       // scale(_h_YYYY, crossSection()/sumOfWeights()); # norm to cross section
       //normalize(_h_YYYY); # normalize to unity
-      for(size_t ireg=0; ireg<4; ireg++)
+      for(size_t ijreg=0; ijreg<4; ijreg++)
 	{
-	  normalize(_h_chMult[ireg] );
-	  normalize(_h_chSumPt[ireg] );
-	  normalize(_h_chAvgPt[ireg] );
+	  normalize(_h_ptttbar[ijreg]);
+	  for(size_t ireg=0; ireg<4; ireg++)
+	    {
+	      int idx(ireg+ijreg*4);
+	      normalize(_h_chMult[idx] );
+	      normalize(_h_chSumPt[idx] );
+	      normalize(_h_chAvgPt[idx] );
+	    }
 	}
     }
-
   };
 
 
