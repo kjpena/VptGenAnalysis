@@ -217,7 +217,7 @@ namespace Rivet {
 		  _p_dphi2ttbar_chMult[idx]->fill(dphi,chMult_dphi[idphibin],weight);
 		  _p_dphi2ttbar_chSumPt[idx]->fill(dphi,chSumPt_dphi[idphibin],weight);
 		  if(chMult_dphi[idphibin]==0) continue;
-		  _p_dphi2ttbar_chAvgPt[idx]->fill(dphi,chMult_dphi[idphibin]/chSumPt_dphi[idphibin],weight);
+		  _p_dphi2ttbar_chAvgPt[idx]->fill(dphi,chSumPt_dphi[idphibin]/chMult_dphi[idphibin],weight);
 		}
 
 	      if(chMult[ireg]==0) continue;
