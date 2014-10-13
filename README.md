@@ -5,9 +5,9 @@ Analysis in RIVET
 
 ### sumbit rivet runs for different configuration files
 
-a=(TT_UEP11_8TeV_pythia6_tauola TT_UEP11noCR_8TeV_pythia6_tauola TT_UEZ2lep_8TeV_pythia6_tauola)
+a=(TT_UEP11_8TeV_pythia6_tauola TT_UEP11noCR_8TeV_pythia6_tauola TT_UEP11noMPI_8TeV_pythia6_tauola TT_UEZ2lep_8TeV_pythia6_tauola)
 for i in ${a[@]}; do
-    python scripts/submitRivetRun.py  -j 1 -n 50000 -o results -q 1nh -c UserCode/RivetAnalysis/python/${i}_cfi.py;
+    python scripts/submitRivetRun.py  -j 1 -n 10000 -o results -q 1nh -c UserCode/RivetAnalysis/python/${i}_cfi.py;
 done
 
 The output will be stored in different sub-folders under results.
@@ -17,6 +17,7 @@ The output will be stored in different sub-folders under results.
 rivet-mkhtml -s --mc-errs -o ~/public/html/TOP-13-007 --times -c data/CMS_TOP_13_007.plot \
 	     results/TT_UEP11_8TeV_pythia6_tauola/out_1.yoda:'P11' \
 	     results/TT_UEP11noCR_8TeV_pythia6_tauola/out_1.yoda:'P11 noCR' \
+	     results/TT_UEP11noMPI_8TeV_pythia6_tauola/out_1.yoda:'P11 noMPI' \
 	     results/TT_UEZ2lep_8TeV_pythia6_tauola/out_1.yoda:'Z2 LEP' 
 
 An html page will be generated and can be opened, e.g. as
