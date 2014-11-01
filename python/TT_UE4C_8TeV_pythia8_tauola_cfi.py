@@ -25,7 +25,11 @@ generator = cms.EDFilter("Pythia8generatorFilter",
                                                                                      'ParticleDecays:tauMax = 10',
                                                                                      'Top:gg2ttbar = on',
                                                                                      'Top:qqbar2ttbar = on',
-                                                                                     '6:m0 = 172.5', #Top mass                                                        
+                                                                                     '6:m0 = 172.5', #Top mass    
+                                                                                     'ProcessLevel:resonanceDecays = on', #W leptonic decays
+                                                                                     '24:onMode = off',
+                                                                                     "24:onIfAny=11 13 15",
+                                                                                     '24:mayDecay = on'                                                 
                                                                                      ),
                                                      parameterSets = cms.vstring('pythia8CommonSettingsBlock',
                                                                                  'UESettingsBlock',
