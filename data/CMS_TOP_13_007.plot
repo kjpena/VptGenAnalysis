@@ -92,6 +92,14 @@ YLabel=$<N_{ch}>$
 LogY=0
 # END PLOT
 
+# BEGIN PLOT /CMS_TOP_13_007/chmult_chAvgPt
+XLabel=$N_{ch}$
+YLabel=$<\bar{p}_T>$
+YMin=0.5
+YMax=5
+LogY=0
+# END PLOT
+
 # BEGIN PLOT /CMS_TOP_13_007/ptttbar_chSumPt
 YLabel=$<\sum p_{T}>$ [GeV] 
 LogY=0
@@ -100,6 +108,8 @@ LogY=0
 # BEGIN PLOT /CMS_TOP_13_007/dphi2ttbar_chSumPt
 YLabel=$<\sum p_{T}>$ [GeV] 
 LogY=0
+YMin=0
+YMax=10
 # END PLOT
 
 # BEGIN PLOT /CMS_TOP_13_007/ptttbar_chAvgPt

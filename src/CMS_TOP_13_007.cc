@@ -26,7 +26,7 @@ namespace Rivet {
     Histo1DPtr   _h_chMult[4*4], _h_chSumPt[4*4], _h_chAvgPt[4*4];
     Profile1DPtr _p_ptttbar_chMult[4*4],    _p_ptttbar_chSumPt[4*4],    _p_ptttbar_chAvgPt[4*4];
     size_t _n_dphiProfileBins;
-    Profile1DPtr _p_dphi2ttbar_chMult[4], _p_dphi2ttbar_chSumPt[4], _p_dphi2ttbar_chAvgPt[4];
+    Profile1DPtr _p_dphi2ttbar_chMult[4], _p_dphi2ttbar_chSumPt[4], _p_dphi2ttbar_chAvgPt[4], _p_chMult_chAvgPt[4];
     //Profile1DPtr                            _p_chMult_chSumPt[4*4],     _p_chMult_chAvgPt[4*4];
 
   public:
@@ -129,6 +129,10 @@ namespace Rivet {
 		  name += buf;
 		}
 		_p_dphi2ttbar_chAvgPt[ijet+1] = bookProfile1D(name,_n_dphiProfileBins,0,180);
+
+		name="chMult_chAvgPt";
+		if(ijet>=0) name+=buf;
+		_p_chMult_chAvgPt[ijet+1] =  bookProfile1D(name,50,0,100);
 	      }
 	    }
 	}
@@ -163,14 +167,21 @@ namespace Rivet {
       if( leptons[leadLepIdx].charge() * leptons[trailerLepIdx].charge() >=0 ) vetoEvent; 
       if( leptons[leadLepIdx].abspid() * leptons[trailerLepIdx].abspid() != PID::ELECTRON * PID::MUON ) vetoEvent;
 
-			      
       // MET estimate from the balance of all final state particles
       Particles vfs_particles =  applyProjection<VisibleFinalState>(event, "vfs").particles();
       FourMomentum missvec(0.0,0.0,0.0,0.0);
       foreach ( const Particle & p, vfs_particles ) missvec -= p.momentum();
       missvec.setPz(0.0);
       missvec.setE(missvec.perp()); 
-      
+
+      /*
+      Particles neutrinos =  applyProjection<IdentifiedFinalState>(event, "neutrinos").particles();
+      FourMomentum truemissvec(0.0,0.0,0.0,0.0);
+      foreach ( const Particle & p, neutrinos) truemissvec += p.momentum();
+      truemissvec.setPz(0.0);
+      truemissvec.setE(truemissvec.perp());
+      */
+
       // jet multiplicity 
       const FastJets& jetpro = applyProjection<FastJets>(event, "Jets");
       const Jets alljets = jetpro.jetsByPt(20*GeV,MAXDOUBLE,-2.5,2.5);
@@ -234,6 +245,8 @@ namespace Rivet {
       for(size_t ijbin=0; ijbin<jet_bin.size(); ijbin++)
 	{
 	  _h_ptttbar[jet_bin[ijbin]]->fill(rec_ttbar.pT(),weight);
+
+	  float totalSumPt(0),totalChMult(0);
 	  for(size_t ireg=0; ireg<chMult.size(); ireg++)
 	    {
 	      int idx(ireg+jet_bin[ijbin]*4);
@@ -257,10 +270,14 @@ namespace Rivet {
 	      }
 
 	      if(chMult[ireg]==0) continue;
+	      totalSumPt+=chSumPt[ireg];
+	      totalChMult+=chMult[ireg];
 	      float avgPtPerParticle(chSumPt[ireg]/chMult[ireg]);
 	      _h_chAvgPt[idx]->fill(avgPtPerParticle,weight);
 	      _p_ptttbar_chAvgPt[idx]->fill(rec_ttbar.pT(),avgPtPerParticle,weight);
 	    }
+	  if(totalChMult==0) continue;
+	  _p_chMult_chAvgPt[jet_bin[ijbin]]->fill(totalChMult,totalSumPt/totalChMult);
 	}
     }
         
