@@ -13,7 +13,7 @@ def main():
     parser.add_option('-n', '--nevts',         dest='nevts',      help='number of events per job',            default=100, type=int)
     parser.add_option('-c', '--cfiFile',       dest='cfiFile',    help='Name of the cfi.'        ,            default='UserCode/RivetAnalysis/python/TT_UEP11_8TeV_pythia6_tauola_cfi')
     parser.add_option('-o', '--outputdir',     dest='outputdir' , help='Name of the local output directory.', default='results')
-    parser.add_option('-r', '--rivetCust',     dest='rivetCust' , help='Rivet customisation file',            default='UserCode/RivetAnalysis/rivet_customise.py')
+    parser.add_option('-r', '--rivetCust',     dest='rivetCust' , help='Rivet customisation file',            default='UserCode/RivetAnalysis/rivet_customise.customiseTOP13007')
     parser.add_option('-q', '--queue',         dest='queue'     , help='Batch queue (default=local).'       , default='local')
     (opt, args) = parser.parse_args()
     njobs      = opt.njobs
