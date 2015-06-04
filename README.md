@@ -18,6 +18,14 @@ Notice also that events may only need to be hadronized, in case a LHE is provide
 ```
 -i mcdb:6721 -c UserCode/RivetAnalysis/python/TTfromME_Z2lep_8TeV_pythia6_tauola_cfi
 ```
+A full example below
+```
+a=(6877 6721 6878 6742 6743)
+for i in ${a[@]}; do
+    python scripts/submitRivetRun.py  -j 1 -n 50000 -q 1nh -o results_${i} -i mcdb:${i} -c UserCode/RivetAnalysis/python/TTfromME_Z2lep_8TeV_pythia6_tauola_cfi  -r UserCode/RivetAnalysis/rivet_customise.customiseTOPDileptons
+done
+
+```
 In all cases the output will be stored in different sub-folders under results.
 
 ```
