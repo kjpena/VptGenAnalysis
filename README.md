@@ -1,7 +1,7 @@
 RivetAnalysis
 =============
 
-# Analysis in RIVET
+## Analysis in RIVET
 
 ```
 a=(TT_UEP11_8TeV_pythia6_tauola TT_UEP11noCR_8TeV_pythia6_tauola TT_UEP11noMPI_8TeV_pythia6_tauola TT_UEZ2lep_8TeV_pythia6_tauola)
@@ -41,7 +41,7 @@ An html page will be generated and can be opened, e.g. as
 firefox "http://cmsdoc.cern.ch/~`whoami`/TOP-13-007/index.html"
 ```
 
-# Installation
+## Installation
 
 ```
 cmsrel CMSSW_7_4_0
