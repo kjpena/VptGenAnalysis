@@ -22,7 +22,7 @@ A full example below
 ```
 a=(6877 6721 6878 6742 6743)
 for i in ${a[@]}; do
-    python scripts/submitRivetRun.py  -j 1 -n 50000 -q 1nh -o results_${i} -i mcdb:${i} -c UserCode/RivetAnalysis/python/TTfromME_Z2lep_8TeV_pythia6_tauola_cfi  -r UserCode/RivetAnalysis/rivet_customise.customiseTOPDileptons
+    python scripts/submitRivetRun.py  -j 1 -n 500000 -q 1nh -o results_${i} -i mcdb:${i} -c UserCode/RivetAnalysis/python/TTfromME_Z2lep_8TeV_pythia6_tauola_cfi  -r UserCode/RivetAnalysis/rivet_customise.customiseTOPDileptons
 done
 
 ```
@@ -35,7 +35,13 @@ rivet-mkhtml -s --mc-errs -o ~/public/html/TOP-13-007 --times -c data/CMS_TOP_13
 	     results/TT_UEP11noMPI_8TeV_pythia6_tauola_cfi/out_1.yoda:'P11 noMPI' \
 	     results/TT_UEZ2lep_8TeV_pythia6_tauola_cfi/out_1.yoda:'Z2 LEP' 
 ```
-Will plot the results for comparison
+Will plot the results for comparison. Another example below:
+```
+rivet-mkhtml -s --mc-errs -o ~/public/html/TOPDileptons --times -c data/CMS_TOP_Dileptons.plot ptpos.yoda:data \
+	      results_6721/TTfromME_Z2lep_8TeV_pythia6_tauola_cfi/out_1.yoda:'MG+PY6' \
+	      results_6742/TTfromME_Z2lep_8TeV_pythia6_tauola_cfi/out_1.yoda:'MG+PY6 ($\mu_R/\mu_F$ down)' \
+	      results_6743/TTfromME_Z2lep_8TeV_pythia6_tauola_cfi/out_1.yoda:'MG+PY6 ($\mu_R/\mu_F$ up)'
+```
 An html page will be generated and can be opened, e.g. as
 ```
 firefox "http://cmsdoc.cern.ch/~`whoami`/TOP-13-007/index.html"

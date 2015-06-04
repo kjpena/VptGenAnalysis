@@ -6,5 +6,6 @@ Title=CMS preliminary, $\sqrt{s}$ = 8 TeV, L = 19.7 fb$^{-1}$
 XLabel=$p_{T}(\ell^{+})$ [GeV]
 YLabel=$1/\sigma~d\sigma / d p_{T}$
 YMin=0.00005
-YMax=1
+YMax=0.045
+LogY=0
 # END PLOT
