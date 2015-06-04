@@ -10,6 +10,7 @@ def main():
     usage = 'usage: %prog [options]'
     parser = optparse.OptionParser(usage)
     parser.add_option('-j', '--njobs',         dest='njobs',      help='number of jobs to submit',            default=1, type=int)
+    parser.add_option('-i', '--input',         dest='input',      help='input lhe file',                      default=None, type='string')  
     parser.add_option('-n', '--nevts',         dest='nevts',      help='number of events per job',            default=100, type=int)
     parser.add_option('-c', '--cfiFile',       dest='cfiFile',    help='Name of the cfi.'        ,            default='UserCode/RivetAnalysis/python/TT_UEP11_8TeV_pythia6_tauola_cfi')
     parser.add_option('-o', '--outputdir',     dest='outputdir' , help='Name of the local output directory.', default='results')
@@ -22,6 +23,7 @@ def main():
     rivetCust  = opt.rivetCust
     outputdir  = opt.outputdir
     queue      = opt.queue
+    extraOpts  = '' if opt.input is None else '--filein %s' % opt.input
 
     # prepare output directory
     jobName=os.path.basename(cfiFile)
@@ -45,7 +47,7 @@ def main():
         script.write('eval `scramv1 ru -sh`\n')
         script.write('cd '+workDir+'\n')
         cfgFile='rivet_cfg_%d.py'%(i+1)
-        script.write('cmsDriver.py %s -s GEN --datatier=GEN-SIM-RAW --conditions auto:mc --eventcontent RAWSIM --no_exec -n %d --python_filename=%s --customise=%s --customise_commands=\"process.rivetAnalyzer.OutputFile = cms.string(\'out_%d.yoda\')\"  \n'%(cfiFile,nevts,cfgFile,rivetCust,i+1))
+        script.write('cmsDriver.py %s -s GEN --datatier=GEN-SIM-RAW --conditions auto:mc --eventcontent RAWSIM --no_exec -n %d --python_filename=%s --customise=%s --customise_commands=\"process.rivetAnalyzer.OutputFile = cms.string(\'out_%d.yoda\')\" %s\n'%(cfiFile,nevts,cfgFile,rivetCust,i+1,extraOpts))
         script.write('cmsRun %s\n'%cfgFile)
         script.write('cd -')
         script.close()
