@@ -39,6 +39,13 @@ def main():
     # create the job submission files
     for i in xrange(0,njobs) :
 
+        myCustomisation  = '\"'
+        myCustomisation += 'process.rivetAnalyzer.OutputFile = cms.string(\'out_%d.yoda\')\\n'%(i+1)
+        myCustomisation += 'process.RandomNumberGeneratorService.generator.initialSeed=cms.untracked.uint32(%d)\\n'%(i+1)
+        myCustomisation += 'process.source.skipEvents=cms.untracked.uint32(%d)\\n'%(i*nevts)
+        myCustomisation += 'process.MessageLogger.cerr.FwkReport.reportEvery = 5000\\n'
+        myCustomisation += '\"'
+        
         #build the script
         scriptName = '%s/rivetJob_%d.sh'%(workDir,i+1)
         script = open(scriptName,'w')
@@ -47,7 +54,7 @@ def main():
         script.write('eval `scramv1 ru -sh`\n')
         script.write('cd '+workDir+'\n')
         cfgFile='rivet_cfg_%d.py'%(i+1)
-        script.write('cmsDriver.py %s -s GEN --datatier=GEN-SIM-RAW --conditions auto:mc --eventcontent RAWSIM --no_exec -n %d --python_filename=%s --customise=%s --customise_commands=\"process.rivetAnalyzer.OutputFile = cms.string(\'out_%d.yoda\')\" %s\n'%(cfiFile,nevts,cfgFile,rivetCust,i+1,extraOpts))
+        script.write('cmsDriver.py %s -s GEN --datatier=GEN-SIM-RAW --conditions auto:mc --eventcontent RAWSIM --no_exec -n %d --python_filename=%s --customise=%s --customise_commands=%s %s\n'%(cfiFile,nevts,cfgFile,rivetCust,myCustomisation,extraOpts))
         script.write('cmsRun %s\n'%cfgFile)
         script.write('cd -')
         script.close()

@@ -16,7 +16,7 @@ Will sumbit rivet runs for different configuration files. By default it runs TOP
 where the function mycustomise has to be implemented in python/rivet_customise.py.
 Notice also that events may only need to be hadronized, in case a LHE is provided. In this case you can run with
 ```
--i mcdb:6721 -c UserCode/RivetAnalysis/python/TTfromME_Z2lep_8TeV_pythia6_tauola_cfi
+-i lhe:6721 -c UserCode/RivetAnalysis/python/TTfromME_Z2lep_8TeV_pythia6_tauola_cfi
 ```
 A full example below
 ```

@@ -117,10 +117,10 @@ namespace Rivet {
       Jets bjets, otherjets;
       foreach (const Jet& jet, alljets) 
 	{
-	  if (jet.containsBottom() && bjets.size()<2) bjets.push_back(jet); 
-	  else                                        otherjets.push_back(jet);
+	  if (jet.containsBottom() ) bjets.push_back(jet); 
+	  else                       otherjets.push_back(jet);
 	}
-      if(bjets.size()<2) vetoEvent;
+      if(bjets.size()<1) vetoEvent;
 
       //fill histos
       float ptpos(leptons[leadLepIdx].charge()>0 ? leptons[leadLepIdx].pt() : leptons[trailerLepIdx].pt());
