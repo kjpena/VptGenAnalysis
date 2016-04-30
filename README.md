@@ -1,78 +1,9 @@
 RivetAnalysis
 =============
 
-## setup environment to use yoda scripts
-yodaver=`scram tool list | grep -ir yoda | awk '{print $2}'`
-export PATH=${PATH}:/cvmfs/cms.cern.ch/$SCRAM_ARCH/external/yoda/$yodaver/bin
-
-## Submitting jobs
-
-```
-a=(TT_UEP11_8TeV_pythia6_tauola TT_UEP11noCR_8TeV_pythia6_tauola TT_UEP11noMPI_8TeV_pythia6_tauola TT_UEZ2lep_8TeV_pythia6_tauola)
-for i in ${a[@]}; do
-    python scripts/submitRivetRun.py  -j 1 -n 10000 -o results -q 1nh -c UserCode/RivetAnalysis/python/${i}_cfi.py;
-done
-```
-Will sumbit rivet runs for different configuration files. By default it runs TOP-13-007 routine. You can change it with the following option
-```
--r UserCode/RivetAnalysis/rivet_customise.mycustomise
-```
-where the function mycustomise has to be implemented in python/rivet_customise.py.
-Notice also that events may only need to be hadronized, in case a LHE is provided. In this case you can run with
-```
--i lhe:6721 -c UserCode/RivetAnalysis/python/TTfromME_Z2lep_8TeV_pythia6_tauola_cfi
-```
-Two full examples below
-```
-a=(6877 6721 6878 6742 6743)
-for i in ${a[@]}; do
-    python scripts/submitRivetRun.py  -j 10 -n 50000 -q 1nh -o results_${i} ---filein mcdb:${i} -c UserCode/RivetAnalysis/python/TTfromME_Z2lep_8TeV_pythia6_tauola_cfi  -r UserCode/RivetAnalysis/rivet_customise.customiseTOPDileptons
-done
-```
-```
-a=(IC3phiq_m1 NoBSM RC3phiq_m1 RCtW_m1)
-for i in ${a[@]}; do
-    python scripts/submitRivetRun.py  -j 1 -n 50000 -q 1nh -o results_${i} -i /store/cmst3/user/psilva/TopEft/${i}.lhe -c UserCode/RivetAnalysis/python/TTfromMEnoMatching_Z2lep_8TeV_pythia6_tauola_cfi  -r UserCode/RivetAnalysis/rivet_customise.customiseTOPDileptons
-done
-```
-In all cases the output will be stored in different sub-folders under results.
-The results can be merged by running:
-```
-for i in ${a[@]}; do
-    yodamerge -o results_${i}/outMerged.yoda  results_${i}/out_*.yoda
-done
-```
-
-## Plotting
-
-```
-rivet-mkhtml -s --mc-errs -o ~/public/html/TOP-13-007 --times -c data/CMS_TOP_13_007.plot \
-	     results/TT_UEP11_8TeV_pythia6_tauola_cfi/out_1.yoda:'P11' \
-	     results/TT_UEP11noCR_8TeV_pythia6_tauola_cfi/out_1.yoda:'P11 noCR' \
-	     results/TT_UEP11noMPI_8TeV_pythia6_tauola_cfi/out_1.yoda:'P11 noMPI' \
-	     results/TT_UEZ2lep_8TeV_pythia6_tauola_cfi/out_1.yoda:'Z2 LEP' 
-```
-Will plot the results for comparison. Another example below:
-```
-rivet-mkhtml -s --mc-errs -o ~/public/html/TOPDileptons --times -c data/CMS_TOP_Dileptons.plot ptpos.yoda:data \
-	      results_6721/TTfromME_Z2lep_8TeV_pythia6_tauola_cfi/out_1.yoda:'MG+PY6' \
-	      results_6742/TTfromME_Z2lep_8TeV_pythia6_tauola_cfi/out_1.yoda:'MG+PY6 ($\mu_R/\mu_F$ down)' \
-	      results_6743/TTfromME_Z2lep_8TeV_pythia6_tauola_cfi/out_1.yoda:'MG+PY6 ($\mu_R/\mu_F$ up)'
-```
-and another one
-```
-rivet-mkhtml -s --mc-errs -o ~/public/html/TOPDileptons --times -c data/CMS_TOP_Dileptons.plot ptpos.yoda:data \
-	      results_6721/TTfromME_Z2lep_8TeV_pythia6_tauola_cfi/outMerged.yoda:'MG+PY6' \
-	      results_RCtW_m1/TTfromMEnoMatching_Z2lep_8TeV_pythia6_tauola_cfi/out_1.yoda:'$RCtW=-1$' \
-	      results_RC3phiq_m1/TTfromMEnoMatching_Z2lep_8TeV_pythia6_tauola_cfi/out_1.yoda:'$RC3phiq=-1$' \
-	      results_IC3phiq_m1/TTfromMEnoMatching_Z2lep_8TeV_pythia6_tauola_cfi/out_1.yoda:'$IC3phiq=-1$'
-An html page will be generated and can be opened, e.g. as
-```
-firefox "http://cmsdoc.cern.ch/~`whoami`/TOP-13-007/index.html"
-```
-
 ## Installation
 
+Install CMSSW and download this package and the generator configuration files
 ```
 cmsrel CMSSW_7_4_0
 cd CMSSW_7_4_0/src
@@ -81,3 +12,39 @@ git cms-addpkg GeneratorInterface/RivetInterface
 git clone git@github.com:pfs/RivetAnalysis.git UserCode/RivetAnalysis
 scram b -j 9
 ```
+If you need to use yoda scripts, you can use the following extra variables
+```
+yodaver=1.3.0-cms2
+export PATH=${PATH}:/cvmfs/cms.cern.ch/$SCRAM_ARCH/external/yoda/$yodaver/bin
+```
+
+## Running RIVET plugins
+
+There are several plugins implemented under src/. 
+   * CMS_TOP_13_007.cc - TOP-13-007 UE measurement in the dileptons channel  
+   * CMS_TOP_Dileptons.cc - TOP-16-002 mass from lepton kinematics
+   * CMS_TOP_Radius.cc - composite top analysis
+A wrapper script to call the RIVET plugin while generating events on the fly is provided 
+under scripts/. The script takes a configuration file used to generate the events and 
+customizes the run according to the plugin to be used.
+An example is as follows
+```
+python scripts/submitRivetRun.py  -n -1 -q local 
+       -o results_Rt_0_kappa_0 
+       -i /store/cmst3/group/top/summer2016/composite_tt01j_lhe/Rt_0_kappa_0.lhe 
+       -c UserCode/RivetAnalysis/python/Hadronizer_MgmMatchTuneCUEP8S1CTEQ6L1_13TeV_madgraph_pythia8_Tauola_cff
+       -r UserCode/RivetAnalysis/rivet_customise.customiseTOPRadius
+```
+If local is changed to a batch queue (e.g. 8nh) the job is submited to lxbatch for execution
+The output of the job can be plotted using the standard tools
+
+```
+rivet-mkhtml -s --mc-errs -o ~/public/html/TopRadius --times \
+	     results/Rt_0_kappa_0/out_1.yoda:'SM' \
+	     results/Rt_5e_6_kappa_0/out_1.yoda:'R_{t}=5e-6' \
+```
+An html page will be generated and can be opened from a browser @
+```
+http://cmsdoc.cern.ch/~`whoami`/TopRadius/index.html
+```
+
