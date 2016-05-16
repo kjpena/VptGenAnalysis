@@ -29,10 +29,10 @@ under scripts/. The script takes a configuration file used to generate the event
 customizes the run according to the plugin to be used.
 An example is as follows
 ```
-python scripts/submitRivetRun.py  -n -1 -q local 
-       -o results_Rt_0_kappa_0 
-       -i /store/cmst3/group/top/summer2016/composite_tt01j_lhe/Rt_0_kappa_0.lhe 
-       -c UserCode/RivetAnalysis/python/Hadronizer_MgmMatchTuneCUEP8S1CTEQ6L1_13TeV_madgraph_pythia8_Tauola_cff
+python scripts/submitRivetRun.py  -n -1 -q local \
+       -o results_Rt_0_kappa_0 \
+       -i /store/cmst3/user/psilva/CompositeTop/Rt_0.00E+00_kappat_0.00E+00_xqcut_20.0_njetmax_1_qcut_30.0.root \
+       -c UserCode/RivetAnalysis/python/Hadronizer_MgmMatchTuneCUEP8S1CTEQ6L1_13TeV_madgraph_pythia8_Tauola_cff \
        -r UserCode/RivetAnalysis/rivet_customise.customiseTOPRadius
 ```
 If local is changed to a batch queue (e.g. 8nh) the job is submited to lxbatch for execution
@@ -40,8 +40,7 @@ The output of the job can be plotted using the standard tools
 
 ```
 rivet-mkhtml -s --mc-errs -o ~/public/html/TopRadius --times \
-	     results/Rt_0_kappa_0/out_1.yoda:'SM' \
-	     results/Rt_5e_6_kappa_0/out_1.yoda:'R_{t}=5e-6' \
+	     results_Rt_0_kappa_0/Hadronizer_MgmMatchTuneCUEP8S1CTEQ6L1_13TeV_madgraph_pythia8_Tauola_cff/out_1.yoda:'R_{t}=0 \kappa=0'
 ```
 An html page will be generated and can be opened from a browser @
 ```

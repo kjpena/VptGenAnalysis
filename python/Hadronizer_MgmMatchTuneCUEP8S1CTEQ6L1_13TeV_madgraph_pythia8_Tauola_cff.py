@@ -22,10 +22,10 @@ generator = cms.EDFilter("Pythia8HadronizerFilter",
                          jetMatching = cms.untracked.PSet(
         scheme = cms.string("Madgraph"),
         mode = cms.string("auto"),# soup, or "inclusive" / "exclusive"
-        MEMAIN_etaclmax = cms.double(-1),
-        MEMAIN_qcut = cms.double(-1),
-        MEMAIN_minjets = cms.int32(-1),
-        MEMAIN_maxjets = cms.int32(-1),
+        MEMAIN_etaclmax = cms.double(5),
+        MEMAIN_qcut = cms.double(30),
+        MEMAIN_minjets = cms.int32(0),
+        MEMAIN_maxjets = cms.int32(0),
         MEMAIN_showerkt = cms.double(0), # use 1=yes only for pt-ordered showers !
         MEMAIN_nqmatch = cms.int32(5), #PID of the flavor until which the QCD radiation are kept in the matching procedure;
         # if nqmatch=4, then all showered partons from b's are NOT taken into account
@@ -33,12 +33,11 @@ generator = cms.EDFilter("Pythia8HadronizerFilter",
         MEMAIN_excres = cms.string(""),
         outTree_flag = cms.int32(0) # 1=yes, write out the tree for future sanity check
         ),
-                         PythiaParameters = cms.PSet(
-        processParameters = cms.vstring(
-            'Main:timesAllowErrors = 10000',
-            'ParticleDecays:tauMax = 10',
-            ),
-    parameterSets = cms.vstring('pythia8CUEP8S1cteqSettings',
-                                'processParameters')
-    )
-)
+                         PythiaParameters = cms.PSet( processParameters = cms.vstring('Main:timesAllowErrors = 10000',
+                                                                                      'ParticleDecays:tauMax = 10',
+                                                                                      ),
+                                                      pythia8CUEP8S1cteqSettings=pythia8CUEP8S1cteqSettingsBlock.pythia8CUEP8S1cteqSettings,
+                                                      parameterSets = cms.vstring('pythia8CUEP8S1cteqSettings',
+                                                                                  'processParameters')
+                                                      )
+                         )

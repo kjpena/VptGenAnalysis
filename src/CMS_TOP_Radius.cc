@@ -82,15 +82,17 @@ namespace Rivet {
       histos["b_pttrail"] = bookHisto1D("b_pttrail",50,0,150);      
       histos["b_etacen"]  = bookHisto1D("b_etacen", 25,0,2.5);
       histos["b_etafwd"]  = bookHisto1D("b_etafwd", 25,0,2.5);   
+      histos["mbb"]       = bookHisto1D("mbb", 25,0,200);      
       histos["bptsum"]    = bookHisto1D("bptsum", 25,0,200);      
       histos["dphibb"]    = bookHisto1D("dphibb", 25,0,3.16);      
+
       histos["nb"]        = bookHisto1D("nb", 4,0,4);        
+      histos["nj"]         = bookHisto1D("nj", 4,0,4);        
 
       histos["vispt"]     = bookHisto1D("vispt", 25,0,200);         
       histos["vismass"]   = bookHisto1D("vismass", 25,0,200);         
       histos["visht"]     = bookHisto1D("visht", 25,0,200);       
 
-      histos["nj"]         = bookHisto1D("nj", 4,0,4);        
       histos["j_ptlead"]   = bookHisto1D("j_ptlead", 50,0,150);
       histos["j_etalead"]  = bookHisto1D("j_etalead", 25,0,2.5);
     }
@@ -107,11 +109,11 @@ namespace Rivet {
       if ( leptons.size() < 2) vetoEvent; 
 
       //require ee/mm/em
-      int ch=leptons[0].abspid() * leptons[0].abspid();
+      int ch=leptons[0].abspid() * leptons[1].abspid();
       if( ch != PID::ELECTRON * PID::MUON && ch != PID::ELECTRON*PID::ELECTRON && ch!=PID::MUON*PID::MUON ) vetoEvent;
 
       //require opposite sign 
-      if( leptons[0].charge() * leptons[0].charge() >=0 ) vetoEvent; 
+      if( leptons[0].charge() * leptons[1].charge() >=0 ) vetoEvent; 
       
       // jet multiplicity 
       const FastJets& jetpro = applyProjection<FastJets>(event, "Jets");
@@ -147,14 +149,15 @@ namespace Rivet {
       histos["dphibb"]->fill( deltaPhi(bjets[0],bjets[1]),weight);
       histos["bptsum"]->fill(bptsum,weight);
 
+      histos["nb"]->fill(bjets.size(),weight);
+      histos["nj"]->fill(otherjets.size(),weight);
+
       const FourMomentum visP4=llP4+bbP4;
       float visHt=lptsum+bptsum;
       histos["vispt"]->fill(visP4.pt(),weight);
       histos["vismass"]->fill(visP4.mass(),weight);
       histos["visht"]->fill(visHt,weight);
       
-      histos["nb"]->fill(bjets.size(),weight);
-      histos["nj"]->fill(otherjets.size(),weight);
       if(otherjets.size())
 	{
 	  histos["j_ptlead"]->fill(otherjets[0].pt(),weight);
