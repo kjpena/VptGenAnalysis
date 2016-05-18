@@ -36,7 +36,7 @@ namespace Rivet {
     void init() 
     {
       // define the acceptance of the final state
-      const FinalState fs(-2.5,2.5,0.0*GeV);
+      const FinalState fs(-5.0,5.0,0.0*GeV);
       addProjection(fs, "FS");
 
       //photons
@@ -70,31 +70,31 @@ namespace Rivet {
       addProjection(chfs, "chfs"); 
 
       //book histograms
-      histos["l_ptlead"]  = bookHisto1D("l_ptlead", 50,0,150);
-      histos["l_pttrail"] = bookHisto1D("l_pttrail",50,0,150);      
-      histos["l_etacen"]  = bookHisto1D("l_etacen", 25,0,2.5);
-      histos["l_etafwd"]  = bookHisto1D("l_etafwd", 25,0,2.5);      
-      histos["mll"]       = bookHisto1D("mll", 25,0,200);      
-      histos["dphill"]    = bookHisto1D("dphill", 25,0,3.16);      
-      histos["lptsum"]    = bookHisto1D("lptsum", 25,0,200);      
+      histos["l_ptlead"]  = bookHisto1D("l_ptlead", 20,0,400);
+      histos["l_pttrail"] = bookHisto1D("l_pttrail",20,0,400);      
+      histos["l_etacen"]  = bookHisto1D("l_etacen", 10,0,5.0);
+      histos["l_etafwd"]  = bookHisto1D("l_etafwd", 10,0,5.0);      
+      histos["mll"]       = bookHisto1D("mll", 25,0,1000);      
+      histos["lptsum"]    = bookHisto1D("lptsum", 25,0,1000);      
+      histos["dphill"]    = bookHisto1D("dphill", 10,0,3.16);      
 
-      histos["b_ptlead"]  = bookHisto1D("b_ptlead", 50,0,150);
-      histos["b_pttrail"] = bookHisto1D("b_pttrail",50,0,150);      
-      histos["b_etacen"]  = bookHisto1D("b_etacen", 25,0,2.5);
-      histos["b_etafwd"]  = bookHisto1D("b_etafwd", 25,0,2.5);   
-      histos["mbb"]       = bookHisto1D("mbb", 25,0,200);      
-      histos["bptsum"]    = bookHisto1D("bptsum", 25,0,200);      
-      histos["dphibb"]    = bookHisto1D("dphibb", 25,0,3.16);      
+      histos["b_ptlead"]  = bookHisto1D("b_ptlead", 20,0,400);
+      histos["b_pttrail"] = bookHisto1D("b_pttrail",20,0,400);      
+      histos["b_etacen"]  = bookHisto1D("b_etacen", 10,0,5.0);
+      histos["b_etafwd"]  = bookHisto1D("b_etafwd", 10,0,5.0);   
+      histos["mbb"]       = bookHisto1D("mbb", 25,0,1000);      
+      histos["bptsum"]    = bookHisto1D("bptsum", 25,0,1000);      
+      histos["dphibb"]    = bookHisto1D("dphibb", 10,0,3.16);      
 
-      histos["nb"]        = bookHisto1D("nb", 4,0,4);        
-      histos["nj"]         = bookHisto1D("nj", 4,0,4);        
+      histos["nb"]        = bookHisto1D("nb", 4,2,6);        
+      histos["nj"]         = bookHisto1D("nj", 5,0,5);        
 
-      histos["vispt"]     = bookHisto1D("vispt", 25,0,200);         
-      histos["vismass"]   = bookHisto1D("vismass", 25,0,200);         
-      histos["visht"]     = bookHisto1D("visht", 25,0,200);       
+      histos["vispt"]     = bookHisto1D("vispt", 10,0,1000);         
+      histos["vismass"]   = bookHisto1D("vismass", 10,0,1000);         
+      histos["visht"]     = bookHisto1D("visht", 10,0,1000);       
 
-      histos["j_ptlead"]   = bookHisto1D("j_ptlead", 50,0,150);
-      histos["j_etalead"]  = bookHisto1D("j_etalead", 25,0,2.5);
+      histos["j_ptlead"]   = bookHisto1D("j_ptlead", 20,0,400);
+      histos["j_etalead"]  = bookHisto1D("j_etalead", 10,0,5.0);
     }
     
     
@@ -131,10 +131,11 @@ namespace Rivet {
       //fill histos
       const FourMomentum llP4=leptons[0].momentum()+leptons[1].momentum();
       float lptsum=leptons[0].pt()+leptons[1].pt();
+      
       histos["l_ptlead"]->fill( max(leptons[0].pt(),leptons[1].pt()), weight );
       histos["l_pttrail"]->fill( min(leptons[0].pt(),leptons[1].pt()), weight );
-      histos["l_etacen"]->fill( max(fabs(leptons[0].eta()),fabs(leptons[1].eta())), weight );
-      histos["l_etafwd"]->fill( min(fabs(leptons[0].eta()),fabs(leptons[1].eta())), weight );
+      histos["l_etacen"]->fill( min(fabs(leptons[0].eta()),fabs(leptons[1].eta())), weight );
+      histos["l_etafwd"]->fill( max(fabs(leptons[0].eta()),fabs(leptons[1].eta())), weight );
       histos["mll"]->fill(llP4.mass(),weight);
       histos["dphill"]->fill( deltaPhi(leptons[0],leptons[1]),weight);
       histos["lptsum"]->fill(lptsum,weight);
@@ -143,8 +144,8 @@ namespace Rivet {
       float bptsum=bjets[0].pt()+bjets[1].pt();
       histos["b_ptlead"]->fill( max(bjets[0].pt(),bjets[1].pt()), weight );
       histos["b_pttrail"]->fill( min(bjets[0].pt(),bjets[1].pt()), weight );
-      histos["b_etacen"]->fill( max(fabs(bjets[0].eta()),fabs(bjets[1].eta())), weight );
-      histos["b_etafwd"]->fill( min(fabs(bjets[0].eta()),fabs(bjets[1].eta())), weight );
+      histos["b_etacen"]->fill( min(fabs(bjets[0].eta()),fabs(bjets[1].eta())), weight );
+      histos["b_etafwd"]->fill( max(fabs(bjets[0].eta()),fabs(bjets[1].eta())), weight );
       histos["mbb"]->fill(bbP4.mass(),weight);
       histos["dphibb"]->fill( deltaPhi(bjets[0],bjets[1]),weight);
       histos["bptsum"]->fill(bptsum,weight);
