@@ -1,6 +1,9 @@
 # BEGIN PLOT /CMS_TOP_Radius/*
 Title=Madgraph$+$Pythia 8 ($\sqrt{s}=$13 TeV)
-YLabel=Events
+YLabel=Events [pb]
+#RatioPlotYMin=0
+#RatioPlotYMax=1
+RatioPlotErrorBandColor=lightgray
 NormalizeToIntegral=1
 # END PLOT
 
@@ -14,6 +17,14 @@ XLabel=Pseudo-rapidity, most forward b
 
 # BEGIN PLOT /CMS_TOP_Radius/b_ptlead
 XLabel=$p_{\rm T}$ [GeV], leading b
+# END PLOT
+
+# BEGIN PLOT /CMS_TOP_Radius/st
+XLabel=$p_{\rm T}(\ell_1)+p_{\rm T}(\ell_2)$ [GeV]
+# END PLOT
+
+# BEGIN PLOT /CMS_TOP_Radius/met_pt
+XLabel=Missing transverse energy [GeV]
 # END PLOT
 
 # BEGIN PLOT /CMS_TOP_Radius/b_pttrail
@@ -81,7 +92,7 @@ XLabel=$H^{\rm vis}_{\rm T}=p_{\rm T}(b_1)+p_{\rm T}(\ell_1)+p_{\rm T}(b_2)+p_{\
 # END PLOT
 
 # BEGIN PLOT /CMS_TOP_Radius/vismass
-XLabel=$M^{\rm vis}_{\rm T}=M(b_1,\ell_1,b_2,\ell_2)$ [GeV]
+XLabel=$M_{\rm vis}=M(b_1,\ell_1,b_2,\ell_2)$ [GeV]
 # END PLOT
 
 # BEGIN PLOT /CMS_TOP_Radius/vispt 

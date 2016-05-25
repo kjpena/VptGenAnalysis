@@ -15,7 +15,7 @@ options.register('module',
                  "module to run"
                  )
 options.register('input', 
-		 'root://eoscms//eos/cms/store/cmst3/user/psilva/CompositeTop/Rt_0.00E+00_kappat_0.00E+00_xqcut_20.0_njetmax_1_qcut_30.0.root',
+		 'root://eoscms//eos/cms/store/cmst3/user/psilva/CompositeTop/Rt_0.00E+00_kappat_0.00E+00_xqcut_20.0_njetmax_0_qcut_40.0.root',
                  VarParsing.multiplicity.singleton,
                  VarParsing.varType.string,
                  "input file to process"
