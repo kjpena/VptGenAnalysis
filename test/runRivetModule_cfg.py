@@ -30,7 +30,6 @@ process.load('Configuration.StandardSequences.Services_cff')
 process.load('SimGeneral.HepPDTESSource.pythiapdt_cfi')
 process.load('FWCore.MessageService.MessageLogger_cfi')
 
-print options.maxEvents
 process.maxEvents = cms.untracked.PSet(
     input = cms.untracked.int32(options.maxEvents)
 )
