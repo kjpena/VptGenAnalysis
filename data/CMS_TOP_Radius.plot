@@ -1,100 +1,25 @@
 # BEGIN PLOT /CMS_TOP_Radius/*
 Title=Madgraph$+$Pythia 8 ($\sqrt{s}=$13 TeV)
-YLabel=Events [pb]
-#RatioPlotYMin=0
-#RatioPlotYMax=1
+RatioPlotYMin=0.2
+RatioPlotYMax=1.8
 RatioPlotErrorBandColor=lightgray
-NormalizeToIntegral=1
 # END PLOT
 
-# BEGIN PLOT /CMS_TOP_Radius/b_etacen
-XLabel=Pseudo-rapidity, most central b
+# BEGIN PLOT /CMS_TOP_Radius/xsec
+YLabel=$\sigma(pp\rightarrow t\bar{t}+X)$ [pb]
 # END PLOT
 
-# BEGIN PLOT /CMS_TOP_Radius/b_etafwd
-XLabel=Pseudo-rapidity, most forward b
-# END PLOT
-
-# BEGIN PLOT /CMS_TOP_Radius/b_ptlead
-XLabel=$p_{\rm T}$ [GeV], leading b
-# END PLOT
-
-# BEGIN PLOT /CMS_TOP_Radius/st
-XLabel=$p_{\rm T}(\ell_1)+p_{\rm T}(\ell_2)$ [GeV]
-# END PLOT
-
-# BEGIN PLOT /CMS_TOP_Radius/met_pt
-XLabel=Missing transverse energy [GeV]
-# END PLOT
-
-# BEGIN PLOT /CMS_TOP_Radius/b_pttrail
-XLabel=$p_{\rm T}$ [GeV], second-leading b
-# END PLOT
-
-# BEGIN PLOT /CMS_TOP_Radius/bptsum 
-XLabel=$p_{\rm T}(b_1)+p_{\rm T}(b_2)$ [GeV]
-# END PLOT
-
-# BEGIN PLOT /CMS_TOP_Radius/dphibb 
-XLabel=$\Delta\phi(b_1,b_2)$ [rad]
-# END PLOT
-
-# BEGIN PLOT /CMS_TOP_Radius/dphill 
-XLabel=$\Delta\phi(\ell_1,\ell_2)$ [rad]
-# END PLOT
-
-# BEGIN PLOT /CMS_TOP_Radius/j_etalead 
-XLabel=Pseudo-rapidity, leading non-b jet
-# END PLOT
-
-# BEGIN PLOT /CMS_TOP_Radius/j_ptlead 
-XLabel=$p_{\rm T}$ [GeV], leading non-b jet
-# END PLOT
-
-# BEGIN PLOT /CMS_TOP_Radius/l_etacen 
-XLabel=Pseudo-rapidity, most central lepton
-# END PLOT
-
-# BEGIN PLOT /CMS_TOP_Radius/l_etafwd 
-XLabel=Pseudo-rapidity, most forward lepton
-# END PLOT
-
-# BEGIN PLOT /CMS_TOP_Radius/l_ptlead 
-XLabel=$p_{\rm T}$ [GeV], leading lepton
-# END PLOT
-
-# BEGIN PLOT /CMS_TOP_Radius/l_pttrail 
-XLabel=$p_{\rm T}$ [GeV], second-leading lepton
-# END PLOT
-
-# BEGIN PLOT /CMS_TOP_Radius/lptsum 
-XLabel=$p_{\rm T}(\ell_1)+p_{\rm T}(\ell_2)$ [GeV]
-# END PLOT
-
-# BEGIN PLOT /CMS_TOP_Radius/mbb 
-XLabel=$M(b_1,b_2)$ [GeV]
-# END PLOT
-
-# BEGIN PLOT /CMS_TOP_Radius/mll 
-XLabel=$M(\ell_1,\ell_2)$ [GeV]
-# END PLOT
-
-# BEGIN PLOT /CMS_TOP_Radius/nb 
-XLabel=b jet multiplicity
-# END PLOT
-
-# BEGIN PLOT /CMS_TOP_Radius/nj 
-XLabel=Non-b jet multiplicity
+# BEGIN PLOT /CMS_TOP_Radius/inistate
+XLabel=Initial state (0=gg,1=qg,2=$q\bar{q}$)
+YLabel=Events [pb]
 # END PLOT
 
 # BEGIN PLOT /CMS_TOP_Radius/visht 
 XLabel=$H^{\rm vis}_{\rm T}=p_{\rm T}(b_1)+p_{\rm T}(\ell_1)+p_{\rm T}(b_2)+p_{\rm T}(\ell_2)$ [GeV] 
+YLabel=Events [pb]
 # END PLOT
 
-# BEGIN PLOT /CMS_TOP_Radius/vismass
-XLabel=$M_{\rm vis}=M(b_1,\ell_1,b_2,\ell_2)$ [GeV]
-# END PLOT
-
-# BEGIN PLOT /CMS_TOP_Radius/vispt 
-XLabel=$p^{\rm vis}_{\rm T}=|\vec{p}_{\rm T}(b_1)+\vec{p}_{\rm T}(\ell_1)+\vec{p}_{\rm T}(b_2)+\vec{p}_{\rm T}(\ell_2)|$ [GeV] 
+# BEGIN PLOT /CMS_TOP_Radius/dphill
+XLabel=$\Delta\phi(\ell,\ell')$ [rad]
+YLabel=Events [pb]
 # END PLOT

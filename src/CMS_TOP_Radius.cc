@@ -74,43 +74,12 @@ namespace Rivet {
       // Add MissingMomentum proj to calc MET
       MissingMomentum vismom(fs);
       addProjection(vismom, "MissingET");
-
-      histos["inistate"]  = bookHisto1D("inistate",3,0,3);
-      histos["xsec"]      = bookHisto1D("xsec",1,0,1);
       
       //book histograms
-      histos["l_ptlead"]  = bookHisto1D("l_ptlead", 20,0,400);
-      histos["l_pttrail"] = bookHisto1D("l_pttrail",20,0,400);      
-      histos["l_etacen"]  = bookHisto1D("l_etacen", 10,0,5.0);
-      histos["l_etafwd"]  = bookHisto1D("l_etafwd", 10,0,5.0);      
-      histos["mll"]       = bookHisto1D("mll", 25,0,1000);      
-      histos["lptsum"]    = bookHisto1D("lptsum", 25,0,1000);      
-      histos["dphill"]    = bookHisto1D("dphill", 10,0,3.16);      
-      
-      histos["met_pt"]   = bookHisto1D("met_pt", 20,0,400);
-      histos["metll_pt"] = bookHisto1D("metll_pt", 20,0,400);
-      histos["st"]       = bookHisto1D("st", 20,0,400);
-      histos["m_T2"]     = bookHisto1D("m_T2", 20,0,200);
-
-      histos["b_ptlead"]  = bookHisto1D("b_ptlead", 20,0,400);
-      histos["b_pttrail"] = bookHisto1D("b_pttrail",20,0,400);      
-      histos["b_etacen"]  = bookHisto1D("b_etacen", 10,0,5.0);
-      histos["b_etafwd"]  = bookHisto1D("b_etafwd", 10,0,5.0);   
-      histos["mbb"]       = bookHisto1D("mbb", 25,0,1000);      
-      histos["bptsum"]    = bookHisto1D("bptsum", 25,0,1000);      
-      histos["dphibb"]    = bookHisto1D("dphibb", 10,0,3.16);      
-      histos["m_T2bb"]    = bookHisto1D("m_T2bb", 20,0,200);
-
-      histos["nb"]        = bookHisto1D("nb", 4,2,6);        
-      histos["nj"]         = bookHisto1D("nj", 5,0,5);        
-
-      histos["vispt"]     = bookHisto1D("vispt", 10,0,1000);         
-      histos["vismass"]   = bookHisto1D("vismass", 10,0,1000);         
-      histos["visht"]     = bookHisto1D("visht", 10,0,1000);       
+      histos["inistate"]  = bookHisto1D("inistate",3,0,3);
+      histos["xsec"]      = bookHisto1D("xsec",1,0,1);
+      histos["dphill"]    = bookHisto1D("dphill", 20,0,2*M_PI);      
       histos["ht"]        = bookHisto1D("ht", 20,0,1000);
-
-      histos["j_ptlead"]   = bookHisto1D("j_ptlead", 20,0,400);
-      histos["j_etalead"]  = bookHisto1D("j_etalead", 10,0,5.0);
     }
     
     
@@ -120,7 +89,7 @@ namespace Rivet {
 
       const double weight = event.weight();
 
-      //pdf info
+      //pdf and cross section info
       const HepMC::PdfInfo *pdf=event.genEvent()->pdf_info();
       int iniStateBin(0);
       if( pdf->id1()==21 && pdf->id2()==21) iniStateBin=2;
@@ -139,12 +108,10 @@ namespace Rivet {
       //require opposite sign 
       if( leptons[0].charge() * leptons[1].charge() >=0 ) vetoEvent; 
       
-      // jet multiplicity 
+      // jets
+      Jets bjets,otherjets;
       const FastJets& jetpro = applyProjection<FastJets>(event, "Jets");
       const Jets alljets = jetpro.jetsByPt(30*GeV,MAXDOUBLE,-4.7,4.7);
-
-      // b-tagging
-      Jets bjets,otherjets;
       foreach (const Jet& jet, alljets) 
 	{
 	  if(fabs(jet.eta())<2.5 && jet.containsBottom()) bjets.push_back(jet);
@@ -152,68 +119,21 @@ namespace Rivet {
 	}
       if(bjets.size()<2) vetoEvent;
 
-      //dilepton
-      const FourMomentum llP4=leptons[0].momentum()+leptons[1].momentum();
-      float lptsum=leptons[0].pt()+leptons[1].pt();
-
-      //met
+      //missing transverse energy
       const FourMomentum vismom = applyProjection<MissingMomentum>(event, "MissingET").visibleMomentum();
       const FourMomentum missmom(-vismom.px(),-vismom.py(),0,vismom.pt());
 
-      // calculate mT2
-      double m_T2 = mT2::mT2( leptons[0].momentum(),leptons[1].momentum(),missmom,0);
+      //variables to plot
+      float ht=leptons[0].pt()+leptons[1].pt()+bjets[0].pt()+bjets[1].pt()+missmom.pt();
+      float dphill=deltaPhi(leptons[0],leptons[1]);
+      if(ht>500) dphill += M_PI;
 
-      //2b's
-      const FourMomentum bbP4=bjets[0].momentum()+bjets[1].momentum();
-      float bptsum=bjets[0].pt()+bjets[1].pt();
-
-      //calculate mT2bb
-      const FourMomentum metll = missmom-llP4;
-      double m_T2bb = mT2::mT2( bjets[0].momentum(),bjets[1].momentum(),metll,0);
-
-      //visible system
-      const FourMomentum visP4=llP4+bbP4;
-      float visHt=lptsum+bptsum;
-
-      //fill histos
-      histos["l_ptlead"]->fill( max(leptons[0].pt(),leptons[1].pt()), weight );
-      histos["l_pttrail"]->fill( min(leptons[0].pt(),leptons[1].pt()), weight );
-      histos["l_etacen"]->fill( min(fabs(leptons[0].eta()),fabs(leptons[1].eta())), weight );
-      histos["l_etafwd"]->fill( max(fabs(leptons[0].eta()),fabs(leptons[1].eta())), weight );
-      histos["mll"]->fill(llP4.mass(),weight);
-      histos["dphill"]->fill( deltaPhi(leptons[0],leptons[1]),weight);
-      histos["lptsum"]->fill(lptsum,weight);
-      
-      histos["met_pt"]->fill( missmom.pt(), weight );
-      histos["metll_pt"]->fill( metll.pt(), weight );
-      histos["st"]->fill( llP4.pt()+missmom.pt(), weight );
-      histos["m_T2"]->fill( m_T2,weight );
-      
-      histos["b_ptlead"]->fill( max(bjets[0].pt(),bjets[1].pt()), weight );
-      histos["b_pttrail"]->fill( min(bjets[0].pt(),bjets[1].pt()), weight );
-      histos["b_etacen"]->fill( min(fabs(bjets[0].eta()),fabs(bjets[1].eta())), weight );
-      histos["b_etafwd"]->fill( max(fabs(bjets[0].eta()),fabs(bjets[1].eta())), weight );
-      histos["mbb"]->fill(bbP4.mass(),weight);
-      histos["dphibb"]->fill( deltaPhi(bjets[0],bjets[1]),weight);
-      histos["bptsum"]->fill(bptsum,weight);
-      histos["m_T2bb"]->fill( m_T2bb,weight );
-      
-      histos["nb"]->fill(bjets.size(),weight);
-      histos["nj"]->fill(otherjets.size(),weight);
-     
-      histos["vispt"]->fill(visP4.pt(),weight);
-      histos["vismass"]->fill(visP4.mass(),weight);
-      histos["visht"]->fill(visHt,weight);
-      histos["ht"]->fill(missmom.pt()+visHt,weight);
-      
-      if(otherjets.size())
-	{
-	  histos["j_ptlead"]->fill(otherjets[0].pt(),weight);
-	  histos["j_etalead"]->fill(fabs(otherjets[0].eta()),weight);
-	}
+      //fill histograms
+      histos["dphill"]->fill(dphill,weight);
+      histos["ht"]->fill(ht,weight);      
     }
     
-    /// Normalise histograms etc., after the run
+    /// Normalise histograms by the cross section
     void finalize() 
     {
       double norm = crossSection()/sumOfWeights();
