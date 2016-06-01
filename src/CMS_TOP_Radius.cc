@@ -46,10 +46,13 @@ namespace Rivet {
       gammafs.acceptIdPair(PID::PHOTON);
       
       //charged leptons
-      IdentifiedFinalState lep_id(-2.5,2.5,20*GeV);
+      Cut ptcut = Cuts::range(Cuts::pT, 20, MAXDOUBLE);  
+      Cut etacut = Cuts::range(Cuts::eta, -2.5, 2.5);
+      Cut ptetacut = ptcut && etacut;  
+      IdentifiedFinalState lep_id(ptetacut);
       lep_id.acceptIdPair(PID::MUON);
       lep_id.acceptIdPair(PID::ELECTRON);
-      DressedLeptons ewdressedleptons(gammafs, lep_id, 0.1, true, -2.5, 2.5, 20*GeV, true);
+      DressedLeptons ewdressedleptons(gammafs, lep_id, 0.1, ptetacut, true, true);
       addProjection(ewdressedleptons, "Leptons");
 
       // neutrinos
@@ -98,7 +101,7 @@ namespace Rivet {
       histos["xsec"]->fill(0,weight);
 
       //require 2 leptons
-      const std::vector<DressedLepton> &leptons     = applyProjection<DressedLeptons>(event, "Leptons").clusteredLeptons();
+      const std::vector<DressedLepton> &leptons     = applyProjection<DressedLeptons>(event, "Leptons").dressedLeptons();
       if ( leptons.size() < 2) vetoEvent; 
 
       //require ee/mm/em
@@ -111,7 +114,10 @@ namespace Rivet {
       // jets
       Jets bjets,otherjets;
       const FastJets& jetpro = applyProjection<FastJets>(event, "Jets");
-      const Jets alljets = jetpro.jetsByPt(30*GeV,MAXDOUBLE,-4.7,4.7);
+      Cut ptcut = Cuts::range(Cuts::pT, 30, MAXDOUBLE);
+      Cut etacut = Cuts::range(Cuts::eta, -4.7, 4.7);
+      Cut ptetacut = ptcut && etacut; 
+      const Jets alljets = jetpro.jetsByPt(ptetacut);
       foreach (const Jet& jet, alljets) 
 	{
 	  if(fabs(jet.eta())<2.5 && jet.containsBottom()) bjets.push_back(jet);

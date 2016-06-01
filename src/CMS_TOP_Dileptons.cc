@@ -43,10 +43,13 @@ namespace Rivet {
       gammafs.acceptIdPair(PID::PHOTON);
       
       //charged leptons
-      IdentifiedFinalState lep_id(-2.5,2.5,20*GeV);
+      Cut ptcut = Cuts::range(Cuts::pT, 20, MAXDOUBLE); 
+      Cut etacut = Cuts::range(Cuts::eta, -2.5, 2.5); 
+      Cut ptetacut = ptcut && etacut; 
+      IdentifiedFinalState lep_id(ptetacut);
       lep_id.acceptIdPair(PID::MUON);
       lep_id.acceptIdPair(PID::ELECTRON);
-      DressedLeptons ewdressedleptons(gammafs, lep_id, 0.1, true, -2.5, 2.5, 20*GeV, true);
+      DressedLeptons ewdressedleptons(gammafs, lep_id, 0.1, ptetacut, true, true); 
       addProjection(ewdressedleptons, "Leptons");
 
       // neutrinos
@@ -114,7 +117,7 @@ namespace Rivet {
       const double weight = event.weight();
 
       //require 2 leptons
-      const std::vector<DressedLepton> &leptons     = applyProjection<DressedLeptons>(event, "Leptons").clusteredLeptons();
+      const std::vector<DressedLepton> &leptons     = applyProjection<DressedLeptons>(event, "Leptons").dressedLeptons();
       if ( leptons.size() < 2) vetoEvent; 
       int leadLepIdx(0),trailerLepIdx(1);
       if(leptons[0].momentum().pT()<leptons[1].momentum().pT()) { leadLepIdx=1; trailerLepIdx=0; }
@@ -137,11 +140,16 @@ namespace Rivet {
 
       // jet multiplicity 
       const FastJets& jetpro = applyProjection<FastJets>(event, "Jets");
-      const Jets alljets = jetpro.jetsByPt(20*GeV,MAXDOUBLE,-2.5,2.5);
+      Cut ptcut = Cuts::range(Cuts::pT, 20, MAXDOUBLE);
+      Cut etacut = Cuts::range(Cuts::eta, -2.5, 2.5);
+      Cut ptetacut = ptcut && etacut; 
+      const Jets alljets = jetpro.jetsByPt(ptetacut);
       if (alljets.size() < 2) vetoEvent;
 
       // jets minimum jet pt requirement
-      const Jets jets = jetpro.jetsByPt(30*GeV,MAXDOUBLE,-2.5,2.5);
+      Cut tightptcut = Cuts::range(Cuts::pT, 30, MAXDOUBLE);
+      Cut tightptetacut = tightptcut && etacut; 
+      const Jets jets = jetpro.jetsByPt(tightptetacut);
       if (jets.size() < 1)  vetoEvent;
 
       // b-tagging: this should change to take into account b-tag and mistag rates
