@@ -28,3 +28,30 @@ YLabel=Events [pb]
 XLabel=$\Delta\phi(\ell,\ell')$ [rad]
 YLabel=Events [pb]
 # END PLOT
+
+# BEGIN PLOT /CMS_TOP_Radius/dphibb
+XLabel=$\Delta\phi(b,b')$ [rad]
+YLabel=Events [pb]
+# END PLOT
+
+# BEGIN PLOT /CMS_TOP_Radius/mttbar
+XLabel=$M(t\bar{t})$ [GeV]
+YLabel=Events [pb]
+# END PLOT
+
+# BEGIN PLOT /CMS_TOP_Radius/costhetabb
+XLabel=$\cos\theta^*(b,b')$
+YLabel=Events [pb]
+# END PLOT
+
+# BEGIN PLOT /CMS_TOP_Radius/costhetall
+XLabel=$\cos\theta^*(\ell,\ell')$
+YLabel=Events [pb]
+# END PLOT
+
+# BEGIN PLOT /CMS_TOP_Radius/costhetallvscosthetabb
+XLabel=$\cos\theta^*(b,b')$
+YLabel=$\cos\theta^*(\ell,\ell')$
+ZLabel=Events [pb]
+# END PLOT
+
