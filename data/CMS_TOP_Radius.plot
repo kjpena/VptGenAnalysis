@@ -40,18 +40,18 @@ YLabel=Events [pb]
 # END PLOT
 
 # BEGIN PLOT /CMS_TOP_Radius/costhetabb
-XLabel=$\cos\theta^*(b,b')$
+XLabel=$\cos\theta(b,b')$
 YLabel=Events [pb]
 # END PLOT
 
 # BEGIN PLOT /CMS_TOP_Radius/costhetall
-XLabel=$\cos\theta^*(\ell,\ell')$
+XLabel=$\cos\theta(\ell,\ell')$
 YLabel=Events [pb]
 # END PLOT
 
 # BEGIN PLOT /CMS_TOP_Radius/costhetallvscosthetabb
-XLabel=$\cos\theta^*(b,b')$
-YLabel=$\cos\theta^*(\ell,\ell')$
+XLabel=$\cos\theta(b,b')$
+YLabel=$\cos\theta(\ell,\ell')$
 ZLabel=Events [pb]
 # END PLOT
 
