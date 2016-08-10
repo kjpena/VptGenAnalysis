@@ -5,12 +5,12 @@ RivetAnalysis
 
 Install CMSSW and download this package and the generator configuration files
 ```
-cmsrel CMSSW_7_4_0
-cd CMSSW_7_4_0/src
+cmsrel CMSSW_8_0_8_patch1
+cd CMSSW_8_0_8_patch1/src
 cmsenv
 git cms-addpkg GeneratorInterface/RivetInterface 
 git clone git@github.com:pfs/RivetAnalysis.git UserCode/RivetAnalysis
-scram b -j 9
+scram b -j 8
 ```
 If you need to use yoda scripts, you can use the following extra variables
 ```
