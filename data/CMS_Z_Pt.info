@@ -1,0 +1,21 @@
+Name: CMS_Z_Pt
+Year: 2016
+Summary: 
+Experiment: CMS
+Collider: LHC
+InspireID: n/a
+Status: VALIDATED
+Authors:
+ - psilva@cern.ch
+RunInfo:
+NumEvents: 1
+NeedCrossSection: no
+Beams: [p+, p+]
+Energies: [8000]
+Description:
+  ''
+References:
+  - 
+BibKey: ''
+BibTeX: ''
+

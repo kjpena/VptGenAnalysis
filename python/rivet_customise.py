@@ -20,3 +20,13 @@ def customiseTOPRadius(process):
         process.generation_step+=process.rivetAnalyzer
         process.schedule.remove(process.RAWSIMoutput_step)
         return(process)
+
+def customiseZPt(process,LHEweightNumber=0):
+        process.load('GeneratorInterface.RivetInterface.rivetAnalyzer_cfi')
+        process.rivetAnalyzer.AnalysisNames = cms.vstring('CMS_Z_Pt')
+	process.rivetAnalyzer.useLHEweights = cms.bool(True)
+	process.rivetAnalyzer.LHEweightNumber = cms.int32(LHEweightNumber)
+	process.rivetAnalyzer.HepMCCollection = cms.InputTag('generator')
+        process.generation_step+=process.rivetAnalyzer
+        process.schedule.remove(process.RAWSIMoutput_step)
+        return(process)

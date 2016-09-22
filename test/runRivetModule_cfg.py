@@ -14,6 +14,12 @@ options.register('module',
                  VarParsing.varType.string,
                  "module to run"
                  )
+options.register('LHEweightNumber',
+                 0,
+                 VarParsing.multiplicity.singleton,
+                 VarParsing.varType.int,
+                 "event weight to use"
+                 )
 options.register('input', 
 		 'root://eoscms//eos/cms/store/cmst3/user/psilva/CompositeTop/Rt_0.00E+00_kappat_0.00E+00_xqcut_20.0_njetmax_0_qcut_40.0.root',
                  VarParsing.multiplicity.singleton,
@@ -49,6 +55,7 @@ from UserCode.RivetAnalysis.rivet_customise import *
 if options.module=='TOPRadius':    process = customiseTOPRadius(process)
 if options.module=='TOP13007':     process = customiseTOP13007(process)
 if options.module=='TOPDileptons': process = customiseTOPDileptons(process)
+if options.module=='ZPt'      :    process = customiseZPt(process,options.LHEweightNumber)
 
 process.rivetAnalyzer.OutputFile = cms.string(options.output)
 process.RandomNumberGeneratorService.generator.initialSeed=cms.untracked.uint32(1)
