@@ -24,7 +24,9 @@ def customiseTOPRadius(process):
 def customiseZPt(process,LHEweightNumber=0):
         process.load('GeneratorInterface.RivetInterface.rivetAnalyzer_cfi')
         process.rivetAnalyzer.AnalysisNames = cms.vstring('CMS_Z_Pt')
+	process.rivetAnalyzer.UseExternalWeight = cms.bool(True)
 	process.rivetAnalyzer.useLHEweights = cms.bool(True)
+	print LHEweightNumber,' is the weight index to use'
 	process.rivetAnalyzer.LHEweightNumber = cms.int32(LHEweightNumber)
 	process.rivetAnalyzer.HepMCCollection = cms.InputTag('generator')
         process.generation_step+=process.rivetAnalyzer

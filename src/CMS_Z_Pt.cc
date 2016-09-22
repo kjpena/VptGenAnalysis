@@ -61,8 +61,8 @@ namespace Rivet {
 	  std::string pf(i==0 ? "bare": "dressed");
 	  histos["zm_"+pf]       = bookHisto1D("zm_"+pf, 100,66,116);
 	  histos["zpt_"+pf]      = bookHisto1D("zpt_"+pf, 100,0,100);
-	  histos["zy_"+pf]       = bookHisto1D("zy_"+pf, 100,-6,6);	  
-	  histos["z_tkmet_"+pf]  = bookHisto1D("z_tkmet_"+pf, 100,0,100);
+	  histos["zy_"+pf]       = bookHisto1D("zy_"+pf, 100,-3,3);	  
+	  histos["z_tkmet_"+pf]  = bookHisto1D("z_tkmet_"+pf, 100,0,250);
 	  histos["mt_tkmet_"+pf] = bookHisto1D("mt_tkmet_"+pf, 100,0,100);
 	}
     }
@@ -72,7 +72,7 @@ namespace Rivet {
     {
 
       const double weight = event.weight();
-
+      
       //pdf and cross section info
       const HepMC::PdfInfo *pdf=event.genEvent()->pdf_info();
       int iniStateBin(0);
@@ -80,12 +80,10 @@ namespace Rivet {
       else if(pdf->id1()==21 || pdf->id2()==21) iniStateBin=1;
       histos["inistate"]->fill(iniStateBin,weight);
       histos["xsec"]->fill(0,weight);
-      
-      
+            
       const Particles &trks = applyProjection<FinalState>(event, "Tracks").particles();
       FourMomentum ptrks(0,0,0,0);
       foreach( const Particle & p, trks ) ptrks += p.momentum(); 
-
 
       const ZFinder& zfinder_dressed_mu = applyProjection<ZFinder>(event, "ZFinder_dressed_mu");
       if (!zfinder_dressed_mu.bosons().empty()) 
