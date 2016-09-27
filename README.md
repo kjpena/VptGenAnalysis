@@ -10,11 +10,12 @@ cd CMSSW_8_0_8_patch1/src
 cmsenv
 git cms-addpkg GeneratorInterface/RivetInterface 
 git clone git@github.com:pfs/RivetAnalysis.git UserCode/RivetAnalysis
+cp UserCode/RivetAnalysis/data/ATLAS* GeneratorInterface/RivetInterface/data/
 scram b -j 8
 ```
 If you need to use yoda scripts, you can use the following extra variables
 ```
-yodaver=1.3.0-cms2
+yodaver=`scram tool list > a.out && grep -ir yoda a.out | awk '{print $2}'`
 export PATH=${PATH}:/cvmfs/cms.cern.ch/$SCRAM_ARCH/external/yoda/$yodaver/bin
 ```
 

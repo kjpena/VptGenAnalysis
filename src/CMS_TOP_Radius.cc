@@ -22,7 +22,6 @@ namespace Rivet {
   private:
 
     std::map<string,Histo1DPtr> histos;
-    std::map<string,Histo2DPtr> histos2D;
     
 
   public:
@@ -65,7 +64,7 @@ namespace Rivet {
       VetoedFinalState vfs(fs);
       vfs.addVetoOnThisFinalState(ewdressedleptons);
       vfs.addVetoOnThisFinalState(nu_id);
-      FastJets jets(vfs, FastJets::ANTIKT, 0.5);
+      FastJets jets(vfs, FastJets::ANTIKT, 0.4);
       addProjection(jets, "Jets");
 
       //for pTmiss use visible final state particles with |eta|<5 
@@ -81,32 +80,37 @@ namespace Rivet {
       
       //book histograms
       histos["inistate"]   = bookHisto1D("inistate",3,0,3);
-      histos["xsec"]       = bookHisto1D("xsec",1,0,1);
-      histos["dphill"]     = bookHisto1D("dphill", 20,0,M_PI);      
-      histos["costhetall"] = bookHisto1D("costhetall", 20,-1,1);      
-      histos["dphibb"]     = bookHisto1D("dphibb", 20,0,M_PI);      
-      histos["costhetabb"] = bookHisto1D("costhetabb", 20,-1,1);      
-      histos2D["costhetallvscosthetabb"] = bookHisto2D("costhetallvscosthetabb",20,-1,1,20,-1,1);      
-      histos["mttbar"]     = bookHisto1D("mttbar", 50,0,2000);      
-      histos["ht"]         = bookHisto1D("ht", 20,0,1000);
+      for(int i=0; i<4; i++)
+	{
+	  std::string pf("");
+	  if(i==1) pf="_qq";
+	  if(i==2) pf="_qg";
+	  if(i==3) pf="_gg";
+	  
+	  histos["xsec"+pf]       = bookHisto1D("xsec"+pf,1,0,1);
+	  histos["dphill"+pf]     = bookHisto1D("dphill"+pf, 20,0,M_PI);      
+	  histos["dphibb"+pf]     = bookHisto1D("dphibb"+pf, 20,0,M_PI);      
+	  histos["mttbar"+pf]     = bookHisto1D("mttbar"+pf, 50,0,2000);      
+	}
     }
-    
     
     ///  the per-event analysis goes here
     void analyze(const Event& event) 
     {
-
       const double weight = event.weight();
 
       //pdf and cross section info
       const HepMC::PdfInfo *pdf=event.genEvent()->pdf_info();
       int iniStateBin(0);
-      if( pdf->id1()==21 && pdf->id2()==21) iniStateBin=2;
-      else if(pdf->id1()==21 || pdf->id2()==21) iniStateBin=1;
+      std::string pf("_qq");
+      if( pdf->id1()==21 && pdf->id2()==21)     { iniStateBin=2; pf="_gg"; }
+      else if(pdf->id1()==21 || pdf->id2()==21) { iniStateBin=1; pf="_qg"; }
+
       histos["inistate"]->fill(iniStateBin,weight);
       histos["xsec"]->fill(0,weight);
+      histos["xsec"+pf]->fill(0,weight);
 
-      //loop over genevent to find top quarks
+      //loop over genevent to find top quarks (gen level truth)
       ParticleVector tquarks;
       foreach(const GenParticle* p, Rivet::particles(event.genEvent()) ) 
 	{
@@ -114,11 +118,7 @@ namespace Rivet {
 	  if ( p->status()!=62) continue;
 	  tquarks.push_back( *p );
 	}
-      if(tquarks.size()!=2)
-	{
-	  cout << "Caught event with !=2 top quarks status 62 - bailing out" << endl;
-	  return;
-	}
+      const FourMomentum ttbar=tquarks[0].momentum()+tquarks[1].momentum();
 
       //require 2 leptons
       const std::vector<DressedLepton> &leptons     = applyProjection<DressedLeptons>(event, "Leptons").dressedLeptons();
@@ -134,7 +134,7 @@ namespace Rivet {
       // jets
       Jets bjets,otherjets;
       const FastJets& jetpro = applyProjection<FastJets>(event, "Jets");
-      Cut ptcut = Cuts::range(Cuts::pT, 30, MAXDOUBLE);
+      Cut ptcut = Cuts::range(Cuts::pT, 25, MAXDOUBLE);
       Cut etacut = Cuts::range(Cuts::eta, -4.7, 4.7);
       Cut ptetacut = ptcut && etacut; 
       const Jets alljets = jetpro.jetsByPt(ptetacut);
@@ -145,28 +145,20 @@ namespace Rivet {
 	}
       if(bjets.size()<2) vetoEvent;
 
-      //missing transverse energy
-      const FourMomentum vismom = applyProjection<MissingMomentum>(event, "MissingET").visibleMomentum();
-      const FourMomentum missmom(-vismom.px(),-vismom.py(),0,vismom.pt());
-
       //variables to plot
-      float ht         = leptons[0].pt()+leptons[1].pt()+bjets[0].pt()+bjets[1].pt()+missmom.pt();
       float dphill     = deltaPhi(leptons[0],leptons[1]);
-      float costhetall = cos(leptons[0].angle(leptons[1]));
       float dphibb     = deltaPhi(bjets[0],bjets[1]);
-      float costhetabb = cos(bjets[0].angle(bjets[1]));
 
-      //ttbar
-      const FourMomentum ttbar=tquarks[0].momentum()+tquarks[1].momentum();
 
       //fill histograms
-      histos["dphill"]->fill(dphill,weight);
-      histos["costhetall"]->fill(costhetall,weight);
-      histos["dphibb"]->fill(dphibb,weight);
-      histos["costhetabb"]->fill(costhetabb,weight);
-      histos2D["costhetallvscosthetabb"]->fill(costhetall,costhetabb,weight);
-      histos["mttbar"]->fill(ttbar.mass(),weight);
-      histos["ht"]->fill(ht,weight);      
+      for(int i=0; i<2; i++)
+	{
+	  std::string finalPF("");
+	  if(i==1) finalPF=pf;
+	  histos["dphill"+finalPF]->fill(dphill,weight);
+	  histos["dphibb"+finalPF]->fill(dphibb,weight);
+	  histos["mttbar"+finalPF]->fill(ttbar.mass(),weight);
+	}
     }
     
     /// Normalise histograms by the cross section
@@ -177,12 +169,8 @@ namespace Rivet {
 	  it != histos.end();
 	  it++)
 	scale(it->second,norm);
-
-      for(std::map<string,Histo2DPtr>::iterator it = histos2D.begin();
-	  it != histos2D.end();
-	  it++)
-	it->second->scaleW(norm);
     }
+    
   };
 
 

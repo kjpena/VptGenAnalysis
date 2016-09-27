@@ -23,7 +23,7 @@ namespace Rivet {
   private:
     
     std::map<string,Histo1DPtr> histos;
-    double _sumw_mu_bare,_sumw_mu_dressed;
+    std::map<string,double> _sumw;
     bool _usePosChLeptons;
     
   public:
@@ -33,8 +33,8 @@ namespace Rivet {
       Analysis("CMS_Z_Pt")
     { 
       //setBeams(PROTON, PROTON);
-      _sumw_mu_bare = 0;
-      _sumw_mu_dressed = 0;
+      _sumw["bare"]=0;
+      _sumw["dressed"]=0;
       _usePosChLeptons=true;
     }
     
@@ -59,11 +59,13 @@ namespace Rivet {
       for(int i=0; i<2; i++)
 	{
 	  std::string pf(i==0 ? "bare": "dressed");
+	  histos["phistar_"+pf]       = bookHisto1D("phistar_"+pf, 200,0,10);
 	  histos["zm_"+pf]       = bookHisto1D("zm_"+pf, 100,66,116);
 	  histos["zpt_"+pf]      = bookHisto1D("zpt_"+pf, 100,0,100);
-	  histos["zy_"+pf]       = bookHisto1D("zy_"+pf, 100,-3,3);	  
-	  histos["z_tkmet_"+pf]  = bookHisto1D("z_tkmet_"+pf, 100,0,250);
-	  histos["mt_tkmet_"+pf] = bookHisto1D("mt_tkmet_"+pf, 100,0,100);
+	  histos["zy_"+pf]       = bookHisto1D("zy_"+pf, 100,-3,3);
+	  histos["lpt_"+pf]      = bookHisto1D("lpt_"+pf, 100,0,100);	  
+	  histos["tkmet_"+pf]    = bookHisto1D("tkmet_"+pf, 100,0,250);
+	  histos["mt_tkmet_"+pf] = bookHisto1D("mt_tkmet_"+pf, 100,0,250);
 	}
     }
     
@@ -82,39 +84,67 @@ namespace Rivet {
       histos["xsec"]->fill(0,weight);
             
       const Particles &trks = applyProjection<FinalState>(event, "Tracks").particles();
-      FourMomentum ptrks(0,0,0,0);
-      foreach( const Particle & p, trks ) ptrks += p.momentum(); 
+      FourMomentum p_trks(0,0,0,0);
+      foreach( const Particle & p, trks ) p_trks += p.momentum(); 
 
-      const ZFinder& zfinder_dressed_mu = applyProjection<ZFinder>(event, "ZFinder_dressed_mu");
-      if (!zfinder_dressed_mu.bosons().empty()) 
-	{
-	  _sumw_mu_dressed += weight;
-	  const FourMomentum pZ = zfinder_dressed_mu.bosons()[0].momentum();
-	  histos["zm_dressed"]->fill(pZ.mass()/GeV, weight);
-	  histos["zpt_dressed"]->fill(pZ.pT()/GeV, weight);
-	  histos["zy_dressed"]->fill(pZ.rapidity(), weight);
-	  FourMomentum ptrks_dressed(ptrks-zfinder_dressed_mu.constituents()[_usePosChLeptons]);
-	  FourMomentum chmet_dressed(-ptrks_dressed.px(),-ptrks_dressed.py(),0,ptrks_dressed.pT());
-	  histos["z_tkmet_dressed"]->fill(chmet_dressed.pT()/GeV,weight);
-	  FourMomentum Wlike(chmet_dressed+zfinder_dressed_mu.constituents()[!_usePosChLeptons]);
-	  histos["mt_tkmet_dressed"]->fill(Wlike.mass()/GeV);      
-	}
+
+      analyzeZ(applyProjection<ZFinder>(event, "ZFinder_dressed_mu"),
+	       p_trks,
+	       weight,
+	       "dressed");
       
-      const ZFinder& zfinder_bare_mu = applyProjection<ZFinder>(event, "ZFinder_bare_mu");
-      if (!zfinder_bare_mu.bosons().empty()) 
-	{
-	  _sumw_mu_bare += weight;
-	  const FourMomentum pZ = zfinder_bare_mu.bosons()[0].momentum();
-	  histos["zm_bare"]->fill(pZ.mass()/GeV, weight);
-	  histos["zpt_bare"]->fill(pZ.pT()/GeV, weight);
-	  histos["zy_bare"]->fill(pZ.rapidity(), weight);
-	  FourMomentum ptrks_bare(ptrks-zfinder_bare_mu.constituents()[_usePosChLeptons]);
-	  FourMomentum chmet_bare(-ptrks_bare.px(),-ptrks_bare.py(),0,ptrks_bare.pT());
-	  histos["z_tkmet_bare"]->fill(chmet_bare.pT()/GeV,weight);
-	  FourMomentum Wlike(chmet_bare+zfinder_bare_mu.constituents()[!_usePosChLeptons]);
-	  histos["mt_tkmet_bare"]->fill(Wlike.mass()/GeV);      
-	}
+      analyzeZ(applyProjection<ZFinder>(event, "ZFinder_bare_mu"),
+	       p_trks,
+	       weight,
+	       "bare");
     }
+
+    //
+    void analyzeZ(const ZFinder& zfinder, FourMomentum p_trks, double weight, std::string tag)
+    {
+      if (zfinder.bosons().size() != 1 ) return;
+
+      //Z kinematics
+      const Particle& Zboson = zfinder.boson();
+      const double zpt   = Zboson.pT();
+      const double zrap  = Zboson.absrap();
+      const double zmass = Zboson.mass(); 
+      if (zrap > 2.4) return;
+      
+      //leptons
+      const ParticleVector& leptons = zfinder.constituents();
+      if (leptons.size() != 2 || 
+	  leptons[0].threeCharge() * leptons[1].threeCharge() > 0) return;
+
+      _sumw[tag] += weight;
+            
+      // Compute phi*
+      const Particle& lminus = leptons[0].charge() < 0 ? leptons[0] : leptons[1];
+      const Particle& lplus  = leptons[0].charge() < 0 ? leptons[1] : leptons[0];
+      const double phi_acop = M_PI - deltaPhi(lminus, lplus);
+      const double costhetastar = tanh( 0.5 * (lminus.eta() - lplus.eta()) );
+      const double sin2thetastar = (costhetastar > 1) ? 0.0 : (1.0 - sqr(costhetastar));
+      const double phistar = tan(0.5 * phi_acop) * sqrt(sin2thetastar);
+      histos["phistar_"+tag]->fill(phistar, weight);      
+
+
+      //compute Zpt
+      const FourMomentum pZ = zfinder.bosons()[0].momentum();
+      histos["zm_"+tag]->fill(zmass/GeV, weight);
+      histos["zpt_"+tag]->fill(zpt/GeV, weight);
+      histos["zy_"+tag]->fill(zrap, weight);
+      
+      Particle visLepton( _usePosChLeptons ? lplus : lminus );
+      histos["lpt_"+tag]->fill(visLepton.pT()/GeV,weight);
+      
+      FourMomentum p_trks_final( p_trks - (_usePosChLeptons ? lminus : lplus ));
+      FourMomentum chmet(-p_trks_final.px(),-p_trks_final.py(),0,p_trks_final.pT());
+      histos["tkmet_"+tag]->fill(chmet.pT()/GeV,weight);
+      
+      double mt=sqrt(2*visLepton.pT()*chmet.pT()*(1-cos(deltaPhi(chmet,visLepton))));
+      histos["mt_tkmet_"+tag]->fill(mt/GeV);      
+    }
+
     
     /// Normalise histograms by the cross section
     void finalize() 
@@ -126,8 +156,8 @@ namespace Rivet {
 	  it++)
 	{
 	  double finalNorm=norm/totalWgt;
-	  if(it->first.find("bare")!=std::string::npos)    finalNorm=norm/_sumw_mu_bare;
-	  if(it->first.find("dressed")!=std::string::npos) finalNorm=norm/_sumw_mu_dressed;
+	  if(it->first.find("bare")!=std::string::npos)    finalNorm=norm/_sumw["bare"];
+	  if(it->first.find("dressed")!=std::string::npos) finalNorm=norm/_sumw["dressed"];
 	  scale(it->second,finalNorm);
 	}
     }
