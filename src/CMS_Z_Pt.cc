@@ -109,7 +109,6 @@ namespace Rivet {
       const double zpt   = Zboson.pT();
       const double zrap  = Zboson.absrap();
       const double zmass = Zboson.mass(); 
-      if (zrap > 2.4) return;
       
       //leptons
       const ParticleVector& leptons = zfinder.constituents();
