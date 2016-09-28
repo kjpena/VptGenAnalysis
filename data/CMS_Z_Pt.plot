@@ -6,4 +6,8 @@ RatioPlotErrorBandColor=lightgray
 LogY=0
 # END PLOT
 
+# BEGIN PLOT /CMS_Z_Pt/phistar*
+LogX=1
+# END PLOT
+
 

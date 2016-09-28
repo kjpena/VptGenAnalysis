@@ -59,13 +59,13 @@ namespace Rivet {
       for(int i=0; i<2; i++)
 	{
 	  std::string pf(i==0 ? "bare": "dressed");
-	  histos["phistar_"+pf]       = bookHisto1D("phistar_"+pf, 200,0,10);
-	  histos["zm_"+pf]       = bookHisto1D("zm_"+pf, 100,66,116);
-	  histos["zpt_"+pf]      = bookHisto1D("zpt_"+pf, 100,0,100);
-	  histos["zy_"+pf]       = bookHisto1D("zy_"+pf, 100,-3,3);
-	  histos["lpt_"+pf]      = bookHisto1D("lpt_"+pf, 100,0,100);	  
-	  histos["tkmet_"+pf]    = bookHisto1D("tkmet_"+pf, 100,0,250);
-	  histos["mt_tkmet_"+pf] = bookHisto1D("mt_tkmet_"+pf, 100,0,250);
+	  histos["phistar_"+pf]       = bookHisto1D("phistar_"+pf, 50,1e-3,10);
+	  histos["zm_"+pf]       = bookHisto1D("zm_"+pf, 50,66,116);
+	  histos["zpt_"+pf]      = bookHisto1D("zpt_"+pf, 50,0,100);
+	  histos["zy_"+pf]       = bookHisto1D("zy_"+pf, 50,0,3);
+	  histos["lpt_"+pf]      = bookHisto1D("lpt_"+pf, 50,0,100);	  
+	  histos["tkmet_"+pf]    = bookHisto1D("tkmet_"+pf, 50,0,250);
+	  histos["mt_tkmet_"+pf] = bookHisto1D("mt_tkmet_"+pf, 50,0,250);
 	}
     }
     

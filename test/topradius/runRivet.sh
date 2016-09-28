@@ -37,17 +37,26 @@ case $WHAT in
 	done
 	;;
     RIVETPLOT )
+
 	outDir=~/public/html/TopRadius/Rivet
+
+	rivet-mkhtml -s -o ${outDir}/Powheg --times --config=data/CMS_TOP_Radius.plot \
+	    TTTo2L2Nu_TuneCUETP8M2_ttHtranche3_13TeV-powheg-pythia8_w0.yoda:'$(\mu_R,\mu_F)=(1,1)$' \
+	    TTTo2L2Nu_TuneCUETP8M2_ttHtranche3_13TeV-powheg-pythia8_w1.yoda:'$(1,2)$' \
+	    TTTo2L2Nu_TuneCUETP8M2_ttHtranche3_13TeV-powheg-pythia8_w2.yoda:'$(2,1)$' \
+	    TTTo2L2Nu_TuneCUETP8M2_ttHtranche3_13TeV-powheg-pythia8_w3.yoda:'$(2,2)$' \
+	    TTTo2L2Nu_TuneCUETP8M2_ttHtranche3_13TeV-powheg-pythia8_w4.yoda:'$(2,1/2)$' \
+	    TTTo2L2Nu_TuneCUETP8M2_ttHtranche3_13TeV-powheg-pythia8_w6.yoda:'$(1/2,1)$' \
+	    TTTo2L2Nu_TuneCUETP8M2_ttHtranche3_13TeV-powheg-pythia8_w8.yoda:'$(1/2,1/2)$'
+	
+	exit -1
+
 	rivet-mkhtml -s -o ${outDir}/Madgraph --times --config=data/CMS_TOP_Radius.plot \
 	    Rt_0.00E+00_kappat_0.00E+00_xqcut_30.0_njetmax_1_qcut_60.0.yoda:'SM' \
             Rt_1.00E_03_kappat_0.00E+00_xqcut_30.0_njetmax_1_qcut_60.0.yoda:'$R_t=10^{-3}~\kappa=0$' \
             Rt_5.00E_03_kappat_0.00E+00_xqcut_30.0_njetmax_1_qcut_60.0.yoda:'$R_t=5\cdot 10^{-3}~\kappa=0$' \
             Rt_0.00E+00_kappat_1.00E_01_xqcut_30.0_njetmax_1_qcut_60.0.yoda:'$R_t=0~\kappa=10^{-1}$' \
             Rt_0.00E+00_kappat_5.00E_01_xqcut_30.0_njetmax_1_qcut_60.0.yoda:'$R_t=0~\kappa=5\cdot 10^{-1}$';
-
-	rivet-mkhtml -s -o ${outDir}/Powheg --times --config=data/CMS_TOP_Radius.plot \
-	    Rt_0.00E+00_kappat_0.00E+00_xqcut_30.0_njetmax_1_qcut_60.0.yoda:'Madgraph' \
-	    TTTo2L2Nu_TuneCUETP8M2_ttHtranche3_13TeV-powheg-pythia8.yoda:'Powheg' 
 
 	;;
     RIVET2ROOT )

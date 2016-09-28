@@ -50,6 +50,7 @@ process.source = cms.Source("PoolSource",
                             secondaryFileNames = cms.untracked.vstring(),
                             duplicateCheckMode = cms.untracked.string('noDuplicateCheck')
                             )
+print process.source.fileNames
 
 process.generation_step = cms.Path()
 process.RAWSIMoutput_step = cms.EndPath()
