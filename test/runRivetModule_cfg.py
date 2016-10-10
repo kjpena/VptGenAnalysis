@@ -9,7 +9,7 @@ options.register('output',
                  "Output file name"
                  )
 options.register('module',
-		 'TOPRadius',
+		 'TOP13007',
                  VarParsing.multiplicity.singleton,
                  VarParsing.varType.string,
                  "module to run"
@@ -21,7 +21,7 @@ options.register('LHEweightNumber',
                  "event weight to use"
                  )
 options.register('input', 
-		 'root://eoscms//eos/cms/store/cmst3/user/psilva/CompositeTop/Rt_0.00E+00_kappat_0.00E+00_xqcut_20.0_njetmax_0_qcut_40.0.root',
+		 'root://eoscms//eos/cms/store/cmst3/user/psilva/CompositeTop/Rt__5.00E_04_kappat__5.00E_02_xqcut_30.0_njetmax_1_qcut_60.0.root',
                  VarParsing.multiplicity.singleton,
                  VarParsing.varType.string,
                  "input file to process"
@@ -44,13 +44,12 @@ process.maxEvents = cms.untracked.PSet(
 # Input source
 from UserCode.RivetAnalysis.ttSamples_cff import getSamples
 samples=getSamples(options.input)
-if len(samples)==0: samples=options.input.split(',')
+if len(samples)==0: samples=cms.untracked.vstring(options.input.split(','))
 process.source = cms.Source("PoolSource",
-                            fileNames = cms.untracked.vstring(samples),
+                            fileNames = samples,
                             secondaryFileNames = cms.untracked.vstring(),
                             duplicateCheckMode = cms.untracked.string('noDuplicateCheck')
                             )
-print process.source.fileNames
 
 process.generation_step = cms.Path()
 process.RAWSIMoutput_step = cms.EndPath()

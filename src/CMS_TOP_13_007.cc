@@ -17,26 +17,17 @@ namespace Rivet {
   
   class CMS_TOP_13_007 : public Analysis {
     
-    enum JetBins   {JET_INC, JET_0,     JET_1,    JET_2  };
-    enum UERegions {TT_INC,  TT_TOWARD, TT_TRANS, TT_AWAY};
-
   private:
-
-    Histo1DPtr _h_ptttbar[4];
-    Histo1DPtr   _h_chMult[4*4], _h_chSumPt[4*4], _h_chAvgPt[4*4];
-    Profile1DPtr _p_ptttbar_chMult[4*4],    _p_ptttbar_chSumPt[4*4],    _p_ptttbar_chAvgPt[4*4];
-    size_t _n_dphiProfileBins;
-    Profile1DPtr _p_dphi2ttbar_chMult[4], _p_dphi2ttbar_chSumPt[4], _p_dphi2ttbar_chAvgPt[4], _p_chMult_chAvgPt[4];
-    //Profile1DPtr                            _p_chMult_chSumPt[4*4],     _p_chMult_chAvgPt[4*4];
+    
+    std::map<std::string,Histo1DPtr> histos;
+    std::map<std::string,Profile1DPtr> profiles;
 
   public:
-
+    
     /// CTOR
     CMS_TOP_13_007()  : 
-      Analysis("CMS_TOP_13_007"),
-      _n_dphiProfileBins(18)
+      Analysis("CMS_TOP_13_007")    
     { 
-     
       //setBeams(PROTON, PROTON);
     }
 
@@ -83,94 +74,45 @@ namespace Rivet {
       ChargedFinalState chfs(fs);             
       addProjection(chfs, "chfs"); 
 
-      // histogram booking
-      char buf[50];
-      for(int ijet=-1; ijet<=2; ijet++)
+      //book histograms
+      for(int i=0; i<4; i++)
 	{
-	  if(ijet>=0) sprintf(buf,"ptttbar-j%d",ijet);
-	  else        sprintf(buf,"ptttbar");
-	  _h_ptttbar[ijet+1]  = bookHisto1D(buf,10,0,250);
-
-	  for(int ireg=0; ireg<4; ireg++)
-	    {
-	      int idx(ireg+(ijet+1)*4);
-	      if(ijet>=0) sprintf(buf,"chMult-r%d-j%d",ireg,ijet);  
-	      else        sprintf(buf,"chMult-r%d",ireg);  
-	      _h_chMult[idx]  = bookHisto1D(buf,50,0,100);
-	      std::string name("ptttbar_"); name += buf;
-	      _p_ptttbar_chMult[idx] = bookProfile1D(name,10,0,250);
-	      if(ireg==0){
-		name="dphi2ttbar_chMult";
-		if(ijet>=0) {
-		  sprintf(buf,"-j%d",ijet);
-		  name += buf;
-		}
-		_p_dphi2ttbar_chMult[ijet+1] = bookProfile1D(name,_n_dphiProfileBins,0,180);
-	      }
-
-	      if(ijet>=0) sprintf(buf,"chSumPt-r%d-j%d",ireg,ijet);
-	      else        sprintf(buf,"chSumPt-r%d",ireg);
-	      _h_chSumPt[idx] = bookHisto1D(buf,20,0,100);
-	      name="ptttbar_"; name += buf;
-	      _p_ptttbar_chSumPt[idx] = bookProfile1D(name,10,0,250);
-	      if(ireg==0){
-		name="dphi2ttbar_chSumPt"; 
-		if(ijet>=0) {
-		  sprintf(buf,"-j%d",ijet);
-		  name += buf;
-		}
-		_p_dphi2ttbar_chSumPt[ijet+1] = bookProfile1D(name,_n_dphiProfileBins,0,180);
-	      }
-
-	      if(ijet>=0) sprintf(buf,"chAvgPt-r%d-j%d",ireg,ijet);
-	      else        sprintf(buf,"chAvgPt-r%d",ireg);
-	      _h_chAvgPt[idx] = bookHisto1D(buf,20,0,10);
-	      name="ptttbar_"; name += buf;
-	      _p_ptttbar_chAvgPt[idx] = bookProfile1D(name,10,0,250);
-	      if(ireg==0){
-		name="dphi2ttbar_chAvgPt"; 
-		if(ijet>=0) {
-		  sprintf(buf,"-j%d",ijet);
-		  name += buf;
-		}
-		_p_dphi2ttbar_chAvgPt[ijet+1] = bookProfile1D(name,_n_dphiProfileBins,0,180);
-
-		name="chMult_chAvgPt";
-		if(ijet>=0) name+=buf;
-		_p_chMult_chAvgPt[ijet+1] =  bookProfile1D(name,50,0,100);
-	      }
-	    }
+	  std::string prodMode("inc");
+	  if(i==1) prodMode="qg";
+	  if(i==2) prodMode="qq";
+	  if(i==3) prodMode="gg";
+	  histos[prodMode+"_ptttbar"]    = bookHisto1D(prodMode+"_ptttbar",10,0,250);
+	  histos[prodMode+"_dphill"]     = bookHisto1D(prodMode+"_dphill",10,0,180.);
+	  histos[prodMode+"_mll"]        = bookHisto1D(prodMode+"_mll",10,0,300);
 	}
+      profiles["avgpt_mll"]        = bookProfile1D("avgpt_mll",10,0,300.);
+      profiles["avgpt_dphill"]     = bookProfile1D("avgpt_dphill",10,0,180.);
+      profiles["avgpt_ptttbar"] = bookProfile1D("avgpt_ptttbar",10,0,250.);
+      profiles["avgpt_dphi2ttbar"] = bookProfile1D("avgpt_dphi2ttbar",10,0,180.);
+      profiles["avgpt_dphi2ll"]    = bookProfile1D("avgpt_dphi2ll",   10,0,180.);
+      profiles["avgpt_nch"]        = bookProfile1D("avgpt_nch",       10,0,200);
     }
     
     
     ///  the per-event analysis goes here
     void analyze(const Event& event) 
     {
-
       const double weight = event.weight();
 
-      //require 2 leptons
+      //pdf and cross section info                                   
+      const HepMC::PdfInfo *pdf=event.genEvent()->pdf_info();
+      std::string prodMode("qq");
+      if( pdf->id1()==21 && pdf->id2()==21)     prodMode="gg"; 
+      else if(pdf->id1()==21 || pdf->id2()==21) prodMode="qg"; 
+
+
+      //require 2 leptons op. sign
       const std::vector<DressedLepton> &leptons     = applyProjection<DressedLeptons>(event, "Leptons").dressedLeptons();
       if ( leptons.size() < 2) vetoEvent; 
-      int leadLepIdx(0),trailerLepIdx(1);
-      if(leptons[0].momentum().pT()<leptons[1].momentum().pT()) { leadLepIdx=1; trailerLepIdx=0; }
-      for(size_t i=2; i<leptons.size(); i++)
-	{
-	  if(leptons[i].momentum().pT()>leptons[leadLepIdx].momentum().pT())
-	    {
-	      trailerLepIdx=leadLepIdx;
-	      leadLepIdx=i;
-	    }
-	  else if(leptons[i].momentum().pT()>leptons[trailerLepIdx].momentum().pT())
-	    {
-	      trailerLepIdx=i;
-	    }
-	}
+      if( leptons[0].charge() * leptons[1].charge() >=0 ) vetoEvent; 
 
-      //require opposite sign and op. flavour leptons
-      if( leptons[leadLepIdx].charge() * leptons[trailerLepIdx].charge() >=0 ) vetoEvent; 
-      if( leptons[leadLepIdx].abspid() * leptons[trailerLepIdx].abspid() != PID::ELECTRON * PID::MUON ) vetoEvent;
+      const FourMomentum rec_ll=leptons[0].momentum() + leptons[1].momentum();
+      float dphill( fabs(deltaPhi(leptons[0].momentum(),leptons[1].momentum()))*180/PI);
 
       // MET estimate from the balance of all final state particles
       Particles vfs_particles =  applyProjection<VisibleFinalState>(event, "vfs").particles();
@@ -178,28 +120,14 @@ namespace Rivet {
       foreach ( const Particle & p, vfs_particles ) missvec -= p.momentum();
       missvec.setPz(0.0);
       missvec.setE(missvec.perp()); 
-
-      /*
-      Particles neutrinos =  applyProjection<IdentifiedFinalState>(event, "neutrinos").particles();
-      FourMomentum truemissvec(0.0,0.0,0.0,0.0);
-      foreach ( const Particle & p, neutrinos) truemissvec += p.momentum();
-      truemissvec.setPz(0.0);
-      truemissvec.setE(truemissvec.perp());
-      */
-
+      
       // jet multiplicity 
       const FastJets& jetpro = applyProjection<FastJets>(event, "Jets");
-      Cut ptcut = Cuts::range(Cuts::pT, 20, MAXDOUBLE);
+      Cut ptcut = Cuts::range(Cuts::pT, 30, MAXDOUBLE);
       Cut etacut = Cuts::range(Cuts::eta, -2.5, 2.5);
       Cut ptetacut = ptcut && etacut;              
       const Jets alljets = jetpro.jetsByPt(ptetacut);
       if (alljets.size() < 2) vetoEvent;
-
-      // jets minimum jet pt requirement
-      Cut tightptcut = Cuts::range(Cuts::pT, 30, MAXDOUBLE); 
-      Cut tightptetacut = tightptcut && etacut;  
-      const Jets jets = jetpro.jetsByPt(tightptetacut);
-      if (jets.size() < 2)  vetoEvent;
 
       // b-tagging: this should change to take into account b-tag and mistag rates
       Jets bjets, otherjets;
@@ -209,26 +137,18 @@ namespace Rivet {
 	  else                                        otherjets.push_back(jet);
 	}
       if(bjets.size()<2) vetoEvent;
-
-      //assign jet bin
-      std::vector<int> jet_bin(2,JET_INC);
-      if(otherjets.size()==0)      jet_bin[1]=JET_0;
-      else if(otherjets.size()==1) jet_bin[1]=JET_1;
-      else                         jet_bin[1]=JET_2;
       
       // compute the rec_ttbar four vector
-      const FourMomentum rec_ttbar = bjets[0].momentum() + bjets[1].momentum() 
-	+ leptons[leadLepIdx].momentum() + leptons[trailerLepIdx].momentum() 
-	+ missvec ;
+      const FourMomentum rec_ttbar = bjets[0].momentum() + bjets[1].momentum() + rec_ll + missvec;
       
       // now loop over all charged particles and select the ones not associated to the hard event
-      std::vector<int> chMult(4,0),    chMult_dphi(_n_dphiProfileBins,0);
-      std::vector<float> chSumPt(4,0), chSumPt_dphi(_n_dphiProfileBins,0);
       const FinalState& chfs = applyProjection<FinalState>(event, "chfs");
+      std::vector<float> chMult_dphi2ttbar(10,0),  chMult_dphi2ll(10,0);
+      std::vector<float> chSumPt_dphi2ttbar(10,0), chSumPt_dphi2ll(10,0);
       foreach (const Particle& p, chfs.particles()) 
 	{	
 	  // remove the selected leptons
-	  float dR = min(deltaR(leptons[leadLepIdx],p.momentum()),deltaR(leptons[trailerLepIdx],p.momentum()));
+	  float dR = min(deltaR(leptons[0],p.momentum()),deltaR(leptons[1],p.momentum()));
 	  if(dR<0.02) continue;
 
 	  // remove particles matching the b-jets
@@ -239,77 +159,61 @@ namespace Rivet {
 
 	  //analyse particle
 	  //const int pid = p.pdgId();
-	  float dphi( fabs(deltaPhi(rec_ttbar,p.momentum())*180./PI) );
+	  float dphi2ttbar( fabs(deltaPhi(rec_ttbar,p.momentum())*180./PI) );
+	  float dphi2ll( fabs(deltaPhi(rec_ll,p.momentum())*180./PI) );
 	  float pt( p.momentum().pT() );
 	  
-	  int tt_reg(TT_TRANS);
-	  if(dphi>120) tt_reg=TT_AWAY;
-	  if(dphi<60)  tt_reg=TT_TOWARD;
-	  int dphi_bin(floor(dphi*_n_dphiProfileBins/180.));
-	  chMult[0]  ++;    chMult[tt_reg]  ++;    chMult_dphi[ dphi_bin ] ++;
-	  chSumPt[0] += pt; chSumPt[tt_reg] += pt; chSumPt_dphi[ dphi_bin ] += pt;
+	  int dphi_bin2ttbar(floor(dphi2ttbar/18.));
+	  chMult_dphi2ttbar[ dphi_bin2ttbar ] ++;
+	  chSumPt_dphi2ttbar[ dphi_bin2ttbar ] += pt;
 
+	  int dphi_bin2ll(floor(dphi2ll/18.));
+	  chMult_dphi2ll[ dphi_bin2ll ] ++;
+	  chSumPt_dphi2ll[ dphi_bin2ll ] += pt;
 	} // loop over particles
 
-      //fill histogram
-      for(size_t ijbin=0; ijbin<jet_bin.size(); ijbin++)
+
+      for(size_t ireg=0; ireg<chMult_dphi2ll.size(); ireg++)
 	{
-	  _h_ptttbar[jet_bin[ijbin]]->fill(rec_ttbar.pT(),weight);
-
-	  float totalSumPt(0),totalChMult(0);
-	  for(size_t ireg=0; ireg<chMult.size(); ireg++)
-	    {
-	      int idx(ireg+jet_bin[ijbin]*4);
-	      _h_chMult[idx]->fill(chMult[ireg],weight);
-	      _p_ptttbar_chMult[idx]->fill(rec_ttbar.pT(),chMult[ireg],weight);
-
-	      _h_chSumPt[idx]->fill(chSumPt[ireg], weight);
-	      _p_ptttbar_chSumPt[idx]->fill(rec_ttbar.pT(),chSumPt[ireg],weight);
-
-	      //dphi profiles
-	      if(ireg==0){
-		for(size_t idphibin=0; idphibin<_n_dphiProfileBins; idphibin++)
-		  {
-		    //bin centered
-		    float dphi=(idphibin+0.5)*180./_n_dphiProfileBins;
-		    _p_dphi2ttbar_chMult[jet_bin[ijbin]]->fill(dphi,chMult_dphi[idphibin],weight);
-		    _p_dphi2ttbar_chSumPt[jet_bin[ijbin]]->fill(dphi,chSumPt_dphi[idphibin],weight);
-		    if(chMult_dphi[idphibin]==0) continue;
-		    _p_dphi2ttbar_chAvgPt[jet_bin[ijbin]]->fill(dphi,chSumPt_dphi[idphibin]/chMult_dphi[idphibin],weight);
-		  }
-	      }
-
-	      if(chMult[ireg]==0) continue;
-	      totalSumPt+=chSumPt[ireg];
-	      totalChMult+=chMult[ireg];
-	      float avgPtPerParticle(chSumPt[ireg]/chMult[ireg]);
-	      _h_chAvgPt[idx]->fill(avgPtPerParticle,weight);
-	      _p_ptttbar_chAvgPt[idx]->fill(rec_ttbar.pT(),avgPtPerParticle,weight);
-	    }
-	  if(totalChMult==0) continue;
-	  _p_chMult_chAvgPt[jet_bin[ijbin]]->fill(totalChMult,totalSumPt/totalChMult);
+	  if(chMult_dphi2ll[ireg]==0) continue;
+	  float avgPt_dphi2ll=chSumPt_dphi2ll[ireg]/chMult_dphi2ll[ireg];
+	  profiles["avgpt_dphi2ll"]->fill(ireg*18.,avgPt_dphi2ll,weight);
 	}
+
+      float nch(0),sumPt(0);
+      for(size_t ireg=0; ireg<chMult_dphi2ttbar.size(); ireg++)
+	{
+	  nch+=chMult_dphi2ttbar[ireg];
+	  sumPt+=chSumPt_dphi2ttbar[ireg];
+	  if(chMult_dphi2ttbar[ireg]==0) continue;
+	  float avgPt_dphi2ttbar=chSumPt_dphi2ttbar[ireg]/chMult_dphi2ttbar[ireg];
+	  profiles["avgpt_dphi2ttbar"]->fill(ireg*18.,avgPt_dphi2ttbar,weight);
+	}
+      float avgPt=(nch>0? sumPt/nch : 0.);
+
+      histos[prodMode+"_ptttbar"]->fill(rec_ttbar.pt(),weight);
+      histos["inc_ptttbar"]->fill(rec_ttbar.pt(),weight);
+      histos[prodMode+"_dphill"]->fill(dphill,weight);
+      histos["inc_dphill"]->fill(dphill,weight);
+      histos[prodMode+"_mll"]->fill(rec_ll.mass(),weight);      
+      histos["inc_mll"]->fill(rec_ll.mass(),weight);      
+      profiles["avgpt_nch"]->fill(nch,avgPt,weight);
+      profiles["avgpt_mll"]->fill(rec_ll.mass(),avgPt,weight);
+      profiles["avgpt_dphill"]->fill(dphill,avgPt,weight);
+      profiles["avgpt_ptttbar"]->fill(rec_ttbar.pt(),avgPt,weight);
+
     }
         
     /// Normalise histograms etc., after the run
     void finalize() 
     {
-      
-      /// @todo Normalise, scale and otherwise manipulate histograms here
-
-      // scale(_h_YYYY, crossSection()/sumOfWeights()); # norm to cross section
-      //normalize(_h_YYYY); # normalize to unity
-      for(size_t ijreg=0; ijreg<4; ijreg++)
-	{
-	  normalize(_h_ptttbar[ijreg]);
-	  for(size_t ireg=0; ireg<4; ireg++)
-	    {
-	      int idx(ireg+ijreg*4);
-	      normalize(_h_chMult[idx] );
-	      normalize(_h_chSumPt[idx] );
-	      normalize(_h_chAvgPt[idx] );
-	    }
-	}
+      double norm=crossSection();
+      double totalWgt=sumOfWeights();
+      double finalNorm=norm/totalWgt;
+      for(std::map<std::string,Histo1DPtr>::iterator it = histos.begin();
+	  it!=histos.end();
+	  it++)
+	scale(it->second,finalNorm);
     }
   };
 
