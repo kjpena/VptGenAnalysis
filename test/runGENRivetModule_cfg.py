@@ -38,6 +38,12 @@ options.register('input',
                  VarParsing.varType.string,
                  "input file to process"
                  )
+options.register('hadronizer',
+		 'powhegEmissionVeto_2p_LHE_pythia8',
+                 VarParsing.multiplicity.singleton,
+                 VarParsing.varType.string,
+                 "hardcoded hadronizer snippet to use"
+                 )
 options.parseArguments()
 
 
@@ -84,43 +90,20 @@ process.genstepfilter.triggerConditions=cms.vstring("generation_step")
 from Configuration.AlCa.GlobalTag import GlobalTag
 process.GlobalTag = GlobalTag(process.GlobalTag, '80X_mcRun2_asymptotic_2016_v1', '')
 
-process.generator = cms.EDFilter("Pythia8HadronizerFilter",
-    PythiaParameters = cms.PSet(
-        parameterSets = cms.vstring('pythia8CommonSettings', 
-            'pythia8CUEP8M1Settings', 
-            'pythia8PowhegEmissionVetoSettings', 
-            'processParameters'),
-        processParameters = cms.vstring('POWHEG:nFinal = 2'),
-        pythia8CUEP8M1Settings = cms.vstring('Tune:pp 14', 
-            'Tune:ee 7', 
-            'MultipartonInteractions:pT0Ref=2.4024', 
-            'MultipartonInteractions:ecmPow=0.25208', 
-            'MultipartonInteractions:expPow=1.6'),
-        pythia8CommonSettings = cms.vstring('Tune:preferLHAPDF = 2', 
-            'Main:timesAllowErrors = 10000', 
-            'Check:epTolErr = 0.01', 
-            'Beams:setProductionScalesFromLHEF = off', 
-            'SLHA:keepSM = on', 
-            'SLHA:minMassSM = 1000.', 
-            'ParticleDecays:limitTau0 = on', 
-            'ParticleDecays:tau0Max = 10', 
-            'ParticleDecays:allowPhotonRadiation = on'),
-        pythia8PowhegEmissionVetoSettings = cms.vstring('POWHEG:veto = 1', 
-            'POWHEG:pTdef = 1', 
-            'POWHEG:emitted = 0', 
-            'POWHEG:pTemt = 0', 
-            'POWHEG:pThard = 0', 
-            'POWHEG:vetoCount = 100', 
-            'SpaceShower:pTmaxMatch = 2', 
-            'TimeShower:pTmaxMatch = 2')
-    ),
-    comEnergy = cms.double(8000.0),
-    filterEfficiency = cms.untracked.double(1.0),
-    maxEventsToPrint = cms.untracked.int32(1),
-    pythiaHepMCVerbosity = cms.untracked.bool(False),
-    pythiaPylistVerbosity = cms.untracked.int32(1)
-)
+#generator definition
+if 'powhegEmissionVeto_2p_LHE_pythia8' in options.hadronizer:
+	from UserCode.RivetAnalysis.Hadronizer_TuneCUETP8M1_8TeV_powhegEmissionVeto_2p_LHE_pythia8_cff import generator
+	process.generator=generator.clone()
+	if 'primordialKToff' in options.hadronizer:
+		process.generator.PythiaParameters.processParameters.append('BeamRemnants:primordialKT = off')
 
+if 'TuneEE_5C_8TeV_Herwigpp' in options.hadronizer:
+	from UserCode.RivetAnalysis.Hadronizer_TuneEE_5C_8TeV_Herwigpp_cff import generator
+        process.generator=generator.clone()
+
+if 'powhegEmissionVeto_1p_LHE_pythia8' in options.hadronizer:
+	from UserCode.RivetAnalysis.Hadronizer_TuneCUETP8M1_8TeV_powhegEmissionVeto_1p_LHE_pythia8_cff import generator
+	process.generator=generator.clone()
 
 process.ProductionFilterSequence = cms.Sequence(process.generator)
 
@@ -159,7 +142,9 @@ if options.module=='TOPRadius':    process = customiseTOPRadius(process)
 if options.module=='TOP13007':     process = customiseTOP13007(process)
 if options.module=='TOPDileptons': process = customiseTOPDileptons(process,options.LHEweightNumber)
 if options.module=='ZPt'      :    process = customiseZPt(process,options.LHEweightNumber)
-process.rivetAnalyzer.OutputFile = cms.string(options.output)
-process.rivetAnalyzer.HepMCCollection = cms.InputTag('generatorSmeared')
-
+try:
+	process.rivetAnalyzer.OutputFile = cms.string(options.output)
+	process.rivetAnalyzer.HepMCCollection = cms.InputTag('generatorSmeared')
+except:
+	print 'Failed to configure RIVET module=',options.module
 process.MessageLogger.cerr.FwkReport.reportEvery = 5000
