@@ -17,6 +17,10 @@ To run a RIVET plugin starting from a LHE file can use the following cfg
 ```
 cmsRun test/runGENRivetModule_cfg.py module=ZPt output=out_1.yoda LHEweightNumber=0 input=/store/cmst3/user/psilva/Wmass/powhegbox_Zj/seed_1_pwgevents.lhe saveEDM=False
 ```
+The output of the example above can be plotted with the following command
+```
+rivet-mkhtml -s -o ~/public/html/Zpt --times out_1.yoda:'Zj' ../../GeneratorInterface/RivetInterface/data/ATLAS_2015_I1408516_MU.yoda:'data' --config=../../GeneratorInterface/RivetInterface/data/ATLAS_2015_I1408516_MU.plot --config=data/CMS_Z_Pt.plot
+```
 
 ## Other notes
 
