@@ -13,7 +13,7 @@ config.JobType.psetName = "/afs/cern.ch/user/p/psilva/work/Wmass/CMSSW_8_0_8_pat
 config.JobType.outputFiles = ['out.yoda']
 
 config.section_("Data")
-config.Data.inputDataset = "/TT_TuneCUETP8M1mpiOFF_13TeV-powheg-pythia8/RunIISpring16DR80-PUSpring16_80X_mcRun2_asymptotic_2016_v3-v1/AODSIM"
+config.Data.inputDataset = "/TT_TuneCUETP8M1mpiOFF_13TeV-powheg-pythia8/RunIISpring15DR74-Asympt25ns_MCRUN2_74_V9_ext4-v2/AODSIM"
 config.Data.inputDBS = "global"
 config.Data.splitting = "FileBased"
 config.Data.unitsPerJob = 5

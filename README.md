@@ -13,14 +13,18 @@ git clone git@github.com:pfs/RivetAnalysis.git UserCode/RivetAnalysis
 cp UserCode/RivetAnalysis/data/ATLAS* GeneratorInterface/RivetInterface/data/
 scram b -j 8
 ```
+To run a RIVET plugin starting from a LHE file can use the following cfg
+```
+cmsRun test/runGENRivetModule_cfg.py module=ZPt output=out_1.yoda LHEweightNumber=0 input=/store/cmst3/user/psilva/Wmass/powhegbox_Zj/seed_1_pwgevents.lhe saveEDM=False
+```
+
+## Other notes
+
 If you need to use yoda scripts, you can use the following extra variables
 ```
 yodaver=`scram tool list > a.out && grep -ir yoda a.out | awk '{print $2}'`
 export PATH=${PATH}:/cvmfs/cms.cern.ch/$SCRAM_ARCH/external/yoda/$yodaver/bin
 ```
-
-## Running RIVET plugins
-
 There are several plugins implemented under src/. 
    * CMS_TOP_13_007.cc - TOP-13-007 UE measurement in the dileptons channel  
    * CMS_TOP_Dileptons.cc - TOP-16-002 mass from lepton kinematics

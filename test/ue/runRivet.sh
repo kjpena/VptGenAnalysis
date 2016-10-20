@@ -3,9 +3,9 @@
 WHAT=${1}
 
 a=(
-    TT_TuneCUETP8M1_13TeV-powheg-pythia8
-    TT_TuneCUETP8M1noCR_13TeV-powheg-pythia8
-    TT_TuneEE5C_13TeV-powheg-herwigpp
+    #TT_TuneCUETP8M1_13TeV-powheg-pythia8
+    #TT_TuneCUETP8M1noCR_13TeV-powheg-pythia8
+    #TT_TuneEE5C_13TeV-powheg-herwigpp
     TT_TuneCUETP8M1mpiOFF_13TeV-powheg-pythia8
 )
 
