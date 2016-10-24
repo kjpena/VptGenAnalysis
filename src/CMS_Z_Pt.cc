@@ -48,6 +48,7 @@ namespace Rivet {
       addProjection(wfinder, "WFinder");
       
       addProjection(ChargedFinalState(Cuts::abseta < 2.5 && Cuts::pT > 500*MeV), "Tracks");
+      addProjection(FinalState(Cuts::abseta < 4.7 && Cuts::pT > 500*MeV),        "AllFinalStates");
 
 
       //these binnings are taken from ATLAS_2015_I1408516_MU
@@ -60,6 +61,7 @@ namespace Rivet {
       for(size_t i=0; i<sizeof(ini)/sizeof(std::string); i++)
       {
       	histos[ini[i]+"xsec"]    = bookHisto1D(ini[i]+"xsec",1,0,1);
+      	histos[ini[i]+"weights"] = bookHisto1D(ini[i]+"weights",2,0,2);
 	histos[ini[i]+"vm"]      = bookHisto1D(ini[i]+"vm", 100,0,200);
 	histos[ini[i]+"vmt"]     = bookHisto1D(ini[i]+"vmt", 100,0,200);
 	std::string name(ini[i]+"vpt");
@@ -70,8 +72,10 @@ namespace Rivet {
 	for(size_t j=0; j<2; j++)
 	{
 	  std::string ch(j==0 ? "pos" : "neg");
-	  histos[ini[i]+ch+"lpt"]      = bookHisto1D(ini[i]+ch+"lpt", 50,20,145);
+	  histos[ini[i]+ch+"lpt"]      = bookHisto1D(ini[i]+ch+"lpt", 40,20,145);
 	  histos[ini[i]+ch+"ly"]       = bookHisto1D(ini[i]+ch+"ly", 50,-3,3);
+	  histos[ini[i]+ch+"met"]      = bookHisto1D(ini[i]+ch+"met", 50,0,125);
+	  histos[ini[i]+ch+"mt_met"]   = bookHisto1D(ini[i]+ch+"mt_met", 50,0,125);
 	  histos[ini[i]+ch+"tkmet"]    = bookHisto1D(ini[i]+ch+"tkmet", 50,0,125);
 	  histos[ini[i]+ch+"mt_tkmet"] = bookHisto1D(ini[i]+ch+"mt_tkmet", 50,0,125);
 	}
@@ -82,7 +86,7 @@ namespace Rivet {
     void analyze(const Event& event) 
     {
 
-      const double weight = event.weight();
+      const float weight = event.weight();
 	    
       //pdf and cross section info
       const HepMC::PdfInfo *pdf=event.genEvent()->pdf_info();
@@ -90,7 +94,10 @@ namespace Rivet {
       if( pdf->id1()==21 && pdf->id2()==21)     ini[1]="gg_";
       else if(pdf->id1()==21 || pdf->id2()==21) ini[1]="qg_";
 
-      //charged particle balance    
+      //particle balance    
+      const Particles &fs = applyProjection<FinalState>(event, "AllFinalStates").particles();
+      FourMomentum p_fs(0,0,0,0);
+      foreach( const Particle & p, fs ) p_fs += p.momentum(); 
       const Particles &trks = applyProjection<FinalState>(event, "Tracks").particles();
       FourMomentum p_trks(0,0,0,0);
       foreach( const Particle & p, trks ) p_trks += p.momentum(); 
@@ -98,7 +105,7 @@ namespace Rivet {
       //determine boson and lepton kinematics
       const ZFinder& zfinder=applyProjection<ZFinder>(event, "ZFinder");
       const WFinder& wfinder=applyProjection<WFinder>(event, "WFinder");
-      double vpt(0),vrap(0),vm(0),vmt(0);
+      float vpt(0),vrap(0),vm(0),vmt(0);
       std::map<std::string, const Particle *> chl;
       std::vector<std::string> ch;
     
@@ -109,11 +116,11 @@ namespace Rivet {
 	vpt  = Zboson.pT();
 	vrap = Zboson.rapidity();
         vm   = Zboson.mass(); 
-        vmt  = sqrt(vpt*vpt+vm*vm);
 	const ParticleVector& leptons = zfinder.constituents();
 	chl["pos"] = &(leptons[0].charge() < 0 ? leptons[0] : leptons[1]);
         chl["neg"] = &(leptons[0].charge() < 0 ? leptons[1] : leptons[0]);
 	ch.push_back("pos"); ch.push_back("neg");
+	vmt=sqrt(2*chl["pos"]->pT()*chl["neg"]->pT()*(1-cos(deltaPhi(*chl["neg"],*chl["pos"]))));		
       } 
       //else use the W
       else if (wfinder.bosons().size()==1)
@@ -135,19 +142,21 @@ namespace Rivet {
 		 chl["pos"] = &(wfinder.constituentNeutrinos()[0]);
 		 ch.push_back("neg");
 	 }
+	 vmt=sqrt(2*chl["pos"]->pT()*chl["neg"]->pT()*(1-cos(deltaPhi(*chl["neg"],*chl["pos"]))));
       }
       else vetoEvent;
 	      
       // Compute phi* (for W use neutrino as if it was measured)            
-      const double phi_acop = M_PI - deltaPhi(*chl["neg"], *chl["pos"]);
-      const double costhetastar = tanh( 0.5 * (chl["neg"]->eta() - chl["pos"]->eta()) );
-      const double sin2thetastar = (costhetastar > 1) ? 0.0 : (1.0 - sqr(costhetastar));
-      const double phistar = tan(0.5 * phi_acop) * sqrt(sin2thetastar);
+      const float phi_acop = M_PI - deltaPhi(*chl["neg"], *chl["pos"]);
+      const float costhetastar = tanh( 0.5 * (chl["neg"]->eta() - chl["pos"]->eta()) );
+      const float sin2thetastar = (costhetastar > 1) ? 0.0 : (1.0 - sqr(costhetastar));
+      const float phistar = tan(0.5 * phi_acop) * sqrt(sin2thetastar);
 
       //fill histos
       for(size_t i=0; i<2; i++)
       {	      
 	histos[ini[i]+"xsec"]->fill(0,weight);
+      	histos[ini[i]+"weights"]->fill(weight>0,weight);
 	histos[ini[i]+"vm"]->fill(vm,weight);
 	histos[ini[i]+"vmt"]->fill(vmt,weight);
 	histos[ini[i]+"vpt"]->fill(vpt,weight);
@@ -157,12 +166,17 @@ namespace Rivet {
 	{	  
 	  histos[ini[i]+ch[j]+"lpt"]->fill(chl[ch[j]]->pT(),weight);
 	  histos[ini[i]+ch[j]+"ly"]->fill(chl[ch[j]]->rapidity(),weight);
-		
-		
+
+	  FourMomentum p_fs_final( p_fs - *chl[ch[j]]);
+          FourMomentum met(-p_fs_final.px(),-p_fs_final.py(),0,p_fs_final.pT());
+	  histos[ini[i]+ch[j]+"met"]->fill(met.pT(),weight);
+	  float mt=sqrt(2*chl[ch[j]]->pT()*met.pT()*(1-cos(deltaPhi(met,*chl[ch[j]]))));
+	  histos[ini[i]+ch[j]+"mt_met"]->fill(mt,weight);
+
 	  FourMomentum p_trks_final( p_trks - *chl[ch[j]]);
           FourMomentum chmet(-p_trks_final.px(),-p_trks_final.py(),0,p_trks_final.pT());
 	  histos[ini[i]+ch[j]+"tkmet"]->fill(chmet.pT(),weight);
-	  double mt=sqrt(2*chl[ch[j]]->pT()*chmet.pT()*(1-cos(deltaPhi(chmet,*chl[ch[j]]))));
+	  mt=sqrt(2*chl[ch[j]]->pT()*chmet.pT()*(1-cos(deltaPhi(chmet,*chl[ch[j]]))));
 	  histos[ini[i]+ch[j]+"mt_tkmet"]->fill(mt,weight);
 	}
       }
@@ -172,13 +186,13 @@ namespace Rivet {
     /// Normalise histograms by the cross section
     void finalize() 
     {
-      double norm = crossSection();
-      double totalWgt=sumOfWeights();
+      float norm = crossSection();
+      float totalWgt=sumOfWeights();
       for(std::map<string,Histo1DPtr>::iterator it = histos.begin();
 	  it != histos.end();
 	  it++)
 	{
-	  double finalNorm=norm/totalWgt;
+	  float finalNorm=norm/totalWgt;
 	  scale(it->second,finalNorm);
 	}
     }
