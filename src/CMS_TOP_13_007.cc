@@ -113,17 +113,18 @@ namespace Rivet {
       //profiles and correlations
       for(int j=0; j<5; j++)
 	{
+	  double maxMass(200);
 	  std::string fs("ll");
-	  if(j==1) fs="bb";
-	  if(j==2) fs="llbb";
-	  if(j==3) fs="llbbmet";
-	  if(j==4) fs="ttbar";
-	  profiles["avgpt_m"+fs]        = bookProfile1D("avgpt_m"+fs,      10,0,300.);
+	  if(j==1) { fs="bb"; maxMass=300; }
+	  if(j==2) { fs="llbb"; maxMass=500; }
+	  if(j==3) { fs="llbbmet"; maxMass=1000; }
+	  if(j==4) { fs="ttbar"; maxMass=1000; }
+	  profiles["avgpt_m"+fs]        = bookProfile1D("avgpt_m"+fs,      10,0,maxMass);
 	  profiles["avgpt_pt"+fs]       = bookProfile1D("avgpt_pt"+fs,     10,0,250.);
 	  profiles["avgpt_dphi2"+fs]    = bookProfile1D("avgpt_dphi2"+fs,  10,0,180.);
 
 	  if(j>3) continue;
-	  histos2D["m"+fs+"vsptttbar"]  = bookHisto2D("m"+fs+"vspttbar",   10,0,300,10,0,250.);
+	  histos2D["m"+fs+"vsptttbar"]  = bookHisto2D("m"+fs+"vspttbar",   10,0,maxMass,10,0,250.);
 	  histos2D["pt"+fs+"vsptttbar"] = bookHisto2D("pt"+fs+"vspttbar",  10,0,300,10,0,250.);
 
 	  if(j>1) continue;
@@ -132,7 +133,6 @@ namespace Rivet {
 	  profiles["avgpt_phistar"+fs]       = bookProfile1D("avgpt_phistar"+fs,  phistarBins);
 	  histos2D["deta"+fs+"vsptttbar"]    = bookHisto2D("deta"+fs+"vspttbar",10,0,5,10,0,250.);
 	  histos2D["dphi"+fs+"vsptttbar"]    = bookHisto2D("dphi"+fs+"vspttbar",10,0,180,10,0,250.);
-
 	  histos2D["phistar"+fs+"vsptttbar"] = bookHisto2D("phistar"+fs+"vspttbar",phistarBins,ptBins);
 	}
 
@@ -338,6 +338,12 @@ namespace Rivet {
       histos2D["ptbbvsptttbar"]->fill(rec_bb.pt(),gen_ttbar.pt(),weight);
       histos2D["ptllbbvsptttbar"]->fill(rec_llbb.pt(),gen_ttbar.pt(),weight);
       histos2D["ptllbbmetvsptttbar"]->fill(rec_llbbmet.pt(),gen_ttbar.pt(),weight);
+      histos2D["detallvsptttbar"]->fill(detall,gen_ttbar.pt(),weight);
+      histos2D["dphillvsptttbar"]->fill(dphill,gen_ttbar.pt(),weight);
+      histos2D["phistarllvsptttbar"]->fill(phistar,gen_ttbar.pt(),weight);
+      histos2D["detabbvsptttbar"]->fill(detabb,gen_ttbar.pt(),weight);
+      histos2D["dphibbvsptttbar"]->fill(dphibb,gen_ttbar.pt(),weight);
+      histos2D["phistarbbvsptttbar"]->fill(phistar_bb,gen_ttbar.pt(),weight);
     }
         
     /// Normalise histograms etc., after the run

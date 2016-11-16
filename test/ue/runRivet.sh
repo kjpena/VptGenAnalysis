@@ -8,11 +8,15 @@ a=(
     TT_TuneEE5C_13TeV-powheg-herwigpp
     TT_TuneCUETP8M1mpiOFF_13TeV-powheg-pythia8
 )
+outDir=${HOME}/public/html/TopUE/Rivet
 
 case $WHAT in 
     TEST)
 	cfg=$CMSSW_BASE/src/UserCode/RivetAnalysis/test/runRivetModule_cfg.py;
 	cmsRun ${cfg} module=TOP13007 input=TT_TuneCUETP8M1_13TeV-powheg-pythia8 output=test.yoda;
+	;;
+    TESTPLOT)
+	rivet-mkhtml -s -o ${outDir}/test --times --config=data/CMS_TOP_13_007.plot test.yoda:'PW+PY8 CUETP8M1';
 	;;
     SUBMIT )
 	for i in ${a[@]}; do
@@ -41,7 +45,6 @@ case $WHAT in
 	;;
 
     PLOT )
-	outDir=~/public/html/TopUE/Rivet
 	rivet-mkhtml -s -o ${outDir}/Powheg --times --config=data/CMS_TOP_13_007.plot \
 	    TT_TuneCUETP8M1_13TeV-powheg-pythia8.yoda:'PW+PY8 CUETP8M1' \
 	    TT_TuneCUETP8M1noCR_13TeV-powheg-pythia8.yoda:'PW+PY8 CUETP8M1noCR' \
