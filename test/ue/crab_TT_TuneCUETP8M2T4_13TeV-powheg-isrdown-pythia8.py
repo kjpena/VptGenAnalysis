@@ -3,7 +3,7 @@ import os
 config = Configuration()
 
 config.section_("General")
-config.General.requestName = "TT_TuneEE5C_13TeV-powheg-herwigpp"
+config.General.requestName = "TT_TuneCUETP8M2T4_13TeV-powheg-isrdown-pythia8"
 config.General.workArea = "grid"
 config.General.transferOutputs=True
 
@@ -13,7 +13,7 @@ config.JobType.psetName = "/afs/cern.ch/user/p/psilva/work/Wmass/CMSSW_8_0_8_pat
 config.JobType.outputFiles = ['out.yoda']
 
 config.section_("Data")
-config.Data.inputDataset = "/TT_TuneEE5C_13TeV-powheg-herwigpp/RunIISummer15wmLHEGS-MCRUN2_71_V1-v1/GEN-SIM"
+config.Data.inputDataset = "/TT_TuneCUETP8M2T4_13TeV-powheg-isrdown-pythia8/RunIISummer15wmLHEGS-MCRUN2_71_V1_ext1-v1/GEN-SIM"
 config.Data.inputDBS = "global"
 config.Data.splitting = "FileBased"
 config.Data.unitsPerJob = 5
