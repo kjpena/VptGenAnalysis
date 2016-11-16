@@ -7,4 +7,5 @@
 <use name="root"/>
 <use name="GeneratorInterface/Core"/>
 <use name="GeneratorInterface/Pythia6Interface"/>
+<use name="TopMonteCarlo/RivetTop"/>
 <flags   RIVET_PLUGIN="1"/>

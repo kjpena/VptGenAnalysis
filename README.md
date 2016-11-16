@@ -5,12 +5,25 @@ RivetAnalysis
 
 Install CMSSW and download this package and the generator configuration files
 ```
-cmsrel CMSSW_8_0_8_patch1
-cd CMSSW_8_0_8_patch1/src
+cmsrel CMSSW_8_0_5_patch1
+cd CMSSW_8_0_5_patch1/src
 cmsenv
+
+git-cms-init
+git-cms-addpkg GeneratorInterface/RivetInterface
+git-cms-addpkg Configuration/Generator
+git-cms-merge-topic jhgoh:TOP-RIVET-80X
+
+mkdir TopMonteCarlo
+cd TopMonteCarlo
+git clone https://:@gitlab.cern.ch:8443/CMS-TOP-Rivet/RivetTop.git
+git clone https://:@gitlab.cern.ch:8443/CMS-TOP-Rivet/Configuration.git
+cd -
+
 git cms-addpkg GeneratorInterface/RivetInterface 
 git clone git@github.com:pfs/RivetAnalysis.git UserCode/RivetAnalysis
 cp UserCode/RivetAnalysis/data/ATLAS* GeneratorInterface/RivetInterface/data/
+
 scram b -j 8
 ```
 To run a RIVET plugin starting from a LHE file can use the following cfg
