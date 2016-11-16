@@ -97,11 +97,12 @@ namespace Rivet {
 	  for(int j=0; j<5; j++)
 	    {
 	      std::string fs("ll");
-	      if(j==1) fs="bb";
-	      if(j==2) fs="llbb";
-	      if(j==3) fs="llbbmet";
-	      if(j==4) fs="ttbar";
-	      histos[prodMode+"_m"+fs]        = bookHisto1D(prodMode+"_m"+fs,10,0,300);
+	      double maxMass(200);
+	      if(j==1) { fs="bb"; maxMass=300; }
+	      if(j==2) { fs="llbb"; maxMass=500; }
+	      if(j==3) { fs="llbbmet"; maxMass=1000; }
+	      if(j==4) { fs="ttbar"; maxMass=1000; }
+	      histos[prodMode+"_m"+fs]        = bookHisto1D(prodMode+"_m"+fs,10,0,maxMass);
 	      histos[prodMode+"_pt"+fs]        = bookHisto1D(prodMode+"_pt"+fs,ptBins);
 	      if(j>1) continue;
 	      histos[prodMode+"_phistar"+fs]  = bookHisto1D(prodMode+"_phistar"+fs,phistarBins);
