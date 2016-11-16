@@ -3,10 +3,15 @@
 WHAT=${1}
 
 a=(
-    TT_TuneCUETP8M1_13TeV-powheg-pythia8
-    TT_TuneCUETP8M1noCR_13TeV-powheg-pythia8
-    TT_TuneEE5C_13TeV-powheg-herwigpp
-    TT_TuneCUETP8M1mpiOFF_13TeV-powheg-pythia8
+    "TT_TuneCUETP8M2T4_13TeV-powheg-colourFlip-pythia8"
+    "TT_TuneCUETP8M2T4_13TeV-powheg-fsrdown-pythia8"
+    "TT_TuneCUETP8M2T4_13TeV-powheg-fsrup-pythia8"
+    "TT_TuneCUETP8M2T4_13TeV-powheg-isrdown-pythia8"
+    "TT_TuneCUETP8M2T4_13TeV-powheg-isrup-pythia8"
+    "TT_TuneCUETP8M2T4_13TeV-powheg-pythia8"
+    "TT_TuneCUETP8M2T4down_13TeV-powheg-pythia8"
+    "TT_TuneCUETP8M2T4up_13TeV-powheg-pythia8"
+    "TT_TuneEE5C_13TeV-powheg-herwigpp"
 )
 outDir=${HOME}/public/html/TopUE/Rivet
 

@@ -11,6 +11,7 @@ config.section_("JobType")
 config.JobType.pluginName = "Analysis"
 config.JobType.psetName = "/afs/cern.ch/user/p/psilva/work/Wmass/CMSSW_8_0_8_patch1/src/UserCode/RivetAnalysis/test/runRivetModule_cfg.py"
 config.JobType.outputFiles = ['out.yoda']
+config.JobType.pyCfgParams = ['input=TT_TuneCUETP8M1_13TeV-powheg-pythia8','module=TOP13007','output=out.yoda']
 
 config.section_("Data")
 config.Data.inputDataset = "/TT_TuneCUETP8M2T4_13TeV-powheg-isrup-pythia8/RunIISummer15wmLHEGS-MCRUN2_71_V1_ext1-v1/GEN-SIM"
