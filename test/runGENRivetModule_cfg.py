@@ -94,8 +94,6 @@ process.GlobalTag = GlobalTag(process.GlobalTag, '80X_mcRun2_asymptotic_2016_v1'
 if 'powhegEmissionVeto_2p_LHE_pythia8' in options.hadronizer:
 	from UserCode.RivetAnalysis.Hadronizer_TuneCUETP8M1_8TeV_powhegEmissionVeto_2p_LHE_pythia8_cff import generator
 	process.generator=generator.clone()
-	if 'primordialKToff' in options.hadronizer:
-		process.generator.PythiaParameters.processParameters.append('BeamRemnants:primordialKT = off')
 
 if 'TuneEE_5C_8TeV_Herwigpp' in options.hadronizer:
 	from UserCode.RivetAnalysis.Hadronizer_TuneEE_5C_8TeV_Herwigpp_cff import generator
@@ -104,6 +102,9 @@ if 'TuneEE_5C_8TeV_Herwigpp' in options.hadronizer:
 if 'powhegEmissionVeto_1p_LHE_pythia8' in options.hadronizer:
 	from UserCode.RivetAnalysis.Hadronizer_TuneCUETP8M1_8TeV_powhegEmissionVeto_1p_LHE_pythia8_cff import generator
 	process.generator=generator.clone()
+
+if 'primordialKToff' in options.hadronizer:
+	process.generator.PythiaParameters.processParameters.append('BeamRemnants:primordialKT = off')
 
 process.ProductionFilterSequence = cms.Sequence(process.generator)
 
@@ -147,4 +148,5 @@ try:
 	process.rivetAnalyzer.HepMCCollection = cms.InputTag('generatorSmeared')
 except:
 	print 'Failed to configure RIVET module=',options.module
+
 process.MessageLogger.cerr.FwkReport.reportEvery = 5000
