@@ -1,7 +1,7 @@
 # BEGIN PLOT /ATLAS_2015_I1408516_MU/d..
 XTwosidedTicks=1
 YTwosidedTicks=1
-LegendYPos=0.3
+LegendYPos=0.8
 LegendXPos=0.05
 LogX=1
 YLabel=$1/\sigma$ $\text{d}\sigma/\text{d} p_\text{T}^{\ell\ell}$
