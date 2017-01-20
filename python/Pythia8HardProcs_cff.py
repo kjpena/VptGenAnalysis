@@ -18,7 +18,7 @@ def getGeneratorFor(hardProc='ZToMuMu_CUEP8M2T4',pdfSet='NNPDF30_lo_as_0130',pro
                                           '24:onMode = off',
                                           '24:onIfAny = 13 14' )
 
-    ueParameters=getUEParameters(hardProc)
+    ueParameters=getUEParameters(ueName=hardProc,pdfSet=pdfSet)
 
     print '*'*50
     print hardProc
