@@ -1,6 +1,4 @@
 import FWCore.ParameterSet.Config as cms
-from Configuration.Generator.Pythia8CommonSettings_cfi import *
-from Configuration.Generator.Pythia8CUEP8M1Settings_cfi import *
 
 def getUEParameters(ueName='CUEP8M2T4',pdfSet='NNPDF30_lo_as_0130'):
     if 'AZ' in ueName:
