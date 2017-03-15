@@ -1,4 +1,5 @@
 import FWCore.ParameterSet.Config as cms
+import re
 
 def getUEParameters(ueName='CUEP8M2T4',pdfSet='NNPDF30_lo_as_0130'):
     if 'AZ' in ueName:
@@ -43,5 +44,12 @@ def getUEParameters(ueName='CUEP8M2T4',pdfSet='NNPDF30_lo_as_0130'):
     if 'ISRup'   in ueName: ueParameters.extend( ['SpaceShower:renormMultFac  = 4.0'] )
     if 'ISRdown' in ueName: ueParameters.extend( ['SpaceShower:renormMultFac  = 0.25'] )
     if 'primordialKToff' in ueName : ueParameters.extend( ['BeamRemnants:primordialKT = off'] )
+    for param in ['SpaceShower:pT0Ref','SpaceShower:pTmin']:
+        if not param in ueName : continue
+        newVal=re.findall( "\d+\.\d+", re.search(r'%s=(.*)'%param, ueName).groups()[0] )[0]
+        print 'Setting',param,'to',newVal
+        ueParameters.extend( ['%s=%s'%(param,newVal) ] )
+    
+
 
     return ueParameters
