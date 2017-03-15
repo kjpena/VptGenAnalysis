@@ -5,8 +5,8 @@ import sys
 lheruninfo=Handle('LHERunInfoProduct')
 runs=Runs(sys.argv[1])
 for r in runs:
-    #r.getByLabel('externalLHEProducer',lheruninfo)
-    r.getByLabel('source',lheruninfo)
+    r.getByLabel('externalLHEProducer',lheruninfo)
+    #r.getByLabel('source',lheruninfo)
     it=lheruninfo.product().headers_begin()
     while it!=lheruninfo.product().headers_end():
         lines=it.lines()

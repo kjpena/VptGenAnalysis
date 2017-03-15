@@ -9,7 +9,7 @@ def getGeneratorFor(ueTune='CUEP8M2T4',nFinal=2,pdfSet='NNPDF30_lo_as_0130',proc
 
     if addPhotos:
         process.generator = cms.EDFilter("Pythia8HadronizerFilter",
-                                         maxEventsToPrint = cms.untracked.int32(1),
+                                         maxEventsToPrint = cms.untracked.int32(0),
                                          pythiaPylistVerbosity = cms.untracked.int32(1),
                                          filterEfficiency = cms.untracked.double(1.0),
                                          pythiaHepMCVerbosity = cms.untracked.bool(False),
