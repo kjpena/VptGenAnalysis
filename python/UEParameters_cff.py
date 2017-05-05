@@ -6,6 +6,13 @@ def getUEParameters(ueName='CUEP8M2T4',pdfSet='NNPDF30_lo_as_0130'):
         ueParameters = cms.vstring( 'Tune:pp 17',
                                     'Tune:ee 7',
                                     'PDF:pSet=LHAPDF6:%s'%pdfSet )
+    if 'CUETP8M1' in ueName:
+        ueParameters = cms.vstring( 'Tune:pp 14',
+                                    'Tune:ee 7',
+                                    'MultipartonInteractions:pT0Ref=2.4024',
+                                    'MultipartonInteractions:ecmPow=0.25208',
+                                    'MultipartonInteractions:expPow=1.6',
+                                    'PDF:pSet=LHAPDF6:%s'%pdfSet )
 
     if 'CUEP8M2T4' in ueName:
         if 'down' in ueName:
