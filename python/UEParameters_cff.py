@@ -4,7 +4,7 @@ import re
 def getUEParameters(ueName='CUEP8M2T4',pdfSet='NNPDF30_lo_as_0130'):
     if 'AZ' in ueName:
         ueParameters = cms.vstring( 'Tune:pp 17',
-                                    'Tune:ee 7',
+                                    'Tune:ee 3',
                                     'PDF:pSet=LHAPDF6:%s'%pdfSet )
     if 'CUETP8M1' in ueName:
         ueParameters = cms.vstring( 'Tune:pp 14',
