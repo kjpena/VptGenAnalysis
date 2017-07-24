@@ -14,23 +14,11 @@ options.register('output',
                  VarParsing.varType.string,
                  "Output file name"
                  )
-options.register('usePoolSource',
-                 False,
-                 VarParsing.multiplicity.singleton,
-                 VarParsing.varType.bool,
-                 "use LHE from EDM format"
-                 )
 options.register('saveEDM',
                  False,
                  VarParsing.multiplicity.singleton,
                  VarParsing.varType.bool,
                  "save EDM output"
-                 )
-options.register('photos',
-                 False,
-                 VarParsing.multiplicity.singleton,
-                 VarParsing.varType.bool,
-                 "add Photos for QED"
                  )
 options.register('doRivetScan',
                  False,
@@ -44,41 +32,16 @@ options.register('meWeight',
                  VarParsing.varType.int,
                  "ME weight to apply in RIVET"
                  )
-options.register('seed',
-                 123456789,
-                 VarParsing.multiplicity.singleton,
-                 VarParsing.varType.int,
-                 "seed to use"
-                 )
 options.register('input', 
-		 '/store/cmst3/user/psilva/Wmass/Wminusj/seed_9_pwgevents.lhe',
+		 '/store/mc/RunIISummer15GS/DYToMuMu_M_50_TuneAZ_8TeV_pythia8/GEN-SIM/GenOnly_MCRUN2_71_V1-v3/100000/02B00892-5740-E711-87B1-A0369F7FCDF4.root',
                  VarParsing.multiplicity.singleton,
                  VarParsing.varType.string,
                  "input file to process"
                  )
-options.register('ueTune',
-		 'CUETP8M2T4',
-                 VarParsing.multiplicity.singleton,
-                 VarParsing.varType.string,
-                 "hardcoded UE snippet to use"
-                 )
-options.register('pdfSet',
-		 'NNPDF30_lo_as_0130',
-                 VarParsing.multiplicity.singleton,
-                 VarParsing.varType.string,
-                 "hardcoded UE snippet to use"
-                 )
-options.register('nFinal',
-		 2,
-                 VarParsing.multiplicity.singleton,
-                 VarParsing.varType.int,
-                 "n particles in final state"
-                 )
-
 options.parseArguments()
 
 
-process = cms.Process('GEN')
+process = cms.Process('ANA')
 
 # import of standard configurations
 process.load('Configuration.StandardSequences.Services_cff')
@@ -100,17 +63,11 @@ process.maxEvents = cms.untracked.PSet(
 
 # Input source
 process.source=cms.Source('EmptySource')
-if options.usePoolSource:
-	process.source = cms.Source("PoolSource",
-				    fileNames = cms.untracked.vstring(options.input.split(',')),
-				    inputCommands = cms.untracked.vstring('keep *')
-				    )
-else:
-	process.source = cms.Source("LHESource",
-				    dropDescendantsOfDroppedBranches = cms.untracked.bool(False),
-				    fileNames = cms.untracked.vstring(options.input.split(',')),
-				    inputCommands = cms.untracked.vstring('keep *')
-				    )
+process.source = cms.Source("PoolSource",
+                            fileNames = cms.untracked.vstring(options.input.split(',')),
+                            inputCommands = cms.untracked.vstring('keep *')
+                            )
+
 
 process.options = cms.untracked.PSet(
 )
@@ -127,15 +84,7 @@ process.genstepfilter.triggerConditions=cms.vstring("generation_step")
 from Configuration.AlCa.GlobalTag import GlobalTag
 process.GlobalTag = GlobalTag(process.GlobalTag, '80X_mcRun2_asymptotic_2016_v1', '')
 
-#generator definition
-from UserCode.RivetAnalysis.PowhegEmissioVeton_Pythia8_cff import getGeneratorFor
-getGeneratorFor(ueTune=options.ueTune,nFinal=options.nFinal,pdfSet=options.pdfSet,process=process,addPhotos=options.photos)
-
-process.RandomNumberGeneratorService.generator.initialSeed=cms.untracked.uint32(options.seed)
-print 'Seed initiated to %d'%options.seed
-process.ProductionFilterSequence = cms.Sequence(process.generator)
-
-#tfile service                                                                                                                                                                
+#tfile service                                                                                                                                                 
 process.TFileService = cms.Service("TFileService",
 				   fileName = cms.string(options.output+'.root')
 				   )
@@ -146,35 +95,9 @@ process.load('UserCode.VptGenAnalysis.vptAnalysis_cff')
 
 
 # Path and EndPath definitions
-process.generation_step = cms.Path(process.pgen)
+process.generation_step = cms.Path()
 process.analysis_step = cms.Path(process.analysis)
-process.genfiltersummary_step = cms.EndPath(process.genFilterSummary)
-process.endjob_step = cms.EndPath(process.endOfProcess)
-if options.saveEDM:
-	process.RAWSIMoutput = cms.OutputModule("PoolOutputModule",
-						SelectEvents = cms.untracked.PSet(
-			SelectEvents = cms.vstring('generation_step')
-			),
-						dataset = cms.untracked.PSet(
-			dataTier = cms.untracked.string('GEN'),
-			filterName = cms.untracked.string('')
-			),
-						eventAutoFlushCompressedSize = cms.untracked.int32(5242880),
-						fileName = cms.untracked.string('file:EDMEvents.root'),
-						outputCommands = process.RAWSIMEventContent.outputCommands,
-						splitLevel = cms.untracked.int32(0)
-						)
-	
-	process.RAWSIMoutput_step = cms.EndPath(process.RAWSIMoutput)
-	process.schedule = cms.Schedule(process.generation_step, process.analysis_step, process.genfiltersummary_step, process.endjob_step,process.RAWSIMoutput_step)
-
-else:
-	process.schedule = cms.Schedule(process.generation_step, process.analysis_step, process.genfiltersummary_step, process.endjob_step)
-
-
-# filter all path with the production filter sequence
-for path in process.paths:
-	getattr(process,path)._seq = process.ProductionFilterSequence * getattr(process,path)._seq
+process.schedule = cms.Schedule(process.generation_step, process.analysis_step)
 
 #add RIVET routine
 from UserCode.RivetAnalysis.rivet_customise import *
@@ -189,7 +112,7 @@ if options.doRivetScan:
 					     useLHEweights = cms.bool(True),
 					     LHEweightNumber = cms.int32(i),
 					     LHECollection = LHECollection,
-					     HepMCCollection = cms.InputTag('generatorSmeared'),
+					     HepMCCollection = cms.InputTag('generator'),
 					     OutputFile = cms.string( '%s.w%d.yoda'%(options.output,i)),
 					     )
 			)
@@ -197,6 +120,6 @@ if options.doRivetScan:
 else:
 	process = customiseZPt(process,options.meWeight)
 	process.rivetAnalyzer.OutputFile = cms.string(options.output + 'w%d.yoda'%options.meWeight)
-	process.rivetAnalyzer.HepMCCollection = cms.InputTag('generatorSmeared')
+	process.rivetAnalyzer.HepMCCollection = cms.InputTag('generator')
 
 process.MessageLogger.cerr.FwkReport.reportEvery = 5000
