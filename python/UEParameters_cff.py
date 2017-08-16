@@ -6,6 +6,7 @@ def getUEParameters(ueName='CUEP8M2T4',pdfSet='LHAPDF6:NNPDF30_lo_as_0130'):
         ueParameters = cms.vstring( 'Tune:pp 17',
                                     'Tune:ee 7',
                                     'PDF:pSet=%s'%pdfSet )
+
     if 'CUETP8M1' in ueName:
         ueParameters = cms.vstring( 'Tune:pp 14',
                                     'Tune:ee 7',
