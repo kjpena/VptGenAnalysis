@@ -3,7 +3,7 @@ from Configuration.Generator.Pythia8PowhegEmissionVetoSettings_cfi import *
 from Configuration.Generator.Pythia8CommonSettings_cfi import *
 from UserCode.RivetAnalysis.UEParameters_cff import *
 
-def getGeneratorFor(ueTune='CUEP8M2T4',nFinal=2,pdfSet='NNPDF30_lo_as_0130',process=None,addPhotos=False):
+def getGeneratorFor(ueTune='CUEP8M2T4',nFinal=2,pdfSet='LHAPDF6:NNPDF30_lo_as_0130',process=None,addPhotos=False):
 
     ueParameters=getUEParameters(ueTune,pdfSet)
 
