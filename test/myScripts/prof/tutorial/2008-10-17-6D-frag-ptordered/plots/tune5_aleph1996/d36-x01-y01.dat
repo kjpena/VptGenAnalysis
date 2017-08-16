@@ -1,0 +1,42 @@
+# BEGIN PLOT
+Title=Xi(1530)0 multiplicity
+Legend=1
+LogY=1
+DrawOnly=../ref/ALEPH_1996_S3486095.aida ../tune5/out.aida fpythia_ptordered_lambda23.aida /home/hoeth/Dokumente/MCnet/rivet/rundir/lep_sav/fpythia_tune_final.aida 
+RatioPlot=1
+RatioPlotReference=../ref/ALEPH_1996_S3486095.aida
+RatioPlotYMin=0.5
+RatioPlotYMax=1.5
+RatioPlotYLabel=MC/data
+# END PLOT
+
+# BEGIN HISTOGRAM ../ref/ALEPH_1996_S3486095.aida
+ErrorBars=1
+PolyMarker=*
+Title=data
+0.050000	0.100000	0.054000	0.008200
+0.100000	0.150000	0.019000	0.002800
+0.150000	0.250000	0.011000	0.001500
+0.250000	0.500000	0.005000	0.001000
+# END HISTOGRAM
+
+# BEGIN HISTOGRAM ../tune5/out.aida
+LineColor=red
+LineStyle=solid
+Title=tune5
+0.050000	0.100000	0.000000	0.000000
+0.100000	0.150000	0.000000	0.000000
+0.150000	0.250000	0.000000	0.000000
+0.250000	0.500000	0.000000	0.000000
+# END HISTOGRAM
+
+# BEGIN HISTOGRAM fpythia_ptordered_lambda23.aida
+LineColor=blue
+LineStyle=solid
+Title=lambda 0.23
+0.050000	0.100000	0.000000	0.000000
+0.100000	0.150000	0.000000	0.000000
+0.150000	0.250000	0.000000	0.000000
+0.250000	0.500000	0.000000	0.000000
+# END HISTOGRAM
+

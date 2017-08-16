@@ -1,0 +1,83 @@
+#!/bin/bash
+
+#ptsqmin=ptsqmin400
+ptsqmin=ptsqmin4
+#ptsqmin=central
+
+
+yodaDir=/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/eos/cms/store/cmst3/user/psilva/Wmass/ntuples
+outputDir=/afs/cern.ch/user/k/kjpena/www/plots/ZJ_${ptsqmin}
+
+values=("1" "1.5" "2" "3" "4" "8" "0.125" "0.25" "0.333" "0.5" "0.667") 
+
+# Functions to get the scale values for the legends in the plots
+get_muR () 
+{
+    local weight=${1}
+
+    local j=${weight}/11
+    echo ${values[$j]}
+} 
+
+
+get_muF () 
+{
+    local weight=${1}
+
+    local k=0
+    until [ $k -eq $((${weight}%11)) ]
+    do
+	((k++))
+    done
+
+    echo ${values[$k]} 
+} 
+
+get_legend ()
+{
+    local weight=${1}
+
+    legend="MC ($\mu_R="
+    legend+=$(get_muR ${weight})
+    legend+="$, $\mu_F="
+    legend+=$(get_muF ${weight})
+    legend+="$)"
+
+    echo $legend #returns 'MC ($\mu_R=1$, $\mu_F=1$)'
+}
+
+# Plots
+
+legend_0=$(get_legend 0)
+echo ${legend_0}
+
+rivet-mkhtml -s --times \
+    ./GeneratorInterface/RivetInterface/data/ATLAS_2015_I1408516_MU.yoda:'Data' \
+    --config=./GeneratorInterface/RivetInterface/data/ATLAS_2015_I1408516_MU.plot \
+    -o ${outputDir}/w0 \
+    ${yodaDir}/ZJ_${ptsqmin}.w0.yoda:"${legend_0}"
+
+
+for i in {1..30}
+do 
+
+    legend_a=$(get_legend $((4*i-3)) )
+    legend_b=$(get_legend $((4*i-2)) )
+    legend_c=$(get_legend $((4*i-1)) )
+    legend_d=$(get_legend $((4*i)) )
+
+    echo ${legend_a}
+    echo ${legend_b}
+    echo ${legend_c}
+    echo ${legend_d}
+
+   rivet-mkhtml -s --times \
+       ./GeneratorInterface/RivetInterface/data/ATLAS_2015_I1408516_MU.yoda:'data' \
+       --config=./GeneratorInterface/RivetInterface/data/ATLAS_2015_I1408516_MU.plot \
+       -o ${outputDir}/w$((4*i-3))-w$((4*i)) \
+       ${yodaDir}/ZJ_${ptsqmin}.w$((4*i-3)).yoda:"${legend_a}" \
+       ${yodaDir}/ZJ_${ptsqmin}.w$((4*i-2)).yoda:"${legend_b}" \
+       ${yodaDir}/ZJ_${ptsqmin}.w$((4*i-1)).yoda:"${legend_c}" \
+       ${yodaDir}/ZJ_${ptsqmin}.w$((4*i)).yoda:"${legend_d}"
+done
+

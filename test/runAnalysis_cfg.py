@@ -104,7 +104,7 @@ from UserCode.RivetAnalysis.rivet_customise import *
 if options.doRivetScan:	
 	for i in xrange(0,282):
 		from GeneratorInterface.RivetInterface.rivetAnalyzer_cfi import rivetAnalyzer
-		LHECollection = cms.InputTag('externalLHEProducer') if options.usePoolSource else cms.InputTag('source')
+		LHECollection = cms.InputTag('externalLHEProducer') #if options.usePoolSource else cms.InputTag('source')
 		setattr(process,
 			'rivetAnalyzer%d'%i,
 			rivetAnalyzer.clone( AnalysisNames = cms.vstring('ATLAS_2015_I1408516_MU'),
@@ -119,7 +119,7 @@ if options.doRivetScan:
 		process.generation_step+=getattr(process,'rivetAnalyzer%d'%i)
 else:
 	process = customiseZPt(process,options.meWeight)
-	process.rivetAnalyzer.OutputFile = cms.string(options.output + 'w%d.yoda'%options.meWeight)
+	process.rivetAnalyzer.OutputFile = cms.string(options.output + '.w%d.yoda'%options.meWeight)
 	process.rivetAnalyzer.HepMCCollection = cms.InputTag('generator')
 
 process.MessageLogger.cerr.FwkReport.reportEvery = 5000

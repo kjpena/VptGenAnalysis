@@ -1,0 +1,19 @@
+
+OUTDIR=tune5
+FILE1=../tune5/out.aida
+FILE2=fpythia_ptordered_lambda23.aida
+FILE3=/home/hoeth/Dokumente/MCnet/rivet/rundir/lep_sav/fpythia_tune_final.aida
+LEGEND="data:tune5:lambda 0.23:old shower, tuned"
+
+PROFESSORDIR=/home/hoeth/Dokumente/MCnet/professor/professor/trunk
+
+$PROFESSORDIR/compare_histos.py --linear -i "$LEGEND" -o ${OUTDIR}_multis     -l $PROFESSORDIR/ptune.list ../ref/PDG_HADRON_MULTIPLICITIES.aida $FILE1 $FILE2 $FILE3
+$PROFESSORDIR/compare_histos.py --linear -i "$LEGEND" -o ${OUTDIR}_delphi2002 -l $PROFESSORDIR/ptune.list ../ref/DELPHI_2002_069_CONF_603.aida  $FILE1 $FILE2 $FILE3
+$PROFESSORDIR/compare_histos.py          -i "$LEGEND" -o ${OUTDIR}_opal1998   -l $PROFESSORDIR/ptune.list ../ref/OPAL_1998_S3780481.aida        $FILE1 $FILE2 $FILE3
+$PROFESSORDIR/compare_histos.py          -i "$LEGEND" -o ${OUTDIR}_delphi1996 -l $PROFESSORDIR/ptune.list ../ref/DELPHI_1996_S3430090.aida      $FILE1 $FILE2 $FILE3
+$PROFESSORDIR/compare_histos.py          -i "$LEGEND" -o ${OUTDIR}_aleph1996  -l $PROFESSORDIR/ptune.list ../ref/ALEPH_1996_S3486095.aida       $FILE1 $FILE2 $FILE3
+sed -i "5iYMin=20"        ${OUTDIR}_delphi1996/d35-x01-y01.dat
+sed -i "s/LogY=1/LogY=0/" ${OUTDIR}_delphi1996/d35-x01-y01.dat
+
+for i in ${OUTDIR}_* ; do cd $i ; make_plot.py *.dat ; make_html.sh *.ps ; cd .. ; done
+

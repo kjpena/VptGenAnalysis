@@ -1,0 +1,831 @@
+ ################################################################### 
+ # WARNING: this module is deprecated.                             # 
+ # Please use CondCore.CondDB.CondDB_cfi.py                        # 
+ ################################################################### 
+# Conditions read from  CMS_CONDITIONS  via FrontierProd 
+DEBUG 2017-07-26 12:21:30,221: 	 Executing command: 'submit'
+DEBUG 2017-07-26 12:21:30,221: 	 Found CRAB cache file /afs/cern.ch/user/k/kjpena/.crab3
+DEBUG 2017-07-26 12:21:30,232: 	 Checking credentials
+DEBUG 2017-07-26 12:21:30,233: 	 Proxy file /tmp/x509up_u81022 not found
+DEBUG 2017-07-26 12:21:30,233: 	 Creating new proxy for 24:00 hours with VO group '' and VO role 'NULL'.
+DEBUG 2017-07-26 12:21:37,094: 	 Executing : 
+ command : voms-proxy-init -voms cms:/cms -valid 24:00 -rfc
+ output : None
+ error: None
+ retcode : 0
+DEBUG 2017-07-26 12:21:37,901: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -timeleft
+ output : 86398
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:21:38,612: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -actimeleft
+ output : 86397
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:21:39,335: 	 Executing : 
+ command : env X509_USER_PROXY=/tmp/x509up_u81022 voms-proxy-info -fqan
+ output : /cms/Role=NULL/Capability=NULL
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:21:39,335: 	 Proxy created.
+INFO 2017-07-26 12:21:39,336: 	 Will use CRAB configuration file configFiles/crab_pythia8_tuneAZ.py
+DEBUG 2017-07-26 12:21:39,336: 	 Loading CRAB configuration file.
+DEBUG 2017-07-26 12:21:39,368: 	 Will use CRAB Analysis plugin (i.e. will run an analysis job type).
+DEBUG 2017-07-26 12:21:39,529: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:21:39,529: 	 Checking credentials
+DEBUG 2017-07-26 12:21:39,529: 	 Found proxy file /tmp/x509up_u81022
+DEBUG 2017-07-26 12:21:39,529: 	 Getting proxy life time left
+DEBUG 2017-07-26 12:21:40,241: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -timeleft
+ output : 86395
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:21:41,063: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -actimeleft
+ output : 86395
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:21:41,064: 	 Proxy valid for 23:59:55 hours
+DEBUG 2017-07-26 12:21:41,883: 	 Executing : 
+ command : env X509_USER_PROXY=/tmp/x509up_u81022 voms-proxy-info -fqan
+ output : /cms/Role=NULL/Capability=NULL
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:21:42,279: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch
+DEBUG 2017-07-26 12:21:42,396: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:21:42,397: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2017-07-26 12:21:42,397: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA_cmsweb.cern.ch for credential name
+DEBUG 2017-07-26 12:21:42,703: 	 Executing : 
+ command : myproxy-info -l 5c807b6c2de98292a7dc3f52d71970fa53af4385 -s myproxy.cern.ch
+ output : username: 5c807b6c2de98292a7dc3f52d71970fa53af4385
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch
+  timeleft: 365:11:00  (15.2 days)
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:21:42,704: 	 Myproxy is valid: 1314660
+DEBUG 2017-07-26 12:21:42,705: 	 Command use: submit
+DEBUG 2017-07-26 12:21:42,705: 	 Options use: ['configFiles/crab_pythia8_tuneAZ.py']
+DEBUG 2017-07-26 12:21:43,210: 	 CRABClient version: 3.3.1707.patch1
+DEBUG 2017-07-26 12:21:43,211: 	 Instance is prod
+DEBUG 2017-07-26 12:21:43,211: 	 Server base url is cmsweb.cern.ch
+DEBUG 2017-07-26 12:21:43,211: 	 Command url /crabserver/prod/workflow
+DEBUG 2017-07-26 12:21:43,211: 	 Started submission
+DEBUG 2017-07-26 12:21:43,211: 	 Working on /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/crab/grid/crab_pythia8_tuneAZ
+DEBUG 2017-07-26 12:21:43,701: 	 Loading required information from the environment
+DEBUG 2017-07-26 12:21:43,701: 	 Found CMSSW_8_0_8_patch1 for slc6_amd64_gcc530 with base /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1
+DEBUG 2017-07-26 12:21:43,701: 	 Loading required information from the environment
+DEBUG 2017-07-26 12:21:43,701: 	 Found CMSSW_8_0_8_patch1 for slc6_amd64_gcc530 with base /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1
+DEBUG 2017-07-26 12:21:43,719: 	 UNIQUE NAME: tarUUID 497bad27-85de-4b72-8efa-aef9e38b4857 
+DEBUG 2017-07-26 12:21:43,720: 	 self.config: from WMCore.Configuration import Configuration
+config = Configuration()
+config.section_('General')
+config.General.transferOutputs = True
+config.General.workArea = 'grid'
+config.General.requestName = 'pythia8_tuneAZ'
+config.section_('JobType')
+config.JobType.psetName = '/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/UserCode/VptGenAnalysis/test/runAnalysis_cfg.py'
+config.JobType.pluginName = 'Analysis'
+config.JobType.outputFiles = ['pythia8_tuneAZ.root', 'pythia8_tuneAZ.w0.yoda']
+config.JobType.pyCfgParams = ['output=pythia8_tuneAZ', 'doRivetScan=False']
+config.JobType.disableAutomaticOutputCollection = True
+config.section_('Data')
+config.Data.inputDataset = '/DYToMuMu_M_50_TuneAZ_8TeV_pythia8/RunIISummer15GS-GenOnly_MCRUN2_71_V1-v3/GEN-SIM'
+config.Data.totalUnits = 5000
+config.Data.unitsPerJob = 500
+config.Data.ignoreLocality = False
+config.Data.inputDBS = 'global'
+config.Data.splitting = 'EventAwareLumiBased'
+config.Data.outLFNDirBase = '/store/group/cmst3/group/wmass/kjpena/pythia8_tuneAZ'
+config.Data.publication = False
+config.section_('Site')
+config.Site.whitelist = ['T2_CH_CERN']
+config.Site.storageSite = 'T2_CH_CERN'
+
+DEBUG 2017-07-26 12:21:43,720: 	 self.config.JobType.psetName: /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/UserCode/VptGenAnalysis/test/runAnalysis_cfg.py
+INFO 2017-07-26 12:21:43,773: 	 Importing CMSSW configuration /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/UserCode/VptGenAnalysis/test/runAnalysis_cfg.py
+DEBUG 2017-07-26 12:21:43,773: 	 Additional parameters for the CMSSW configuration are: ['output=pythia8_tuneAZ', 'doRivetScan=False']
+INFO 2017-07-26 12:22:05,110: 	 Finished importing CMSSW configuration /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/UserCode/VptGenAnalysis/test/runAnalysis_cfg.py
+DEBUG 2017-07-26 12:22:05,110: 	 Writing CMSSW configuration to /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/crab/grid/crab_pythia8_tuneAZ/inputs/PSet.py
+DEBUG 2017-07-26 12:22:05,545: 	 The following EDM output files will be collected: []
+DEBUG 2017-07-26 12:22:05,545: 	 The following TFile output files will be collected: ['pythia8_tuneAZ.root']
+DEBUG 2017-07-26 12:22:05,545: 	 The following user output files will be collected: ['pythia8_tuneAZ.w0.yoda']
+DEBUG 2017-07-26 12:22:05,545: 	 Loading required information from the environment
+DEBUG 2017-07-26 12:22:05,545: 	 Found CMSSW_8_0_8_patch1 for slc6_amd64_gcc530 with base /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1
+DEBUG 2017-07-26 12:22:05,545: 	 Making tarball in /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/crab/grid/crab_pythia8_tuneAZ/inputs/497bad27-85de-4b72-8efa-aef9e38b4857default.tgz
+DEBUG 2017-07-26 12:22:05,661: 	 Checking directory /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/lib
+DEBUG 2017-07-26 12:22:05,661: 	 Adding directory /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/lib to tarball
+DEBUG 2017-07-26 12:22:05,946: 	 Checking directory /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/biglib
+DEBUG 2017-07-26 12:22:05,946: 	 Adding directory /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/biglib to tarball
+DEBUG 2017-07-26 12:22:05,949: 	 Checking directory /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/module
+DEBUG 2017-07-26 12:22:06,205: 	 Adding data directory /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/GeneratorInterface/RivetInterface/data to tarball
+DEBUG 2017-07-26 12:22:06,400: 	 Adding data directory /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/GeneratorInterface/RivetInterface/interface to tarball
+DEBUG 2017-07-26 12:22:07,206: 	 Adding data directory /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/UserCode/RivetAnalysis/data to tarball
+DEBUG 2017-07-26 12:22:12,759: 	 Adding data directory /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/UserCode.backup/RivetAnalysis/data to tarball
+DEBUG 2017-07-26 12:22:13,085: 	 Uploading archive /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/crab/grid/crab_pythia8_tuneAZ/inputs/497bad27-85de-4b72-8efa-aef9e38b4857default.tgz (0.566406.1 MB) to the CRAB cache. Using URI https://cmsweb.cern.ch/crabcache
+DEBUG 2017-07-26 12:22:13,668: 	 Loading required information from the environment
+DEBUG 2017-07-26 12:22:13,669: 	 Found CMSSW_8_0_8_patch1 for slc6_amd64_gcc530 with base /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1
+DEBUG 2017-07-26 12:22:13,669: 	 Making tarball in /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/crab/grid/crab_pythia8_tuneAZ/inputs/debugFiles.tgz
+DEBUG 2017-07-26 12:22:13,695: 	 Uploading archive /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/crab/grid/crab_pythia8_tuneAZ/inputs/debugFiles.tgz (2 KB) to the CRAB cache. Using URI https://cmsweb.cern.ch/crabcache
+DEBUG 2017-07-26 12:22:14,044: 	 Result uploading input files: f6bd1d73bd8863136dd6943dcd8e641cf326bf49056af78a93f352e9d736a59a.tar.gz 
+INFO 2017-07-26 12:22:14,044: 	 Sending the request to the server
+DEBUG 2017-07-26 12:22:14,044: 	 Submitting {'maxjobruntime': 1250, 'extrajdl': [], 'ignorelocality': 0, 'savelogsflag': 0, 'useparent': 0, 'asyncdest': 'T2_CH_CERN', 'algoargs': 500, 'cachefilename': 'f6bd1d73bd8863136dd6943dcd8e641cf326bf49056af78a93f352e9d736a59a.tar.gz', 'numcores': 1, 'addoutputfiles': ['pythia8_tuneAZ.w0.yoda'], 'generator': 'pythia', 'maxmemory': 2000, 'publishdbsurl': 'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', 'priority': 10, 'jobsw': 'CMSSW_8_0_8_patch1', 'edmoutfiles': [], 'userfiles': [], 'primarydataset': '', 'inputdata': '/DYToMuMu_M_50_TuneAZ_8TeV_pythia8/RunIISummer15GS-GenOnly_MCRUN2_71_V1-v3/GEN-SIM', 'lfn': '/store/group/cmst3/group/wmass/kjpena/pythia8_tuneAZ', 'dryrun': 0, 'workflow': 'crab_pythia8_tuneAZ', 'sitewhitelist': ['T2_CH_CERN'], 'nonprodsw': 0, 'tfileoutfiles': ['pythia8_tuneAZ.root'], 'oneEventMode': 0, 'debugfilename': 'ce361c4d66b2b772cee41711640ca899524c18282c9fdd6353dc9bc0a6ffd844.tar.gz', 'cacheurl': u'https://cmsweb.cern.ch/crabcache', 'saveoutput': 1, 'publication': 0, 'jobarch': 'slc6_amd64_gcc530', 'totalunits': 5000, 'splitalgo': 'EventAwareLumiBased', 'ignoreglobalblacklist': 0, 'nonvaliddata': 0, 'dbsurl': 'https://cmsweb.cern.ch/dbs/prod/global/DBSReader', 'publishgroupname': 0, 'jobtype': 'Analysis', 'publishname2': ''} 
+DEBUG 2017-07-26 12:22:14,045: 	 Encoded submit request: maxjobruntime=1250&ignorelocality=0&savelogsflag=0&useparent=0&asyncdest=T2_CH_CERN&algoargs=500&cachefilename=f6bd1d73bd8863136dd6943dcd8e641cf326bf49056af78a93f352e9d736a59a.tar.gz&numcores=1&generator=pythia&maxmemory=2000&publishdbsurl=https%3A%2F%2Fcmsweb.cern.ch%2Fdbs%2Fprod%2Fphys03%2FDBSWriter&priority=10&jobsw=CMSSW_8_0_8_patch1&primarydataset=&inputdata=%2FDYToMuMu_M_50_TuneAZ_8TeV_pythia8%2FRunIISummer15GS-GenOnly_MCRUN2_71_V1-v3%2FGEN-SIM&lfn=%2Fstore%2Fgroup%2Fcmst3%2Fgroup%2Fwmass%2Fkjpena%2Fpythia8_tuneAZ&dryrun=0&workflow=crab_pythia8_tuneAZ&nonprodsw=0&oneEventMode=0&debugfilename=ce361c4d66b2b772cee41711640ca899524c18282c9fdd6353dc9bc0a6ffd844.tar.gz&cacheurl=https%3A%2F%2Fcmsweb.cern.ch%2Fcrabcache&saveoutput=1&publication=0&jobarch=slc6_amd64_gcc530&totalunits=5000&splitalgo=EventAwareLumiBased&ignoreglobalblacklist=0&nonvaliddata=0&dbsurl=https%3A%2F%2Fcmsweb.cern.ch%2Fdbs%2Fprod%2Fglobal%2FDBSReader&publishgroupname=0&jobtype=Analysis&publishname2=&addoutputfiles=pythia8_tuneAZ.w0.yoda&sitewhitelist=T2_CH_CERN&tfileoutfiles=pythia8_tuneAZ.root
+DEBUG 2017-07-26 12:22:14,724: 	 Result: {u'result': [{u'RequestName': u'170726_102214:kjpena_crab_pythia8_tuneAZ'}]}
+INFO 2017-07-26 12:22:14,727: 	 Success: Your task has been delivered to the CRAB3 server.
+INFO 2017-07-26 12:22:14,727: 	 Task name: 170726_102214:kjpena_crab_pythia8_tuneAZ
+INFO 2017-07-26 12:22:14,727: 	 Please use 'crab status' to check how the submission process proceeds.
+DEBUG 2017-07-26 12:22:14,727: 	 About to return
+INFO 2017-07-26 12:22:14,731: 	 Log file is /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/crab/grid/crab_pythia8_tuneAZ/crab.log
+DEBUG 2017-07-26 12:22:56,146: 	 Executing command: 'status'
+DEBUG 2017-07-26 12:22:56,146: 	 Found CRAB cache file /afs/cern.ch/user/k/kjpena/.crab3
+DEBUG 2017-07-26 12:22:56,171: 	 Checking credentials
+DEBUG 2017-07-26 12:22:56,172: 	 Found proxy file /tmp/x509up_u81022
+DEBUG 2017-07-26 12:22:56,172: 	 Getting proxy life time left
+DEBUG 2017-07-26 12:22:57,202: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -timeleft
+ output : 86318
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:22:58,330: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -actimeleft
+ output : 86317
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:22:58,330: 	 Proxy valid for 23:58:38 hours
+DEBUG 2017-07-26 12:22:58,450: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:22:58,450: 	 Checking credentials
+DEBUG 2017-07-26 12:22:58,451: 	 Found proxy file /tmp/x509up_u81022
+DEBUG 2017-07-26 12:22:58,451: 	 Getting proxy life time left
+DEBUG 2017-07-26 12:22:59,282: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -timeleft
+ output : 86316
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:23:00,095: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -actimeleft
+ output : 86315
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:23:00,096: 	 Proxy valid for 23:58:36 hours
+DEBUG 2017-07-26 12:23:00,540: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch
+DEBUG 2017-07-26 12:23:00,656: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:23:00,657: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2017-07-26 12:23:00,657: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA_cmsweb.cern.ch for credential name
+DEBUG 2017-07-26 12:23:00,874: 	 Executing : 
+ command : myproxy-info -l 5c807b6c2de98292a7dc3f52d71970fa53af4385 -s myproxy.cern.ch
+ output : username: 5c807b6c2de98292a7dc3f52d71970fa53af4385
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch
+  timeleft: 365:09:42  (15.2 days)
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:23:00,876: 	 Myproxy is valid: 1314582
+DEBUG 2017-07-26 12:23:00,876: 	 Command use: status
+DEBUG 2017-07-26 12:23:00,876: 	 Options use: []
+DEBUG 2017-07-26 12:23:01,287: 	 CRABClient version: 3.3.1707.patch1
+DEBUG 2017-07-26 12:23:01,287: 	 Instance is prod
+DEBUG 2017-07-26 12:23:01,287: 	 Server base url is cmsweb.cern.ch
+DEBUG 2017-07-26 12:23:01,287: 	 Command url /crabserver/prod/workflow
+DEBUG 2017-07-26 12:23:01,702: 	 Got information from server oracle database: {u'result': [u'170726_102214:kjpena_crab_pythia8_tuneAZ', u'None', u'QUEUED', u'2017-07-26 10:22:14.706461', u'None', u'None', u'None', u'CMSSW_8_0_8_patch1', u'slc6_amd64_gcc530', u'/DYToMuMu_M_50_TuneAZ_8TeV_pythia8/RunIISummer15GS-GenOnly_MCRUN2_71_V1-v3/GEN-SIM', u"['T2_CH_CERN']", u'[]', u'EventAwareLumiBased', u"{'splitOnRun': False, 'events_per_job': 500, 'halt_job_on_file_boundaries': False, 'runs': [], 'lumis': []}", u'5000', u'f6bd1d73bd8863136dd6943dcd8e641cf326bf49056af78a93f352e9d736a59a.tar.gz', u'https://cmsweb.cern.ch/crabcache', u'kjpena', u'/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA', u'cms', u'None', u'None', u'crab_pythia8_tuneAZ-00000000000000000000000000000000', u'T2_CH_CERN', u'https://cmsweb.cern.ch/dbs/prod/global/DBSReader', u'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', u'F', u'Analysis', u'{}', u'[]', u'F', u'vocms052', u'[]', u'1250', u'1', u'2000', u'10', u'None', u'None', u'None', u'None', u'[]', u'[]', u'[]', u'pythia', u"['pythia8_tuneAZ.w0.yoda']", u"['pythia8_tuneAZ.root']", u'[]', u'https://cmsweb.cern.ch/crabserver/prod', u'None', u'0', u'cmsgwms-collector-global.cern.ch:9620,cmssrv221.fnal.gov:9620', u'crab3@vocms0155.cern.ch', u'F', u'[]', u'T', u'/store/group/cmst3/group/wmass/kjpena/pythia8_tuneAZ', u'F', u'None', u'F', u'F', u'F', u'None', u'DYToMuMu_M_50_TuneAZ_8TeV_pythia8', u'filetransfers', u'SUBMIT', u'None', u'ce361c4d66b2b772cee41711640ca899524c18282c9fdd6353dc9bc0a6ffd844.tar.gz', u'188.184.95.78', u'F', u'None'], u'desc': {u'columns': [u'tm_taskname', u'panda_jobset_id', u'tm_task_status', u'tm_start_time', u'tm_start_injection', u'tm_end_injection', u'tm_task_failure', u'tm_job_sw', u'tm_job_arch', u'tm_input_dataset', u'tm_site_whitelist', u'tm_site_blacklist', u'tm_split_algo', u'tm_split_args', u'tm_totalunits', u'tm_user_sandbox', u'tm_cache_url', u'tm_username', u'tm_user_dn', u'tm_user_vo', u'tm_user_role', u'tm_user_group', u'tm_publish_name', u'tm_asyncdest', u'tm_dbs_url', u'tm_publish_dbs_url', u'tm_publication', u'tm_job_type', u'tm_arguments', u'panda_resubmitted_jobs', u'tm_save_logs', u'tw_name', u'tm_user_infiles', u'tm_maxjobruntime', u'tm_numcores', u'tm_maxmemory', u'tm_priority', u'tm_output_dataset', u'tm_user_webdir', u'tm_activity', u'tm_scriptexe', u'tm_scriptargs', u'tm_extrajdl', u'tm_task_warnings', u'tm_generator', u'tm_outfiles', u'tm_tfile_outfiles', u'tm_edm_outfiles', u'tm_asourl', u'tm_events_per_lumi', u'tm_use_parent', u'tm_collector', u'tm_schedd', u'tm_dry_run', u'tm_user_files', u'tm_transfer_outputs', u'tm_output_lfn', u'tm_ignore_locality', u'tm_fail_limit', u'tm_one_event_mode', u'tm_publish_groupname', u'tm_nonvalid_input_dataset', u'tm_secondary_input_dataset', u'tm_primary_dataset', u'tm_asodb', u'tm_task_command', u'clusterid', u'tm_debug_files', u'tm_submitter_ip_addr', u'tm_ignore_global_blacklist', u'tm_last_publication']}}
+INFO 2017-07-26 12:23:01,703: 	 CRAB project directory:		/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/crab/grid/crab_pythia8_tuneAZ
+INFO 2017-07-26 12:23:01,703: 	 Task name:			170726_102214:kjpena_crab_pythia8_tuneAZ
+INFO 2017-07-26 12:23:01,703: 	 Grid scheduler:			crab3@vocms0155.cern.ch
+INFO 2017-07-26 12:23:01,704: 	 Status on the CRAB server:	QUEUED on command SUBMIT
+INFO 2017-07-26 12:23:01,704: 	 Task URL to use for HELP:	https://cmsweb.cern.ch/crabserver/ui/task/170726_102214%3Akjpena_crab_pythia8_tuneAZ
+INFO 2017-07-26 12:23:01,704: 	 Dashboard monitoring URL:	http://dashb-cms-job.cern.ch/dashboard/templates/task-analysis/#user=kjpena&refresh=0&table=Jobs&p=1&records=25&activemenu=2&status=&site=&tid=170726_102214%3Akjpena_crab_pythia8_tuneAZ
+DEBUG 2017-07-26 12:23:01,704: 	 The task has not been submitted to the Grid scheduler yet. Not printing job information.
+INFO 2017-07-26 12:23:01,879: 	 Log file is /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/crab/grid/crab_pythia8_tuneAZ/crab.log
+DEBUG 2017-07-26 12:23:38,752: 	 Executing command: 'status'
+DEBUG 2017-07-26 12:23:38,752: 	 Found CRAB cache file /afs/cern.ch/user/k/kjpena/.crab3
+DEBUG 2017-07-26 12:23:38,758: 	 Checking credentials
+DEBUG 2017-07-26 12:23:38,759: 	 Found proxy file /tmp/x509up_u81022
+DEBUG 2017-07-26 12:23:38,759: 	 Getting proxy life time left
+DEBUG 2017-07-26 12:23:39,567: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -timeleft
+ output : 86276
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:23:40,686: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -actimeleft
+ output : 86275
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:23:40,687: 	 Proxy valid for 23:57:56 hours
+DEBUG 2017-07-26 12:23:40,803: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:23:40,803: 	 Checking credentials
+DEBUG 2017-07-26 12:23:40,804: 	 Found proxy file /tmp/x509up_u81022
+DEBUG 2017-07-26 12:23:40,804: 	 Getting proxy life time left
+DEBUG 2017-07-26 12:23:41,509: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -timeleft
+ output : 86274
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:23:42,221: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -actimeleft
+ output : 86273
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:23:42,221: 	 Proxy valid for 23:57:54 hours
+DEBUG 2017-07-26 12:23:42,652: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch
+DEBUG 2017-07-26 12:23:42,763: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:23:42,764: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2017-07-26 12:23:42,764: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA_cmsweb.cern.ch for credential name
+DEBUG 2017-07-26 12:23:42,971: 	 Executing : 
+ command : myproxy-info -l 5c807b6c2de98292a7dc3f52d71970fa53af4385 -s myproxy.cern.ch
+ output : username: 5c807b6c2de98292a7dc3f52d71970fa53af4385
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch
+  timeleft: 365:09:00  (15.2 days)
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:23:42,973: 	 Myproxy is valid: 1314540
+DEBUG 2017-07-26 12:23:42,973: 	 Command use: status
+DEBUG 2017-07-26 12:23:42,973: 	 Options use: []
+DEBUG 2017-07-26 12:23:43,361: 	 CRABClient version: 3.3.1707.patch1
+DEBUG 2017-07-26 12:23:43,361: 	 Instance is prod
+DEBUG 2017-07-26 12:23:43,361: 	 Server base url is cmsweb.cern.ch
+DEBUG 2017-07-26 12:23:43,362: 	 Command url /crabserver/prod/workflow
+DEBUG 2017-07-26 12:23:43,756: 	 Got information from server oracle database: {u'result': [u'170726_102214:kjpena_crab_pythia8_tuneAZ', u'None', u'SUBMITTED', u'2017-07-26 10:22:14.706461', u'None', u'2017-07-26 10:23:18.149203', u'None', u'CMSSW_8_0_8_patch1', u'slc6_amd64_gcc530', u'/DYToMuMu_M_50_TuneAZ_8TeV_pythia8/RunIISummer15GS-GenOnly_MCRUN2_71_V1-v3/GEN-SIM', u"['T2_CH_CERN']", u'[]', u'EventAwareLumiBased', u"{'splitOnRun': False, 'events_per_job': 500, 'halt_job_on_file_boundaries': False, 'runs': [], 'lumis': []}", u'5000', u'f6bd1d73bd8863136dd6943dcd8e641cf326bf49056af78a93f352e9d736a59a.tar.gz', u'https://cmsweb.cern.ch/crabcache', u'kjpena', u'/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA', u'cms', u'None', u'None', u'crab_pythia8_tuneAZ-00000000000000000000000000000000', u'T2_CH_CERN', u'https://cmsweb.cern.ch/dbs/prod/global/DBSReader', u'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', u'F', u'Analysis', u'{}', u'[]', u'F', u'vocms052', u'[]', u'1250', u'1', u'2000', u'10', u'None', u'http://vocms0155.cern.ch/mon/cms447/170726_102214:kjpena_crab_pythia8_tuneAZ', u'None', u'None', u'[]', u'[]', u'[]', u'pythia', u"['pythia8_tuneAZ.w0.yoda']", u"['pythia8_tuneAZ.root']", u'[]', u'https://cmsweb.cern.ch/crabserver/prod', u'None', u'0', u'cmsgwms-collector-global.cern.ch:9620,cmssrv221.fnal.gov:9620', u'crab3@vocms0155.cern.ch', u'F', u'[]', u'T', u'/store/group/cmst3/group/wmass/kjpena/pythia8_tuneAZ', u'F', u'None', u'F', u'F', u'F', u'None', u'DYToMuMu_M_50_TuneAZ_8TeV_pythia8', u'filetransfers', u'SUBMIT', u'10846508', u'ce361c4d66b2b772cee41711640ca899524c18282c9fdd6353dc9bc0a6ffd844.tar.gz', u'188.184.95.78', u'F', u'None'], u'desc': {u'columns': [u'tm_taskname', u'panda_jobset_id', u'tm_task_status', u'tm_start_time', u'tm_start_injection', u'tm_end_injection', u'tm_task_failure', u'tm_job_sw', u'tm_job_arch', u'tm_input_dataset', u'tm_site_whitelist', u'tm_site_blacklist', u'tm_split_algo', u'tm_split_args', u'tm_totalunits', u'tm_user_sandbox', u'tm_cache_url', u'tm_username', u'tm_user_dn', u'tm_user_vo', u'tm_user_role', u'tm_user_group', u'tm_publish_name', u'tm_asyncdest', u'tm_dbs_url', u'tm_publish_dbs_url', u'tm_publication', u'tm_job_type', u'tm_arguments', u'panda_resubmitted_jobs', u'tm_save_logs', u'tw_name', u'tm_user_infiles', u'tm_maxjobruntime', u'tm_numcores', u'tm_maxmemory', u'tm_priority', u'tm_output_dataset', u'tm_user_webdir', u'tm_activity', u'tm_scriptexe', u'tm_scriptargs', u'tm_extrajdl', u'tm_task_warnings', u'tm_generator', u'tm_outfiles', u'tm_tfile_outfiles', u'tm_edm_outfiles', u'tm_asourl', u'tm_events_per_lumi', u'tm_use_parent', u'tm_collector', u'tm_schedd', u'tm_dry_run', u'tm_user_files', u'tm_transfer_outputs', u'tm_output_lfn', u'tm_ignore_locality', u'tm_fail_limit', u'tm_one_event_mode', u'tm_publish_groupname', u'tm_nonvalid_input_dataset', u'tm_secondary_input_dataset', u'tm_primary_dataset', u'tm_asodb', u'tm_task_command', u'clusterid', u'tm_debug_files', u'tm_submitter_ip_addr', u'tm_ignore_global_blacklist', u'tm_last_publication']}}
+INFO 2017-07-26 12:23:43,757: 	 CRAB project directory:		/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/crab/grid/crab_pythia8_tuneAZ
+INFO 2017-07-26 12:23:43,757: 	 Task name:			170726_102214:kjpena_crab_pythia8_tuneAZ
+INFO 2017-07-26 12:23:43,757: 	 Grid scheduler:			crab3@vocms0155.cern.ch
+INFO 2017-07-26 12:23:43,757: 	 Status on the CRAB server:	SUBMITTED
+INFO 2017-07-26 12:23:43,757: 	 Task URL to use for HELP:	https://cmsweb.cern.ch/crabserver/ui/task/170726_102214%3Akjpena_crab_pythia8_tuneAZ
+INFO 2017-07-26 12:23:43,757: 	 Dashboard monitoring URL:	http://dashb-cms-job.cern.ch/dashboard/templates/task-analysis/#user=kjpena&refresh=0&table=Jobs&p=1&records=25&activemenu=2&status=&site=&tid=170726_102214%3Akjpena_crab_pythia8_tuneAZ
+DEBUG 2017-07-26 12:23:43,757: 	 The CRAB server submitted your task to the Grid scheduler (cluster ID: 10846508)
+DEBUG 2017-07-26 12:23:43,757: 	 Webdir is located at http://vocms0155.cern.ch/mon/cms447/170726_102214:kjpena_crab_pythia8_tuneAZ
+DEBUG 2017-07-26 12:23:44,130: 	 Proxied webdir is located at https://cmsweb.cern.ch/scheddmon/0155/cms447/170726_102214:kjpena_crab_pythia8_tuneAZ
+DEBUG 2017-07-26 12:23:44,130: 	 Retrieving 'status_cache' file from https://cmsweb.cern.ch/scheddmon/0155/cms447/170726_102214:kjpena_crab_pythia8_tuneAZ/status_cache
+INFO 2017-07-26 12:23:44,504: 	 Waiting for the Grid scheduler to report back the status of your task
+ERROR 2017-07-26 12:23:44,505: 	 Cannot retrieve the status_cache file. Maybe the task process has not run yet? Got:
+url=https://cmsweb.cern.ch/scheddmon/0155/cms447/170726_102214:kjpena_crab_pythia8_tuneAZ/status_cache, code=403, reason=Forbidden, headers={'Content-Length': '350', 'Set-Cookie': 'cms-auth=27225c038614b357b89032a491a2ab354f9194d5037bcf13a7045acc3f28be6add5e73df213b68e7;path=/;secure;httponly;expires=Thu, 01-Jan-1970 00:00:01 GMT', 'Server': 'Apache/2.2.15 (Red Hat)', 'Date': 'Wed, 26 Jul 2017 10:23:44 GMT', 'Content-Type': 'text/html; charset=iso-8859-1', 'CMS-Server-Time': 'D=3794 t=1501064624500446'}
+ERROR 2017-07-26 12:23:44,505: 	 url=https://cmsweb.cern.ch/scheddmon/0155/cms447/170726_102214:kjpena_crab_pythia8_tuneAZ/status_cache, code=403, reason=Forbidden, headers={'Content-Length': '350', 'Set-Cookie': 'cms-auth=27225c038614b357b89032a491a2ab354f9194d5037bcf13a7045acc3f28be6add5e73df213b68e7;path=/;secure;httponly;expires=Thu, 01-Jan-1970 00:00:01 GMT', 'Server': 'Apache/2.2.15 (Red Hat)', 'Date': 'Wed, 26 Jul 2017 10:23:44 GMT', 'Content-Type': 'text/html; charset=iso-8859-1', 'CMS-Server-Time': 'D=3794 t=1501064624500446'}
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1707.patch1/lib/python2.7/site-packages/CRABClient/Commands/status.py", line 110, in __call__
+    statusCacheData = getDataFromURL(url, self.proxyfilename)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1707.patch1/lib/python2.7/site-packages/CRABClient/UserUtilities.py", line 166, in getDataFromURL
+    capath=HTTPRequests.getCACertPath())
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1707.patch1/lib/python2.7/site-packages/WMCore/Services/pycurl_manager.py", line 207, in request
+    raise exc
+HTTPException: url=https://cmsweb.cern.ch/scheddmon/0155/cms447/170726_102214:kjpena_crab_pythia8_tuneAZ/status_cache, code=403, reason=Forbidden, headers={'Content-Length': '350', 'Set-Cookie': 'cms-auth=27225c038614b357b89032a491a2ab354f9194d5037bcf13a7045acc3f28be6add5e73df213b68e7;path=/;secure;httponly;expires=Thu, 01-Jan-1970 00:00:01 GMT', 'Server': 'Apache/2.2.15 (Red Hat)', 'Date': 'Wed, 26 Jul 2017 10:23:44 GMT', 'Content-Type': 'text/html; charset=iso-8859-1', 'CMS-Server-Time': 'D=3794 t=1501064624500446'}
+INFO 2017-07-26 12:23:44,551: 	 Log file is /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/crab/grid/crab_pythia8_tuneAZ/crab.log
+DEBUG 2017-07-26 12:24:24,990: 	 Executing command: 'status'
+DEBUG 2017-07-26 12:24:24,990: 	 Found CRAB cache file /afs/cern.ch/user/k/kjpena/.crab3
+DEBUG 2017-07-26 12:24:24,998: 	 Checking credentials
+DEBUG 2017-07-26 12:24:24,999: 	 Found proxy file /tmp/x509up_u81022
+DEBUG 2017-07-26 12:24:25,000: 	 Getting proxy life time left
+DEBUG 2017-07-26 12:24:26,414: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -timeleft
+ output : 86229
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:24:27,133: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -actimeleft
+ output : 86228
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:24:27,134: 	 Proxy valid for 23:57:09 hours
+DEBUG 2017-07-26 12:24:27,255: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:24:27,255: 	 Checking credentials
+DEBUG 2017-07-26 12:24:27,255: 	 Found proxy file /tmp/x509up_u81022
+DEBUG 2017-07-26 12:24:27,255: 	 Getting proxy life time left
+DEBUG 2017-07-26 12:24:28,062: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -timeleft
+ output : 86228
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:24:28,777: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -actimeleft
+ output : 86227
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:24:28,777: 	 Proxy valid for 23:57:08 hours
+DEBUG 2017-07-26 12:24:29,227: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch
+DEBUG 2017-07-26 12:24:29,345: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:24:29,346: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2017-07-26 12:24:29,346: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA_cmsweb.cern.ch for credential name
+DEBUG 2017-07-26 12:24:29,760: 	 Executing : 
+ command : myproxy-info -l 5c807b6c2de98292a7dc3f52d71970fa53af4385 -s myproxy.cern.ch
+ output : username: 5c807b6c2de98292a7dc3f52d71970fa53af4385
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch
+  timeleft: 365:08:13  (15.2 days)
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:24:29,762: 	 Myproxy is valid: 1314493
+DEBUG 2017-07-26 12:24:29,762: 	 Command use: status
+DEBUG 2017-07-26 12:24:29,762: 	 Options use: []
+DEBUG 2017-07-26 12:24:30,149: 	 CRABClient version: 3.3.1707.patch1
+DEBUG 2017-07-26 12:24:30,149: 	 Instance is prod
+DEBUG 2017-07-26 12:24:30,149: 	 Server base url is cmsweb.cern.ch
+DEBUG 2017-07-26 12:24:30,149: 	 Command url /crabserver/prod/workflow
+DEBUG 2017-07-26 12:24:30,632: 	 Got information from server oracle database: {u'result': [u'170726_102214:kjpena_crab_pythia8_tuneAZ', u'None', u'SUBMITTED', u'2017-07-26 10:22:14.706461', u'None', u'2017-07-26 10:23:18.149203', u'None', u'CMSSW_8_0_8_patch1', u'slc6_amd64_gcc530', u'/DYToMuMu_M_50_TuneAZ_8TeV_pythia8/RunIISummer15GS-GenOnly_MCRUN2_71_V1-v3/GEN-SIM', u"['T2_CH_CERN']", u'[]', u'EventAwareLumiBased', u"{'splitOnRun': False, 'events_per_job': 500, 'halt_job_on_file_boundaries': False, 'runs': [], 'lumis': []}", u'5000', u'f6bd1d73bd8863136dd6943dcd8e641cf326bf49056af78a93f352e9d736a59a.tar.gz', u'https://cmsweb.cern.ch/crabcache', u'kjpena', u'/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA', u'cms', u'None', u'None', u'crab_pythia8_tuneAZ-00000000000000000000000000000000', u'T2_CH_CERN', u'https://cmsweb.cern.ch/dbs/prod/global/DBSReader', u'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', u'F', u'Analysis', u'{}', u'[]', u'F', u'vocms052', u'[]', u'1250', u'1', u'2000', u'10', u'None', u'http://vocms0155.cern.ch/mon/cms447/170726_102214:kjpena_crab_pythia8_tuneAZ', u'None', u'None', u'[]', u'[]', u'[]', u'pythia', u"['pythia8_tuneAZ.w0.yoda']", u"['pythia8_tuneAZ.root']", u'[]', u'https://cmsweb.cern.ch/crabserver/prod', u'None', u'0', u'cmsgwms-collector-global.cern.ch:9620,cmssrv221.fnal.gov:9620', u'crab3@vocms0155.cern.ch', u'F', u'[]', u'T', u'/store/group/cmst3/group/wmass/kjpena/pythia8_tuneAZ', u'F', u'None', u'F', u'F', u'F', u'None', u'DYToMuMu_M_50_TuneAZ_8TeV_pythia8', u'filetransfers', u'SUBMIT', u'10846508', u'ce361c4d66b2b772cee41711640ca899524c18282c9fdd6353dc9bc0a6ffd844.tar.gz', u'188.184.95.78', u'F', u'None'], u'desc': {u'columns': [u'tm_taskname', u'panda_jobset_id', u'tm_task_status', u'tm_start_time', u'tm_start_injection', u'tm_end_injection', u'tm_task_failure', u'tm_job_sw', u'tm_job_arch', u'tm_input_dataset', u'tm_site_whitelist', u'tm_site_blacklist', u'tm_split_algo', u'tm_split_args', u'tm_totalunits', u'tm_user_sandbox', u'tm_cache_url', u'tm_username', u'tm_user_dn', u'tm_user_vo', u'tm_user_role', u'tm_user_group', u'tm_publish_name', u'tm_asyncdest', u'tm_dbs_url', u'tm_publish_dbs_url', u'tm_publication', u'tm_job_type', u'tm_arguments', u'panda_resubmitted_jobs', u'tm_save_logs', u'tw_name', u'tm_user_infiles', u'tm_maxjobruntime', u'tm_numcores', u'tm_maxmemory', u'tm_priority', u'tm_output_dataset', u'tm_user_webdir', u'tm_activity', u'tm_scriptexe', u'tm_scriptargs', u'tm_extrajdl', u'tm_task_warnings', u'tm_generator', u'tm_outfiles', u'tm_tfile_outfiles', u'tm_edm_outfiles', u'tm_asourl', u'tm_events_per_lumi', u'tm_use_parent', u'tm_collector', u'tm_schedd', u'tm_dry_run', u'tm_user_files', u'tm_transfer_outputs', u'tm_output_lfn', u'tm_ignore_locality', u'tm_fail_limit', u'tm_one_event_mode', u'tm_publish_groupname', u'tm_nonvalid_input_dataset', u'tm_secondary_input_dataset', u'tm_primary_dataset', u'tm_asodb', u'tm_task_command', u'clusterid', u'tm_debug_files', u'tm_submitter_ip_addr', u'tm_ignore_global_blacklist', u'tm_last_publication']}}
+INFO 2017-07-26 12:24:30,633: 	 CRAB project directory:		/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/crab/grid/crab_pythia8_tuneAZ
+INFO 2017-07-26 12:24:30,633: 	 Task name:			170726_102214:kjpena_crab_pythia8_tuneAZ
+INFO 2017-07-26 12:24:30,634: 	 Grid scheduler:			crab3@vocms0155.cern.ch
+INFO 2017-07-26 12:24:30,634: 	 Status on the CRAB server:	SUBMITTED
+INFO 2017-07-26 12:24:30,635: 	 Task URL to use for HELP:	https://cmsweb.cern.ch/crabserver/ui/task/170726_102214%3Akjpena_crab_pythia8_tuneAZ
+INFO 2017-07-26 12:24:30,635: 	 Dashboard monitoring URL:	http://dashb-cms-job.cern.ch/dashboard/templates/task-analysis/#user=kjpena&refresh=0&table=Jobs&p=1&records=25&activemenu=2&status=&site=&tid=170726_102214%3Akjpena_crab_pythia8_tuneAZ
+DEBUG 2017-07-26 12:24:30,635: 	 The CRAB server submitted your task to the Grid scheduler (cluster ID: 10846508)
+DEBUG 2017-07-26 12:24:30,635: 	 Webdir is located at http://vocms0155.cern.ch/mon/cms447/170726_102214:kjpena_crab_pythia8_tuneAZ
+DEBUG 2017-07-26 12:24:31,038: 	 Proxied webdir is located at https://cmsweb.cern.ch/scheddmon/0155/cms447/170726_102214:kjpena_crab_pythia8_tuneAZ
+DEBUG 2017-07-26 12:24:31,038: 	 Retrieving 'status_cache' file from https://cmsweb.cern.ch/scheddmon/0155/cms447/170726_102214:kjpena_crab_pythia8_tuneAZ/status_cache
+DEBUG 2017-07-26 12:24:31,377: 	 Got information from status cache file: {'11': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846515.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '10': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846517.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '13': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064593.0], 'JobIds': ['10846522.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '12': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064591.0], 'JobIds': ['10846510.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '1': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846511.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '3': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846518.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '2': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846512.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '5': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846519.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '4': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064593.0], 'JobIds': ['10846521.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '7': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846513.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '6': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846516.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '9': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846514.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '8': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064593.0], 'JobIds': ['10846520.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}}
+INFO 2017-07-26 12:24:31,377: 	 Status on the scheduler:	SUBMITTED
+INFO 2017-07-26 12:24:31,377: 	 
+Jobs status:                    idle          100.0% (13/13)
+INFO 2017-07-26 12:24:31,377: 	 
+No publication information (publication has been disabled in the CRAB configuration file)
+INFO 2017-07-26 12:24:31,470: 	 Log file is /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/crab/grid/crab_pythia8_tuneAZ/crab.log
+DEBUG 2017-07-26 12:24:57,404: 	 Executing command: 'status'
+DEBUG 2017-07-26 12:24:57,404: 	 Found CRAB cache file /afs/cern.ch/user/k/kjpena/.crab3
+DEBUG 2017-07-26 12:24:57,409: 	 Checking credentials
+DEBUG 2017-07-26 12:24:57,410: 	 Found proxy file /tmp/x509up_u81022
+DEBUG 2017-07-26 12:24:57,410: 	 Getting proxy life time left
+DEBUG 2017-07-26 12:24:58,318: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -timeleft
+ output : 86197
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:24:59,032: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -actimeleft
+ output : 86197
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:24:59,032: 	 Proxy valid for 23:56:37 hours
+DEBUG 2017-07-26 12:24:59,155: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:24:59,157: 	 Checking credentials
+DEBUG 2017-07-26 12:24:59,157: 	 Found proxy file /tmp/x509up_u81022
+DEBUG 2017-07-26 12:24:59,157: 	 Getting proxy life time left
+DEBUG 2017-07-26 12:24:59,865: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -timeleft
+ output : 86196
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:25:00,780: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -actimeleft
+ output : 86195
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:25:00,781: 	 Proxy valid for 23:56:36 hours
+DEBUG 2017-07-26 12:25:01,162: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch
+DEBUG 2017-07-26 12:25:01,274: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:25:01,274: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2017-07-26 12:25:01,274: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA_cmsweb.cern.ch for credential name
+DEBUG 2017-07-26 12:25:01,477: 	 Executing : 
+ command : myproxy-info -l 5c807b6c2de98292a7dc3f52d71970fa53af4385 -s myproxy.cern.ch
+ output : username: 5c807b6c2de98292a7dc3f52d71970fa53af4385
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch
+  timeleft: 365:07:41  (15.2 days)
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:25:01,479: 	 Myproxy is valid: 1314461
+DEBUG 2017-07-26 12:25:01,479: 	 Command use: status
+DEBUG 2017-07-26 12:25:01,479: 	 Options use: []
+DEBUG 2017-07-26 12:25:01,857: 	 CRABClient version: 3.3.1707.patch1
+DEBUG 2017-07-26 12:25:01,858: 	 Instance is prod
+DEBUG 2017-07-26 12:25:01,858: 	 Server base url is cmsweb.cern.ch
+DEBUG 2017-07-26 12:25:01,858: 	 Command url /crabserver/prod/workflow
+DEBUG 2017-07-26 12:25:02,211: 	 Got information from server oracle database: {u'result': [u'170726_102214:kjpena_crab_pythia8_tuneAZ', u'None', u'SUBMITTED', u'2017-07-26 10:22:14.706461', u'None', u'2017-07-26 10:23:18.149203', u'None', u'CMSSW_8_0_8_patch1', u'slc6_amd64_gcc530', u'/DYToMuMu_M_50_TuneAZ_8TeV_pythia8/RunIISummer15GS-GenOnly_MCRUN2_71_V1-v3/GEN-SIM', u"['T2_CH_CERN']", u'[]', u'EventAwareLumiBased', u"{'splitOnRun': False, 'events_per_job': 500, 'halt_job_on_file_boundaries': False, 'runs': [], 'lumis': []}", u'5000', u'f6bd1d73bd8863136dd6943dcd8e641cf326bf49056af78a93f352e9d736a59a.tar.gz', u'https://cmsweb.cern.ch/crabcache', u'kjpena', u'/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA', u'cms', u'None', u'None', u'crab_pythia8_tuneAZ-00000000000000000000000000000000', u'T2_CH_CERN', u'https://cmsweb.cern.ch/dbs/prod/global/DBSReader', u'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', u'F', u'Analysis', u'{}', u'[]', u'F', u'vocms052', u'[]', u'1250', u'1', u'2000', u'10', u'None', u'http://vocms0155.cern.ch/mon/cms447/170726_102214:kjpena_crab_pythia8_tuneAZ', u'None', u'None', u'[]', u'[]', u'[]', u'pythia', u"['pythia8_tuneAZ.w0.yoda']", u"['pythia8_tuneAZ.root']", u'[]', u'https://cmsweb.cern.ch/crabserver/prod', u'None', u'0', u'cmsgwms-collector-global.cern.ch:9620,cmssrv221.fnal.gov:9620', u'crab3@vocms0155.cern.ch', u'F', u'[]', u'T', u'/store/group/cmst3/group/wmass/kjpena/pythia8_tuneAZ', u'F', u'None', u'F', u'F', u'F', u'None', u'DYToMuMu_M_50_TuneAZ_8TeV_pythia8', u'filetransfers', u'SUBMIT', u'10846508', u'ce361c4d66b2b772cee41711640ca899524c18282c9fdd6353dc9bc0a6ffd844.tar.gz', u'188.184.95.78', u'F', u'None'], u'desc': {u'columns': [u'tm_taskname', u'panda_jobset_id', u'tm_task_status', u'tm_start_time', u'tm_start_injection', u'tm_end_injection', u'tm_task_failure', u'tm_job_sw', u'tm_job_arch', u'tm_input_dataset', u'tm_site_whitelist', u'tm_site_blacklist', u'tm_split_algo', u'tm_split_args', u'tm_totalunits', u'tm_user_sandbox', u'tm_cache_url', u'tm_username', u'tm_user_dn', u'tm_user_vo', u'tm_user_role', u'tm_user_group', u'tm_publish_name', u'tm_asyncdest', u'tm_dbs_url', u'tm_publish_dbs_url', u'tm_publication', u'tm_job_type', u'tm_arguments', u'panda_resubmitted_jobs', u'tm_save_logs', u'tw_name', u'tm_user_infiles', u'tm_maxjobruntime', u'tm_numcores', u'tm_maxmemory', u'tm_priority', u'tm_output_dataset', u'tm_user_webdir', u'tm_activity', u'tm_scriptexe', u'tm_scriptargs', u'tm_extrajdl', u'tm_task_warnings', u'tm_generator', u'tm_outfiles', u'tm_tfile_outfiles', u'tm_edm_outfiles', u'tm_asourl', u'tm_events_per_lumi', u'tm_use_parent', u'tm_collector', u'tm_schedd', u'tm_dry_run', u'tm_user_files', u'tm_transfer_outputs', u'tm_output_lfn', u'tm_ignore_locality', u'tm_fail_limit', u'tm_one_event_mode', u'tm_publish_groupname', u'tm_nonvalid_input_dataset', u'tm_secondary_input_dataset', u'tm_primary_dataset', u'tm_asodb', u'tm_task_command', u'clusterid', u'tm_debug_files', u'tm_submitter_ip_addr', u'tm_ignore_global_blacklist', u'tm_last_publication']}}
+INFO 2017-07-26 12:25:02,211: 	 CRAB project directory:		/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/crab/grid/crab_pythia8_tuneAZ
+INFO 2017-07-26 12:25:02,211: 	 Task name:			170726_102214:kjpena_crab_pythia8_tuneAZ
+INFO 2017-07-26 12:25:02,211: 	 Grid scheduler:			crab3@vocms0155.cern.ch
+INFO 2017-07-26 12:25:02,211: 	 Status on the CRAB server:	SUBMITTED
+INFO 2017-07-26 12:25:02,211: 	 Task URL to use for HELP:	https://cmsweb.cern.ch/crabserver/ui/task/170726_102214%3Akjpena_crab_pythia8_tuneAZ
+INFO 2017-07-26 12:25:02,212: 	 Dashboard monitoring URL:	http://dashb-cms-job.cern.ch/dashboard/templates/task-analysis/#user=kjpena&refresh=0&table=Jobs&p=1&records=25&activemenu=2&status=&site=&tid=170726_102214%3Akjpena_crab_pythia8_tuneAZ
+DEBUG 2017-07-26 12:25:02,212: 	 The CRAB server submitted your task to the Grid scheduler (cluster ID: 10846508)
+DEBUG 2017-07-26 12:25:02,212: 	 Webdir is located at http://vocms0155.cern.ch/mon/cms447/170726_102214:kjpena_crab_pythia8_tuneAZ
+DEBUG 2017-07-26 12:25:02,644: 	 Proxied webdir is located at https://cmsweb.cern.ch/scheddmon/0155/cms447/170726_102214:kjpena_crab_pythia8_tuneAZ
+DEBUG 2017-07-26 12:25:02,644: 	 Retrieving 'status_cache' file from https://cmsweb.cern.ch/scheddmon/0155/cms447/170726_102214:kjpena_crab_pythia8_tuneAZ/status_cache
+DEBUG 2017-07-26 12:25:03,013: 	 Got information from status cache file: {'11': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846515.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '10': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846517.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '13': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064593.0], 'JobIds': ['10846522.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '12': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064591.0], 'JobIds': ['10846510.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '1': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846511.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '3': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846518.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '2': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846512.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '5': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846519.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '4': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064593.0], 'JobIds': ['10846521.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '7': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846513.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '6': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846516.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '9': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846514.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '8': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064593.0], 'JobIds': ['10846520.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}}
+INFO 2017-07-26 12:25:03,013: 	 Status on the scheduler:	SUBMITTED
+INFO 2017-07-26 12:25:03,014: 	 
+Jobs status:                    idle          100.0% (13/13)
+INFO 2017-07-26 12:25:03,014: 	 
+No publication information (publication has been disabled in the CRAB configuration file)
+INFO 2017-07-26 12:25:03,022: 	 Log file is /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/crab/grid/crab_pythia8_tuneAZ/crab.log
+DEBUG 2017-07-26 12:26:26,724: 	 Executing command: 'status'
+DEBUG 2017-07-26 12:26:26,724: 	 Found CRAB cache file /afs/cern.ch/user/k/kjpena/.crab3
+DEBUG 2017-07-26 12:26:26,732: 	 Checking credentials
+DEBUG 2017-07-26 12:26:26,733: 	 Found proxy file /tmp/x509up_u81022
+DEBUG 2017-07-26 12:26:26,733: 	 Getting proxy life time left
+DEBUG 2017-07-26 12:26:27,540: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -timeleft
+ output : 86108
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:26:28,259: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -actimeleft
+ output : 86107
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:26:28,259: 	 Proxy valid for 23:55:08 hours
+DEBUG 2017-07-26 12:26:28,380: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:26:28,380: 	 Checking credentials
+DEBUG 2017-07-26 12:26:28,380: 	 Found proxy file /tmp/x509up_u81022
+DEBUG 2017-07-26 12:26:28,380: 	 Getting proxy life time left
+DEBUG 2017-07-26 12:26:29,086: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -timeleft
+ output : 86106
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:26:29,797: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -actimeleft
+ output : 86106
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:26:29,797: 	 Proxy valid for 23:55:06 hours
+DEBUG 2017-07-26 12:26:30,170: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch
+DEBUG 2017-07-26 12:26:30,283: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:26:30,283: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2017-07-26 12:26:30,284: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA_cmsweb.cern.ch for credential name
+DEBUG 2017-07-26 12:26:30,590: 	 Executing : 
+ command : myproxy-info -l 5c807b6c2de98292a7dc3f52d71970fa53af4385 -s myproxy.cern.ch
+ output : username: 5c807b6c2de98292a7dc3f52d71970fa53af4385
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch
+  timeleft: 365:06:12  (15.2 days)
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:26:30,591: 	 Myproxy is valid: 1314372
+DEBUG 2017-07-26 12:26:30,592: 	 Command use: status
+DEBUG 2017-07-26 12:26:30,592: 	 Options use: []
+DEBUG 2017-07-26 12:26:30,943: 	 CRABClient version: 3.3.1707.patch1
+DEBUG 2017-07-26 12:26:30,943: 	 Instance is prod
+DEBUG 2017-07-26 12:26:30,943: 	 Server base url is cmsweb.cern.ch
+DEBUG 2017-07-26 12:26:30,943: 	 Command url /crabserver/prod/workflow
+DEBUG 2017-07-26 12:26:31,288: 	 Got information from server oracle database: {u'result': [u'170726_102214:kjpena_crab_pythia8_tuneAZ', u'None', u'SUBMITTED', u'2017-07-26 10:22:14.706461', u'None', u'2017-07-26 10:23:18.149203', u'None', u'CMSSW_8_0_8_patch1', u'slc6_amd64_gcc530', u'/DYToMuMu_M_50_TuneAZ_8TeV_pythia8/RunIISummer15GS-GenOnly_MCRUN2_71_V1-v3/GEN-SIM', u"['T2_CH_CERN']", u'[]', u'EventAwareLumiBased', u"{'splitOnRun': False, 'events_per_job': 500, 'halt_job_on_file_boundaries': False, 'runs': [], 'lumis': []}", u'5000', u'f6bd1d73bd8863136dd6943dcd8e641cf326bf49056af78a93f352e9d736a59a.tar.gz', u'https://cmsweb.cern.ch/crabcache', u'kjpena', u'/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA', u'cms', u'None', u'None', u'crab_pythia8_tuneAZ-00000000000000000000000000000000', u'T2_CH_CERN', u'https://cmsweb.cern.ch/dbs/prod/global/DBSReader', u'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', u'F', u'Analysis', u'{}', u'[]', u'F', u'vocms052', u'[]', u'1250', u'1', u'2000', u'10', u'None', u'http://vocms0155.cern.ch/mon/cms447/170726_102214:kjpena_crab_pythia8_tuneAZ', u'None', u'None', u'[]', u'[]', u'[]', u'pythia', u"['pythia8_tuneAZ.w0.yoda']", u"['pythia8_tuneAZ.root']", u'[]', u'https://cmsweb.cern.ch/crabserver/prod', u'None', u'0', u'cmsgwms-collector-global.cern.ch:9620,cmssrv221.fnal.gov:9620', u'crab3@vocms0155.cern.ch', u'F', u'[]', u'T', u'/store/group/cmst3/group/wmass/kjpena/pythia8_tuneAZ', u'F', u'None', u'F', u'F', u'F', u'None', u'DYToMuMu_M_50_TuneAZ_8TeV_pythia8', u'filetransfers', u'SUBMIT', u'10846508', u'ce361c4d66b2b772cee41711640ca899524c18282c9fdd6353dc9bc0a6ffd844.tar.gz', u'188.184.95.78', u'F', u'None'], u'desc': {u'columns': [u'tm_taskname', u'panda_jobset_id', u'tm_task_status', u'tm_start_time', u'tm_start_injection', u'tm_end_injection', u'tm_task_failure', u'tm_job_sw', u'tm_job_arch', u'tm_input_dataset', u'tm_site_whitelist', u'tm_site_blacklist', u'tm_split_algo', u'tm_split_args', u'tm_totalunits', u'tm_user_sandbox', u'tm_cache_url', u'tm_username', u'tm_user_dn', u'tm_user_vo', u'tm_user_role', u'tm_user_group', u'tm_publish_name', u'tm_asyncdest', u'tm_dbs_url', u'tm_publish_dbs_url', u'tm_publication', u'tm_job_type', u'tm_arguments', u'panda_resubmitted_jobs', u'tm_save_logs', u'tw_name', u'tm_user_infiles', u'tm_maxjobruntime', u'tm_numcores', u'tm_maxmemory', u'tm_priority', u'tm_output_dataset', u'tm_user_webdir', u'tm_activity', u'tm_scriptexe', u'tm_scriptargs', u'tm_extrajdl', u'tm_task_warnings', u'tm_generator', u'tm_outfiles', u'tm_tfile_outfiles', u'tm_edm_outfiles', u'tm_asourl', u'tm_events_per_lumi', u'tm_use_parent', u'tm_collector', u'tm_schedd', u'tm_dry_run', u'tm_user_files', u'tm_transfer_outputs', u'tm_output_lfn', u'tm_ignore_locality', u'tm_fail_limit', u'tm_one_event_mode', u'tm_publish_groupname', u'tm_nonvalid_input_dataset', u'tm_secondary_input_dataset', u'tm_primary_dataset', u'tm_asodb', u'tm_task_command', u'clusterid', u'tm_debug_files', u'tm_submitter_ip_addr', u'tm_ignore_global_blacklist', u'tm_last_publication']}}
+INFO 2017-07-26 12:26:31,289: 	 CRAB project directory:		/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/crab/grid/crab_pythia8_tuneAZ
+INFO 2017-07-26 12:26:31,289: 	 Task name:			170726_102214:kjpena_crab_pythia8_tuneAZ
+INFO 2017-07-26 12:26:31,289: 	 Grid scheduler:			crab3@vocms0155.cern.ch
+INFO 2017-07-26 12:26:31,289: 	 Status on the CRAB server:	SUBMITTED
+INFO 2017-07-26 12:26:31,290: 	 Task URL to use for HELP:	https://cmsweb.cern.ch/crabserver/ui/task/170726_102214%3Akjpena_crab_pythia8_tuneAZ
+INFO 2017-07-26 12:26:31,290: 	 Dashboard monitoring URL:	http://dashb-cms-job.cern.ch/dashboard/templates/task-analysis/#user=kjpena&refresh=0&table=Jobs&p=1&records=25&activemenu=2&status=&site=&tid=170726_102214%3Akjpena_crab_pythia8_tuneAZ
+DEBUG 2017-07-26 12:26:31,290: 	 The CRAB server submitted your task to the Grid scheduler (cluster ID: 10846508)
+DEBUG 2017-07-26 12:26:31,290: 	 Webdir is located at http://vocms0155.cern.ch/mon/cms447/170726_102214:kjpena_crab_pythia8_tuneAZ
+DEBUG 2017-07-26 12:26:31,699: 	 Proxied webdir is located at https://cmsweb.cern.ch/scheddmon/0155/cms447/170726_102214:kjpena_crab_pythia8_tuneAZ
+DEBUG 2017-07-26 12:26:31,699: 	 Retrieving 'status_cache' file from https://cmsweb.cern.ch/scheddmon/0155/cms447/170726_102214:kjpena_crab_pythia8_tuneAZ/status_cache
+DEBUG 2017-07-26 12:26:32,093: 	 Got information from status cache file: {'11': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846515.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '10': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846517.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '13': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064593.0], 'JobIds': ['10846522.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '12': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064591.0], 'JobIds': ['10846510.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '1': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846511.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '3': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846518.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '2': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846512.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '5': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846519.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '4': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064593.0], 'JobIds': ['10846521.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '7': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846513.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '6': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846516.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '9': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846514.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '8': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064593.0], 'JobIds': ['10846520.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}}
+INFO 2017-07-26 12:26:32,094: 	 Status on the scheduler:	SUBMITTED
+INFO 2017-07-26 12:26:32,094: 	 
+Jobs status:                    idle          100.0% (13/13)
+INFO 2017-07-26 12:26:32,094: 	 
+No publication information (publication has been disabled in the CRAB configuration file)
+INFO 2017-07-26 12:26:32,157: 	 Log file is /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/crab/grid/crab_pythia8_tuneAZ/crab.log
+DEBUG 2017-07-26 12:26:56,967: 	 Executing command: 'status'
+DEBUG 2017-07-26 12:26:56,967: 	 Found CRAB cache file /afs/cern.ch/user/k/kjpena/.crab3
+DEBUG 2017-07-26 12:26:56,973: 	 Checking credentials
+DEBUG 2017-07-26 12:26:56,974: 	 Found proxy file /tmp/x509up_u81022
+DEBUG 2017-07-26 12:26:56,974: 	 Getting proxy life time left
+DEBUG 2017-07-26 12:26:57,683: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -timeleft
+ output : 86078
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:26:58,497: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -actimeleft
+ output : 86077
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:26:58,500: 	 Proxy valid for 23:54:38 hours
+DEBUG 2017-07-26 12:26:58,707: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:26:58,707: 	 Checking credentials
+DEBUG 2017-07-26 12:26:58,707: 	 Found proxy file /tmp/x509up_u81022
+DEBUG 2017-07-26 12:26:58,707: 	 Getting proxy life time left
+DEBUG 2017-07-26 12:26:59,422: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -timeleft
+ output : 86076
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:27:00,132: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -actimeleft
+ output : 86075
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:27:00,132: 	 Proxy valid for 23:54:36 hours
+DEBUG 2017-07-26 12:27:00,579: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch
+DEBUG 2017-07-26 12:27:00,696: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:27:00,697: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2017-07-26 12:27:00,697: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA_cmsweb.cern.ch for credential name
+DEBUG 2017-07-26 12:27:00,902: 	 Executing : 
+ command : myproxy-info -l 5c807b6c2de98292a7dc3f52d71970fa53af4385 -s myproxy.cern.ch
+ output : username: 5c807b6c2de98292a7dc3f52d71970fa53af4385
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch
+  timeleft: 365:05:42  (15.2 days)
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:27:00,904: 	 Myproxy is valid: 1314342
+DEBUG 2017-07-26 12:27:00,904: 	 Command use: status
+DEBUG 2017-07-26 12:27:00,904: 	 Options use: []
+DEBUG 2017-07-26 12:27:01,310: 	 CRABClient version: 3.3.1707.patch1
+DEBUG 2017-07-26 12:27:01,310: 	 Instance is prod
+DEBUG 2017-07-26 12:27:01,310: 	 Server base url is cmsweb.cern.ch
+DEBUG 2017-07-26 12:27:01,310: 	 Command url /crabserver/prod/workflow
+DEBUG 2017-07-26 12:27:01,672: 	 Got information from server oracle database: {u'result': [u'170726_102214:kjpena_crab_pythia8_tuneAZ', u'None', u'SUBMITTED', u'2017-07-26 10:22:14.706461', u'None', u'2017-07-26 10:23:18.149203', u'None', u'CMSSW_8_0_8_patch1', u'slc6_amd64_gcc530', u'/DYToMuMu_M_50_TuneAZ_8TeV_pythia8/RunIISummer15GS-GenOnly_MCRUN2_71_V1-v3/GEN-SIM', u"['T2_CH_CERN']", u'[]', u'EventAwareLumiBased', u"{'splitOnRun': False, 'events_per_job': 500, 'halt_job_on_file_boundaries': False, 'runs': [], 'lumis': []}", u'5000', u'f6bd1d73bd8863136dd6943dcd8e641cf326bf49056af78a93f352e9d736a59a.tar.gz', u'https://cmsweb.cern.ch/crabcache', u'kjpena', u'/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA', u'cms', u'None', u'None', u'crab_pythia8_tuneAZ-00000000000000000000000000000000', u'T2_CH_CERN', u'https://cmsweb.cern.ch/dbs/prod/global/DBSReader', u'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', u'F', u'Analysis', u'{}', u'[]', u'F', u'vocms052', u'[]', u'1250', u'1', u'2000', u'10', u'None', u'http://vocms0155.cern.ch/mon/cms447/170726_102214:kjpena_crab_pythia8_tuneAZ', u'None', u'None', u'[]', u'[]', u'[]', u'pythia', u"['pythia8_tuneAZ.w0.yoda']", u"['pythia8_tuneAZ.root']", u'[]', u'https://cmsweb.cern.ch/crabserver/prod', u'None', u'0', u'cmsgwms-collector-global.cern.ch:9620,cmssrv221.fnal.gov:9620', u'crab3@vocms0155.cern.ch', u'F', u'[]', u'T', u'/store/group/cmst3/group/wmass/kjpena/pythia8_tuneAZ', u'F', u'None', u'F', u'F', u'F', u'None', u'DYToMuMu_M_50_TuneAZ_8TeV_pythia8', u'filetransfers', u'SUBMIT', u'10846508', u'ce361c4d66b2b772cee41711640ca899524c18282c9fdd6353dc9bc0a6ffd844.tar.gz', u'188.184.95.78', u'F', u'None'], u'desc': {u'columns': [u'tm_taskname', u'panda_jobset_id', u'tm_task_status', u'tm_start_time', u'tm_start_injection', u'tm_end_injection', u'tm_task_failure', u'tm_job_sw', u'tm_job_arch', u'tm_input_dataset', u'tm_site_whitelist', u'tm_site_blacklist', u'tm_split_algo', u'tm_split_args', u'tm_totalunits', u'tm_user_sandbox', u'tm_cache_url', u'tm_username', u'tm_user_dn', u'tm_user_vo', u'tm_user_role', u'tm_user_group', u'tm_publish_name', u'tm_asyncdest', u'tm_dbs_url', u'tm_publish_dbs_url', u'tm_publication', u'tm_job_type', u'tm_arguments', u'panda_resubmitted_jobs', u'tm_save_logs', u'tw_name', u'tm_user_infiles', u'tm_maxjobruntime', u'tm_numcores', u'tm_maxmemory', u'tm_priority', u'tm_output_dataset', u'tm_user_webdir', u'tm_activity', u'tm_scriptexe', u'tm_scriptargs', u'tm_extrajdl', u'tm_task_warnings', u'tm_generator', u'tm_outfiles', u'tm_tfile_outfiles', u'tm_edm_outfiles', u'tm_asourl', u'tm_events_per_lumi', u'tm_use_parent', u'tm_collector', u'tm_schedd', u'tm_dry_run', u'tm_user_files', u'tm_transfer_outputs', u'tm_output_lfn', u'tm_ignore_locality', u'tm_fail_limit', u'tm_one_event_mode', u'tm_publish_groupname', u'tm_nonvalid_input_dataset', u'tm_secondary_input_dataset', u'tm_primary_dataset', u'tm_asodb', u'tm_task_command', u'clusterid', u'tm_debug_files', u'tm_submitter_ip_addr', u'tm_ignore_global_blacklist', u'tm_last_publication']}}
+INFO 2017-07-26 12:27:01,672: 	 CRAB project directory:		/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/crab/grid/crab_pythia8_tuneAZ
+INFO 2017-07-26 12:27:01,673: 	 Task name:			170726_102214:kjpena_crab_pythia8_tuneAZ
+INFO 2017-07-26 12:27:01,674: 	 Grid scheduler:			crab3@vocms0155.cern.ch
+INFO 2017-07-26 12:27:01,674: 	 Status on the CRAB server:	SUBMITTED
+INFO 2017-07-26 12:27:01,675: 	 Task URL to use for HELP:	https://cmsweb.cern.ch/crabserver/ui/task/170726_102214%3Akjpena_crab_pythia8_tuneAZ
+INFO 2017-07-26 12:27:01,675: 	 Dashboard monitoring URL:	http://dashb-cms-job.cern.ch/dashboard/templates/task-analysis/#user=kjpena&refresh=0&table=Jobs&p=1&records=25&activemenu=2&status=&site=&tid=170726_102214%3Akjpena_crab_pythia8_tuneAZ
+DEBUG 2017-07-26 12:27:01,675: 	 The CRAB server submitted your task to the Grid scheduler (cluster ID: 10846508)
+DEBUG 2017-07-26 12:27:01,675: 	 Webdir is located at http://vocms0155.cern.ch/mon/cms447/170726_102214:kjpena_crab_pythia8_tuneAZ
+DEBUG 2017-07-26 12:27:02,073: 	 Proxied webdir is located at https://cmsweb.cern.ch/scheddmon/0155/cms447/170726_102214:kjpena_crab_pythia8_tuneAZ
+DEBUG 2017-07-26 12:27:02,074: 	 Retrieving 'status_cache' file from https://cmsweb.cern.ch/scheddmon/0155/cms447/170726_102214:kjpena_crab_pythia8_tuneAZ/status_cache
+DEBUG 2017-07-26 12:27:02,410: 	 Got information from status cache file: {'11': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846515.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '10': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846517.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '13': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064593.0], 'JobIds': ['10846522.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '12': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064591.0], 'JobIds': ['10846510.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '1': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846511.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '3': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846518.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '2': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846512.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '5': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846519.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '4': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064593.0], 'JobIds': ['10846521.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '7': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846513.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '6': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846516.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '9': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846514.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '8': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064593.0], 'JobIds': ['10846520.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}}
+INFO 2017-07-26 12:27:02,410: 	 Status on the scheduler:	SUBMITTED
+INFO 2017-07-26 12:27:02,411: 	 
+Jobs status:                    idle          100.0% (13/13)
+INFO 2017-07-26 12:27:02,411: 	 
+No publication information (publication has been disabled in the CRAB configuration file)
+INFO 2017-07-26 12:27:02,421: 	 Log file is /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/crab/grid/crab_pythia8_tuneAZ/crab.log
+DEBUG 2017-07-26 12:31:08,016: 	 Executing command: 'status'
+DEBUG 2017-07-26 12:31:08,016: 	 Found CRAB cache file /afs/cern.ch/user/k/kjpena/.crab3
+DEBUG 2017-07-26 12:31:08,036: 	 Checking credentials
+DEBUG 2017-07-26 12:31:08,037: 	 Found proxy file /tmp/x509up_u81022
+DEBUG 2017-07-26 12:31:08,037: 	 Getting proxy life time left
+DEBUG 2017-07-26 12:31:08,743: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -timeleft
+ output : 85827
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:31:09,357: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -actimeleft
+ output : 85826
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:31:09,357: 	 Proxy valid for 23:50:27 hours
+DEBUG 2017-07-26 12:31:09,482: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:31:09,482: 	 Checking credentials
+DEBUG 2017-07-26 12:31:09,482: 	 Found proxy file /tmp/x509up_u81022
+DEBUG 2017-07-26 12:31:09,482: 	 Getting proxy life time left
+DEBUG 2017-07-26 12:31:10,296: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -timeleft
+ output : 85825
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:31:11,108: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -actimeleft
+ output : 85824
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:31:11,108: 	 Proxy valid for 23:50:25 hours
+DEBUG 2017-07-26 12:31:11,520: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch
+DEBUG 2017-07-26 12:31:11,630: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:31:11,630: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2017-07-26 12:31:11,630: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA_cmsweb.cern.ch for credential name
+DEBUG 2017-07-26 12:31:12,041: 	 Executing : 
+ command : myproxy-info -l 5c807b6c2de98292a7dc3f52d71970fa53af4385 -s myproxy.cern.ch
+ output : username: 5c807b6c2de98292a7dc3f52d71970fa53af4385
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch
+  timeleft: 365:01:31  (15.2 days)
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:31:12,042: 	 Myproxy is valid: 1314091
+DEBUG 2017-07-26 12:31:12,042: 	 Command use: status
+DEBUG 2017-07-26 12:31:12,042: 	 Options use: []
+DEBUG 2017-07-26 12:31:12,448: 	 CRABClient version: 3.3.1707.patch1
+DEBUG 2017-07-26 12:31:12,448: 	 Instance is prod
+DEBUG 2017-07-26 12:31:12,448: 	 Server base url is cmsweb.cern.ch
+DEBUG 2017-07-26 12:31:12,448: 	 Command url /crabserver/prod/workflow
+DEBUG 2017-07-26 12:31:12,808: 	 Got information from server oracle database: {u'result': [u'170726_102214:kjpena_crab_pythia8_tuneAZ', u'None', u'SUBMITTED', u'2017-07-26 10:22:14.706461', u'None', u'2017-07-26 10:23:18.149203', u'None', u'CMSSW_8_0_8_patch1', u'slc6_amd64_gcc530', u'/DYToMuMu_M_50_TuneAZ_8TeV_pythia8/RunIISummer15GS-GenOnly_MCRUN2_71_V1-v3/GEN-SIM', u"['T2_CH_CERN']", u'[]', u'EventAwareLumiBased', u"{'splitOnRun': False, 'events_per_job': 500, 'halt_job_on_file_boundaries': False, 'runs': [], 'lumis': []}", u'5000', u'f6bd1d73bd8863136dd6943dcd8e641cf326bf49056af78a93f352e9d736a59a.tar.gz', u'https://cmsweb.cern.ch/crabcache', u'kjpena', u'/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA', u'cms', u'None', u'None', u'crab_pythia8_tuneAZ-00000000000000000000000000000000', u'T2_CH_CERN', u'https://cmsweb.cern.ch/dbs/prod/global/DBSReader', u'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', u'F', u'Analysis', u'{}', u'[]', u'F', u'vocms052', u'[]', u'1250', u'1', u'2000', u'10', u'None', u'http://vocms0155.cern.ch/mon/cms447/170726_102214:kjpena_crab_pythia8_tuneAZ', u'None', u'None', u'[]', u'[]', u'[]', u'pythia', u"['pythia8_tuneAZ.w0.yoda']", u"['pythia8_tuneAZ.root']", u'[]', u'https://cmsweb.cern.ch/crabserver/prod', u'None', u'0', u'cmsgwms-collector-global.cern.ch:9620,cmssrv221.fnal.gov:9620', u'crab3@vocms0155.cern.ch', u'F', u'[]', u'T', u'/store/group/cmst3/group/wmass/kjpena/pythia8_tuneAZ', u'F', u'None', u'F', u'F', u'F', u'None', u'DYToMuMu_M_50_TuneAZ_8TeV_pythia8', u'filetransfers', u'SUBMIT', u'10846508', u'ce361c4d66b2b772cee41711640ca899524c18282c9fdd6353dc9bc0a6ffd844.tar.gz', u'188.184.95.78', u'F', u'None'], u'desc': {u'columns': [u'tm_taskname', u'panda_jobset_id', u'tm_task_status', u'tm_start_time', u'tm_start_injection', u'tm_end_injection', u'tm_task_failure', u'tm_job_sw', u'tm_job_arch', u'tm_input_dataset', u'tm_site_whitelist', u'tm_site_blacklist', u'tm_split_algo', u'tm_split_args', u'tm_totalunits', u'tm_user_sandbox', u'tm_cache_url', u'tm_username', u'tm_user_dn', u'tm_user_vo', u'tm_user_role', u'tm_user_group', u'tm_publish_name', u'tm_asyncdest', u'tm_dbs_url', u'tm_publish_dbs_url', u'tm_publication', u'tm_job_type', u'tm_arguments', u'panda_resubmitted_jobs', u'tm_save_logs', u'tw_name', u'tm_user_infiles', u'tm_maxjobruntime', u'tm_numcores', u'tm_maxmemory', u'tm_priority', u'tm_output_dataset', u'tm_user_webdir', u'tm_activity', u'tm_scriptexe', u'tm_scriptargs', u'tm_extrajdl', u'tm_task_warnings', u'tm_generator', u'tm_outfiles', u'tm_tfile_outfiles', u'tm_edm_outfiles', u'tm_asourl', u'tm_events_per_lumi', u'tm_use_parent', u'tm_collector', u'tm_schedd', u'tm_dry_run', u'tm_user_files', u'tm_transfer_outputs', u'tm_output_lfn', u'tm_ignore_locality', u'tm_fail_limit', u'tm_one_event_mode', u'tm_publish_groupname', u'tm_nonvalid_input_dataset', u'tm_secondary_input_dataset', u'tm_primary_dataset', u'tm_asodb', u'tm_task_command', u'clusterid', u'tm_debug_files', u'tm_submitter_ip_addr', u'tm_ignore_global_blacklist', u'tm_last_publication']}}
+INFO 2017-07-26 12:31:12,809: 	 CRAB project directory:		/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/crab/grid/crab_pythia8_tuneAZ
+INFO 2017-07-26 12:31:12,809: 	 Task name:			170726_102214:kjpena_crab_pythia8_tuneAZ
+INFO 2017-07-26 12:31:12,809: 	 Grid scheduler:			crab3@vocms0155.cern.ch
+INFO 2017-07-26 12:31:12,809: 	 Status on the CRAB server:	SUBMITTED
+INFO 2017-07-26 12:31:12,809: 	 Task URL to use for HELP:	https://cmsweb.cern.ch/crabserver/ui/task/170726_102214%3Akjpena_crab_pythia8_tuneAZ
+INFO 2017-07-26 12:31:12,809: 	 Dashboard monitoring URL:	http://dashb-cms-job.cern.ch/dashboard/templates/task-analysis/#user=kjpena&refresh=0&table=Jobs&p=1&records=25&activemenu=2&status=&site=&tid=170726_102214%3Akjpena_crab_pythia8_tuneAZ
+DEBUG 2017-07-26 12:31:12,809: 	 The CRAB server submitted your task to the Grid scheduler (cluster ID: 10846508)
+DEBUG 2017-07-26 12:31:12,809: 	 Webdir is located at http://vocms0155.cern.ch/mon/cms447/170726_102214:kjpena_crab_pythia8_tuneAZ
+DEBUG 2017-07-26 12:31:13,193: 	 Proxied webdir is located at https://cmsweb.cern.ch/scheddmon/0155/cms447/170726_102214:kjpena_crab_pythia8_tuneAZ
+DEBUG 2017-07-26 12:31:13,193: 	 Retrieving 'status_cache' file from https://cmsweb.cern.ch/scheddmon/0155/cms447/170726_102214:kjpena_crab_pythia8_tuneAZ/status_cache
+DEBUG 2017-07-26 12:31:13,533: 	 Got information from status cache file: {'11': {'Retries': 0, 'WallDurations': [108.0, 186.632080078125], 'StartTimes': [1501064761.0], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846515.0'], 'EndTimes': [1501064869.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [2636], 'TotalUserCpuTimeHistory': [19], 'SiteHistory': ['Unknown', 'T2_CH_CERN'], 'TotalSysCpuTimeHistory': [3]}, '10': {'Retries': 0, 'WallDurations': [82.0, 188.632080078125], 'StartTimes': [1501064759.0], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846517.0'], 'EndTimes': [1501064841.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [17896], 'TotalUserCpuTimeHistory': [10], 'SiteHistory': ['Unknown', 'T2_CH_CERN'], 'TotalSysCpuTimeHistory': [2]}, '13': {'Retries': 0, 'WallDurations': [8.0, 187.632080078125], 'StartTimes': [1501064760.0], 'SubmitTimes': [1501064593.0], 'JobIds': ['10846522.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [30620], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown', 'T2_CH_CERN'], 'TotalSysCpuTimeHistory': [0.0]}, '12': {'Retries': 0, 'WallDurations': [82.0, 188.632080078125], 'StartTimes': [1501064759.0], 'SubmitTimes': [1501064591.0], 'JobIds': ['10846510.0'], 'EndTimes': [1501064841.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [28184], 'TotalUserCpuTimeHistory': [11], 'SiteHistory': ['Unknown', 'T2_CH_CERN'], 'TotalSysCpuTimeHistory': [2]}, '1': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846511.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '3': {'Retries': 0, 'WallDurations': [87.0, 188.632080078125], 'StartTimes': [1501064759.0], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846518.0'], 'EndTimes': [1501064846.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [18072], 'TotalUserCpuTimeHistory': [29], 'SiteHistory': ['Unknown', 'T2_CH_CERN'], 'TotalSysCpuTimeHistory': [3]}, '2': {'Retries': 0, 'WallDurations': [95.0, 188.632080078125], 'StartTimes': [1501064759.0], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846512.0'], 'EndTimes': [1501064854.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [30224], 'TotalUserCpuTimeHistory': [26], 'SiteHistory': ['Unknown', 'T2_CH_CERN'], 'TotalSysCpuTimeHistory': [3]}, '5': {'Retries': 0, 'WallDurations': [110.0, 187.632080078125], 'StartTimes': [1501064760.0], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846519.0'], 'EndTimes': [1501064870.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [30232], 'TotalUserCpuTimeHistory': [22], 'SiteHistory': ['Unknown', 'T2_CH_CERN'], 'TotalSysCpuTimeHistory': [3]}, '4': {'Retries': 0, 'WallDurations': [118.0, 186.632080078125], 'StartTimes': [1501064761.0], 'SubmitTimes': [1501064593.0], 'JobIds': ['10846521.0'], 'EndTimes': [1501064879.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [2684], 'TotalUserCpuTimeHistory': [26], 'SiteHistory': ['Unknown', 'T2_CH_CERN'], 'TotalSysCpuTimeHistory': [3]}, '7': {'Retries': 0, 'WallDurations': [81.0, 186.632080078125], 'StartTimes': [1501064761.0], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846513.0'], 'EndTimes': [1501064842.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [2676], 'TotalUserCpuTimeHistory': [30], 'SiteHistory': ['Unknown', 'T2_CH_CERN'], 'TotalSysCpuTimeHistory': [2]}, '6': {'Retries': 0, 'WallDurations': [112.0, 187.632080078125], 'StartTimes': [1501064760.0], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846516.0'], 'EndTimes': [1501064872.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [2576], 'TotalUserCpuTimeHistory': [17], 'SiteHistory': ['Unknown', 'T2_CH_CERN'], 'TotalSysCpuTimeHistory': [3]}, '9': {'Retries': 0, 'WallDurations': [112.0, 186.632080078125], 'StartTimes': [1501064761.0], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846514.0'], 'EndTimes': [1501064873.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [22684], 'TotalUserCpuTimeHistory': [29], 'SiteHistory': ['Unknown', 'T2_CH_CERN'], 'TotalSysCpuTimeHistory': [3]}, '8': {'Retries': 0, 'WallDurations': [107.0, 185.632080078125], 'StartTimes': [1501064762.0], 'SubmitTimes': [1501064593.0], 'JobIds': ['10846520.0'], 'EndTimes': [1501064869.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [2640], 'TotalUserCpuTimeHistory': [19], 'SiteHistory': ['Unknown', 'T2_CH_CERN'], 'TotalSysCpuTimeHistory': [3]}}
+INFO 2017-07-26 12:31:13,534: 	 Status on the scheduler:	SUBMITTED
+INFO 2017-07-26 12:31:13,534: 	 
+Jobs status:                    finished       84.6% (11/13)
+INFO 2017-07-26 12:31:13,534: 	 				idle            7.7% ( 1/13)
+INFO 2017-07-26 12:31:13,534: 	 				running         7.7% ( 1/13)
+INFO 2017-07-26 12:31:13,534: 	 
+No publication information (publication has been disabled in the CRAB configuration file)
+INFO 2017-07-26 12:31:13,878: 	 Log file is /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/crab/grid/crab_pythia8_tuneAZ/crab.log
+DEBUG 2017-07-26 12:32:21,178: 	 Executing command: 'status'
+DEBUG 2017-07-26 12:32:21,178: 	 Found CRAB cache file /afs/cern.ch/user/k/kjpena/.crab3
+DEBUG 2017-07-26 12:32:21,185: 	 Checking credentials
+DEBUG 2017-07-26 12:32:21,186: 	 Found proxy file /tmp/x509up_u81022
+DEBUG 2017-07-26 12:32:21,186: 	 Getting proxy life time left
+DEBUG 2017-07-26 12:32:22,107: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -timeleft
+ output : 85754
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:32:22,929: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -actimeleft
+ output : 85753
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:32:22,929: 	 Proxy valid for 23:49:14 hours
+DEBUG 2017-07-26 12:32:23,055: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:32:23,056: 	 Checking credentials
+DEBUG 2017-07-26 12:32:23,057: 	 Found proxy file /tmp/x509up_u81022
+DEBUG 2017-07-26 12:32:23,057: 	 Getting proxy life time left
+DEBUG 2017-07-26 12:32:23,976: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -timeleft
+ output : 85752
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:32:24,892: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -actimeleft
+ output : 85751
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:32:24,892: 	 Proxy valid for 23:49:12 hours
+DEBUG 2017-07-26 12:32:25,328: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch
+DEBUG 2017-07-26 12:32:25,455: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:32:25,456: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2017-07-26 12:32:25,456: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA_cmsweb.cern.ch for credential name
+DEBUG 2017-07-26 12:32:25,865: 	 Executing : 
+ command : myproxy-info -l 5c807b6c2de98292a7dc3f52d71970fa53af4385 -s myproxy.cern.ch
+ output : username: 5c807b6c2de98292a7dc3f52d71970fa53af4385
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch
+  timeleft: 365:00:17  (15.2 days)
+
+ error: 
+ retcode : 0
+DEBUG 2017-07-26 12:32:25,866: 	 Myproxy is valid: 1314017
+DEBUG 2017-07-26 12:32:25,866: 	 Command use: status
+DEBUG 2017-07-26 12:32:25,866: 	 Options use: []
+DEBUG 2017-07-26 12:32:26,271: 	 CRABClient version: 3.3.1707.patch1
+DEBUG 2017-07-26 12:32:26,271: 	 Instance is prod
+DEBUG 2017-07-26 12:32:26,271: 	 Server base url is cmsweb.cern.ch
+DEBUG 2017-07-26 12:32:26,271: 	 Command url /crabserver/prod/workflow
+DEBUG 2017-07-26 12:32:26,665: 	 Got information from server oracle database: {u'result': [u'170726_102214:kjpena_crab_pythia8_tuneAZ', u'None', u'SUBMITTED', u'2017-07-26 10:22:14.706461', u'None', u'2017-07-26 10:23:18.149203', u'None', u'CMSSW_8_0_8_patch1', u'slc6_amd64_gcc530', u'/DYToMuMu_M_50_TuneAZ_8TeV_pythia8/RunIISummer15GS-GenOnly_MCRUN2_71_V1-v3/GEN-SIM', u"['T2_CH_CERN']", u'[]', u'EventAwareLumiBased', u"{'splitOnRun': False, 'events_per_job': 500, 'halt_job_on_file_boundaries': False, 'runs': [], 'lumis': []}", u'5000', u'f6bd1d73bd8863136dd6943dcd8e641cf326bf49056af78a93f352e9d736a59a.tar.gz', u'https://cmsweb.cern.ch/crabcache', u'kjpena', u'/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA', u'cms', u'None', u'None', u'crab_pythia8_tuneAZ-00000000000000000000000000000000', u'T2_CH_CERN', u'https://cmsweb.cern.ch/dbs/prod/global/DBSReader', u'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', u'F', u'Analysis', u'{}', u'[]', u'F', u'vocms052', u'[]', u'1250', u'1', u'2000', u'10', u'None', u'http://vocms0155.cern.ch/mon/cms447/170726_102214:kjpena_crab_pythia8_tuneAZ', u'None', u'None', u'[]', u'[]', u'[]', u'pythia', u"['pythia8_tuneAZ.w0.yoda']", u"['pythia8_tuneAZ.root']", u'[]', u'https://cmsweb.cern.ch/crabserver/prod', u'None', u'0', u'cmsgwms-collector-global.cern.ch:9620,cmssrv221.fnal.gov:9620', u'crab3@vocms0155.cern.ch', u'F', u'[]', u'T', u'/store/group/cmst3/group/wmass/kjpena/pythia8_tuneAZ', u'F', u'None', u'F', u'F', u'F', u'None', u'DYToMuMu_M_50_TuneAZ_8TeV_pythia8', u'filetransfers', u'SUBMIT', u'10846508', u'ce361c4d66b2b772cee41711640ca899524c18282c9fdd6353dc9bc0a6ffd844.tar.gz', u'188.184.95.78', u'F', u'None'], u'desc': {u'columns': [u'tm_taskname', u'panda_jobset_id', u'tm_task_status', u'tm_start_time', u'tm_start_injection', u'tm_end_injection', u'tm_task_failure', u'tm_job_sw', u'tm_job_arch', u'tm_input_dataset', u'tm_site_whitelist', u'tm_site_blacklist', u'tm_split_algo', u'tm_split_args', u'tm_totalunits', u'tm_user_sandbox', u'tm_cache_url', u'tm_username', u'tm_user_dn', u'tm_user_vo', u'tm_user_role', u'tm_user_group', u'tm_publish_name', u'tm_asyncdest', u'tm_dbs_url', u'tm_publish_dbs_url', u'tm_publication', u'tm_job_type', u'tm_arguments', u'panda_resubmitted_jobs', u'tm_save_logs', u'tw_name', u'tm_user_infiles', u'tm_maxjobruntime', u'tm_numcores', u'tm_maxmemory', u'tm_priority', u'tm_output_dataset', u'tm_user_webdir', u'tm_activity', u'tm_scriptexe', u'tm_scriptargs', u'tm_extrajdl', u'tm_task_warnings', u'tm_generator', u'tm_outfiles', u'tm_tfile_outfiles', u'tm_edm_outfiles', u'tm_asourl', u'tm_events_per_lumi', u'tm_use_parent', u'tm_collector', u'tm_schedd', u'tm_dry_run', u'tm_user_files', u'tm_transfer_outputs', u'tm_output_lfn', u'tm_ignore_locality', u'tm_fail_limit', u'tm_one_event_mode', u'tm_publish_groupname', u'tm_nonvalid_input_dataset', u'tm_secondary_input_dataset', u'tm_primary_dataset', u'tm_asodb', u'tm_task_command', u'clusterid', u'tm_debug_files', u'tm_submitter_ip_addr', u'tm_ignore_global_blacklist', u'tm_last_publication']}}
+INFO 2017-07-26 12:32:26,666: 	 CRAB project directory:		/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/crab/grid/crab_pythia8_tuneAZ
+INFO 2017-07-26 12:32:26,666: 	 Task name:			170726_102214:kjpena_crab_pythia8_tuneAZ
+INFO 2017-07-26 12:32:26,667: 	 Grid scheduler:			crab3@vocms0155.cern.ch
+INFO 2017-07-26 12:32:26,667: 	 Status on the CRAB server:	SUBMITTED
+INFO 2017-07-26 12:32:26,667: 	 Task URL to use for HELP:	https://cmsweb.cern.ch/crabserver/ui/task/170726_102214%3Akjpena_crab_pythia8_tuneAZ
+INFO 2017-07-26 12:32:26,667: 	 Dashboard monitoring URL:	http://dashb-cms-job.cern.ch/dashboard/templates/task-analysis/#user=kjpena&refresh=0&table=Jobs&p=1&records=25&activemenu=2&status=&site=&tid=170726_102214%3Akjpena_crab_pythia8_tuneAZ
+DEBUG 2017-07-26 12:32:26,667: 	 The CRAB server submitted your task to the Grid scheduler (cluster ID: 10846508)
+DEBUG 2017-07-26 12:32:26,667: 	 Webdir is located at http://vocms0155.cern.ch/mon/cms447/170726_102214:kjpena_crab_pythia8_tuneAZ
+DEBUG 2017-07-26 12:32:27,074: 	 Proxied webdir is located at https://cmsweb.cern.ch/scheddmon/0155/cms447/170726_102214:kjpena_crab_pythia8_tuneAZ
+DEBUG 2017-07-26 12:32:27,074: 	 Retrieving 'status_cache' file from https://cmsweb.cern.ch/scheddmon/0155/cms447/170726_102214:kjpena_crab_pythia8_tuneAZ/status_cache
+DEBUG 2017-07-26 12:32:27,421: 	 Got information from status cache file: {'11': {'Retries': 0, 'WallDurations': [108.0, 186.632080078125], 'StartTimes': [1501064761.0], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846515.0'], 'EndTimes': [1501064869.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [2636], 'TotalUserCpuTimeHistory': [19], 'SiteHistory': ['Unknown', 'T2_CH_CERN'], 'TotalSysCpuTimeHistory': [3]}, '10': {'Retries': 0, 'WallDurations': [82.0, 188.632080078125], 'StartTimes': [1501064759.0], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846517.0'], 'EndTimes': [1501064841.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [17896], 'TotalUserCpuTimeHistory': [10], 'SiteHistory': ['Unknown', 'T2_CH_CERN'], 'TotalSysCpuTimeHistory': [2]}, '13': {'Retries': 0, 'WallDurations': [8.0, 187.632080078125], 'StartTimes': [1501064760.0], 'SubmitTimes': [1501064593.0], 'JobIds': ['10846522.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [30620], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown', 'T2_CH_CERN'], 'TotalSysCpuTimeHistory': [0.0]}, '12': {'Retries': 0, 'WallDurations': [82.0, 188.632080078125], 'StartTimes': [1501064759.0], 'SubmitTimes': [1501064591.0], 'JobIds': ['10846510.0'], 'EndTimes': [1501064841.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [28184], 'TotalUserCpuTimeHistory': [11], 'SiteHistory': ['Unknown', 'T2_CH_CERN'], 'TotalSysCpuTimeHistory': [2]}, '1': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846511.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '3': {'Retries': 0, 'WallDurations': [87.0, 188.632080078125], 'StartTimes': [1501064759.0], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846518.0'], 'EndTimes': [1501064846.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [18072], 'TotalUserCpuTimeHistory': [29], 'SiteHistory': ['Unknown', 'T2_CH_CERN'], 'TotalSysCpuTimeHistory': [3]}, '2': {'Retries': 0, 'WallDurations': [95.0, 188.632080078125], 'StartTimes': [1501064759.0], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846512.0'], 'EndTimes': [1501064854.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [30224], 'TotalUserCpuTimeHistory': [26], 'SiteHistory': ['Unknown', 'T2_CH_CERN'], 'TotalSysCpuTimeHistory': [3]}, '5': {'Retries': 0, 'WallDurations': [110.0, 187.632080078125], 'StartTimes': [1501064760.0], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846519.0'], 'EndTimes': [1501064870.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [30232], 'TotalUserCpuTimeHistory': [22], 'SiteHistory': ['Unknown', 'T2_CH_CERN'], 'TotalSysCpuTimeHistory': [3]}, '4': {'Retries': 0, 'WallDurations': [118.0, 186.632080078125], 'StartTimes': [1501064761.0], 'SubmitTimes': [1501064593.0], 'JobIds': ['10846521.0'], 'EndTimes': [1501064879.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [2684], 'TotalUserCpuTimeHistory': [26], 'SiteHistory': ['Unknown', 'T2_CH_CERN'], 'TotalSysCpuTimeHistory': [3]}, '7': {'Retries': 0, 'WallDurations': [81.0, 186.632080078125], 'StartTimes': [1501064761.0], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846513.0'], 'EndTimes': [1501064842.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [2676], 'TotalUserCpuTimeHistory': [30], 'SiteHistory': ['Unknown', 'T2_CH_CERN'], 'TotalSysCpuTimeHistory': [2]}, '6': {'Retries': 0, 'WallDurations': [112.0, 187.632080078125], 'StartTimes': [1501064760.0], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846516.0'], 'EndTimes': [1501064872.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [2576], 'TotalUserCpuTimeHistory': [17], 'SiteHistory': ['Unknown', 'T2_CH_CERN'], 'TotalSysCpuTimeHistory': [3]}, '9': {'Retries': 0, 'WallDurations': [112.0, 186.632080078125], 'StartTimes': [1501064761.0], 'SubmitTimes': [1501064592.0], 'JobIds': ['10846514.0'], 'EndTimes': [1501064873.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [22684], 'TotalUserCpuTimeHistory': [29], 'SiteHistory': ['Unknown', 'T2_CH_CERN'], 'TotalSysCpuTimeHistory': [3]}, '8': {'Retries': 0, 'WallDurations': [107.0, 185.632080078125], 'StartTimes': [1501064762.0], 'SubmitTimes': [1501064593.0], 'JobIds': ['10846520.0'], 'EndTimes': [1501064869.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [2640], 'TotalUserCpuTimeHistory': [19], 'SiteHistory': ['Unknown', 'T2_CH_CERN'], 'TotalSysCpuTimeHistory': [3]}}
+INFO 2017-07-26 12:32:27,421: 	 Status on the scheduler:	SUBMITTED
+INFO 2017-07-26 12:32:27,421: 	 
+Jobs status:                    finished       84.6% (11/13)
+INFO 2017-07-26 12:32:27,421: 	 				idle            7.7% ( 1/13)
+INFO 2017-07-26 12:32:27,422: 	 				running         7.7% ( 1/13)
+INFO 2017-07-26 12:32:27,422: 	 
+No publication information (publication has been disabled in the CRAB configuration file)
+INFO 2017-07-26 12:32:27,475: 	 Log file is /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/crab/grid/crab_pythia8_tuneAZ/crab.log

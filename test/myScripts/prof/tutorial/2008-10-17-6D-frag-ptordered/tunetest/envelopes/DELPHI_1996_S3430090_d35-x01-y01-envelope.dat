@@ -1,0 +1,32 @@
+# BEGIN PLOT
+DrawOnly=Envel-100.000000-/DELPHI_1996_S3430090/d35-x01-y01  /DELPHI_1996_S3430090/d35-x01-y01
+RatioPlot=1
+RatioPlotReference=/DELPHI_1996_S3430090/d35-x01-y01
+Title=Mean charged multiplicity
+LogY=0
+XLabel=
+ShowZero=0
+YLabel=Multiplicity
+Legend=1
+LogY=0
+# END PLOT
+
+# BEGIN HISTOGRAM /DELPHI_1996_S3430090/d35-x01-y01
+AidaPath=/DELPHI_1996_S3430090/d35-x01-y01
+Title=d35-x01-y01 data
+## Area: 2.092000e+01
+## Num bins: 1
+## xlow  	xhigh   	val    	errminus	errplus
+9.070000e+01	9.170000e+01	2.092000e+01	2.400000e-01	2.400000e-01
+# END HISTOGRAM
+
+
+# BEGIN HISTOGRAM Envel-100.000000-/DELPHI_1996_S3430090/d35-x01-y01
+Title=Envelope (CL 100.0 \%)
+ErrorBands=1
+ErrorBandColor=blue!40!
+ErrorBandOpacity=0.45
+LineStyle=none
+## xlow  	xhigh   	val    	errminus	errplus
+9.070000e+01	9.170000e+01	2.234645e+01	6.159650e+00	6.159650e+00
+# END HISTOGRAM

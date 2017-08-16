@@ -57,13 +57,13 @@ options.register('input',
                  "input file to process"
                  )
 options.register('ueTune',
-		 'CUETP8M2T4',
+		 'CUETP8M2T41',
                  VarParsing.multiplicity.singleton,
                  VarParsing.varType.string,
                  "hardcoded UE snippet to use"
                  )
 options.register('pdfSet',
-		 'NNPDF30_lo_as_0130',
+		 'LHAPDF6:NNPDF30_lo_as_0130',
                  VarParsing.multiplicity.singleton,
                  VarParsing.varType.string,
                  "hardcoded UE snippet to use"
@@ -147,7 +147,7 @@ process.load('UserCode.VptGenAnalysis.vptAnalysis_cff')
 
 # Path and EndPath definitions
 process.generation_step = cms.Path(process.pgen)
-process.analysis_step = cms.Path(process.analysis)
+#process.analysis_step = cms.Path(process.analysis)
 process.genfiltersummary_step = cms.EndPath(process.genFilterSummary)
 process.endjob_step = cms.EndPath(process.endOfProcess)
 if options.saveEDM:
@@ -166,10 +166,11 @@ if options.saveEDM:
 						)
 	
 	process.RAWSIMoutput_step = cms.EndPath(process.RAWSIMoutput)
-	process.schedule = cms.Schedule(process.generation_step, process.analysis_step, process.genfiltersummary_step, process.endjob_step,process.RAWSIMoutput_step)
-
+	#process.schedule = cms.Schedule(process.generation_step, process.analysis_step, process.genfiltersummary_step, process.endjob_step,process.RAWSIMoutput_step)
+        process.schedule = cms.Schedule(process.generation_step, process.genfiltersummary_step, process.endjob_step,process.RAWSIMoutput_step)
 else:
-	process.schedule = cms.Schedule(process.generation_step, process.analysis_step, process.genfiltersummary_step, process.endjob_step)
+	#process.schedule = cms.Schedule(process.generation_step, process.analysis_step, process.genfiltersummary_step, process.endjob_step)
+        process.schedule = cms.Schedule(process.generation_step, process.genfiltersummary_step, process.endjob_step)
 
 
 # filter all path with the production filter sequence
@@ -179,7 +180,8 @@ for path in process.paths:
 #add RIVET routine
 from UserCode.RivetAnalysis.rivet_customise import *
 if options.doRivetScan:	
-	for i in xrange(0,282):
+	#for i in xrange(0,121):
+        for i in (0,48):
 		from GeneratorInterface.RivetInterface.rivetAnalyzer_cfi import rivetAnalyzer
 		LHECollection = cms.InputTag('externalLHEProducer') if options.usePoolSource else cms.InputTag('source')
 		setattr(process,
@@ -196,7 +198,7 @@ if options.doRivetScan:
 		process.generation_step+=getattr(process,'rivetAnalyzer%d'%i)
 else:
 	process = customiseZPt(process,options.meWeight)
-	process.rivetAnalyzer.OutputFile = cms.string(options.output + 'w%d.yoda'%options.meWeight)
+	process.rivetAnalyzer.OutputFile = cms.string(options.output + '.w%d.yoda'%options.meWeight)
 	process.rivetAnalyzer.HepMCCollection = cms.InputTag('generatorSmeared')
 
 process.MessageLogger.cerr.FwkReport.reportEvery = 5000

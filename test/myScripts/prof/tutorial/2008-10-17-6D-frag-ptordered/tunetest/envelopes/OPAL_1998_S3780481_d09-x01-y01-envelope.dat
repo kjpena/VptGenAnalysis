@@ -1,0 +1,31 @@
+# BEGIN PLOT
+DrawOnly=Envel-100.000000-/OPAL_1998_S3780481/d09-x01-y01  /OPAL_1998_S3780481/d09-x01-y01
+RatioPlot=1
+RatioPlotReference=/OPAL_1998_S3780481/d09-x01-y01
+YLabel=Multiplicity
+XLabel=
+ShowZero=0
+Title=$uds$ events mean charged multiplicity
+Legend=1
+LogY=1
+# END PLOT
+
+# BEGIN HISTOGRAM /OPAL_1998_S3780481/d09-x01-y01
+AidaPath=/OPAL_1998_S3780481/d09-x01-y01
+Title=d09-x01-y01 data
+## Area: 2.025000e+01
+## Num bins: 1
+## xlow  	xhigh   	val    	errminus	errplus
+9.070000e+01	9.170000e+01	2.025000e+01	3.860052e-01	3.860052e-01
+# END HISTOGRAM
+
+
+# BEGIN HISTOGRAM Envel-100.000000-/OPAL_1998_S3780481/d09-x01-y01
+Title=Envelope (CL 100.0 \%)
+ErrorBands=1
+ErrorBandColor=blue!40!
+ErrorBandOpacity=0.45
+LineStyle=none
+## xlow  	xhigh   	val    	errminus	errplus
+9.070000e+01	9.170000e+01	2.119025e+01	6.554850e+00	6.554850e+00
+# END HISTOGRAM
