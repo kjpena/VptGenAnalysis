@@ -49,12 +49,15 @@ namespace Rivet {
 	if ( _mode == 1) {
 	  _hist_WtoElNuPt = bookHisto1D(1, 1, 1);
 	  _hist_WtoMuNuPt = bookHisto1D(2, 1, 1);
+	  _hist_WtoElNuPt_finebins = bookHisto1D("WtoElNuPt-finebins", 100, 0, 100);
+	  _hist_WtoMuNuPt_finebins = bookHisto1D("WtoMuNuPt-finebins", 100, 0, 100);
 	  //_hist_tmp_WmToMuNuPt = bookHisto1D("TMP/WmToMuNuPt",refData(4, 1, 1));
 	  //_hist_tmp_WpToMuNuPt = bookHisto1D("TMP/WpToMuNuPt",refData(4, 1, 1));
 	  //_hist_WmToWpRatio = bookScatter2D(4, 1, 1);
 	}
 	if( _mode == 2) {
 	  _hist_ZtoMuMuPt = bookHisto1D(3, 1, 1);
+	  _hist_ZtoMuMuPt_finebins = bookHisto1D("ZtoMuMuPt-finebins", 100, 0, 100);
 	}
       }
 
@@ -71,6 +74,7 @@ namespace Rivet {
 	  if (!welnu_Finder.bosons().empty()) {
 	    const FourMomentum pWelnu = welnu_Finder.bosons()[0].momentum();
 	    _hist_WtoElNuPt->fill(pWelnu.pT()/GeV, weight);
+	    _hist_WtoElNuPt_finebins->fill(pWelnu.pT()/GeV, weight);
 	  }
 
 	  // Get the W bosons - muon decay channel
@@ -79,6 +83,7 @@ namespace Rivet {
 	    //lepton_charge = wmunu_Finder.constituentLeptons()[0].charge();
 	    const FourMomentum pWmunu = wmunu_Finder.bosons()[0].momentum();
 	    _hist_WtoMuNuPt->fill(pWmunu.pT()/GeV, weight);
+	    _hist_WtoMuNuPt_finebins->fill(pWmunu.pT()/GeV, weight);
 	    /***
 	    //Get negative charged the W bosons - muon decay channel
 	    if (lepton_charge < 0) {
@@ -98,6 +103,7 @@ namespace Rivet {
 	  if (!zmumu_Finder.bosons().empty()) {
 	    const FourMomentum pZmumu = zmumu_Finder.bosons()[0].momentum();
 	    _hist_ZtoMuMuPt->fill(pZmumu.pT()/GeV, weight);
+	    _hist_ZtoMuMuPt_finebins->fill(pZmumu.pT()/GeV, weight);
 	  }
 	}
 
@@ -114,6 +120,8 @@ namespace Rivet {
 	if (_mode ==1) {
 	  normalize(_hist_WtoElNuPt);
 	  normalize(_hist_WtoMuNuPt);
+	  normalize(_hist_WtoElNuPt_finebins);
+	  normalize(_hist_WtoMuNuPt_finebins);
 	  //normalize(_hist_tmp_WmToMuNuPt);
 	  //normalize(_hist_tmp_WpToMuNuPt);
 	
@@ -123,6 +131,7 @@ namespace Rivet {
 
 	else if (_mode ==2) {
 	  normalize(_hist_ZtoMuMuPt);
+	  normalize(_hist_ZtoMuMuPt_finebins);
 	}
 	      
 
@@ -144,6 +153,11 @@ namespace Rivet {
       Histo1DPtr _hist_WtoElNuPt;
       Histo1DPtr _hist_WtoMuNuPt;
       Histo1DPtr _hist_ZtoMuMuPt;
+
+      // fine grained bins
+      Histo1DPtr _hist_WtoElNuPt_finebins;
+      Histo1DPtr _hist_WtoMuNuPt_finebins;
+      Histo1DPtr _hist_ZtoMuMuPt_finebins;
 
       Scatter2DPtr _hist_WmToWpRatio;
 
