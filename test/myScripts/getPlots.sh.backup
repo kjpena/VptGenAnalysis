@@ -1,0 +1,46 @@
+#!/bin/bash
+
+ptsqmin=central
+#ptsqmin=ptsqmin4
+#ptsqmin=ptsqmin400
+
+tune=CUETP8M1
+#tune=
+
+plotName=d15-x01-y04
+#plotName=d27-x01-y04
+
+
+# Get tags
+if [[ -z $tune ]]
+then
+    tags=${ptsqmin}
+    echo $tags $plotName
+else
+    tags=${ptsqmin}_${tune}
+    echo $tags $plotName
+fi
+
+#outputDir=/afs/cern.ch/user/k/kjpena/www/plots/ZJ_${ptsqmin}/all
+outputDir=/afs/cern.ch/user/k/kjpena/www/plots_new/ZJ_${tags}/all
+
+#plotsDir=/afs/cern.ch/user/k/kjpena/www/plots/ZJ_${ptsqmin}/${plotName}
+plotsDir=/afs/cern.ch/user/k/kjpena/www/plots_new/ZJ_${tags}/${plotName}
+
+cp ${outputDir}/w0/ATLAS_2015_I1408516_MU/${plotName}.png \
+    ${plotsDir}/w0.png
+
+cp ${outputDir}/w0/ATLAS_2015_I1408516_MU/${plotName}.pdf \
+    ${plotsDir}/w0.pdf
+
+
+for i in {1..30}
+do
+    cp ${outputDir}/w$((4*i-3))-w$((4*i))/ATLAS_2015_I1408516_MU/${plotName}.png \
+        ${plotsDir}/w$((4*i-3))-w$((4*i)).png
+
+    cp ${outputDir}/w$((4*i-3))-w$((4*i))/ATLAS_2015_I1408516_MU/${plotName}.pdf \
+	${plotsDir}/w$((4*i-3))-w$((4*i)).pdf
+
+done
+

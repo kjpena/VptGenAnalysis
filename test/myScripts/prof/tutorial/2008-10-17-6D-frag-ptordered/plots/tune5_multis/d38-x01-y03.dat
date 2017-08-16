@@ -1,0 +1,40 @@
+# BEGIN PLOT
+Title=mean p multiplicity
+Legend=1
+LogY=0
+DrawOnly=../ref/PDG_HADRON_MULTIPLICITIES.aida ../tune5/out.aida fpythia_ptordered_lambda23.aida /home/hoeth/Dokumente/MCnet/rivet/rundir/lep_sav/fpythia_tune_final.aida 
+RatioPlot=1
+RatioPlotReference=../ref/PDG_HADRON_MULTIPLICITIES.aida
+RatioPlotYMin=0.5
+RatioPlotYMax=1.5
+RatioPlotYLabel=MC/data
+# END PLOT
+
+# BEGIN HISTOGRAM ../ref/PDG_HADRON_MULTIPLICITIES.aida
+ErrorBars=1
+PolyMarker=*
+Title=data
+90.500000	91.500000	1.050000	0.032000
+# END HISTOGRAM
+
+# BEGIN HISTOGRAM ../tune5/out.aida
+LineColor=red
+LineStyle=solid
+Title=tune5
+90.500000	91.500000	1.011440	0.002011
+# END HISTOGRAM
+
+# BEGIN HISTOGRAM fpythia_ptordered_lambda23.aida
+LineColor=blue
+LineStyle=solid
+Title=lambda 0.23
+90.500000	91.500000	1.195120	0.003092
+# END HISTOGRAM
+
+# BEGIN HISTOGRAM /home/hoeth/Dokumente/MCnet/rivet/rundir/lep_sav/fpythia_tune_final.aida
+LineColor=green
+LineStyle=solid
+Title=old shower, tuned
+90.500000	91.500000	1.118200	0.002115
+# END HISTOGRAM
+

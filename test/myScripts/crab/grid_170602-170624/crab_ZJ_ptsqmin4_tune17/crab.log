@@ -1,0 +1,158 @@
+ ################################################################### 
+ # WARNING: this module is deprecated.                             # 
+ # Please use CondCore.CondDB.CondDB_cfi.py                        # 
+ ################################################################### 
+# Conditions read from  CMS_CONDITIONS  via FrontierProd 
+Setting SpaceShower:pTmin to 1.0
+Seed initiated to 123456789
+DEBUG 2017-06-12 22:06:24,673: 	 Executing command: 'submit'
+DEBUG 2017-06-12 22:06:24,690: 	 Found CRAB cache file /afs/cern.ch/user/k/kjpena/.crab3
+DEBUG 2017-06-12 22:06:24,724: 	 Checking credentials
+DEBUG 2017-06-12 22:06:24,724: 	 Proxy file /tmp/x509up_u81022 not found
+DEBUG 2017-06-12 22:06:24,724: 	 Creating new proxy for 24:00 hours with VO group '' and VO role 'NULL'.
+DEBUG 2017-06-12 22:07:01,233: 	 Executing : 
+ command : voms-proxy-init -voms cms:/cms -valid 24:00 -rfc
+ output : None
+ error: None
+ retcode : 0
+DEBUG 2017-06-12 22:07:01,953: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -timeleft
+ output : 86398
+
+ error: 
+ retcode : 0
+DEBUG 2017-06-12 22:07:02,665: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -actimeleft
+ output : 86397
+
+ error: 
+ retcode : 0
+DEBUG 2017-06-12 22:07:03,278: 	 Executing : 
+ command : env X509_USER_PROXY=/tmp/x509up_u81022 voms-proxy-info -fqan
+ output : /cms/Role=NULL/Capability=NULL
+
+ error: 
+ retcode : 0
+DEBUG 2017-06-12 22:07:03,278: 	 Proxy created.
+INFO 2017-06-12 22:07:03,297: 	 Will use CRAB configuration file configFiles/crab_ZJ_ptsqmin4_tune17.py
+DEBUG 2017-06-12 22:07:03,298: 	 Loading CRAB configuration file.
+DEBUG 2017-06-12 22:07:03,435: 	 Will use CRAB Analysis plugin (i.e. will run an analysis job type).
+DEBUG 2017-06-12 22:07:03,720: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA
+
+ error: 
+ retcode : 0
+DEBUG 2017-06-12 22:07:03,720: 	 Checking credentials
+DEBUG 2017-06-12 22:07:03,721: 	 Found proxy file /tmp/x509up_u81022
+DEBUG 2017-06-12 22:07:03,721: 	 Getting proxy life time left
+DEBUG 2017-06-12 22:07:04,331: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -timeleft
+ output : 86395
+
+ error: 
+ retcode : 0
+DEBUG 2017-06-12 22:07:04,943: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -actimeleft
+ output : 86395
+
+ error: 
+ retcode : 0
+DEBUG 2017-06-12 22:07:04,943: 	 Proxy valid for 23:59:55 hours
+DEBUG 2017-06-12 22:07:05,655: 	 Executing : 
+ command : env X509_USER_PROXY=/tmp/x509up_u81022 voms-proxy-info -fqan
+ output : /cms/Role=NULL/Capability=NULL
+
+ error: 
+ retcode : 0
+DEBUG 2017-06-12 22:07:06,071: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch
+DEBUG 2017-06-12 22:07:06,185: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA
+
+ error: 
+ retcode : 0
+DEBUG 2017-06-12 22:07:06,186: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2017-06-12 22:07:06,186: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA_cmsweb.cern.ch for credential name
+DEBUG 2017-06-12 22:07:06,495: 	 Executing : 
+ command : myproxy-info -l 5c807b6c2de98292a7dc3f52d71970fa53af4385 -s myproxy.cern.ch
+ output : username: 5c807b6c2de98292a7dc3f52d71970fa53af4385
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch
+  timeleft: 609:42:30  (25.4 days)
+
+ error: 
+ retcode : 0
+DEBUG 2017-06-12 22:07:06,496: 	 Myproxy is valid: 2194950
+DEBUG 2017-06-12 22:07:06,496: 	 Command use: submit
+DEBUG 2017-06-12 22:07:06,497: 	 Options use: ['configFiles/crab_ZJ_ptsqmin4_tune17.py']
+DEBUG 2017-06-12 22:07:06,958: 	 CRABClient version: 3.3.1705.patch6
+DEBUG 2017-06-12 22:07:06,958: 	 Instance is prod
+DEBUG 2017-06-12 22:07:06,958: 	 Server base url is cmsweb.cern.ch
+DEBUG 2017-06-12 22:07:06,958: 	 Command url /crabserver/prod/workflow
+DEBUG 2017-06-12 22:07:06,959: 	 Started submission
+DEBUG 2017-06-12 22:07:06,959: 	 Working on /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/crab/grid/crab_ZJ_ptsqmin4_tune17
+DEBUG 2017-06-12 22:07:07,918: 	 Loading required information from the environment
+DEBUG 2017-06-12 22:07:07,919: 	 Found CMSSW_8_0_8_patch1 for slc6_amd64_gcc530 with base /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1
+DEBUG 2017-06-12 22:07:07,919: 	 Loading required information from the environment
+DEBUG 2017-06-12 22:07:07,919: 	 Found CMSSW_8_0_8_patch1 for slc6_amd64_gcc530 with base /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1
+DEBUG 2017-06-12 22:07:07,948: 	 UNIQUE NAME: tarUUID a0075db2-d98b-4f1c-a86b-cb9e094c0046 
+DEBUG 2017-06-12 22:07:07,949: 	 self.config: from WMCore.Configuration import Configuration
+config = Configuration()
+config.section_('General')
+config.General.transferOutputs = True
+config.General.workArea = 'grid'
+config.General.requestName = 'ZJ_ptsqmin4_tune17'
+config.section_('JobType')
+config.JobType.psetName = '/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/UserCode/VptGenAnalysis/test/runGENFromLHEandAnalysis_cfg.py'
+config.JobType.pluginName = 'Analysis'
+config.JobType.outputFiles = ['ZJ_ptsqmin4_tune17.w0.yoda', 'ZJ_ptsqmin4_tune17.w1.yoda', 'ZJ_ptsqmin4_tune17.w2.yoda', 'ZJ_ptsqmin4_tune17.w3.yoda', 'ZJ_ptsqmin4_tune17.w4.yoda', 'ZJ_ptsqmin4_tune17.w5.yoda', 'ZJ_ptsqmin4_tune17.w6.yoda', 'ZJ_ptsqmin4_tune17.w7.yoda', 'ZJ_ptsqmin4_tune17.w8.yoda', 'ZJ_ptsqmin4_tune17.w9.yoda', 'ZJ_ptsqmin4_tune17.w10.yoda', 'ZJ_ptsqmin4_tune17.w11.yoda', 'ZJ_ptsqmin4_tune17.w12.yoda', 'ZJ_ptsqmin4_tune17.w13.yoda', 'ZJ_ptsqmin4_tune17.w14.yoda', 'ZJ_ptsqmin4_tune17.w15.yoda', 'ZJ_ptsqmin4_tune17.w16.yoda', 'ZJ_ptsqmin4_tune17.w17.yoda', 'ZJ_ptsqmin4_tune17.w18.yoda', 'ZJ_ptsqmin4_tune17.w19.yoda', 'ZJ_ptsqmin4_tune17.w20.yoda', 'ZJ_ptsqmin4_tune17.w21.yoda', 'ZJ_ptsqmin4_tune17.w22.yoda', 'ZJ_ptsqmin4_tune17.w23.yoda', 'ZJ_ptsqmin4_tune17.w24.yoda', 'ZJ_ptsqmin4_tune17.w25.yoda', 'ZJ_ptsqmin4_tune17.w26.yoda', 'ZJ_ptsqmin4_tune17.w27.yoda', 'ZJ_ptsqmin4_tune17.w28.yoda', 'ZJ_ptsqmin4_tune17.w29.yoda', 'ZJ_ptsqmin4_tune17.w30.yoda', 'ZJ_ptsqmin4_tune17.w31.yoda', 'ZJ_ptsqmin4_tune17.w32.yoda', 'ZJ_ptsqmin4_tune17.w33.yoda', 'ZJ_ptsqmin4_tune17.w34.yoda', 'ZJ_ptsqmin4_tune17.w35.yoda', 'ZJ_ptsqmin4_tune17.w36.yoda', 'ZJ_ptsqmin4_tune17.w37.yoda', 'ZJ_ptsqmin4_tune17.w38.yoda', 'ZJ_ptsqmin4_tune17.w39.yoda', 'ZJ_ptsqmin4_tune17.w40.yoda', 'ZJ_ptsqmin4_tune17.w41.yoda', 'ZJ_ptsqmin4_tune17.w42.yoda', 'ZJ_ptsqmin4_tune17.w43.yoda', 'ZJ_ptsqmin4_tune17.w44.yoda', 'ZJ_ptsqmin4_tune17.w45.yoda', 'ZJ_ptsqmin4_tune17.w46.yoda', 'ZJ_ptsqmin4_tune17.w47.yoda', 'ZJ_ptsqmin4_tune17.w48.yoda', 'ZJ_ptsqmin4_tune17.w49.yoda', 'ZJ_ptsqmin4_tune17.w50.yoda', 'ZJ_ptsqmin4_tune17.w51.yoda', 'ZJ_ptsqmin4_tune17.w52.yoda', 'ZJ_ptsqmin4_tune17.w53.yoda', 'ZJ_ptsqmin4_tune17.w54.yoda', 'ZJ_ptsqmin4_tune17.w55.yoda', 'ZJ_ptsqmin4_tune17.w56.yoda', 'ZJ_ptsqmin4_tune17.w57.yoda', 'ZJ_ptsqmin4_tune17.w58.yoda', 'ZJ_ptsqmin4_tune17.w59.yoda', 'ZJ_ptsqmin4_tune17.w60.yoda', 'ZJ_ptsqmin4_tune17.w61.yoda', 'ZJ_ptsqmin4_tune17.w62.yoda', 'ZJ_ptsqmin4_tune17.w63.yoda', 'ZJ_ptsqmin4_tune17.w64.yoda', 'ZJ_ptsqmin4_tune17.w65.yoda', 'ZJ_ptsqmin4_tune17.w66.yoda', 'ZJ_ptsqmin4_tune17.w67.yoda', 'ZJ_ptsqmin4_tune17.w68.yoda', 'ZJ_ptsqmin4_tune17.w69.yoda', 'ZJ_ptsqmin4_tune17.w70.yoda', 'ZJ_ptsqmin4_tune17.w71.yoda', 'ZJ_ptsqmin4_tune17.w72.yoda', 'ZJ_ptsqmin4_tune17.w73.yoda', 'ZJ_ptsqmin4_tune17.w74.yoda', 'ZJ_ptsqmin4_tune17.w75.yoda', 'ZJ_ptsqmin4_tune17.w76.yoda', 'ZJ_ptsqmin4_tune17.w77.yoda', 'ZJ_ptsqmin4_tune17.w78.yoda', 'ZJ_ptsqmin4_tune17.w79.yoda', 'ZJ_ptsqmin4_tune17.w80.yoda', 'ZJ_ptsqmin4_tune17.w81.yoda', 'ZJ_ptsqmin4_tune17.w82.yoda', 'ZJ_ptsqmin4_tune17.w83.yoda', 'ZJ_ptsqmin4_tune17.w84.yoda', 'ZJ_ptsqmin4_tune17.w85.yoda', 'ZJ_ptsqmin4_tune17.w86.yoda', 'ZJ_ptsqmin4_tune17.w87.yoda', 'ZJ_ptsqmin4_tune17.w88.yoda', 'ZJ_ptsqmin4_tune17.w89.yoda', 'ZJ_ptsqmin4_tune17.w90.yoda', 'ZJ_ptsqmin4_tune17.w91.yoda', 'ZJ_ptsqmin4_tune17.w92.yoda', 'ZJ_ptsqmin4_tune17.w93.yoda', 'ZJ_ptsqmin4_tune17.w94.yoda', 'ZJ_ptsqmin4_tune17.w95.yoda', 'ZJ_ptsqmin4_tune17.w96.yoda', 'ZJ_ptsqmin4_tune17.w97.yoda', 'ZJ_ptsqmin4_tune17.w98.yoda', 'ZJ_ptsqmin4_tune17.w99.yoda', 'ZJ_ptsqmin4_tune17.w100.yoda', 'ZJ_ptsqmin4_tune17.w101.yoda', 'ZJ_ptsqmin4_tune17.w102.yoda', 'ZJ_ptsqmin4_tune17.w103.yoda', 'ZJ_ptsqmin4_tune17.w104.yoda', 'ZJ_ptsqmin4_tune17.w105.yoda', 'ZJ_ptsqmin4_tune17.w106.yoda', 'ZJ_ptsqmin4_tune17.w107.yoda', 'ZJ_ptsqmin4_tune17.w108.yoda', 'ZJ_ptsqmin4_tune17.w109.yoda', 'ZJ_ptsqmin4_tune17.w110.yoda', 'ZJ_ptsqmin4_tune17.w111.yoda', 'ZJ_ptsqmin4_tune17.w112.yoda', 'ZJ_ptsqmin4_tune17.w113.yoda', 'ZJ_ptsqmin4_tune17.w114.yoda', 'ZJ_ptsqmin4_tune17.w115.yoda', 'ZJ_ptsqmin4_tune17.w116.yoda', 'ZJ_ptsqmin4_tune17.w117.yoda', 'ZJ_ptsqmin4_tune17.w118.yoda', 'ZJ_ptsqmin4_tune17.w119.yoda', 'ZJ_ptsqmin4_tune17.w120.yoda']
+config.JobType.pyCfgParams = ['output=ZJ_ptsqmin4_tune17', 'ueTune=CUEP8M2T4:SpaceShower:alphaSvalue=0.120:BeamRemnants:primordialKThard=2.0:SpaceShower:pTmin=1.0', 'photos=False', 'nFinal=2', 'doRivetScan=True', 'usePoolSource=True']
+config.JobType.disableAutomaticOutputCollection = True
+config.section_('Data')
+config.Data.inputDataset = '/ZJ_ZToMuMu_powheg_minlo_8TeV_NNPDF30_ptsqmin4/RunIIWinter15wmLHE-MCRUN2_71_V1-v1/LHE'
+config.Data.publication = False
+config.Data.unitsPerJob = 5000
+config.Data.ignoreLocality = False
+config.Data.inputDBS = 'global'
+config.Data.splitting = 'EventAwareLumiBased'
+config.Data.outLFNDirBase = '/store/group/cmst3/group/wmass/kjpena/ZJ_ptsqmin4_tune17'
+config.section_('Site')
+config.Site.whitelist = ['T2_CH_CERN']
+config.Site.storageSite = 'T2_CH_CERN'
+
+DEBUG 2017-06-12 22:07:07,949: 	 self.config.JobType.psetName: /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/UserCode/VptGenAnalysis/test/runGENFromLHEandAnalysis_cfg.py
+INFO 2017-06-12 22:07:08,037: 	 Importing CMSSW configuration /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/UserCode/VptGenAnalysis/test/runGENFromLHEandAnalysis_cfg.py
+DEBUG 2017-06-12 22:07:08,037: 	 Additional parameters for the CMSSW configuration are: ['output=ZJ_ptsqmin4_tune17', 'ueTune=CUEP8M2T4:SpaceShower:alphaSvalue=0.120:BeamRemnants:primordialKThard=2.0:SpaceShower:pTmin=1.0', 'photos=False', 'nFinal=2', 'doRivetScan=True', 'usePoolSource=True']
+INFO 2017-06-12 22:07:28,874: 	 Finished importing CMSSW configuration /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/UserCode/VptGenAnalysis/test/runGENFromLHEandAnalysis_cfg.py
+DEBUG 2017-06-12 22:07:28,874: 	 Writing CMSSW configuration to /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/crab/grid/crab_ZJ_ptsqmin4_tune17/inputs/PSet.py
+DEBUG 2017-06-12 22:07:29,510: 	 The following EDM output files will be collected: []
+DEBUG 2017-06-12 22:07:29,510: 	 The following TFile output files will be collected: []
+DEBUG 2017-06-12 22:07:29,510: 	 The following user output files will be collected: ['ZJ_ptsqmin4_tune17.w0.yoda', 'ZJ_ptsqmin4_tune17.w1.yoda', 'ZJ_ptsqmin4_tune17.w2.yoda', 'ZJ_ptsqmin4_tune17.w3.yoda', 'ZJ_ptsqmin4_tune17.w4.yoda', 'ZJ_ptsqmin4_tune17.w5.yoda', 'ZJ_ptsqmin4_tune17.w6.yoda', 'ZJ_ptsqmin4_tune17.w7.yoda', 'ZJ_ptsqmin4_tune17.w8.yoda', 'ZJ_ptsqmin4_tune17.w9.yoda', 'ZJ_ptsqmin4_tune17.w10.yoda', 'ZJ_ptsqmin4_tune17.w11.yoda', 'ZJ_ptsqmin4_tune17.w12.yoda', 'ZJ_ptsqmin4_tune17.w13.yoda', 'ZJ_ptsqmin4_tune17.w14.yoda', 'ZJ_ptsqmin4_tune17.w15.yoda', 'ZJ_ptsqmin4_tune17.w16.yoda', 'ZJ_ptsqmin4_tune17.w17.yoda', 'ZJ_ptsqmin4_tune17.w18.yoda', 'ZJ_ptsqmin4_tune17.w19.yoda', 'ZJ_ptsqmin4_tune17.w20.yoda', 'ZJ_ptsqmin4_tune17.w21.yoda', 'ZJ_ptsqmin4_tune17.w22.yoda', 'ZJ_ptsqmin4_tune17.w23.yoda', 'ZJ_ptsqmin4_tune17.w24.yoda', 'ZJ_ptsqmin4_tune17.w25.yoda', 'ZJ_ptsqmin4_tune17.w26.yoda', 'ZJ_ptsqmin4_tune17.w27.yoda', 'ZJ_ptsqmin4_tune17.w28.yoda', 'ZJ_ptsqmin4_tune17.w29.yoda', 'ZJ_ptsqmin4_tune17.w30.yoda', 'ZJ_ptsqmin4_tune17.w31.yoda', 'ZJ_ptsqmin4_tune17.w32.yoda', 'ZJ_ptsqmin4_tune17.w33.yoda', 'ZJ_ptsqmin4_tune17.w34.yoda', 'ZJ_ptsqmin4_tune17.w35.yoda', 'ZJ_ptsqmin4_tune17.w36.yoda', 'ZJ_ptsqmin4_tune17.w37.yoda', 'ZJ_ptsqmin4_tune17.w38.yoda', 'ZJ_ptsqmin4_tune17.w39.yoda', 'ZJ_ptsqmin4_tune17.w40.yoda', 'ZJ_ptsqmin4_tune17.w41.yoda', 'ZJ_ptsqmin4_tune17.w42.yoda', 'ZJ_ptsqmin4_tune17.w43.yoda', 'ZJ_ptsqmin4_tune17.w44.yoda', 'ZJ_ptsqmin4_tune17.w45.yoda', 'ZJ_ptsqmin4_tune17.w46.yoda', 'ZJ_ptsqmin4_tune17.w47.yoda', 'ZJ_ptsqmin4_tune17.w48.yoda', 'ZJ_ptsqmin4_tune17.w49.yoda', 'ZJ_ptsqmin4_tune17.w50.yoda', 'ZJ_ptsqmin4_tune17.w51.yoda', 'ZJ_ptsqmin4_tune17.w52.yoda', 'ZJ_ptsqmin4_tune17.w53.yoda', 'ZJ_ptsqmin4_tune17.w54.yoda', 'ZJ_ptsqmin4_tune17.w55.yoda', 'ZJ_ptsqmin4_tune17.w56.yoda', 'ZJ_ptsqmin4_tune17.w57.yoda', 'ZJ_ptsqmin4_tune17.w58.yoda', 'ZJ_ptsqmin4_tune17.w59.yoda', 'ZJ_ptsqmin4_tune17.w60.yoda', 'ZJ_ptsqmin4_tune17.w61.yoda', 'ZJ_ptsqmin4_tune17.w62.yoda', 'ZJ_ptsqmin4_tune17.w63.yoda', 'ZJ_ptsqmin4_tune17.w64.yoda', 'ZJ_ptsqmin4_tune17.w65.yoda', 'ZJ_ptsqmin4_tune17.w66.yoda', 'ZJ_ptsqmin4_tune17.w67.yoda', 'ZJ_ptsqmin4_tune17.w68.yoda', 'ZJ_ptsqmin4_tune17.w69.yoda', 'ZJ_ptsqmin4_tune17.w70.yoda', 'ZJ_ptsqmin4_tune17.w71.yoda', 'ZJ_ptsqmin4_tune17.w72.yoda', 'ZJ_ptsqmin4_tune17.w73.yoda', 'ZJ_ptsqmin4_tune17.w74.yoda', 'ZJ_ptsqmin4_tune17.w75.yoda', 'ZJ_ptsqmin4_tune17.w76.yoda', 'ZJ_ptsqmin4_tune17.w77.yoda', 'ZJ_ptsqmin4_tune17.w78.yoda', 'ZJ_ptsqmin4_tune17.w79.yoda', 'ZJ_ptsqmin4_tune17.w80.yoda', 'ZJ_ptsqmin4_tune17.w81.yoda', 'ZJ_ptsqmin4_tune17.w82.yoda', 'ZJ_ptsqmin4_tune17.w83.yoda', 'ZJ_ptsqmin4_tune17.w84.yoda', 'ZJ_ptsqmin4_tune17.w85.yoda', 'ZJ_ptsqmin4_tune17.w86.yoda', 'ZJ_ptsqmin4_tune17.w87.yoda', 'ZJ_ptsqmin4_tune17.w88.yoda', 'ZJ_ptsqmin4_tune17.w89.yoda', 'ZJ_ptsqmin4_tune17.w90.yoda', 'ZJ_ptsqmin4_tune17.w91.yoda', 'ZJ_ptsqmin4_tune17.w92.yoda', 'ZJ_ptsqmin4_tune17.w93.yoda', 'ZJ_ptsqmin4_tune17.w94.yoda', 'ZJ_ptsqmin4_tune17.w95.yoda', 'ZJ_ptsqmin4_tune17.w96.yoda', 'ZJ_ptsqmin4_tune17.w97.yoda', 'ZJ_ptsqmin4_tune17.w98.yoda', 'ZJ_ptsqmin4_tune17.w99.yoda', 'ZJ_ptsqmin4_tune17.w100.yoda', 'ZJ_ptsqmin4_tune17.w101.yoda', 'ZJ_ptsqmin4_tune17.w102.yoda', 'ZJ_ptsqmin4_tune17.w103.yoda', 'ZJ_ptsqmin4_tune17.w104.yoda', 'ZJ_ptsqmin4_tune17.w105.yoda', 'ZJ_ptsqmin4_tune17.w106.yoda', 'ZJ_ptsqmin4_tune17.w107.yoda', 'ZJ_ptsqmin4_tune17.w108.yoda', 'ZJ_ptsqmin4_tune17.w109.yoda', 'ZJ_ptsqmin4_tune17.w110.yoda', 'ZJ_ptsqmin4_tune17.w111.yoda', 'ZJ_ptsqmin4_tune17.w112.yoda', 'ZJ_ptsqmin4_tune17.w113.yoda', 'ZJ_ptsqmin4_tune17.w114.yoda', 'ZJ_ptsqmin4_tune17.w115.yoda', 'ZJ_ptsqmin4_tune17.w116.yoda', 'ZJ_ptsqmin4_tune17.w117.yoda', 'ZJ_ptsqmin4_tune17.w118.yoda', 'ZJ_ptsqmin4_tune17.w119.yoda', 'ZJ_ptsqmin4_tune17.w120.yoda']
+DEBUG 2017-06-12 22:07:29,510: 	 Loading required information from the environment
+DEBUG 2017-06-12 22:07:29,511: 	 Found CMSSW_8_0_8_patch1 for slc6_amd64_gcc530 with base /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1
+DEBUG 2017-06-12 22:07:29,511: 	 Making tarball in /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/crab/grid/crab_ZJ_ptsqmin4_tune17/inputs/a0075db2-d98b-4f1c-a86b-cb9e094c0046default.tgz
+DEBUG 2017-06-12 22:07:29,655: 	 Checking directory /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/lib
+DEBUG 2017-06-12 22:07:29,655: 	 Adding directory /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/lib to tarball
+DEBUG 2017-06-12 22:07:29,972: 	 Checking directory /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/biglib
+DEBUG 2017-06-12 22:07:29,972: 	 Adding directory /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/biglib to tarball
+DEBUG 2017-06-12 22:07:29,974: 	 Checking directory /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/module
+DEBUG 2017-06-12 22:07:30,231: 	 Adding data directory /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/GeneratorInterface/RivetInterface/data to tarball
+DEBUG 2017-06-12 22:07:30,462: 	 Adding data directory /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/GeneratorInterface/RivetInterface/interface to tarball
+DEBUG 2017-06-12 22:07:31,047: 	 Adding data directory /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/UserCode/RivetAnalysis/data to tarball
+DEBUG 2017-06-12 22:07:34,552: 	 Uploading archive /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/crab/grid/crab_ZJ_ptsqmin4_tune17/inputs/a0075db2-d98b-4f1c-a86b-cb9e094c0046default.tgz (0.567383.1 MB) to the CRAB cache. Using URI https://cmsweb.cern.ch/crabcache
+DEBUG 2017-06-12 22:07:35,339: 	 Loading required information from the environment
+DEBUG 2017-06-12 22:07:35,340: 	 Found CMSSW_8_0_8_patch1 for slc6_amd64_gcc530 with base /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1
+DEBUG 2017-06-12 22:07:35,340: 	 Making tarball in /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/crab/grid/crab_ZJ_ptsqmin4_tune17/inputs/debugFiles.tgz
+DEBUG 2017-06-12 22:07:35,344: 	 Uploading archive /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/crab/grid/crab_ZJ_ptsqmin4_tune17/inputs/debugFiles.tgz (3 KB) to the CRAB cache. Using URI https://cmsweb.cern.ch/crabcache
+DEBUG 2017-06-12 22:07:35,856: 	 Result uploading input files: 00df0390e6963f55e5555cd4dcec3dff615e0077906220fc7c6750a9881a8e4d.tar.gz 
+INFO 2017-06-12 22:07:35,857: 	 Sending the request to the server
+DEBUG 2017-06-12 22:07:35,857: 	 Submitting {'maxjobruntime': 1250, 'extrajdl': [], 'ignorelocality': 0, 'savelogsflag': 0, 'useparent': 0, 'asyncdest': 'T2_CH_CERN', 'algoargs': 5000, 'cachefilename': '00df0390e6963f55e5555cd4dcec3dff615e0077906220fc7c6750a9881a8e4d.tar.gz', 'numcores': 1, 'addoutputfiles': ['ZJ_ptsqmin4_tune17.w0.yoda', 'ZJ_ptsqmin4_tune17.w1.yoda', 'ZJ_ptsqmin4_tune17.w2.yoda', 'ZJ_ptsqmin4_tune17.w3.yoda', 'ZJ_ptsqmin4_tune17.w4.yoda', 'ZJ_ptsqmin4_tune17.w5.yoda', 'ZJ_ptsqmin4_tune17.w6.yoda', 'ZJ_ptsqmin4_tune17.w7.yoda', 'ZJ_ptsqmin4_tune17.w8.yoda', 'ZJ_ptsqmin4_tune17.w9.yoda', 'ZJ_ptsqmin4_tune17.w10.yoda', 'ZJ_ptsqmin4_tune17.w11.yoda', 'ZJ_ptsqmin4_tune17.w12.yoda', 'ZJ_ptsqmin4_tune17.w13.yoda', 'ZJ_ptsqmin4_tune17.w14.yoda', 'ZJ_ptsqmin4_tune17.w15.yoda', 'ZJ_ptsqmin4_tune17.w16.yoda', 'ZJ_ptsqmin4_tune17.w17.yoda', 'ZJ_ptsqmin4_tune17.w18.yoda', 'ZJ_ptsqmin4_tune17.w19.yoda', 'ZJ_ptsqmin4_tune17.w20.yoda', 'ZJ_ptsqmin4_tune17.w21.yoda', 'ZJ_ptsqmin4_tune17.w22.yoda', 'ZJ_ptsqmin4_tune17.w23.yoda', 'ZJ_ptsqmin4_tune17.w24.yoda', 'ZJ_ptsqmin4_tune17.w25.yoda', 'ZJ_ptsqmin4_tune17.w26.yoda', 'ZJ_ptsqmin4_tune17.w27.yoda', 'ZJ_ptsqmin4_tune17.w28.yoda', 'ZJ_ptsqmin4_tune17.w29.yoda', 'ZJ_ptsqmin4_tune17.w30.yoda', 'ZJ_ptsqmin4_tune17.w31.yoda', 'ZJ_ptsqmin4_tune17.w32.yoda', 'ZJ_ptsqmin4_tune17.w33.yoda', 'ZJ_ptsqmin4_tune17.w34.yoda', 'ZJ_ptsqmin4_tune17.w35.yoda', 'ZJ_ptsqmin4_tune17.w36.yoda', 'ZJ_ptsqmin4_tune17.w37.yoda', 'ZJ_ptsqmin4_tune17.w38.yoda', 'ZJ_ptsqmin4_tune17.w39.yoda', 'ZJ_ptsqmin4_tune17.w40.yoda', 'ZJ_ptsqmin4_tune17.w41.yoda', 'ZJ_ptsqmin4_tune17.w42.yoda', 'ZJ_ptsqmin4_tune17.w43.yoda', 'ZJ_ptsqmin4_tune17.w44.yoda', 'ZJ_ptsqmin4_tune17.w45.yoda', 'ZJ_ptsqmin4_tune17.w46.yoda', 'ZJ_ptsqmin4_tune17.w47.yoda', 'ZJ_ptsqmin4_tune17.w48.yoda', 'ZJ_ptsqmin4_tune17.w49.yoda', 'ZJ_ptsqmin4_tune17.w50.yoda', 'ZJ_ptsqmin4_tune17.w51.yoda', 'ZJ_ptsqmin4_tune17.w52.yoda', 'ZJ_ptsqmin4_tune17.w53.yoda', 'ZJ_ptsqmin4_tune17.w54.yoda', 'ZJ_ptsqmin4_tune17.w55.yoda', 'ZJ_ptsqmin4_tune17.w56.yoda', 'ZJ_ptsqmin4_tune17.w57.yoda', 'ZJ_ptsqmin4_tune17.w58.yoda', 'ZJ_ptsqmin4_tune17.w59.yoda', 'ZJ_ptsqmin4_tune17.w60.yoda', 'ZJ_ptsqmin4_tune17.w61.yoda', 'ZJ_ptsqmin4_tune17.w62.yoda', 'ZJ_ptsqmin4_tune17.w63.yoda', 'ZJ_ptsqmin4_tune17.w64.yoda', 'ZJ_ptsqmin4_tune17.w65.yoda', 'ZJ_ptsqmin4_tune17.w66.yoda', 'ZJ_ptsqmin4_tune17.w67.yoda', 'ZJ_ptsqmin4_tune17.w68.yoda', 'ZJ_ptsqmin4_tune17.w69.yoda', 'ZJ_ptsqmin4_tune17.w70.yoda', 'ZJ_ptsqmin4_tune17.w71.yoda', 'ZJ_ptsqmin4_tune17.w72.yoda', 'ZJ_ptsqmin4_tune17.w73.yoda', 'ZJ_ptsqmin4_tune17.w74.yoda', 'ZJ_ptsqmin4_tune17.w75.yoda', 'ZJ_ptsqmin4_tune17.w76.yoda', 'ZJ_ptsqmin4_tune17.w77.yoda', 'ZJ_ptsqmin4_tune17.w78.yoda', 'ZJ_ptsqmin4_tune17.w79.yoda', 'ZJ_ptsqmin4_tune17.w80.yoda', 'ZJ_ptsqmin4_tune17.w81.yoda', 'ZJ_ptsqmin4_tune17.w82.yoda', 'ZJ_ptsqmin4_tune17.w83.yoda', 'ZJ_ptsqmin4_tune17.w84.yoda', 'ZJ_ptsqmin4_tune17.w85.yoda', 'ZJ_ptsqmin4_tune17.w86.yoda', 'ZJ_ptsqmin4_tune17.w87.yoda', 'ZJ_ptsqmin4_tune17.w88.yoda', 'ZJ_ptsqmin4_tune17.w89.yoda', 'ZJ_ptsqmin4_tune17.w90.yoda', 'ZJ_ptsqmin4_tune17.w91.yoda', 'ZJ_ptsqmin4_tune17.w92.yoda', 'ZJ_ptsqmin4_tune17.w93.yoda', 'ZJ_ptsqmin4_tune17.w94.yoda', 'ZJ_ptsqmin4_tune17.w95.yoda', 'ZJ_ptsqmin4_tune17.w96.yoda', 'ZJ_ptsqmin4_tune17.w97.yoda', 'ZJ_ptsqmin4_tune17.w98.yoda', 'ZJ_ptsqmin4_tune17.w99.yoda', 'ZJ_ptsqmin4_tune17.w100.yoda', 'ZJ_ptsqmin4_tune17.w101.yoda', 'ZJ_ptsqmin4_tune17.w102.yoda', 'ZJ_ptsqmin4_tune17.w103.yoda', 'ZJ_ptsqmin4_tune17.w104.yoda', 'ZJ_ptsqmin4_tune17.w105.yoda', 'ZJ_ptsqmin4_tune17.w106.yoda', 'ZJ_ptsqmin4_tune17.w107.yoda', 'ZJ_ptsqmin4_tune17.w108.yoda', 'ZJ_ptsqmin4_tune17.w109.yoda', 'ZJ_ptsqmin4_tune17.w110.yoda', 'ZJ_ptsqmin4_tune17.w111.yoda', 'ZJ_ptsqmin4_tune17.w112.yoda', 'ZJ_ptsqmin4_tune17.w113.yoda', 'ZJ_ptsqmin4_tune17.w114.yoda', 'ZJ_ptsqmin4_tune17.w115.yoda', 'ZJ_ptsqmin4_tune17.w116.yoda', 'ZJ_ptsqmin4_tune17.w117.yoda', 'ZJ_ptsqmin4_tune17.w118.yoda', 'ZJ_ptsqmin4_tune17.w119.yoda', 'ZJ_ptsqmin4_tune17.w120.yoda'], 'generator': 'pythia', 'maxmemory': 2000, 'publishdbsurl': 'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', 'priority': 10, 'jobsw': 'CMSSW_8_0_8_patch1', 'edmoutfiles': [], 'userfiles': [], 'primarydataset': '', 'inputdata': '/ZJ_ZToMuMu_powheg_minlo_8TeV_NNPDF30_ptsqmin4/RunIIWinter15wmLHE-MCRUN2_71_V1-v1/LHE', 'lfn': '/store/group/cmst3/group/wmass/kjpena/ZJ_ptsqmin4_tune17', 'dryrun': 0, 'workflow': 'crab_ZJ_ptsqmin4_tune17', 'sitewhitelist': ['T2_CH_CERN'], 'nonprodsw': 0, 'tfileoutfiles': [], 'oneEventMode': 0, 'debugfilename': '5144db4b0f17df19db31ed80d9fd51dcbd1d65389c947be1026cbd44cc06d117.tar.gz', 'cacheurl': u'https://cmsweb.cern.ch/crabcache', 'saveoutput': 1, 'publication': 0, 'jobarch': 'slc6_amd64_gcc530', 'totalunits': 0, 'splitalgo': 'EventAwareLumiBased', 'ignoreglobalblacklist': 0, 'nonvaliddata': 0, 'dbsurl': 'https://cmsweb.cern.ch/dbs/prod/global/DBSReader', 'publishgroupname': 0, 'jobtype': 'Analysis', 'publishname2': ''} 
+DEBUG 2017-06-12 22:07:35,858: 	 Encoded submit request: maxjobruntime=1250&ignorelocality=0&savelogsflag=0&useparent=0&asyncdest=T2_CH_CERN&algoargs=5000&cachefilename=00df0390e6963f55e5555cd4dcec3dff615e0077906220fc7c6750a9881a8e4d.tar.gz&numcores=1&generator=pythia&maxmemory=2000&publishdbsurl=https%3A%2F%2Fcmsweb.cern.ch%2Fdbs%2Fprod%2Fphys03%2FDBSWriter&priority=10&jobsw=CMSSW_8_0_8_patch1&primarydataset=&inputdata=%2FZJ_ZToMuMu_powheg_minlo_8TeV_NNPDF30_ptsqmin4%2FRunIIWinter15wmLHE-MCRUN2_71_V1-v1%2FLHE&lfn=%2Fstore%2Fgroup%2Fcmst3%2Fgroup%2Fwmass%2Fkjpena%2FZJ_ptsqmin4_tune17&dryrun=0&workflow=crab_ZJ_ptsqmin4_tune17&nonprodsw=0&oneEventMode=0&debugfilename=5144db4b0f17df19db31ed80d9fd51dcbd1d65389c947be1026cbd44cc06d117.tar.gz&cacheurl=https%3A%2F%2Fcmsweb.cern.ch%2Fcrabcache&saveoutput=1&publication=0&jobarch=slc6_amd64_gcc530&totalunits=0&splitalgo=EventAwareLumiBased&ignoreglobalblacklist=0&nonvaliddata=0&dbsurl=https%3A%2F%2Fcmsweb.cern.ch%2Fdbs%2Fprod%2Fglobal%2FDBSReader&publishgroupname=0&jobtype=Analysis&publishname2=&addoutputfiles=ZJ_ptsqmin4_tune17.w0.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w1.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w2.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w3.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w4.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w5.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w6.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w7.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w8.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w9.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w10.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w11.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w12.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w13.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w14.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w15.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w16.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w17.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w18.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w19.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w20.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w21.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w22.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w23.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w24.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w25.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w26.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w27.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w28.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w29.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w30.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w31.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w32.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w33.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w34.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w35.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w36.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w37.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w38.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w39.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w40.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w41.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w42.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w43.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w44.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w45.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w46.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w47.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w48.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w49.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w50.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w51.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w52.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w53.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w54.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w55.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w56.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w57.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w58.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w59.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w60.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w61.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w62.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w63.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w64.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w65.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w66.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w67.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w68.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w69.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w70.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w71.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w72.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w73.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w74.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w75.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w76.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w77.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w78.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w79.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w80.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w81.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w82.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w83.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w84.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w85.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w86.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w87.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w88.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w89.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w90.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w91.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w92.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w93.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w94.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w95.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w96.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w97.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w98.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w99.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w100.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w101.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w102.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w103.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w104.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w105.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w106.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w107.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w108.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w109.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w110.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w111.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w112.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w113.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w114.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w115.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w116.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w117.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w118.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w119.yoda&addoutputfiles=ZJ_ptsqmin4_tune17.w120.yoda&sitewhitelist=T2_CH_CERN
+DEBUG 2017-06-12 22:07:36,576: 	 Result: {u'result': [{u'RequestName': u'170612_200736:kjpena_crab_ZJ_ptsqmin4_tune17'}]}
+INFO 2017-06-12 22:07:36,582: 	 Success: Your task has been delivered to the CRAB3 server.
+INFO 2017-06-12 22:07:36,582: 	 Task name: 170612_200736:kjpena_crab_ZJ_ptsqmin4_tune17
+INFO 2017-06-12 22:07:36,582: 	 Please use 'crab status' to check how the submission process proceeds.
+DEBUG 2017-06-12 22:07:36,582: 	 About to return
+INFO 2017-06-12 22:07:36,586: 	 Log file is /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/crab/grid/crab_ZJ_ptsqmin4_tune17/crab.log

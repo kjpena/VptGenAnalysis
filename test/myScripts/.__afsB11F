@@ -1,0 +1,11 @@
+#!/bin/bash
+
+plotsDir=/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/eos/cms/store/cmst3/user/psilva/Wmass/ntuples/
+   
+for i in {0..121}
+do
+    yoda2root.py ${plotsDir}/ZJ_central.w${i}.yoda
+    #yoda2root.py ${plotsDir}/ZJ_ptsqmin4.w${i}.yoda
+    #yoda2root.py ${plotsDir}/ZJ_ptsqmin400.w${i}.yoda
+done
+

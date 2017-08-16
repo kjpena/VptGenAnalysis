@@ -1,0 +1,28 @@
+#!/bin/bash
+
+tags=(
+    #central
+    #ptsqmin4
+    #central_CUETP8M1
+    #ptsqmin4_CUETP8M1
+    #ptsqmin4_tune2
+    central_tune2
+    )
+
+plotDirs=(
+    #/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/eos/cms/store/cmst3/user/psilva/Wmass/ntuples/
+    #/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/eos/cms/store/group/phys_smp/Wmass/kjpena/ZJ_central/ZJ_ZToMuMu_powheg_minlo_8TeV_NNPDF30_central/crab_ZJ_central/170511_192318/merged
+    #/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/eos/cms/store/group/phys_smp/Wmass/kjpena/ZJ_ptsqmin4/ZJ_ZToMuMu_powheg_minlo_8TeV_NNPDF30_ptsqmin4/crab_ZJ_ptsqmin4/170511_192556/merged
+    #/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/eos/cms/store/group/phys_smp/Wmass/kjpena/ZJ_central_CUETP8M1/ZJ_ZToMuMu_powheg_minlo_8TeV_NNPDF30_central/crab_ZJ_central_CUETP8M1/170513_200242/merged
+    #/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/eos/cms/store/group/phys_smp/Wmass/kjpena/ZJ_ptsqmin4_CUETP8M1/ZJ_ZToMuMu_powheg_minlo_8TeV_NNPDF30_ptsqmin4/crab_ZJ_ptsqmin4_CUETP8M1/170513_200254/merged
+    #/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/eos/cms/store/group/phys_smp/Wmass/kjpena/ZJ_ptsqmin4_tune2/ZJ_ZToMuMu_powheg_minlo_8TeV_NNPDF30_ptsqmin4/crab_ZJ_ptsqmin4_tune2/170517_195341/merged
+    /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/eos/cms/store/group/phys_smp/Wmass/kjpena/ZJ_central_tune2/ZJ_ZToMuMu_powheg_minlo_8TeV_NNPDF30_central/crab_ZJ_central_tune2/170523_144132/merged/
+    )
+
+for i in ${!tags[@]}; do
+    echo ${tags[$i]}
+    #mkdir ZJ_${tags[$i]}
+    for j in {0..120}; do
+        yoda2root.py ${plotDirs[$i]}/ZJ_${tags[$i]}.w${j}.yoda #./ZJ_${tags[$i]}/ZJ_${tags[$i]}.w${j}.dat
+    done
+done

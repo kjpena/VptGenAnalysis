@@ -1,0 +1,973 @@
+# BEGIN PLOT
+DrawOnly=/REF/DELPHI_1996_S3430090/d14-x01-y01 /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-000/ipolhistos/tune-weights-000-0.yoda/DELPHI_1996_S3430090/d14-x01-y01 /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-001/ipolhistos/tune-weights-001-0.yoda/DELPHI_1996_S3430090/d14-x01-y01 /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-002/ipolhistos/tune-weights-002-0.yoda/DELPHI_1996_S3430090/d14-x01-y01 /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-003/ipolhistos/tune-weights-003-0.yoda/DELPHI_1996_S3430090/d14-x01-y01 /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-005/ipolhistos/tune-weights-005-0.yoda/DELPHI_1996_S3430090/d14-x01-y01 /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-006/ipolhistos/tune-weights-006-0.yoda/DELPHI_1996_S3430090/d14-x01-y01 /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-007/ipolhistos/tune-weights-007-0.yoda/DELPHI_1996_S3430090/d14-x01-y01 /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-008/ipolhistos/tune-weights-008-0.yoda/DELPHI_1996_S3430090/d14-x01-y01 /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-009/ipolhistos/tune-weights-009-0.yoda/DELPHI_1996_S3430090/d14-x01-y01 /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-010/ipolhistos/tune-weights-010-0.yoda/DELPHI_1996_S3430090/d14-x01-y01 /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-011/ipolhistos/tune-weights-011-0.yoda/DELPHI_1996_S3430090/d14-x01-y01 /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-012/ipolhistos/tune-weights-012-0.yoda/DELPHI_1996_S3430090/d14-x01-y01 /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-013/ipolhistos/tune-weights-013-0.yoda/DELPHI_1996_S3430090/d14-x01-y01 /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-014/ipolhistos/tune-weights-014-0.yoda/DELPHI_1996_S3430090/d14-x01-y01 /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-015/ipolhistos/tune-weights-015-0.yoda/DELPHI_1996_S3430090/d14-x01-y01 /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-016/ipolhistos/tune-weights-016-0.yoda/DELPHI_1996_S3430090/d14-x01-y01 /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-017/ipolhistos/tune-weights-017-0.yoda/DELPHI_1996_S3430090/d14-x01-y01 /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-018/ipolhistos/tune-weights-018-0.yoda/DELPHI_1996_S3430090/d14-x01-y01 /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-019/ipolhistos/tune-weights-019-0.yoda/DELPHI_1996_S3430090/d14-x01-y01 /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-020/ipolhistos/tune-weights-020-0.yoda/DELPHI_1996_S3430090/d14-x01-y01 /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-021/ipolhistos/tune-weights-021-0.yoda/DELPHI_1996_S3430090/d14-x01-y01 /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-022/ipolhistos/tune-weights-022-0.yoda/DELPHI_1996_S3430090/d14-x01-y01 /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-023/ipolhistos/tune-weights-023-0.yoda/DELPHI_1996_S3430090/d14-x01-y01 /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-024/ipolhistos/tune-weights-024-0.yoda/DELPHI_1996_S3430090/d14-x01-y01 /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-025/ipolhistos/tune-weights-025-0.yoda/DELPHI_1996_S3430090/d14-x01-y01 /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-026/ipolhistos/tune-weights-026-0.yoda/DELPHI_1996_S3430090/d14-x01-y01 /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-028/ipolhistos/tune-weights-028-0.yoda/DELPHI_1996_S3430090/d14-x01-y01 /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-029/ipolhistos/tune-weights-029-0.yoda/DELPHI_1996_S3430090/d14-x01-y01 /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-030/ipolhistos/tune-weights-030-0.yoda/DELPHI_1996_S3430090/d14-x01-y01 /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-031/ipolhistos/tune-weights-031-0.yoda/DELPHI_1996_S3430090/d14-x01-y01 /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-032/ipolhistos/tune-weights-032-0.yoda/DELPHI_1996_S3430090/d14-x01-y01 /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-033/ipolhistos/tune-weights-033-0.yoda/DELPHI_1996_S3430090/d14-x01-y01 /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-034/ipolhistos/tune-weights-034-0.yoda/DELPHI_1996_S3430090/d14-x01-y01 /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-035/ipolhistos/tune-weights-035-0.yoda/DELPHI_1996_S3430090/d14-x01-y01 /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-036/ipolhistos/tune-weights-036-0.yoda/DELPHI_1996_S3430090/d14-x01-y01 /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-037/ipolhistos/tune-weights-037-0.yoda/DELPHI_1996_S3430090/d14-x01-y01 /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-038/ipolhistos/tune-weights-038-0.yoda/DELPHI_1996_S3430090/d14-x01-y01 /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-039/ipolhistos/tune-weights-039-0.yoda/DELPHI_1996_S3430090/d14-x01-y01 /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-040/ipolhistos/tune-weights-040-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+Title=Oblateness = $M - m$
+RatioPlotReference=/REF/DELPHI_1996_S3430090/d14-x01-y01
+RatioPlot=1
+LogY=1
+XLabel=$O$
+YLabel=$N \, \text{d}{\sigma}/\text{d}{O}$
+Legend=1
+FullRange=1
+# END PLOT
+
+# BEGIN HISTO1D /REF/DELPHI_1996_S3430090/d14-x01-y01
+ConnectBins=0
+ErrorBars=1
+Path=/REF/DELPHI_1996_S3430090/d14-x01-y01
+PolyMarker=*
+Title=Data
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-02	7.415000e+00	1.104400e-01	1.104400e-01
+2.000000e-02	4.000000e-02	1.084000e+01	1.141622e-01	1.141622e-01
+4.000000e-02	6.000000e-02	7.800000e+00	8.357033e-02	8.357033e-02
+6.000000e-02	8.000000e-02	5.273000e+00	5.860034e-02	5.860034e-02
+8.000000e-02	1.000000e-01	3.797000e+00	4.341659e-02	4.341659e-02
+1.000000e-01	1.200000e-01	2.838000e+00	3.328663e-02	3.328663e-02
+1.200000e-01	1.400000e-01	2.218000e+00	2.720294e-02	2.720294e-02
+1.400000e-01	1.600000e-01	1.760000e+00	2.280351e-02	2.280351e-02
+1.600000e-01	2.000000e-01	1.319900e+00	1.580917e-02	1.580917e-02
+2.000000e-01	2.400000e-01	8.874000e-01	1.132299e-02	1.132299e-02
+2.400000e-01	2.800000e-01	6.208000e-01	9.720082e-03	9.720082e-03
+2.800000e-01	3.200000e-01	4.354000e-01	7.366139e-03	7.366139e-03
+3.200000e-01	3.600000e-01	2.959000e-01	5.000000e-03	5.000000e-03
+3.600000e-01	4.000000e-01	1.987000e-01	3.911521e-03	3.911521e-03
+4.000000e-01	4.400000e-01	1.163000e-01	4.060788e-03	4.060788e-03
+4.400000e-01	5.200000e-01	4.530000e-02	1.303840e-03	1.303840e-03
+# END HISTO1D
+
+# BEGIN HISTO1D /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-000/ipolhistos/tune-weights-000-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+LineColor={[HTML]{EE3311}}
+LineStyle=solid
+Path=/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-000/ipolhistos/tune-weights-000-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+Title=tune-weights-000-0
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-02	7.475456e+00	0.000000e+00	0.000000e+00
+2.000000e-02	4.000000e-02	1.086819e+01	0.000000e+00	0.000000e+00
+4.000000e-02	6.000000e-02	7.904513e+00	0.000000e+00	0.000000e+00
+6.000000e-02	8.000000e-02	5.333274e+00	0.000000e+00	0.000000e+00
+8.000000e-02	1.000000e-01	3.810671e+00	0.000000e+00	0.000000e+00
+1.000000e-01	1.200000e-01	2.857845e+00	0.000000e+00	0.000000e+00
+1.200000e-01	1.400000e-01	2.218148e+00	0.000000e+00	0.000000e+00
+1.400000e-01	1.600000e-01	1.773634e+00	0.000000e+00	0.000000e+00
+1.600000e-01	2.000000e-01	1.299206e+00	0.000000e+00	0.000000e+00
+2.000000e-01	2.400000e-01	8.789921e-01	0.000000e+00	0.000000e+00
+2.400000e-01	2.800000e-01	6.071922e-01	0.000000e+00	0.000000e+00
+2.800000e-01	3.200000e-01	4.185509e-01	0.000000e+00	0.000000e+00
+3.200000e-01	3.600000e-01	2.867769e-01	0.000000e+00	0.000000e+00
+3.600000e-01	4.000000e-01	1.874002e-01	0.000000e+00	0.000000e+00
+4.000000e-01	4.400000e-01	1.147856e-01	0.000000e+00	0.000000e+00
+4.400000e-01	5.200000e-01	4.311666e-02	0.000000e+00	0.000000e+00
+# END HISTO1D
+
+# BEGIN HISTO1D /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-001/ipolhistos/tune-weights-001-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+LineColor={[HTML]{3366FF}}
+LineStyle=solid
+Path=/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-001/ipolhistos/tune-weights-001-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+Title=tune-weights-001-0
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-02	7.500460e+00	0.000000e+00	0.000000e+00
+2.000000e-02	4.000000e-02	1.089911e+01	0.000000e+00	0.000000e+00
+4.000000e-02	6.000000e-02	7.917326e+00	0.000000e+00	0.000000e+00
+6.000000e-02	8.000000e-02	5.325398e+00	0.000000e+00	0.000000e+00
+8.000000e-02	1.000000e-01	3.795048e+00	0.000000e+00	0.000000e+00
+1.000000e-01	1.200000e-01	2.851082e+00	0.000000e+00	0.000000e+00
+1.200000e-01	1.400000e-01	2.213210e+00	0.000000e+00	0.000000e+00
+1.400000e-01	1.600000e-01	1.764374e+00	0.000000e+00	0.000000e+00
+1.600000e-01	2.000000e-01	1.297512e+00	0.000000e+00	0.000000e+00
+2.000000e-01	2.400000e-01	8.782586e-01	0.000000e+00	0.000000e+00
+2.400000e-01	2.800000e-01	6.034381e-01	0.000000e+00	0.000000e+00
+2.800000e-01	3.200000e-01	4.166164e-01	0.000000e+00	0.000000e+00
+3.200000e-01	3.600000e-01	2.853375e-01	0.000000e+00	0.000000e+00
+3.600000e-01	4.000000e-01	1.855287e-01	0.000000e+00	0.000000e+00
+4.000000e-01	4.400000e-01	1.149237e-01	0.000000e+00	0.000000e+00
+4.400000e-01	5.200000e-01	4.268644e-02	0.000000e+00	0.000000e+00
+# END HISTO1D
+
+# BEGIN HISTO1D /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-002/ipolhistos/tune-weights-002-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+LineColor={[HTML]{109618}}
+LineStyle=solid
+Path=/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-002/ipolhistos/tune-weights-002-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+Title=tune-weights-002-0
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-02	7.380057e+00	0.000000e+00	0.000000e+00
+2.000000e-02	4.000000e-02	1.071275e+01	0.000000e+00	0.000000e+00
+4.000000e-02	6.000000e-02	7.858932e+00	0.000000e+00	0.000000e+00
+6.000000e-02	8.000000e-02	5.334403e+00	0.000000e+00	0.000000e+00
+8.000000e-02	1.000000e-01	3.832948e+00	0.000000e+00	0.000000e+00
+1.000000e-01	1.200000e-01	2.905767e+00	0.000000e+00	0.000000e+00
+1.200000e-01	1.400000e-01	2.260255e+00	0.000000e+00	0.000000e+00
+1.400000e-01	1.600000e-01	1.807512e+00	0.000000e+00	0.000000e+00
+1.600000e-01	2.000000e-01	1.329708e+00	0.000000e+00	0.000000e+00
+2.000000e-01	2.400000e-01	8.936153e-01	0.000000e+00	0.000000e+00
+2.400000e-01	2.800000e-01	6.161772e-01	0.000000e+00	0.000000e+00
+2.800000e-01	3.200000e-01	4.248940e-01	0.000000e+00	0.000000e+00
+3.200000e-01	3.600000e-01	2.928621e-01	0.000000e+00	0.000000e+00
+3.600000e-01	4.000000e-01	1.918411e-01	0.000000e+00	0.000000e+00
+4.000000e-01	4.400000e-01	1.176314e-01	0.000000e+00	0.000000e+00
+4.400000e-01	5.200000e-01	4.347776e-02	0.000000e+00	0.000000e+00
+# END HISTO1D
+
+# BEGIN HISTO1D /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-003/ipolhistos/tune-weights-003-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+LineColor={[HTML]{FF9900}}
+LineStyle=solid
+Path=/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-003/ipolhistos/tune-weights-003-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+Title=tune-weights-003-0
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-02	7.531242e+00	0.000000e+00	0.000000e+00
+2.000000e-02	4.000000e-02	1.091317e+01	0.000000e+00	0.000000e+00
+4.000000e-02	6.000000e-02	7.897603e+00	0.000000e+00	0.000000e+00
+6.000000e-02	8.000000e-02	5.322689e+00	0.000000e+00	0.000000e+00
+8.000000e-02	1.000000e-01	3.793905e+00	0.000000e+00	0.000000e+00
+1.000000e-01	1.200000e-01	2.850452e+00	0.000000e+00	0.000000e+00
+1.200000e-01	1.400000e-01	2.205947e+00	0.000000e+00	0.000000e+00
+1.400000e-01	1.600000e-01	1.765037e+00	0.000000e+00	0.000000e+00
+1.600000e-01	2.000000e-01	1.297017e+00	0.000000e+00	0.000000e+00
+2.000000e-01	2.400000e-01	8.744852e-01	0.000000e+00	0.000000e+00
+2.400000e-01	2.800000e-01	6.037969e-01	0.000000e+00	0.000000e+00
+2.800000e-01	3.200000e-01	4.147521e-01	0.000000e+00	0.000000e+00
+3.200000e-01	3.600000e-01	2.854179e-01	0.000000e+00	0.000000e+00
+3.600000e-01	4.000000e-01	1.856060e-01	0.000000e+00	0.000000e+00
+4.000000e-01	4.400000e-01	1.146347e-01	0.000000e+00	0.000000e+00
+4.400000e-01	5.200000e-01	4.213094e-02	0.000000e+00	0.000000e+00
+# END HISTO1D
+
+# BEGIN HISTO1D /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-005/ipolhistos/tune-weights-005-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+LineColor={[HTML]{990099}}
+LineStyle=solid
+Path=/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-005/ipolhistos/tune-weights-005-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+Title=tune-weights-005-0
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-02	7.425989e+00	0.000000e+00	0.000000e+00
+2.000000e-02	4.000000e-02	1.085015e+01	0.000000e+00	0.000000e+00
+4.000000e-02	6.000000e-02	7.906816e+00	0.000000e+00	0.000000e+00
+6.000000e-02	8.000000e-02	5.330545e+00	0.000000e+00	0.000000e+00
+8.000000e-02	1.000000e-01	3.821479e+00	0.000000e+00	0.000000e+00
+1.000000e-01	1.200000e-01	2.862393e+00	0.000000e+00	0.000000e+00
+1.200000e-01	1.400000e-01	2.226072e+00	0.000000e+00	0.000000e+00
+1.400000e-01	1.600000e-01	1.779247e+00	0.000000e+00	0.000000e+00
+1.600000e-01	2.000000e-01	1.306121e+00	0.000000e+00	0.000000e+00
+2.000000e-01	2.400000e-01	8.853493e-01	0.000000e+00	0.000000e+00
+2.400000e-01	2.800000e-01	6.097177e-01	0.000000e+00	0.000000e+00
+2.800000e-01	3.200000e-01	4.200180e-01	0.000000e+00	0.000000e+00
+3.200000e-01	3.600000e-01	2.870089e-01	0.000000e+00	0.000000e+00
+3.600000e-01	4.000000e-01	1.891380e-01	0.000000e+00	0.000000e+00
+4.000000e-01	4.400000e-01	1.148790e-01	0.000000e+00	0.000000e+00
+4.400000e-01	5.200000e-01	4.321434e-02	0.000000e+00	0.000000e+00
+# END HISTO1D
+
+# BEGIN HISTO1D /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-006/ipolhistos/tune-weights-006-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+LineColor={[HTML]{EE3311}}
+LineStyle=dashed
+Path=/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-006/ipolhistos/tune-weights-006-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+Title=tune-weights-006-0
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-02	7.491611e+00	0.000000e+00	0.000000e+00
+2.000000e-02	4.000000e-02	1.087934e+01	0.000000e+00	0.000000e+00
+4.000000e-02	6.000000e-02	7.913702e+00	0.000000e+00	0.000000e+00
+6.000000e-02	8.000000e-02	5.330935e+00	0.000000e+00	0.000000e+00
+8.000000e-02	1.000000e-01	3.812012e+00	0.000000e+00	0.000000e+00
+1.000000e-01	1.200000e-01	2.857664e+00	0.000000e+00	0.000000e+00
+1.200000e-01	1.400000e-01	2.213954e+00	0.000000e+00	0.000000e+00
+1.400000e-01	1.600000e-01	1.769883e+00	0.000000e+00	0.000000e+00
+1.600000e-01	2.000000e-01	1.295186e+00	0.000000e+00	0.000000e+00
+2.000000e-01	2.400000e-01	8.754061e-01	0.000000e+00	0.000000e+00
+2.400000e-01	2.800000e-01	6.025197e-01	0.000000e+00	0.000000e+00
+2.800000e-01	3.200000e-01	4.168825e-01	0.000000e+00	0.000000e+00
+3.200000e-01	3.600000e-01	2.878561e-01	0.000000e+00	0.000000e+00
+3.600000e-01	4.000000e-01	1.850925e-01	0.000000e+00	0.000000e+00
+4.000000e-01	4.400000e-01	1.156937e-01	0.000000e+00	0.000000e+00
+4.400000e-01	5.200000e-01	4.340902e-02	0.000000e+00	0.000000e+00
+# END HISTO1D
+
+# BEGIN HISTO1D /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-007/ipolhistos/tune-weights-007-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+LineColor={[HTML]{3366FF}}
+LineStyle=dashed
+Path=/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-007/ipolhistos/tune-weights-007-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+Title=tune-weights-007-0
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-02	7.496790e+00	0.000000e+00	0.000000e+00
+2.000000e-02	4.000000e-02	1.088267e+01	0.000000e+00	0.000000e+00
+4.000000e-02	6.000000e-02	7.882097e+00	0.000000e+00	0.000000e+00
+6.000000e-02	8.000000e-02	5.329429e+00	0.000000e+00	0.000000e+00
+8.000000e-02	1.000000e-01	3.796585e+00	0.000000e+00	0.000000e+00
+1.000000e-01	1.200000e-01	2.854881e+00	0.000000e+00	0.000000e+00
+1.200000e-01	1.400000e-01	2.217043e+00	0.000000e+00	0.000000e+00
+1.400000e-01	1.600000e-01	1.774409e+00	0.000000e+00	0.000000e+00
+1.600000e-01	2.000000e-01	1.300231e+00	0.000000e+00	0.000000e+00
+2.000000e-01	2.400000e-01	8.785664e-01	0.000000e+00	0.000000e+00
+2.400000e-01	2.800000e-01	6.091424e-01	0.000000e+00	0.000000e+00
+2.800000e-01	3.200000e-01	4.208472e-01	0.000000e+00	0.000000e+00
+3.200000e-01	3.600000e-01	2.858321e-01	0.000000e+00	0.000000e+00
+3.600000e-01	4.000000e-01	1.869078e-01	0.000000e+00	0.000000e+00
+4.000000e-01	4.400000e-01	1.145517e-01	0.000000e+00	0.000000e+00
+4.400000e-01	5.200000e-01	4.348397e-02	0.000000e+00	0.000000e+00
+# END HISTO1D
+
+# BEGIN HISTO1D /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-008/ipolhistos/tune-weights-008-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+LineColor={[HTML]{109618}}
+LineStyle=dashed
+Path=/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-008/ipolhistos/tune-weights-008-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+Title=tune-weights-008-0
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-02	7.572012e+00	0.000000e+00	0.000000e+00
+2.000000e-02	4.000000e-02	1.096848e+01	0.000000e+00	0.000000e+00
+4.000000e-02	6.000000e-02	7.935114e+00	0.000000e+00	0.000000e+00
+6.000000e-02	8.000000e-02	5.343598e+00	0.000000e+00	0.000000e+00
+8.000000e-02	1.000000e-01	3.783852e+00	0.000000e+00	0.000000e+00
+1.000000e-01	1.200000e-01	2.825427e+00	0.000000e+00	0.000000e+00
+1.200000e-01	1.400000e-01	2.190853e+00	0.000000e+00	0.000000e+00
+1.400000e-01	1.600000e-01	1.746995e+00	0.000000e+00	0.000000e+00
+1.600000e-01	2.000000e-01	1.280668e+00	0.000000e+00	0.000000e+00
+2.000000e-01	2.400000e-01	8.670849e-01	0.000000e+00	0.000000e+00
+2.400000e-01	2.800000e-01	5.957137e-01	0.000000e+00	0.000000e+00
+2.800000e-01	3.200000e-01	4.126032e-01	0.000000e+00	0.000000e+00
+3.200000e-01	3.600000e-01	2.807348e-01	0.000000e+00	0.000000e+00
+3.600000e-01	4.000000e-01	1.827872e-01	0.000000e+00	0.000000e+00
+4.000000e-01	4.400000e-01	1.126863e-01	0.000000e+00	0.000000e+00
+4.400000e-01	5.200000e-01	4.227714e-02	0.000000e+00	0.000000e+00
+# END HISTO1D
+
+# BEGIN HISTO1D /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-009/ipolhistos/tune-weights-009-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+LineColor={[HTML]{FF9900}}
+LineStyle=dashed
+Path=/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-009/ipolhistos/tune-weights-009-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+Title=tune-weights-009-0
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-02	7.519705e+00	0.000000e+00	0.000000e+00
+2.000000e-02	4.000000e-02	1.090815e+01	0.000000e+00	0.000000e+00
+4.000000e-02	6.000000e-02	7.906032e+00	0.000000e+00	0.000000e+00
+6.000000e-02	8.000000e-02	5.334739e+00	0.000000e+00	0.000000e+00
+8.000000e-02	1.000000e-01	3.804980e+00	0.000000e+00	0.000000e+00
+1.000000e-01	1.200000e-01	2.849749e+00	0.000000e+00	0.000000e+00
+1.200000e-01	1.400000e-01	2.205651e+00	0.000000e+00	0.000000e+00
+1.400000e-01	1.600000e-01	1.758336e+00	0.000000e+00	0.000000e+00
+1.600000e-01	2.000000e-01	1.287247e+00	0.000000e+00	0.000000e+00
+2.000000e-01	2.400000e-01	8.752325e-01	0.000000e+00	0.000000e+00
+2.400000e-01	2.800000e-01	6.047175e-01	0.000000e+00	0.000000e+00
+2.800000e-01	3.200000e-01	4.174011e-01	0.000000e+00	0.000000e+00
+3.200000e-01	3.600000e-01	2.864836e-01	0.000000e+00	0.000000e+00
+3.600000e-01	4.000000e-01	1.848451e-01	0.000000e+00	0.000000e+00
+4.000000e-01	4.400000e-01	1.146743e-01	0.000000e+00	0.000000e+00
+4.400000e-01	5.200000e-01	4.286201e-02	0.000000e+00	0.000000e+00
+# END HISTO1D
+
+# BEGIN HISTO1D /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-010/ipolhistos/tune-weights-010-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+LineColor={[HTML]{990099}}
+LineStyle=dashed
+Path=/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-010/ipolhistos/tune-weights-010-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+Title=tune-weights-010-0
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-02	7.523080e+00	0.000000e+00	0.000000e+00
+2.000000e-02	4.000000e-02	1.092456e+01	0.000000e+00	0.000000e+00
+4.000000e-02	6.000000e-02	7.924885e+00	0.000000e+00	0.000000e+00
+6.000000e-02	8.000000e-02	5.329369e+00	0.000000e+00	0.000000e+00
+8.000000e-02	1.000000e-01	3.797741e+00	0.000000e+00	0.000000e+00
+1.000000e-01	1.200000e-01	2.843337e+00	0.000000e+00	0.000000e+00
+1.200000e-01	1.400000e-01	2.203791e+00	0.000000e+00	0.000000e+00
+1.400000e-01	1.600000e-01	1.764147e+00	0.000000e+00	0.000000e+00
+1.600000e-01	2.000000e-01	1.287361e+00	0.000000e+00	0.000000e+00
+2.000000e-01	2.400000e-01	8.717693e-01	0.000000e+00	0.000000e+00
+2.400000e-01	2.800000e-01	6.049216e-01	0.000000e+00	0.000000e+00
+2.800000e-01	3.200000e-01	4.124790e-01	0.000000e+00	0.000000e+00
+3.200000e-01	3.600000e-01	2.829933e-01	0.000000e+00	0.000000e+00
+3.600000e-01	4.000000e-01	1.870425e-01	0.000000e+00	0.000000e+00
+4.000000e-01	4.400000e-01	1.123195e-01	0.000000e+00	0.000000e+00
+4.400000e-01	5.200000e-01	4.282452e-02	0.000000e+00	0.000000e+00
+# END HISTO1D
+
+# BEGIN HISTO1D /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-011/ipolhistos/tune-weights-011-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+LineColor={[HTML]{EE3311}}
+LineStyle=dashdotted
+Path=/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-011/ipolhistos/tune-weights-011-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+Title=tune-weights-011-0
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-02	7.458094e+00	0.000000e+00	0.000000e+00
+2.000000e-02	4.000000e-02	1.085660e+01	0.000000e+00	0.000000e+00
+4.000000e-02	6.000000e-02	7.868190e+00	0.000000e+00	0.000000e+00
+6.000000e-02	8.000000e-02	5.318056e+00	0.000000e+00	0.000000e+00
+8.000000e-02	1.000000e-01	3.806120e+00	0.000000e+00	0.000000e+00
+1.000000e-01	1.200000e-01	2.866463e+00	0.000000e+00	0.000000e+00
+1.200000e-01	1.400000e-01	2.228767e+00	0.000000e+00	0.000000e+00
+1.400000e-01	1.600000e-01	1.788759e+00	0.000000e+00	0.000000e+00
+1.600000e-01	2.000000e-01	1.305272e+00	0.000000e+00	0.000000e+00
+2.000000e-01	2.400000e-01	8.823430e-01	0.000000e+00	0.000000e+00
+2.400000e-01	2.800000e-01	6.108974e-01	0.000000e+00	0.000000e+00
+2.800000e-01	3.200000e-01	4.244371e-01	0.000000e+00	0.000000e+00
+3.200000e-01	3.600000e-01	2.897736e-01	0.000000e+00	0.000000e+00
+3.600000e-01	4.000000e-01	1.885135e-01	0.000000e+00	0.000000e+00
+4.000000e-01	4.400000e-01	1.164216e-01	0.000000e+00	0.000000e+00
+4.400000e-01	5.200000e-01	4.340945e-02	0.000000e+00	0.000000e+00
+# END HISTO1D
+
+# BEGIN HISTO1D /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-012/ipolhistos/tune-weights-012-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+LineColor={[HTML]{3366FF}}
+LineStyle=dashdotted
+Path=/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-012/ipolhistos/tune-weights-012-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+Title=tune-weights-012-0
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-02	7.524380e+00	0.000000e+00	0.000000e+00
+2.000000e-02	4.000000e-02	1.095287e+01	0.000000e+00	0.000000e+00
+4.000000e-02	6.000000e-02	7.924273e+00	0.000000e+00	0.000000e+00
+6.000000e-02	8.000000e-02	5.314179e+00	0.000000e+00	0.000000e+00
+8.000000e-02	1.000000e-01	3.787372e+00	0.000000e+00	0.000000e+00
+1.000000e-01	1.200000e-01	2.838239e+00	0.000000e+00	0.000000e+00
+1.200000e-01	1.400000e-01	2.194829e+00	0.000000e+00	0.000000e+00
+1.400000e-01	1.600000e-01	1.761296e+00	0.000000e+00	0.000000e+00
+1.600000e-01	2.000000e-01	1.288486e+00	0.000000e+00	0.000000e+00
+2.000000e-01	2.400000e-01	8.724045e-01	0.000000e+00	0.000000e+00
+2.400000e-01	2.800000e-01	6.064119e-01	0.000000e+00	0.000000e+00
+2.800000e-01	3.200000e-01	4.151223e-01	0.000000e+00	0.000000e+00
+3.200000e-01	3.600000e-01	2.841188e-01	0.000000e+00	0.000000e+00
+3.600000e-01	4.000000e-01	1.869156e-01	0.000000e+00	0.000000e+00
+4.000000e-01	4.400000e-01	1.122677e-01	0.000000e+00	0.000000e+00
+4.400000e-01	5.200000e-01	4.277531e-02	0.000000e+00	0.000000e+00
+# END HISTO1D
+
+# BEGIN HISTO1D /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-013/ipolhistos/tune-weights-013-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+LineColor={[HTML]{109618}}
+LineStyle=dashdotted
+Path=/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-013/ipolhistos/tune-weights-013-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+Title=tune-weights-013-0
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-02	7.434950e+00	0.000000e+00	0.000000e+00
+2.000000e-02	4.000000e-02	1.080619e+01	0.000000e+00	0.000000e+00
+4.000000e-02	6.000000e-02	7.902948e+00	0.000000e+00	0.000000e+00
+6.000000e-02	8.000000e-02	5.336817e+00	0.000000e+00	0.000000e+00
+8.000000e-02	1.000000e-01	3.824817e+00	0.000000e+00	0.000000e+00
+1.000000e-01	1.200000e-01	2.868556e+00	0.000000e+00	0.000000e+00
+1.200000e-01	1.400000e-01	2.231551e+00	0.000000e+00	0.000000e+00
+1.400000e-01	1.600000e-01	1.784907e+00	0.000000e+00	0.000000e+00
+1.600000e-01	2.000000e-01	1.305428e+00	0.000000e+00	0.000000e+00
+2.000000e-01	2.400000e-01	8.857345e-01	0.000000e+00	0.000000e+00
+2.400000e-01	2.800000e-01	6.110778e-01	0.000000e+00	0.000000e+00
+2.800000e-01	3.200000e-01	4.200182e-01	0.000000e+00	0.000000e+00
+3.200000e-01	3.600000e-01	2.924272e-01	0.000000e+00	0.000000e+00
+3.600000e-01	4.000000e-01	1.871764e-01	0.000000e+00	0.000000e+00
+4.000000e-01	4.400000e-01	1.165182e-01	0.000000e+00	0.000000e+00
+4.400000e-01	5.200000e-01	4.312923e-02	0.000000e+00	0.000000e+00
+# END HISTO1D
+
+# BEGIN HISTO1D /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-014/ipolhistos/tune-weights-014-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+LineColor={[HTML]{FF9900}}
+LineStyle=dashdotted
+Path=/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-014/ipolhistos/tune-weights-014-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+Title=tune-weights-014-0
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-02	7.564993e+00	0.000000e+00	0.000000e+00
+2.000000e-02	4.000000e-02	1.096138e+01	0.000000e+00	0.000000e+00
+4.000000e-02	6.000000e-02	7.933433e+00	0.000000e+00	0.000000e+00
+6.000000e-02	8.000000e-02	5.339045e+00	0.000000e+00	0.000000e+00
+8.000000e-02	1.000000e-01	3.784868e+00	0.000000e+00	0.000000e+00
+1.000000e-01	1.200000e-01	2.832054e+00	0.000000e+00	0.000000e+00
+1.200000e-01	1.400000e-01	2.186135e+00	0.000000e+00	0.000000e+00
+1.400000e-01	1.600000e-01	1.747923e+00	0.000000e+00	0.000000e+00
+1.600000e-01	2.000000e-01	1.281829e+00	0.000000e+00	0.000000e+00
+2.000000e-01	2.400000e-01	8.668545e-01	0.000000e+00	0.000000e+00
+2.400000e-01	2.800000e-01	5.992257e-01	0.000000e+00	0.000000e+00
+2.800000e-01	3.200000e-01	4.139724e-01	0.000000e+00	0.000000e+00
+3.200000e-01	3.600000e-01	2.824778e-01	0.000000e+00	0.000000e+00
+3.600000e-01	4.000000e-01	1.835693e-01	0.000000e+00	0.000000e+00
+4.000000e-01	4.400000e-01	1.122979e-01	0.000000e+00	0.000000e+00
+4.400000e-01	5.200000e-01	4.242977e-02	0.000000e+00	0.000000e+00
+# END HISTO1D
+
+# BEGIN HISTO1D /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-015/ipolhistos/tune-weights-015-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+LineColor={[HTML]{990099}}
+LineStyle=dashdotted
+Path=/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-015/ipolhistos/tune-weights-015-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+Title=tune-weights-015-0
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-02	7.438645e+00	0.000000e+00	0.000000e+00
+2.000000e-02	4.000000e-02	1.084653e+01	0.000000e+00	0.000000e+00
+4.000000e-02	6.000000e-02	7.888919e+00	0.000000e+00	0.000000e+00
+6.000000e-02	8.000000e-02	5.327690e+00	0.000000e+00	0.000000e+00
+8.000000e-02	1.000000e-01	3.813676e+00	0.000000e+00	0.000000e+00
+1.000000e-01	1.200000e-01	2.859854e+00	0.000000e+00	0.000000e+00
+1.200000e-01	1.400000e-01	2.233715e+00	0.000000e+00	0.000000e+00
+1.400000e-01	1.600000e-01	1.777119e+00	0.000000e+00	0.000000e+00
+1.600000e-01	2.000000e-01	1.304979e+00	0.000000e+00	0.000000e+00
+2.000000e-01	2.400000e-01	8.876100e-01	0.000000e+00	0.000000e+00
+2.400000e-01	2.800000e-01	6.123796e-01	0.000000e+00	0.000000e+00
+2.800000e-01	3.200000e-01	4.205670e-01	0.000000e+00	0.000000e+00
+3.200000e-01	3.600000e-01	2.904635e-01	0.000000e+00	0.000000e+00
+3.600000e-01	4.000000e-01	1.898984e-01	0.000000e+00	0.000000e+00
+4.000000e-01	4.400000e-01	1.148570e-01	0.000000e+00	0.000000e+00
+4.400000e-01	5.200000e-01	4.308836e-02	0.000000e+00	0.000000e+00
+# END HISTO1D
+
+# BEGIN HISTO1D /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-016/ipolhistos/tune-weights-016-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+LineColor={[HTML]{EE3311}}
+LineStyle=dotted
+Path=/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-016/ipolhistos/tune-weights-016-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+Title=tune-weights-016-0
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-02	7.543265e+00	0.000000e+00	0.000000e+00
+2.000000e-02	4.000000e-02	1.094677e+01	0.000000e+00	0.000000e+00
+4.000000e-02	6.000000e-02	7.902498e+00	0.000000e+00	0.000000e+00
+6.000000e-02	8.000000e-02	5.320571e+00	0.000000e+00	0.000000e+00
+8.000000e-02	1.000000e-01	3.778825e+00	0.000000e+00	0.000000e+00
+1.000000e-01	1.200000e-01	2.843730e+00	0.000000e+00	0.000000e+00
+1.200000e-01	1.400000e-01	2.201707e+00	0.000000e+00	0.000000e+00
+1.400000e-01	1.600000e-01	1.757342e+00	0.000000e+00	0.000000e+00
+1.600000e-01	2.000000e-01	1.291122e+00	0.000000e+00	0.000000e+00
+2.000000e-01	2.400000e-01	8.738672e-01	0.000000e+00	0.000000e+00
+2.400000e-01	2.800000e-01	6.020183e-01	0.000000e+00	0.000000e+00
+2.800000e-01	3.200000e-01	4.152884e-01	0.000000e+00	0.000000e+00
+3.200000e-01	3.600000e-01	2.856559e-01	0.000000e+00	0.000000e+00
+3.600000e-01	4.000000e-01	1.848008e-01	0.000000e+00	0.000000e+00
+4.000000e-01	4.400000e-01	1.155811e-01	0.000000e+00	0.000000e+00
+4.400000e-01	5.200000e-01	4.216345e-02	0.000000e+00	0.000000e+00
+# END HISTO1D
+
+# BEGIN HISTO1D /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-017/ipolhistos/tune-weights-017-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+LineColor={[HTML]{3366FF}}
+LineStyle=dotted
+Path=/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-017/ipolhistos/tune-weights-017-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+Title=tune-weights-017-0
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-02	7.361084e+00	0.000000e+00	0.000000e+00
+2.000000e-02	4.000000e-02	1.073540e+01	0.000000e+00	0.000000e+00
+4.000000e-02	6.000000e-02	7.879027e+00	0.000000e+00	0.000000e+00
+6.000000e-02	8.000000e-02	5.334227e+00	0.000000e+00	0.000000e+00
+8.000000e-02	1.000000e-01	3.832814e+00	0.000000e+00	0.000000e+00
+1.000000e-01	1.200000e-01	2.899510e+00	0.000000e+00	0.000000e+00
+1.200000e-01	1.400000e-01	2.257101e+00	0.000000e+00	0.000000e+00
+1.400000e-01	1.600000e-01	1.801438e+00	0.000000e+00	0.000000e+00
+1.600000e-01	2.000000e-01	1.322267e+00	0.000000e+00	0.000000e+00
+2.000000e-01	2.400000e-01	8.968085e-01	0.000000e+00	0.000000e+00
+2.400000e-01	2.800000e-01	6.153274e-01	0.000000e+00	0.000000e+00
+2.800000e-01	3.200000e-01	4.231919e-01	0.000000e+00	0.000000e+00
+3.200000e-01	3.600000e-01	2.945176e-01	0.000000e+00	0.000000e+00
+3.600000e-01	4.000000e-01	1.921048e-01	0.000000e+00	0.000000e+00
+4.000000e-01	4.400000e-01	1.182077e-01	0.000000e+00	0.000000e+00
+4.400000e-01	5.200000e-01	4.364282e-02	0.000000e+00	0.000000e+00
+# END HISTO1D
+
+# BEGIN HISTO1D /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-018/ipolhistos/tune-weights-018-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+LineColor={[HTML]{109618}}
+LineStyle=dotted
+Path=/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-018/ipolhistos/tune-weights-018-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+Title=tune-weights-018-0
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-02	7.638888e+00	0.000000e+00	0.000000e+00
+2.000000e-02	4.000000e-02	1.106452e+01	0.000000e+00	0.000000e+00
+4.000000e-02	6.000000e-02	7.986844e+00	0.000000e+00	0.000000e+00
+6.000000e-02	8.000000e-02	5.330779e+00	0.000000e+00	0.000000e+00
+8.000000e-02	1.000000e-01	3.751953e+00	0.000000e+00	0.000000e+00
+1.000000e-01	1.200000e-01	2.791167e+00	0.000000e+00	0.000000e+00
+1.200000e-01	1.400000e-01	2.163540e+00	0.000000e+00	0.000000e+00
+1.400000e-01	1.600000e-01	1.722409e+00	0.000000e+00	0.000000e+00
+1.600000e-01	2.000000e-01	1.264873e+00	0.000000e+00	0.000000e+00
+2.000000e-01	2.400000e-01	8.555856e-01	0.000000e+00	0.000000e+00
+2.400000e-01	2.800000e-01	5.914847e-01	0.000000e+00	0.000000e+00
+2.800000e-01	3.200000e-01	4.089741e-01	0.000000e+00	0.000000e+00
+3.200000e-01	3.600000e-01	2.774033e-01	0.000000e+00	0.000000e+00
+3.600000e-01	4.000000e-01	1.811390e-01	0.000000e+00	0.000000e+00
+4.000000e-01	4.400000e-01	1.124759e-01	0.000000e+00	0.000000e+00
+4.400000e-01	5.200000e-01	4.151518e-02	0.000000e+00	0.000000e+00
+# END HISTO1D
+
+# BEGIN HISTO1D /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-019/ipolhistos/tune-weights-019-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+LineColor={[HTML]{FF9900}}
+LineStyle=dotted
+Path=/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-019/ipolhistos/tune-weights-019-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+Title=tune-weights-019-0
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-02	7.463556e+00	0.000000e+00	0.000000e+00
+2.000000e-02	4.000000e-02	1.087682e+01	0.000000e+00	0.000000e+00
+4.000000e-02	6.000000e-02	7.917964e+00	0.000000e+00	0.000000e+00
+6.000000e-02	8.000000e-02	5.328939e+00	0.000000e+00	0.000000e+00
+8.000000e-02	1.000000e-01	3.808418e+00	0.000000e+00	0.000000e+00
+1.000000e-01	1.200000e-01	2.857233e+00	0.000000e+00	0.000000e+00
+1.200000e-01	1.400000e-01	2.216565e+00	0.000000e+00	0.000000e+00
+1.400000e-01	1.600000e-01	1.774197e+00	0.000000e+00	0.000000e+00
+1.600000e-01	2.000000e-01	1.300218e+00	0.000000e+00	0.000000e+00
+2.000000e-01	2.400000e-01	8.801528e-01	0.000000e+00	0.000000e+00
+2.400000e-01	2.800000e-01	6.063549e-01	0.000000e+00	0.000000e+00
+2.800000e-01	3.200000e-01	4.163559e-01	0.000000e+00	0.000000e+00
+3.200000e-01	3.600000e-01	2.867991e-01	0.000000e+00	0.000000e+00
+3.600000e-01	4.000000e-01	1.873453e-01	0.000000e+00	0.000000e+00
+4.000000e-01	4.400000e-01	1.144885e-01	0.000000e+00	0.000000e+00
+4.400000e-01	5.200000e-01	4.321788e-02	0.000000e+00	0.000000e+00
+# END HISTO1D
+
+# BEGIN HISTO1D /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-020/ipolhistos/tune-weights-020-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+LineColor={[HTML]{990099}}
+LineStyle=dotted
+Path=/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-020/ipolhistos/tune-weights-020-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+Title=tune-weights-020-0
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-02	7.605108e+00	0.000000e+00	0.000000e+00
+2.000000e-02	4.000000e-02	1.102501e+01	0.000000e+00	0.000000e+00
+4.000000e-02	6.000000e-02	7.942224e+00	0.000000e+00	0.000000e+00
+6.000000e-02	8.000000e-02	5.325935e+00	0.000000e+00	0.000000e+00
+8.000000e-02	1.000000e-01	3.766173e+00	0.000000e+00	0.000000e+00
+1.000000e-01	1.200000e-01	2.819555e+00	0.000000e+00	0.000000e+00
+1.200000e-01	1.400000e-01	2.180109e+00	0.000000e+00	0.000000e+00
+1.400000e-01	1.600000e-01	1.738290e+00	0.000000e+00	0.000000e+00
+1.600000e-01	2.000000e-01	1.275433e+00	0.000000e+00	0.000000e+00
+2.000000e-01	2.400000e-01	8.611135e-01	0.000000e+00	0.000000e+00
+2.400000e-01	2.800000e-01	5.922939e-01	0.000000e+00	0.000000e+00
+2.800000e-01	3.200000e-01	4.112344e-01	0.000000e+00	0.000000e+00
+3.200000e-01	3.600000e-01	2.794152e-01	0.000000e+00	0.000000e+00
+3.600000e-01	4.000000e-01	1.825285e-01	0.000000e+00	0.000000e+00
+4.000000e-01	4.400000e-01	1.135953e-01	0.000000e+00	0.000000e+00
+4.400000e-01	5.200000e-01	4.158707e-02	0.000000e+00	0.000000e+00
+# END HISTO1D
+
+# BEGIN HISTO1D /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-021/ipolhistos/tune-weights-021-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+LineColor={[HTML]{EE3311}}
+LineStyle=solid
+Path=/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-021/ipolhistos/tune-weights-021-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+Title=tune-weights-021-0
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-02	7.391205e+00	0.000000e+00	0.000000e+00
+2.000000e-02	4.000000e-02	1.079749e+01	0.000000e+00	0.000000e+00
+4.000000e-02	6.000000e-02	7.872202e+00	0.000000e+00	0.000000e+00
+6.000000e-02	8.000000e-02	5.328160e+00	0.000000e+00	0.000000e+00
+8.000000e-02	1.000000e-01	3.826392e+00	0.000000e+00	0.000000e+00
+1.000000e-01	1.200000e-01	2.889133e+00	0.000000e+00	0.000000e+00
+1.200000e-01	1.400000e-01	2.238162e+00	0.000000e+00	0.000000e+00
+1.400000e-01	1.600000e-01	1.797451e+00	0.000000e+00	0.000000e+00
+1.600000e-01	2.000000e-01	1.315059e+00	0.000000e+00	0.000000e+00
+2.000000e-01	2.400000e-01	8.911786e-01	0.000000e+00	0.000000e+00
+2.400000e-01	2.800000e-01	6.164248e-01	0.000000e+00	0.000000e+00
+2.800000e-01	3.200000e-01	4.215323e-01	0.000000e+00	0.000000e+00
+3.200000e-01	3.600000e-01	2.913159e-01	0.000000e+00	0.000000e+00
+3.600000e-01	4.000000e-01	1.909786e-01	0.000000e+00	0.000000e+00
+4.000000e-01	4.400000e-01	1.163429e-01	0.000000e+00	0.000000e+00
+4.400000e-01	5.200000e-01	4.353517e-02	0.000000e+00	0.000000e+00
+# END HISTO1D
+
+# BEGIN HISTO1D /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-022/ipolhistos/tune-weights-022-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+LineColor={[HTML]{3366FF}}
+LineStyle=solid
+Path=/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-022/ipolhistos/tune-weights-022-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+Title=tune-weights-022-0
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-02	7.438352e+00	0.000000e+00	0.000000e+00
+2.000000e-02	4.000000e-02	1.084665e+01	0.000000e+00	0.000000e+00
+4.000000e-02	6.000000e-02	7.870768e+00	0.000000e+00	0.000000e+00
+6.000000e-02	8.000000e-02	5.316354e+00	0.000000e+00	0.000000e+00
+8.000000e-02	1.000000e-01	3.805955e+00	0.000000e+00	0.000000e+00
+1.000000e-01	1.200000e-01	2.869154e+00	0.000000e+00	0.000000e+00
+1.200000e-01	1.400000e-01	2.229881e+00	0.000000e+00	0.000000e+00
+1.400000e-01	1.600000e-01	1.795944e+00	0.000000e+00	0.000000e+00
+1.600000e-01	2.000000e-01	1.311602e+00	0.000000e+00	0.000000e+00
+2.000000e-01	2.400000e-01	8.843368e-01	0.000000e+00	0.000000e+00
+2.400000e-01	2.800000e-01	6.096919e-01	0.000000e+00	0.000000e+00
+2.800000e-01	3.200000e-01	4.237114e-01	0.000000e+00	0.000000e+00
+3.200000e-01	3.600000e-01	2.907649e-01	0.000000e+00	0.000000e+00
+3.600000e-01	4.000000e-01	1.889036e-01	0.000000e+00	0.000000e+00
+4.000000e-01	4.400000e-01	1.170569e-01	0.000000e+00	0.000000e+00
+4.400000e-01	5.200000e-01	4.370504e-02	0.000000e+00	0.000000e+00
+# END HISTO1D
+
+# BEGIN HISTO1D /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-023/ipolhistos/tune-weights-023-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+LineColor={[HTML]{109618}}
+LineStyle=solid
+Path=/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-023/ipolhistos/tune-weights-023-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+Title=tune-weights-023-0
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-02	7.472385e+00	0.000000e+00	0.000000e+00
+2.000000e-02	4.000000e-02	1.083222e+01	0.000000e+00	0.000000e+00
+4.000000e-02	6.000000e-02	7.884598e+00	0.000000e+00	0.000000e+00
+6.000000e-02	8.000000e-02	5.332752e+00	0.000000e+00	0.000000e+00
+8.000000e-02	1.000000e-01	3.817852e+00	0.000000e+00	0.000000e+00
+1.000000e-01	1.200000e-01	2.860217e+00	0.000000e+00	0.000000e+00
+1.200000e-01	1.400000e-01	2.223078e+00	0.000000e+00	0.000000e+00
+1.400000e-01	1.600000e-01	1.781173e+00	0.000000e+00	0.000000e+00
+1.600000e-01	2.000000e-01	1.306878e+00	0.000000e+00	0.000000e+00
+2.000000e-01	2.400000e-01	8.847683e-01	0.000000e+00	0.000000e+00
+2.400000e-01	2.800000e-01	6.070024e-01	0.000000e+00	0.000000e+00
+2.800000e-01	3.200000e-01	4.211996e-01	0.000000e+00	0.000000e+00
+3.200000e-01	3.600000e-01	2.879376e-01	0.000000e+00	0.000000e+00
+3.600000e-01	4.000000e-01	1.883076e-01	0.000000e+00	0.000000e+00
+4.000000e-01	4.400000e-01	1.162422e-01	0.000000e+00	0.000000e+00
+4.400000e-01	5.200000e-01	4.276346e-02	0.000000e+00	0.000000e+00
+# END HISTO1D
+
+# BEGIN HISTO1D /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-024/ipolhistos/tune-weights-024-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+LineColor={[HTML]{FF9900}}
+LineStyle=solid
+Path=/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-024/ipolhistos/tune-weights-024-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+Title=tune-weights-024-0
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-02	7.590426e+00	0.000000e+00	0.000000e+00
+2.000000e-02	4.000000e-02	1.098819e+01	0.000000e+00	0.000000e+00
+4.000000e-02	6.000000e-02	7.953686e+00	0.000000e+00	0.000000e+00
+6.000000e-02	8.000000e-02	5.333468e+00	0.000000e+00	0.000000e+00
+8.000000e-02	1.000000e-01	3.773558e+00	0.000000e+00	0.000000e+00
+1.000000e-01	1.200000e-01	2.826090e+00	0.000000e+00	0.000000e+00
+1.200000e-01	1.400000e-01	2.180867e+00	0.000000e+00	0.000000e+00
+1.400000e-01	1.600000e-01	1.745304e+00	0.000000e+00	0.000000e+00
+1.600000e-01	2.000000e-01	1.273486e+00	0.000000e+00	0.000000e+00
+2.000000e-01	2.400000e-01	8.628050e-01	0.000000e+00	0.000000e+00
+2.400000e-01	2.800000e-01	5.962129e-01	0.000000e+00	0.000000e+00
+2.800000e-01	3.200000e-01	4.101206e-01	0.000000e+00	0.000000e+00
+3.200000e-01	3.600000e-01	2.830775e-01	0.000000e+00	0.000000e+00
+3.600000e-01	4.000000e-01	1.812801e-01	0.000000e+00	0.000000e+00
+4.000000e-01	4.400000e-01	1.128740e-01	0.000000e+00	0.000000e+00
+4.400000e-01	5.200000e-01	4.217470e-02	0.000000e+00	0.000000e+00
+# END HISTO1D
+
+# BEGIN HISTO1D /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-025/ipolhistos/tune-weights-025-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+LineColor={[HTML]{990099}}
+LineStyle=solid
+Path=/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-025/ipolhistos/tune-weights-025-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+Title=tune-weights-025-0
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-02	7.546532e+00	0.000000e+00	0.000000e+00
+2.000000e-02	4.000000e-02	1.094683e+01	0.000000e+00	0.000000e+00
+4.000000e-02	6.000000e-02	7.912943e+00	0.000000e+00	0.000000e+00
+6.000000e-02	8.000000e-02	5.339107e+00	0.000000e+00	0.000000e+00
+8.000000e-02	1.000000e-01	3.791037e+00	0.000000e+00	0.000000e+00
+1.000000e-01	1.200000e-01	2.840126e+00	0.000000e+00	0.000000e+00
+1.200000e-01	1.400000e-01	2.193462e+00	0.000000e+00	0.000000e+00
+1.400000e-01	1.600000e-01	1.755427e+00	0.000000e+00	0.000000e+00
+1.600000e-01	2.000000e-01	1.284525e+00	0.000000e+00	0.000000e+00
+2.000000e-01	2.400000e-01	8.715338e-01	0.000000e+00	0.000000e+00
+2.400000e-01	2.800000e-01	5.995174e-01	0.000000e+00	0.000000e+00
+2.800000e-01	3.200000e-01	4.146413e-01	0.000000e+00	0.000000e+00
+3.200000e-01	3.600000e-01	2.842883e-01	0.000000e+00	0.000000e+00
+3.600000e-01	4.000000e-01	1.824441e-01	0.000000e+00	0.000000e+00
+4.000000e-01	4.400000e-01	1.146208e-01	0.000000e+00	0.000000e+00
+4.400000e-01	5.200000e-01	4.285217e-02	0.000000e+00	0.000000e+00
+# END HISTO1D
+
+# BEGIN HISTO1D /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-026/ipolhistos/tune-weights-026-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+LineColor={[HTML]{EE3311}}
+LineStyle=dashed
+Path=/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-026/ipolhistos/tune-weights-026-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+Title=tune-weights-026-0
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-02	7.506676e+00	0.000000e+00	0.000000e+00
+2.000000e-02	4.000000e-02	1.089151e+01	0.000000e+00	0.000000e+00
+4.000000e-02	6.000000e-02	7.888768e+00	0.000000e+00	0.000000e+00
+6.000000e-02	8.000000e-02	5.328773e+00	0.000000e+00	0.000000e+00
+8.000000e-02	1.000000e-01	3.793598e+00	0.000000e+00	0.000000e+00
+1.000000e-01	1.200000e-01	2.853094e+00	0.000000e+00	0.000000e+00
+1.200000e-01	1.400000e-01	2.216708e+00	0.000000e+00	0.000000e+00
+1.400000e-01	1.600000e-01	1.768285e+00	0.000000e+00	0.000000e+00
+1.600000e-01	2.000000e-01	1.298503e+00	0.000000e+00	0.000000e+00
+2.000000e-01	2.400000e-01	8.785077e-01	0.000000e+00	0.000000e+00
+2.400000e-01	2.800000e-01	6.080539e-01	0.000000e+00	0.000000e+00
+2.800000e-01	3.200000e-01	4.177052e-01	0.000000e+00	0.000000e+00
+3.200000e-01	3.600000e-01	2.854694e-01	0.000000e+00	0.000000e+00
+3.600000e-01	4.000000e-01	1.869263e-01	0.000000e+00	0.000000e+00
+4.000000e-01	4.400000e-01	1.153524e-01	0.000000e+00	0.000000e+00
+4.400000e-01	5.200000e-01	4.288897e-02	0.000000e+00	0.000000e+00
+# END HISTO1D
+
+# BEGIN HISTO1D /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-028/ipolhistos/tune-weights-028-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+LineColor={[HTML]{3366FF}}
+LineStyle=dashed
+Path=/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-028/ipolhistos/tune-weights-028-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+Title=tune-weights-028-0
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-02	7.486672e+00	0.000000e+00	0.000000e+00
+2.000000e-02	4.000000e-02	1.089210e+01	0.000000e+00	0.000000e+00
+4.000000e-02	6.000000e-02	7.905486e+00	0.000000e+00	0.000000e+00
+6.000000e-02	8.000000e-02	5.349707e+00	0.000000e+00	0.000000e+00
+8.000000e-02	1.000000e-01	3.795710e+00	0.000000e+00	0.000000e+00
+1.000000e-01	1.200000e-01	2.856532e+00	0.000000e+00	0.000000e+00
+1.200000e-01	1.400000e-01	2.207704e+00	0.000000e+00	0.000000e+00
+1.400000e-01	1.600000e-01	1.770560e+00	0.000000e+00	0.000000e+00
+1.600000e-01	2.000000e-01	1.300061e+00	0.000000e+00	0.000000e+00
+2.000000e-01	2.400000e-01	8.770935e-01	0.000000e+00	0.000000e+00
+2.400000e-01	2.800000e-01	6.048642e-01	0.000000e+00	0.000000e+00
+2.800000e-01	3.200000e-01	4.160789e-01	0.000000e+00	0.000000e+00
+3.200000e-01	3.600000e-01	2.861067e-01	0.000000e+00	0.000000e+00
+3.600000e-01	4.000000e-01	1.837539e-01	0.000000e+00	0.000000e+00
+4.000000e-01	4.400000e-01	1.141615e-01	0.000000e+00	0.000000e+00
+4.400000e-01	5.200000e-01	4.282466e-02	0.000000e+00	0.000000e+00
+# END HISTO1D
+
+# BEGIN HISTO1D /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-029/ipolhistos/tune-weights-029-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+LineColor={[HTML]{109618}}
+LineStyle=dashed
+Path=/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-029/ipolhistos/tune-weights-029-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+Title=tune-weights-029-0
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-02	7.486012e+00	0.000000e+00	0.000000e+00
+2.000000e-02	4.000000e-02	1.092024e+01	0.000000e+00	0.000000e+00
+4.000000e-02	6.000000e-02	7.890083e+00	0.000000e+00	0.000000e+00
+6.000000e-02	8.000000e-02	5.303903e+00	0.000000e+00	0.000000e+00
+8.000000e-02	1.000000e-01	3.813195e+00	0.000000e+00	0.000000e+00
+1.000000e-01	1.200000e-01	2.858183e+00	0.000000e+00	0.000000e+00
+1.200000e-01	1.400000e-01	2.208354e+00	0.000000e+00	0.000000e+00
+1.400000e-01	1.600000e-01	1.765467e+00	0.000000e+00	0.000000e+00
+1.600000e-01	2.000000e-01	1.299437e+00	0.000000e+00	0.000000e+00
+2.000000e-01	2.400000e-01	8.788076e-01	0.000000e+00	0.000000e+00
+2.400000e-01	2.800000e-01	6.062165e-01	0.000000e+00	0.000000e+00
+2.800000e-01	3.200000e-01	4.211931e-01	0.000000e+00	0.000000e+00
+3.200000e-01	3.600000e-01	2.832132e-01	0.000000e+00	0.000000e+00
+3.600000e-01	4.000000e-01	1.902526e-01	0.000000e+00	0.000000e+00
+4.000000e-01	4.400000e-01	1.128934e-01	0.000000e+00	0.000000e+00
+4.400000e-01	5.200000e-01	4.263053e-02	0.000000e+00	0.000000e+00
+# END HISTO1D
+
+# BEGIN HISTO1D /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-030/ipolhistos/tune-weights-030-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+LineColor={[HTML]{FF9900}}
+LineStyle=dashed
+Path=/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-030/ipolhistos/tune-weights-030-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+Title=tune-weights-030-0
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-02	7.350908e+00	0.000000e+00	0.000000e+00
+2.000000e-02	4.000000e-02	1.072083e+01	0.000000e+00	0.000000e+00
+4.000000e-02	6.000000e-02	7.854717e+00	0.000000e+00	0.000000e+00
+6.000000e-02	8.000000e-02	5.346919e+00	0.000000e+00	0.000000e+00
+8.000000e-02	1.000000e-01	3.823735e+00	0.000000e+00	0.000000e+00
+1.000000e-01	1.200000e-01	2.908571e+00	0.000000e+00	0.000000e+00
+1.200000e-01	1.400000e-01	2.263139e+00	0.000000e+00	0.000000e+00
+1.400000e-01	1.600000e-01	1.809617e+00	0.000000e+00	0.000000e+00
+1.600000e-01	2.000000e-01	1.327865e+00	0.000000e+00	0.000000e+00
+2.000000e-01	2.400000e-01	8.989142e-01	0.000000e+00	0.000000e+00
+2.400000e-01	2.800000e-01	6.170664e-01	0.000000e+00	0.000000e+00
+2.800000e-01	3.200000e-01	4.278092e-01	0.000000e+00	0.000000e+00
+3.200000e-01	3.600000e-01	2.917332e-01	0.000000e+00	0.000000e+00
+3.600000e-01	4.000000e-01	1.919765e-01	0.000000e+00	0.000000e+00
+4.000000e-01	4.400000e-01	1.174480e-01	0.000000e+00	0.000000e+00
+4.400000e-01	5.200000e-01	4.398386e-02	0.000000e+00	0.000000e+00
+# END HISTO1D
+
+# BEGIN HISTO1D /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-031/ipolhistos/tune-weights-031-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+LineColor={[HTML]{990099}}
+LineStyle=dashed
+Path=/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-031/ipolhistos/tune-weights-031-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+Title=tune-weights-031-0
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-02	7.628389e+00	0.000000e+00	0.000000e+00
+2.000000e-02	4.000000e-02	1.104326e+01	0.000000e+00	0.000000e+00
+4.000000e-02	6.000000e-02	7.971285e+00	0.000000e+00	0.000000e+00
+6.000000e-02	8.000000e-02	5.329605e+00	0.000000e+00	0.000000e+00
+8.000000e-02	1.000000e-01	3.767943e+00	0.000000e+00	0.000000e+00
+1.000000e-01	1.200000e-01	2.805140e+00	0.000000e+00	0.000000e+00
+1.200000e-01	1.400000e-01	2.168258e+00	0.000000e+00	0.000000e+00
+1.400000e-01	1.600000e-01	1.732544e+00	0.000000e+00	0.000000e+00
+1.600000e-01	2.000000e-01	1.265430e+00	0.000000e+00	0.000000e+00
+2.000000e-01	2.400000e-01	8.570719e-01	0.000000e+00	0.000000e+00
+2.400000e-01	2.800000e-01	5.903468e-01	0.000000e+00	0.000000e+00
+2.800000e-01	3.200000e-01	4.084899e-01	0.000000e+00	0.000000e+00
+3.200000e-01	3.600000e-01	2.781604e-01	0.000000e+00	0.000000e+00
+3.600000e-01	4.000000e-01	1.813692e-01	0.000000e+00	0.000000e+00
+4.000000e-01	4.400000e-01	1.120831e-01	0.000000e+00	0.000000e+00
+4.400000e-01	5.200000e-01	4.191490e-02	0.000000e+00	0.000000e+00
+# END HISTO1D
+
+# BEGIN HISTO1D /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-032/ipolhistos/tune-weights-032-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+LineColor={[HTML]{EE3311}}
+LineStyle=dashdotted
+Path=/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-032/ipolhistos/tune-weights-032-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+Title=tune-weights-032-0
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-02	7.640764e+00	0.000000e+00	0.000000e+00
+2.000000e-02	4.000000e-02	1.104702e+01	0.000000e+00	0.000000e+00
+4.000000e-02	6.000000e-02	7.950329e+00	0.000000e+00	0.000000e+00
+6.000000e-02	8.000000e-02	5.337334e+00	0.000000e+00	0.000000e+00
+8.000000e-02	1.000000e-01	3.762255e+00	0.000000e+00	0.000000e+00
+1.000000e-01	1.200000e-01	2.805389e+00	0.000000e+00	0.000000e+00
+1.200000e-01	1.400000e-01	2.167322e+00	0.000000e+00	0.000000e+00
+1.400000e-01	1.600000e-01	1.723904e+00	0.000000e+00	0.000000e+00
+1.600000e-01	2.000000e-01	1.266014e+00	0.000000e+00	0.000000e+00
+2.000000e-01	2.400000e-01	8.594578e-01	0.000000e+00	0.000000e+00
+2.400000e-01	2.800000e-01	5.923016e-01	0.000000e+00	0.000000e+00
+2.800000e-01	3.200000e-01	4.103038e-01	0.000000e+00	0.000000e+00
+3.200000e-01	3.600000e-01	2.778794e-01	0.000000e+00	0.000000e+00
+3.600000e-01	4.000000e-01	1.808822e-01	0.000000e+00	0.000000e+00
+4.000000e-01	4.400000e-01	1.120229e-01	0.000000e+00	0.000000e+00
+4.400000e-01	5.200000e-01	4.199025e-02	0.000000e+00	0.000000e+00
+# END HISTO1D
+
+# BEGIN HISTO1D /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-033/ipolhistos/tune-weights-033-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+LineColor={[HTML]{3366FF}}
+LineStyle=dashdotted
+Path=/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-033/ipolhistos/tune-weights-033-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+Title=tune-weights-033-0
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-02	7.504667e+00	0.000000e+00	0.000000e+00
+2.000000e-02	4.000000e-02	1.093226e+01	0.000000e+00	0.000000e+00
+4.000000e-02	6.000000e-02	7.915479e+00	0.000000e+00	0.000000e+00
+6.000000e-02	8.000000e-02	5.339444e+00	0.000000e+00	0.000000e+00
+8.000000e-02	1.000000e-01	3.791580e+00	0.000000e+00	0.000000e+00
+1.000000e-01	1.200000e-01	2.840692e+00	0.000000e+00	0.000000e+00
+1.200000e-01	1.400000e-01	2.206349e+00	0.000000e+00	0.000000e+00
+1.400000e-01	1.600000e-01	1.766966e+00	0.000000e+00	0.000000e+00
+1.600000e-01	2.000000e-01	1.289925e+00	0.000000e+00	0.000000e+00
+2.000000e-01	2.400000e-01	8.725414e-01	0.000000e+00	0.000000e+00
+2.400000e-01	2.800000e-01	5.998796e-01	0.000000e+00	0.000000e+00
+2.800000e-01	3.200000e-01	4.180597e-01	0.000000e+00	0.000000e+00
+3.200000e-01	3.600000e-01	2.876892e-01	0.000000e+00	0.000000e+00
+3.600000e-01	4.000000e-01	1.831634e-01	0.000000e+00	0.000000e+00
+4.000000e-01	4.400000e-01	1.136557e-01	0.000000e+00	0.000000e+00
+4.400000e-01	5.200000e-01	4.318515e-02	0.000000e+00	0.000000e+00
+# END HISTO1D
+
+# BEGIN HISTO1D /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-034/ipolhistos/tune-weights-034-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+LineColor={[HTML]{109618}}
+LineStyle=dashdotted
+Path=/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-034/ipolhistos/tune-weights-034-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+Title=tune-weights-034-0
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-02	7.580425e+00	0.000000e+00	0.000000e+00
+2.000000e-02	4.000000e-02	1.096770e+01	0.000000e+00	0.000000e+00
+4.000000e-02	6.000000e-02	7.957706e+00	0.000000e+00	0.000000e+00
+6.000000e-02	8.000000e-02	5.351327e+00	0.000000e+00	0.000000e+00
+8.000000e-02	1.000000e-01	3.793040e+00	0.000000e+00	0.000000e+00
+1.000000e-01	1.200000e-01	2.825967e+00	0.000000e+00	0.000000e+00
+1.200000e-01	1.400000e-01	2.186290e+00	0.000000e+00	0.000000e+00
+1.400000e-01	1.600000e-01	1.736634e+00	0.000000e+00	0.000000e+00
+1.600000e-01	2.000000e-01	1.273671e+00	0.000000e+00	0.000000e+00
+2.000000e-01	2.400000e-01	8.632762e-01	0.000000e+00	0.000000e+00
+2.400000e-01	2.800000e-01	5.935189e-01	0.000000e+00	0.000000e+00
+2.800000e-01	3.200000e-01	4.119802e-01	0.000000e+00	0.000000e+00
+3.200000e-01	3.600000e-01	2.809160e-01	0.000000e+00	0.000000e+00
+3.600000e-01	4.000000e-01	1.805033e-01	0.000000e+00	0.000000e+00
+4.000000e-01	4.400000e-01	1.121855e-01	0.000000e+00	0.000000e+00
+4.400000e-01	5.200000e-01	4.219958e-02	0.000000e+00	0.000000e+00
+# END HISTO1D
+
+# BEGIN HISTO1D /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-035/ipolhistos/tune-weights-035-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+LineColor={[HTML]{FF9900}}
+LineStyle=dashdotted
+Path=/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-035/ipolhistos/tune-weights-035-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+Title=tune-weights-035-0
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-02	7.491898e+00	0.000000e+00	0.000000e+00
+2.000000e-02	4.000000e-02	1.092175e+01	0.000000e+00	0.000000e+00
+4.000000e-02	6.000000e-02	7.894379e+00	0.000000e+00	0.000000e+00
+6.000000e-02	8.000000e-02	5.313087e+00	0.000000e+00	0.000000e+00
+8.000000e-02	1.000000e-01	3.798776e+00	0.000000e+00	0.000000e+00
+1.000000e-01	1.200000e-01	2.856124e+00	0.000000e+00	0.000000e+00
+1.200000e-01	1.400000e-01	2.212735e+00	0.000000e+00	0.000000e+00
+1.400000e-01	1.600000e-01	1.769229e+00	0.000000e+00	0.000000e+00
+1.600000e-01	2.000000e-01	1.296787e+00	0.000000e+00	0.000000e+00
+2.000000e-01	2.400000e-01	8.755477e-01	0.000000e+00	0.000000e+00
+2.400000e-01	2.800000e-01	6.082712e-01	0.000000e+00	0.000000e+00
+2.800000e-01	3.200000e-01	4.157292e-01	0.000000e+00	0.000000e+00
+3.200000e-01	3.600000e-01	2.889940e-01	0.000000e+00	0.000000e+00
+3.600000e-01	4.000000e-01	1.883360e-01	0.000000e+00	0.000000e+00
+4.000000e-01	4.400000e-01	1.112239e-01	0.000000e+00	0.000000e+00
+4.400000e-01	5.200000e-01	4.305384e-02	0.000000e+00	0.000000e+00
+# END HISTO1D
+
+# BEGIN HISTO1D /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-036/ipolhistos/tune-weights-036-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+LineColor={[HTML]{990099}}
+LineStyle=dashdotted
+Path=/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-036/ipolhistos/tune-weights-036-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+Title=tune-weights-036-0
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-02	7.607507e+00	0.000000e+00	0.000000e+00
+2.000000e-02	4.000000e-02	1.100200e+01	0.000000e+00	0.000000e+00
+4.000000e-02	6.000000e-02	7.949666e+00	0.000000e+00	0.000000e+00
+6.000000e-02	8.000000e-02	5.327555e+00	0.000000e+00	0.000000e+00
+8.000000e-02	1.000000e-01	3.775932e+00	0.000000e+00	0.000000e+00
+1.000000e-01	1.200000e-01	2.822676e+00	0.000000e+00	0.000000e+00
+1.200000e-01	1.400000e-01	2.175227e+00	0.000000e+00	0.000000e+00
+1.400000e-01	1.600000e-01	1.736762e+00	0.000000e+00	0.000000e+00
+1.600000e-01	2.000000e-01	1.274790e+00	0.000000e+00	0.000000e+00
+2.000000e-01	2.400000e-01	8.615434e-01	0.000000e+00	0.000000e+00
+2.400000e-01	2.800000e-01	5.950245e-01	0.000000e+00	0.000000e+00
+2.800000e-01	3.200000e-01	4.120418e-01	0.000000e+00	0.000000e+00
+3.200000e-01	3.600000e-01	2.786037e-01	0.000000e+00	0.000000e+00
+3.600000e-01	4.000000e-01	1.829006e-01	0.000000e+00	0.000000e+00
+4.000000e-01	4.400000e-01	1.128008e-01	0.000000e+00	0.000000e+00
+4.400000e-01	5.200000e-01	4.181497e-02	0.000000e+00	0.000000e+00
+# END HISTO1D
+
+# BEGIN HISTO1D /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-037/ipolhistos/tune-weights-037-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+LineColor={[HTML]{EE3311}}
+LineStyle=dotted
+Path=/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-037/ipolhistos/tune-weights-037-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+Title=tune-weights-037-0
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-02	7.449791e+00	0.000000e+00	0.000000e+00
+2.000000e-02	4.000000e-02	1.086577e+01	0.000000e+00	0.000000e+00
+4.000000e-02	6.000000e-02	7.869901e+00	0.000000e+00	0.000000e+00
+6.000000e-02	8.000000e-02	5.305488e+00	0.000000e+00	0.000000e+00
+8.000000e-02	1.000000e-01	3.844276e+00	0.000000e+00	0.000000e+00
+1.000000e-01	1.200000e-01	2.853992e+00	0.000000e+00	0.000000e+00
+1.200000e-01	1.400000e-01	2.236011e+00	0.000000e+00	0.000000e+00
+1.400000e-01	1.600000e-01	1.786214e+00	0.000000e+00	0.000000e+00
+1.600000e-01	2.000000e-01	1.301550e+00	0.000000e+00	0.000000e+00
+2.000000e-01	2.400000e-01	8.777579e-01	0.000000e+00	0.000000e+00
+2.400000e-01	2.800000e-01	6.082542e-01	0.000000e+00	0.000000e+00
+2.800000e-01	3.200000e-01	4.215168e-01	0.000000e+00	0.000000e+00
+3.200000e-01	3.600000e-01	2.908282e-01	0.000000e+00	0.000000e+00
+3.600000e-01	4.000000e-01	1.926383e-01	0.000000e+00	0.000000e+00
+4.000000e-01	4.400000e-01	1.143559e-01	0.000000e+00	0.000000e+00
+4.400000e-01	5.200000e-01	4.369940e-02	0.000000e+00	0.000000e+00
+# END HISTO1D
+
+# BEGIN HISTO1D /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-038/ipolhistos/tune-weights-038-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+LineColor={[HTML]{3366FF}}
+LineStyle=dotted
+Path=/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-038/ipolhistos/tune-weights-038-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+Title=tune-weights-038-0
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-02	7.499240e+00	0.000000e+00	0.000000e+00
+2.000000e-02	4.000000e-02	1.088572e+01	0.000000e+00	0.000000e+00
+4.000000e-02	6.000000e-02	7.890205e+00	0.000000e+00	0.000000e+00
+6.000000e-02	8.000000e-02	5.343357e+00	0.000000e+00	0.000000e+00
+8.000000e-02	1.000000e-01	3.798672e+00	0.000000e+00	0.000000e+00
+1.000000e-01	1.200000e-01	2.856124e+00	0.000000e+00	0.000000e+00
+1.200000e-01	1.400000e-01	2.207319e+00	0.000000e+00	0.000000e+00
+1.400000e-01	1.600000e-01	1.769758e+00	0.000000e+00	0.000000e+00
+1.600000e-01	2.000000e-01	1.298735e+00	0.000000e+00	0.000000e+00
+2.000000e-01	2.400000e-01	8.801031e-01	0.000000e+00	0.000000e+00
+2.400000e-01	2.800000e-01	6.052751e-01	0.000000e+00	0.000000e+00
+2.800000e-01	3.200000e-01	4.180437e-01	0.000000e+00	0.000000e+00
+3.200000e-01	3.600000e-01	2.857484e-01	0.000000e+00	0.000000e+00
+3.600000e-01	4.000000e-01	1.859823e-01	0.000000e+00	0.000000e+00
+4.000000e-01	4.400000e-01	1.147763e-01	0.000000e+00	0.000000e+00
+4.400000e-01	5.200000e-01	4.307307e-02	0.000000e+00	0.000000e+00
+# END HISTO1D
+
+# BEGIN HISTO1D /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-039/ipolhistos/tune-weights-039-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+LineColor={[HTML]{109618}}
+LineStyle=dotted
+Path=/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-039/ipolhistos/tune-weights-039-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+Title=tune-weights-039-0
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-02	7.436859e+00	0.000000e+00	0.000000e+00
+2.000000e-02	4.000000e-02	1.081909e+01	0.000000e+00	0.000000e+00
+4.000000e-02	6.000000e-02	7.876665e+00	0.000000e+00	0.000000e+00
+6.000000e-02	8.000000e-02	5.323949e+00	0.000000e+00	0.000000e+00
+8.000000e-02	1.000000e-01	3.807377e+00	0.000000e+00	0.000000e+00
+1.000000e-01	1.200000e-01	2.877092e+00	0.000000e+00	0.000000e+00
+1.200000e-01	1.400000e-01	2.233514e+00	0.000000e+00	0.000000e+00
+1.400000e-01	1.600000e-01	1.791368e+00	0.000000e+00	0.000000e+00
+1.600000e-01	2.000000e-01	1.310456e+00	0.000000e+00	0.000000e+00
+2.000000e-01	2.400000e-01	8.885323e-01	0.000000e+00	0.000000e+00
+2.400000e-01	2.800000e-01	6.116933e-01	0.000000e+00	0.000000e+00
+2.800000e-01	3.200000e-01	4.230346e-01	0.000000e+00	0.000000e+00
+3.200000e-01	3.600000e-01	2.900992e-01	0.000000e+00	0.000000e+00
+3.600000e-01	4.000000e-01	1.905447e-01	0.000000e+00	0.000000e+00
+4.000000e-01	4.400000e-01	1.164710e-01	0.000000e+00	0.000000e+00
+4.400000e-01	5.200000e-01	4.310748e-02	0.000000e+00	0.000000e+00
+# END HISTO1D
+
+# BEGIN HISTO1D /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-040/ipolhistos/tune-weights-040-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+LineColor={[HTML]{FF9900}}
+LineStyle=dotted
+Path=/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/prof/2008-10-17-6D-frag-ptordered/tunetest/tunes/tune-weights-040/ipolhistos/tune-weights-040-0.yoda/DELPHI_1996_S3430090/d14-x01-y01
+Title=tune-weights-040-0
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-02	7.435625e+00	0.000000e+00	0.000000e+00
+2.000000e-02	4.000000e-02	1.084753e+01	0.000000e+00	0.000000e+00
+4.000000e-02	6.000000e-02	7.878370e+00	0.000000e+00	0.000000e+00
+6.000000e-02	8.000000e-02	5.314905e+00	0.000000e+00	0.000000e+00
+8.000000e-02	1.000000e-01	3.800479e+00	0.000000e+00	0.000000e+00
+1.000000e-01	1.200000e-01	2.887338e+00	0.000000e+00	0.000000e+00
+1.200000e-01	1.400000e-01	2.228139e+00	0.000000e+00	0.000000e+00
+1.400000e-01	1.600000e-01	1.781969e+00	0.000000e+00	0.000000e+00
+1.600000e-01	2.000000e-01	1.311662e+00	0.000000e+00	0.000000e+00
+2.000000e-01	2.400000e-01	8.887591e-01	0.000000e+00	0.000000e+00
+2.400000e-01	2.800000e-01	6.108080e-01	0.000000e+00	0.000000e+00
+2.800000e-01	3.200000e-01	4.205526e-01	0.000000e+00	0.000000e+00
+3.200000e-01	3.600000e-01	2.905093e-01	0.000000e+00	0.000000e+00
+3.600000e-01	4.000000e-01	1.886500e-01	0.000000e+00	0.000000e+00
+4.000000e-01	4.400000e-01	1.159038e-01	0.000000e+00	0.000000e+00
+4.400000e-01	5.200000e-01	4.298856e-02	0.000000e+00	0.000000e+00
+# END HISTO1D
+

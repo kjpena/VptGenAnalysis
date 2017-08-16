@@ -1,0 +1,149 @@
+ ################################################################### 
+ # WARNING: this module is deprecated.                             # 
+ # Please use CondCore.CondDB.CondDB_cfi.py                        # 
+ ################################################################### 
+# Conditions read from  CMS_CONDITIONS  via FrontierProd 
+Setting SpaceShower:alphaSvalue to 0.120
+Setting BeamRemnants:primordialKThard to 2.00
+Setting SpaceShower:pT0Ref to 2.0
+Seed initiated to 123456789
+DEBUG 2017-08-15 23:21:11,429: 	 Executing command: 'submit'
+DEBUG 2017-08-15 23:21:11,430: 	 Found CRAB cache file /afs/cern.ch/user/k/kjpena/.crab3
+DEBUG 2017-08-15 23:21:11,435: 	 Checking credentials
+DEBUG 2017-08-15 23:21:11,435: 	 Found proxy file /tmp/x509up_u81022
+DEBUG 2017-08-15 23:21:11,435: 	 Getting proxy life time left
+DEBUG 2017-08-15 23:21:11,941: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -timeleft
+ output : 86114
+
+ error: 
+ retcode : 0
+DEBUG 2017-08-15 23:21:12,344: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -actimeleft
+ output : 86113
+
+ error: 
+ retcode : 0
+DEBUG 2017-08-15 23:21:12,345: 	 Proxy valid for 23:55:14 hours
+INFO 2017-08-15 23:21:12,345: 	 Will use CRAB configuration file configFiles/crab_ZJ_ptsqmin4_tune45.py
+DEBUG 2017-08-15 23:21:12,345: 	 Loading CRAB configuration file.
+DEBUG 2017-08-15 23:21:12,348: 	 Will use CRAB Analysis plugin (i.e. will run an analysis job type).
+DEBUG 2017-08-15 23:21:12,529: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA
+
+ error: 
+ retcode : 0
+DEBUG 2017-08-15 23:21:12,529: 	 Checking credentials
+DEBUG 2017-08-15 23:21:12,529: 	 Found proxy file /tmp/x509up_u81022
+DEBUG 2017-08-15 23:21:12,529: 	 Getting proxy life time left
+DEBUG 2017-08-15 23:21:12,936: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -timeleft
+ output : 86113
+
+ error: 
+ retcode : 0
+DEBUG 2017-08-15 23:21:13,441: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u81022 -actimeleft
+ output : 86112
+
+ error: 
+ retcode : 0
+DEBUG 2017-08-15 23:21:13,441: 	 Proxy valid for 23:55:13 hours
+DEBUG 2017-08-15 23:21:13,946: 	 Executing : 
+ command : env X509_USER_PROXY=/tmp/x509up_u81022 voms-proxy-info -fqan
+ output : /cms/Role=NULL/Capability=NULL
+
+ error: 
+ retcode : 0
+DEBUG 2017-08-15 23:21:14,290: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch
+DEBUG 2017-08-15 23:21:14,396: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA
+
+ error: 
+ retcode : 0
+DEBUG 2017-08-15 23:21:14,396: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2017-08-15 23:21:14,396: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA_cmsweb.cern.ch for credential name
+DEBUG 2017-08-15 23:21:14,499: 	 Executing : 
+ command : myproxy-info -l 5c807b6c2de98292a7dc3f52d71970fa53af4385 -s myproxy.cern.ch
+ output : username: 5c807b6c2de98292a7dc3f52d71970fa53af4385
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=kjpena/CN=748777/CN=Karla PENA
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(045|052|021|031|0118|0118a|0119|0108|0105|0109).cern.ch
+  timeleft: 591:03:21  (24.6 days)
+
+ error: 
+ retcode : 0
+DEBUG 2017-08-15 23:21:14,500: 	 Myproxy is valid: 2127801
+DEBUG 2017-08-15 23:21:14,500: 	 Command use: submit
+DEBUG 2017-08-15 23:21:14,500: 	 Options use: ['configFiles/crab_ZJ_ptsqmin4_tune45.py']
+DEBUG 2017-08-15 23:21:15,955: 	 CRABClient version: 3.3.1707.patch1
+DEBUG 2017-08-15 23:21:15,955: 	 Instance is prod
+DEBUG 2017-08-15 23:21:15,955: 	 Server base url is cmsweb.cern.ch
+DEBUG 2017-08-15 23:21:15,955: 	 Command url /crabserver/prod/workflow
+DEBUG 2017-08-15 23:21:15,955: 	 Started submission
+DEBUG 2017-08-15 23:21:15,955: 	 Working on /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/crab/grid/crab_ZJ_ptsqmin4_tune45_PDFpSet13
+DEBUG 2017-08-15 23:21:16,364: 	 Loading required information from the environment
+DEBUG 2017-08-15 23:21:16,364: 	 Found CMSSW_8_0_8_patch1 for slc6_amd64_gcc530 with base /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1
+DEBUG 2017-08-15 23:21:16,364: 	 Loading required information from the environment
+DEBUG 2017-08-15 23:21:16,364: 	 Found CMSSW_8_0_8_patch1 for slc6_amd64_gcc530 with base /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1
+DEBUG 2017-08-15 23:21:16,377: 	 UNIQUE NAME: tarUUID 22795757-80d5-4d19-ba48-0ac32abf54ad 
+DEBUG 2017-08-15 23:21:16,377: 	 self.config: from WMCore.Configuration import Configuration
+config = Configuration()
+config.section_('General')
+config.General.transferOutputs = True
+config.General.workArea = 'grid'
+config.General.requestName = 'ZJ_ptsqmin4_tune45_PDFpSet13'
+config.section_('JobType')
+config.JobType.psetName = '/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/UserCode/VptGenAnalysis/test/runGENFromLHEandAnalysis_cfg.py'
+config.JobType.pluginName = 'Analysis'
+config.JobType.outputFiles = ['ZJ_ptsqmin4_tune45_PDFpSet13.w0.yoda', 'ZJ_ptsqmin4_tune45_PDFpSet13.w48.yoda']
+config.JobType.pyCfgParams = ['output=ZJ_ptsqmin4_tune45_PDFpSet13', 'ueTune=CUETP8M1:SpaceShower:alphaSvalue=0.120:BeamRemnants:primordialKThard=2.00:SpaceShower:pT0Ref=2.0', 'pdfSet=13', 'photos=False', 'nFinal=2', 'doRivetScan=True', 'usePoolSource=True']
+config.JobType.disableAutomaticOutputCollection = True
+config.section_('Data')
+config.Data.inputDataset = '/ZJ_ZToMuMu_powheg_minlo_8TeV_NNPDF30_ptsqmin4/RunIIWinter15wmLHE-MCRUN2_71_V1-v1/LHE'
+config.Data.publication = False
+config.Data.unitsPerJob = 5000
+config.Data.ignoreLocality = False
+config.Data.inputDBS = 'global'
+config.Data.splitting = 'EventAwareLumiBased'
+config.Data.outLFNDirBase = '/store/group/cmst3/group/wmass/kjpena/ntuples/unmerged/ZJ_ptsqmin4_tune45_PDFpSet13'
+config.section_('Site')
+config.Site.whitelist = ['T2_CH_CERN']
+config.Site.storageSite = 'T2_CH_CERN'
+
+DEBUG 2017-08-15 23:21:16,377: 	 self.config.JobType.psetName: /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/UserCode/VptGenAnalysis/test/runGENFromLHEandAnalysis_cfg.py
+INFO 2017-08-15 23:21:16,377: 	 Importing CMSSW configuration /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/UserCode/VptGenAnalysis/test/runGENFromLHEandAnalysis_cfg.py
+DEBUG 2017-08-15 23:21:16,378: 	 Additional parameters for the CMSSW configuration are: ['output=ZJ_ptsqmin4_tune45_PDFpSet13', 'ueTune=CUETP8M1:SpaceShower:alphaSvalue=0.120:BeamRemnants:primordialKThard=2.00:SpaceShower:pT0Ref=2.0', 'pdfSet=13', 'photos=False', 'nFinal=2', 'doRivetScan=True', 'usePoolSource=True']
+INFO 2017-08-15 23:21:17,664: 	 Finished importing CMSSW configuration /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/UserCode/VptGenAnalysis/test/runGENFromLHEandAnalysis_cfg.py
+DEBUG 2017-08-15 23:21:17,664: 	 Writing CMSSW configuration to /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/crab/grid/crab_ZJ_ptsqmin4_tune45_PDFpSet13/inputs/PSet.py
+DEBUG 2017-08-15 23:21:17,988: 	 The following EDM output files will be collected: []
+DEBUG 2017-08-15 23:21:17,988: 	 The following TFile output files will be collected: []
+DEBUG 2017-08-15 23:21:17,988: 	 The following user output files will be collected: ['ZJ_ptsqmin4_tune45_PDFpSet13.w0.yoda', 'ZJ_ptsqmin4_tune45_PDFpSet13.w48.yoda']
+DEBUG 2017-08-15 23:21:17,988: 	 Loading required information from the environment
+DEBUG 2017-08-15 23:21:17,989: 	 Found CMSSW_8_0_8_patch1 for slc6_amd64_gcc530 with base /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1
+DEBUG 2017-08-15 23:21:17,989: 	 Making tarball in /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/crab/grid/crab_ZJ_ptsqmin4_tune45_PDFpSet13/inputs/22795757-80d5-4d19-ba48-0ac32abf54addefault.tgz
+DEBUG 2017-08-15 23:21:17,993: 	 Checking directory /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/lib
+DEBUG 2017-08-15 23:21:17,993: 	 Adding directory /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/lib to tarball
+DEBUG 2017-08-15 23:21:18,171: 	 Checking directory /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/biglib
+DEBUG 2017-08-15 23:21:18,171: 	 Adding directory /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/biglib to tarball
+DEBUG 2017-08-15 23:21:18,172: 	 Checking directory /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/module
+DEBUG 2017-08-15 23:21:18,175: 	 Adding data directory /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/GeneratorInterface/RivetInterface/data to tarball
+DEBUG 2017-08-15 23:21:18,263: 	 Adding data directory /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/GeneratorInterface/RivetInterface/interface to tarball
+DEBUG 2017-08-15 23:21:18,270: 	 Adding data directory /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/UserCode/RivetAnalysis/data to tarball
+DEBUG 2017-08-15 23:21:18,520: 	 Uploading archive /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/crab/grid/crab_ZJ_ptsqmin4_tune45_PDFpSet13/inputs/22795757-80d5-4d19-ba48-0ac32abf54addefault.tgz (0.521484.1 MB) to the CRAB cache. Using URI https://cmsweb.cern.ch/crabcache
+DEBUG 2017-08-15 23:21:19,027: 	 Loading required information from the environment
+DEBUG 2017-08-15 23:21:19,028: 	 Found CMSSW_8_0_8_patch1 for slc6_amd64_gcc530 with base /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1
+DEBUG 2017-08-15 23:21:19,028: 	 Making tarball in /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/crab/grid/crab_ZJ_ptsqmin4_tune45_PDFpSet13/inputs/debugFiles.tgz
+DEBUG 2017-08-15 23:21:19,031: 	 Uploading archive /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/crab/grid/crab_ZJ_ptsqmin4_tune45_PDFpSet13/inputs/debugFiles.tgz (3 KB) to the CRAB cache. Using URI https://cmsweb.cern.ch/crabcache
+DEBUG 2017-08-15 23:21:19,326: 	 Result uploading input files: effdee4ee29fd60db6447b95d34574d17c75d4c11830e3163f010c4e00d14990.tar.gz 
+INFO 2017-08-15 23:21:19,326: 	 Sending the request to the server
+DEBUG 2017-08-15 23:21:19,327: 	 Submitting {'maxjobruntime': 1250, 'extrajdl': [], 'ignorelocality': 0, 'savelogsflag': 0, 'useparent': 0, 'asyncdest': 'T2_CH_CERN', 'algoargs': 5000, 'cachefilename': 'effdee4ee29fd60db6447b95d34574d17c75d4c11830e3163f010c4e00d14990.tar.gz', 'numcores': 1, 'addoutputfiles': ['ZJ_ptsqmin4_tune45_PDFpSet13.w0.yoda', 'ZJ_ptsqmin4_tune45_PDFpSet13.w48.yoda'], 'generator': 'pythia', 'maxmemory': 2000, 'publishdbsurl': 'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', 'priority': 10, 'jobsw': 'CMSSW_8_0_8_patch1', 'edmoutfiles': [], 'userfiles': [], 'primarydataset': '', 'inputdata': '/ZJ_ZToMuMu_powheg_minlo_8TeV_NNPDF30_ptsqmin4/RunIIWinter15wmLHE-MCRUN2_71_V1-v1/LHE', 'lfn': '/store/group/cmst3/group/wmass/kjpena/ntuples/unmerged/ZJ_ptsqmin4_tune45_PDFpSet13', 'dryrun': 0, 'workflow': 'crab_ZJ_ptsqmin4_tune45_PDFpSet13', 'sitewhitelist': ['T2_CH_CERN'], 'nonprodsw': 0, 'tfileoutfiles': [], 'oneEventMode': 0, 'debugfilename': 'e8f912c46a7031ee90ed6eb333a7cd13aabdc14be058e9e83f8bee9f1bd4002a.tar.gz', 'cacheurl': u'https://cmsweb.cern.ch/crabcache', 'saveoutput': 1, 'publication': 0, 'jobarch': 'slc6_amd64_gcc530', 'totalunits': 0, 'splitalgo': 'EventAwareLumiBased', 'ignoreglobalblacklist': 0, 'nonvaliddata': 0, 'dbsurl': 'https://cmsweb.cern.ch/dbs/prod/global/DBSReader', 'publishgroupname': 0, 'jobtype': 'Analysis', 'publishname2': ''} 
+DEBUG 2017-08-15 23:21:19,327: 	 Encoded submit request: maxjobruntime=1250&ignorelocality=0&savelogsflag=0&useparent=0&asyncdest=T2_CH_CERN&algoargs=5000&cachefilename=effdee4ee29fd60db6447b95d34574d17c75d4c11830e3163f010c4e00d14990.tar.gz&numcores=1&generator=pythia&maxmemory=2000&publishdbsurl=https%3A%2F%2Fcmsweb.cern.ch%2Fdbs%2Fprod%2Fphys03%2FDBSWriter&priority=10&jobsw=CMSSW_8_0_8_patch1&primarydataset=&inputdata=%2FZJ_ZToMuMu_powheg_minlo_8TeV_NNPDF30_ptsqmin4%2FRunIIWinter15wmLHE-MCRUN2_71_V1-v1%2FLHE&lfn=%2Fstore%2Fgroup%2Fcmst3%2Fgroup%2Fwmass%2Fkjpena%2Fntuples%2Funmerged%2FZJ_ptsqmin4_tune45_PDFpSet13&dryrun=0&workflow=crab_ZJ_ptsqmin4_tune45_PDFpSet13&nonprodsw=0&oneEventMode=0&debugfilename=e8f912c46a7031ee90ed6eb333a7cd13aabdc14be058e9e83f8bee9f1bd4002a.tar.gz&cacheurl=https%3A%2F%2Fcmsweb.cern.ch%2Fcrabcache&saveoutput=1&publication=0&jobarch=slc6_amd64_gcc530&totalunits=0&splitalgo=EventAwareLumiBased&ignoreglobalblacklist=0&nonvaliddata=0&dbsurl=https%3A%2F%2Fcmsweb.cern.ch%2Fdbs%2Fprod%2Fglobal%2FDBSReader&publishgroupname=0&jobtype=Analysis&publishname2=&addoutputfiles=ZJ_ptsqmin4_tune45_PDFpSet13.w0.yoda&addoutputfiles=ZJ_ptsqmin4_tune45_PDFpSet13.w48.yoda&sitewhitelist=T2_CH_CERN
+DEBUG 2017-08-15 23:21:19,934: 	 Result: {u'result': [{u'RequestName': u'170815_212119:kjpena_crab_ZJ_ptsqmin4_tune45_PDFpSet13'}]}
+INFO 2017-08-15 23:21:19,937: 	 Success: Your task has been delivered to the CRAB3 server.
+INFO 2017-08-15 23:21:19,937: 	 Task name: 170815_212119:kjpena_crab_ZJ_ptsqmin4_tune45_PDFpSet13
+INFO 2017-08-15 23:21:19,937: 	 Please use 'crab status' to check how the submission process proceeds.
+DEBUG 2017-08-15 23:21:19,937: 	 About to return
+INFO 2017-08-15 23:21:19,939: 	 Log file is /afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/myScripts/crab/grid/crab_ZJ_ptsqmin4_tune45_PDFpSet13/crab.log

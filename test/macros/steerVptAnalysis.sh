@@ -30,7 +30,7 @@ tunesList=(
 #    CUEP8M2T4FSRdown
 #    CUEP8M2T4ISRup
 #    CUEP8M2T4ISRdown
-    CUEP8M2T4:Photos
+     CUEP8M2T4:Photos
 )
 
 
@@ -102,29 +102,65 @@ case $WHAT in
 	;;
 
     NTUPLEMCRUN2)
+        # Input datasets
 	lhe=(
 	    /ZJ_ZToMuMu_powheg_minlo_8TeV_NNPDF30_central/RunIIWinter15wmLHE-MCRUN2_71_V1-v1/LHE
-	    /ZJ_ZToMuMu_powheg_minlo_8TeV_NNPDF30_hfact0p5/RunIIWinter15wmLHE-MCRUN2_71_V1-v1/LHE
-	    /ZJ_ZToMuMu_powheg_minlo_8TeV_NNPDF30_ptsqmin400/RunIIWinter15wmLHE-MCRUN2_71_V1-v1/LHE
-            /ZJ_ZToMuMu_powheg_minlo_8TeV_NNPDF30_ptsqmin20/RunIIWinter15wmLHE-MCRUN2_71_V1-v1/LHE
+	    #/ZJ_ZToMuMu_powheg_minlo_8TeV_NNPDF30_hfact0p5/RunIIWinter15wmLHE-MCRUN2_71_V1-v1/LHE
+	    #/ZJ_ZToMuMu_powheg_minlo_8TeV_NNPDF30_ptsqmin400/RunIIWinter15wmLHE-MCRUN2_71_V1-v1/LHE
+            #/ZJ_ZToMuMu_powheg_minlo_8TeV_NNPDF30_ptsqmin20/RunIIWinter15wmLHE-MCRUN2_71_V1-v1/LHE
 	    /ZJ_ZToMuMu_powheg_minlo_8TeV_NNPDF30_ptsqmin4/RunIIWinter15wmLHE-MCRUN2_71_V1-v1/LHE
-	    /ZJ_ZToMuMu_powheg_minlo_8TeV_CT14/RunIIWinter15wmLHE-MCRUN2_71_V1-v1/LHE
+	    #/ZJ_ZToMuMu_powheg_minlo_8TeV_CT14/RunIIWinter15wmLHE-MCRUN2_71_V1-v1/LHE
 	)
 	req=(
 	    ZJ_central
-	    ZJ_hfact0p5
-	    ZJ_ptsqmin400
-	    ZJ_ptsqmin20
+	    #ZJ_hfact0p5
+	    #ZJ_ptsqmin400
+	    #ZJ_ptsqmin20
 	    ZJ_ptsqmin4
-	    ZJ_ct14
+	    #ZJ_ct14
 	)
+
+        # Tune parameters
+        alphaS=(0.110 0.120 0.130)
+        kT=(1.50 1.75 2.00)
+        #pT=(1.0 1.5 2.0) #pTmin
+        pT0=(1.5 2.0 2.5) #pT0Ref
+
+        # Tune
+        tunesList=(
+            CUETP8M1
+            CUEP8M2T4
+        )
+
+        for i in ${!alphaS[@]}; do
+            for j in ${!kT[@]}; do
+                for k in ${!pT0[@]}; do 
+                    #echo 'alphaSvalue='${alphaS[$i]}' primordialKThard='${kT[$j]}' pTmin='${pT[$k]}
+                    #tunesList+=(CUEP8M2T4:SpaceShower:alphaSvalue=${alphaS[$i]}:BeamRemnants:primordialKThard=${kT[$j]}:SpaceShower:pTmin=${pT[$k]})
+                    echo 'alphaSvalue='${alphaS[$i]}' primordialKThard='${kT[$j]}' pT0Ref='${pT0[$k]}
+                    tunesList+=(CUETP8M1:SpaceShower:alphaSvalue=${alphaS[$i]}:BeamRemnants:primordialKThard=${kT[$j]}:SpaceShower:pT0Ref=${pT0[$k]})
+                done
+            done
+        done
+
 	crabTempl=$CMSSW_BASE/src/UserCode/VptGenAnalysis/test/crab_VptAnalysis.py.templ
-	for k in ${!lhe[@]}; do
-	    i=${lhe[$k]};
-	    j=${req[$k]};
-	    sedstr="s%_REQUEST_%${j}%;s%_PSET_%${lhecfg}%;s%_DSET_%${i}%;"
-	    cat ${crabTempl} | sed "${sedstr}" > crab_${j}.py
-	    crab submit crab_${j}.py
+
+        for n in ${!tunesList[@]}; do
+            if [ $n -le 1 ]; then 
+                continue
+            fi 
+            m=${tunesList[$n]}
+            echo $(($n+27)) $m >> configFiles/tunes.txt
+  	    for k in ${!lhe[@]}; do
+	        i=${lhe[$k]};
+	        j=${req[$k]};
+	        #sedstr="s%_REQUEST_%${j}_tune${n}%;s%_TUNE_%${m}%;s%_PSET_%${lhecfg}%;s%_DSET_%${i}%;"
+	        #cat ${crabTempl} | sed "${sedstr}" > configFiles/crab_${j}_tune${n}.py
+                #crab submit configFiles/crab_${j}_tune${n}.py
+                sedstr="s%_REQUEST_%${j}_tune$(($n+27))_PDFpSet13%;s%_TUNE_%${m}%;s%_PSET_%${lhecfg}%;s%_DSET_%${i}%;"
+                cat ${crabTempl} | sed "${sedstr}" > configFiles/crab_${j}_tune$(($n+27)).py
+	        crab submit configFiles/crab_${j}_tune$(($n+27)).py
+            done
 	done
 	;;
     NTUPLEVJscan )
