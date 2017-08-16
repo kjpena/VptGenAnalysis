@@ -1,0 +1,34 @@
+Name: CMS_TOP_13_007
+Year: 2014
+Summary: 
+Experiment: CMS
+Collider: LHC
+InspireID: n/a
+Status: VALIDATED
+Authors:
+ - psilva@cern.ch
+RunInfo:
+  8 TeV $pp$ collisions. Events are required to have at least 2 jets with $\pT>30$ GeV and $|y|<2.5$ and
+  two leptons (1 electron and 1 muon) with op. charge sign and $\pT>30$ GeV and $|y|<2.5$.
+NumEvents: 200000
+NeedCrossSection: no
+Beams: [p+, p+]
+Energies: [8000]
+Description:
+  'Exploratory studies of the underlying event (UE) activity and of the fragmentation and hadronization of b quarks in final states containing a J/$\psi$ are performed using tt candidate events. 
+  Proton-proton collision data acquired by the CMS experiment at a centre-of-mass energy of 8 TeV and corresponding to an integrated luminosity of 19.7 fb$^{−1}$ are used. 
+  A good agreement is found using MADGRAPH plus the PYTHIA 6 Tune Z2* simulation. 
+  The effects predicted by alternative settings and generators for the characterization of the UE are also explored. 
+  These results are expected to contribute in the future to more precise measurements in the top quark sector in particular of the top quark mass 
+  by either constraining systematic uncertainties related to the modelling of the UE in tt events or by paving the way for alternative mass measurement methods. '
+References:
+  - CMS-PAS-TOP-13-007
+BibKey: 'CMS-PAS-TOP-13-007'
+BibTeX: '@techreport{CMS-PAS-TOP-13-007,
+		     title         = "{Study of the underlying event,  b-quark fragmentation and hadronization properties in tbart events}",
+      		     institution   = "CERN",
+      		     collaboration = "CMS",
+      		     address       = "Geneva",
+      		     number        = "CMS-PAS-TOP-13-007",
+      		     year          = "2013"}'
+

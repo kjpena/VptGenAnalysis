@@ -1,0 +1,23 @@
+Name: CMS_TOP_Radius
+Year: 2016
+Summary: 
+Experiment: CMS
+Collider: LHC
+InspireID: n/a
+Status: VALIDATED
+Authors:
+ - psilva@cern.ch
+RunInfo:
+  13 TeV $pp$ collisions. Events are required to have at least 2 b-jets with $\pT>30$ GeV and $|y|<2.5$ and
+  two leptons (1 electron and 1 muon) with op. charge sign and $\pT>30$ GeV and $|y|<2.5$.
+NumEvents: 25000
+NeedCrossSection: no
+Beams: [p+, p+]
+Energies: [13000]
+Description:
+  ''
+References:
+  - 
+BibKey: ''
+BibTeX: ''
+

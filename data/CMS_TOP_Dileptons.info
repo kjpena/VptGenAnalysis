@@ -1,0 +1,23 @@
+Name: CMS_Dileptons
+Year: 2015
+Summary: 
+Experiment: CMS
+Collider: LHC
+InspireID: n/a
+Status: VALIDATED
+Authors:
+ - psilva@cern.ch
+RunInfo:
+  8 TeV $pp$ collisions. Events are required to have at least 2 jets with $\pT>30$ GeV and $|y|<2.5$ and
+  two leptons (1 electron and 1 muon) with op. charge sign and $\pT>30$ GeV and $|y|<2.5$.
+NumEvents: 200000
+NeedCrossSection: no
+Beams: [p+, p+]
+Energies: [8000]
+Description:
+  ''
+References:
+  - 
+BibKey: ''
+BibTeX: ''
+

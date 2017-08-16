@@ -1,7 +1,10 @@
 #!/bin/bash
 
+
 BASEDIR=`pwd`
 echo "Base directory is $BASEDIR @ `hostname`"
+
+
 
 #determine CMSSW config
 SCRIPT=$(readlink -f $0)
@@ -13,6 +16,7 @@ WORKDIR=${SCRIPTPATH}/../
 cd $WORKDIR
 export SCRAM_ARCH=$ARCH
 eval `scram r -sh`
+
 cd -
 
 #run with the arguments passed
@@ -26,4 +30,9 @@ for ext in root yoda; do
 	rm ${i};
     done
 done
+
+
+
+
+
 
