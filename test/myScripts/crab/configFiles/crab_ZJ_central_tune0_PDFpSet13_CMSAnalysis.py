@@ -7,13 +7,16 @@ config.section_("General")
 config.General.requestName = "ZJ_central_tune0_PDFpSet13_CMSAnalysis"
 config.General.workArea = "grid"
 config.General.transferOutputs=True
+config.General.transferLogs = True 
 
 config.section_("JobType")
 config.JobType.pluginName = "Analysis"
 config.JobType.psetName = "/afs/cern.ch/work/k/kjpena/CMSSW_8_0_8_patch1/src/UserCode/VptGenAnalysis/test/runGENFromLHEandCMSAnalysis_cfg.py"
 config.JobType.disableAutomaticOutputCollection = True
 config.JobType.outputFiles = ['%s.root'%config.General.requestName] 
-config.JobType.outputFiles += ['%s.w%d.yoda'%(config.General.requestName,x) for x in xrange(0,121)]
+#config.JobType.outputFiles += ['%s.w%d.yoda'%(config.General.requestName,x) for x in xrange(0,121)]
+config.JobType.outputFiles += ['%s.w0.yoda'%config.General.requestName]
+config.JobType.outputFiles += ['%s.w48.yoda'%config.General.requestName]
 config.JobType.pyCfgParams = [
 			   'output=%s'%config.General.requestName,
 			   'ueTune=CUETP8M1',
