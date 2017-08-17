@@ -35,3 +35,41 @@ LegendYPos=0.8
 RatioPlotYMin=0
 RatioPlotYMax=2
 # END PLOT
+
+# BEGIN PLOT /CMS_2017_I1471281_W/WtoElNuPt-finebins
+Title=CMS, 8 TeV, W boson pT distribution in electron channel
+XLabel=${p_{T}^{W}}$ [GeV]
+YLabel=${{1/\sigma}$ ${d\sigma}$/${dp_{T}^{W}}}$ [$GeV^{-1}$]
+LogX=0
+LogY=1
+LegendXPos=0.4
+LegendYPos=0.8
+RatioPlotYMin=0
+RatioPlotYMax=2
+# END PLOT
+
+
+# BEGIN PLOT /CMS_2017_I1471281_W/WtoMuNuPt-finebins
+Title=CMS, 8 TeV, W boson pT distribution in muon channel
+XLabel=${p_{T}^{W}}$ [GeV]
+YLabel=${{1/\sigma}$ ${d\sigma}$/${dp_{T}^{W}}}$ [$GeV^{-1}$]
+LogX=0
+LogY=1
+LegendXPos=0.4
+LegendYPos=0.8
+RatioPlotYMin=0
+RatioPlotYMax=2
+# END PLOT
+
+
+# BEGIN PLOT /CMS_2017_I1471281_Z/ZtoMuMuPt-finebins
+Title=CMS, 8 TeV, Z boson pT distribution in di-muon channel
+XLabel=${p_{T}^{Z}}$ [GeV]
+YLabel=${{1/\sigma}$ ${d\sigma}$/${dp_{T}^{Z}}}$ [$GeV^{-1}$]
+LogX=1
+LogY=1
+LegendXPos=0.4
+LegendYPos=0.8
+RatioPlotYMin=0
+RatioPlotYMax=2
+# END PLOT

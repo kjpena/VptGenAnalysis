@@ -197,6 +197,7 @@ if options.doRivetScan:
 		process.generation_step+=getattr(process,'rivetAnalyzer%d'%i)
 else:
 	process = customiseZPt(process,options.meWeight)
+	process.rivetAnalyzer.AnalysisNames = cms.vstring('CMS_2017_I1471281_Z')
 	process.rivetAnalyzer.OutputFile = cms.string(options.output + '.w%d.yoda'%options.meWeight)
 	process.rivetAnalyzer.HepMCCollection = cms.InputTag('generatorSmeared')
 
